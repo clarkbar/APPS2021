@@ -1,0 +1,320 @@
+<section xml:id="complexnumberssection">
+  <title>Complex Numbers</title>
+  <p>
+    Complex numbers are an extension of the real numbers,
+    defined by introducing a new special number called <m>i</m> whose square is defined to be <m>-1</m>.
+  </p>
+  <definition>
+    <title>Complex Numbers</title>
+    <statement>
+      <p>
+        Define <m>i</m> to be a number such that <m>i^2=-1</m>.
+      </p>
+      <p>
+        The <term>complex numbers</term> are any number of the form
+        <me>
+          z=x+iy\mbox{ where } x,y \in \mathbb{R}
+        </me>.
+      </p>
+      <p>
+        The set of all complex numbers is denoted <m>\mathbb{C}</m>.
+      </p>
+      <p>
+        We define <m>\mathrm{Re}(z)=x</m> and
+        <m>\mathrm{Im}(z)=y</m> to be the <term>real</term>
+        and <term>imaginary parts</term> of <m>z</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Just like vectors,
+    we represent complex numbers on an <m>xy</m>-plane,
+    where the <m>x</m>-coordinate is the real part and the <m>y</m> coordinate is the imaginary part.
+    Using the plane to represent complex numbers in this way is sometimes called an
+    <term>Argand diagram</term>.
+  </p>
+  <p>
+    <image width="92.5%" source="Figures/cartesian.pdf"/>
+  </p>
+  <image source="images/66631cedbb94298949f78c08d6afa23ae7faaf80.png"/>
+  <p>
+    Multiplication,
+    addition and subtraction of complex numbers maintains how addition works for real numbers,
+    and treating <m>i</m> as an algebraic letter.
+    In multiplication we proceed using an obvious approach:
+    consider any two complex numbers <m>z=a+i b</m> and <m>w=c+i d</m>.
+    <md>
+      <mrow>zw\amp =\amp (a+i b)(c+i d)</mrow>
+      <mrow>\amp =\amp ac+ai d+i bc+i^2bd</mrow>
+    </md>
+  </p>
+  <p>
+    This is obtained in the usual way by multiplying all the terms in one bracket by all the terms in the other bracket.
+    Use the defining property of <m>i</m>,
+    which is <m>i^2=-1</m> so that
+    <md>
+      <mrow>zw\amp =\amp ac+ai d+i bc-bd</mrow>
+      <mrow>\amp =\amp ac-bd+i(ad+bc)</mrow>
+    </md>
+    where we have re-grouped terms with the <m>i</m> symbol and terms without the <m>i</m> symbol separately.
+    These are the real and imaginary parts of the product <m>zw</m> respectively.
+  </p>
+  <p>
+    For example:
+    <me>
+      (5+6i) + (3+4i)=(5+3)+(6+4)i= 8+10i
+    </me>
+    and
+    <me>
+      (1+3i)(2+i)=1\cdot 2 + 1\cdot i + 3i\cdot 2 + 3i\cdot i = 2+i+6i-3=-1+7i
+    </me>.
+  </p>
+  <p>
+    For an integer <m>n</m>,
+    we write <m>z^{n}=z\cdot z\cdots z</m> as we did with real numbers.
+  </p>
+  <p>
+    Complex addition can be interpreted as vector addition in the complex plane.
+    Consider any two complex numbers <m>z=a+i b</m> and <m>w=c+i d</m>.
+    <me>
+      z+x=(a+ib)+(c+id)=(a+c)+i(b+d)
+    </me>.
+  </p>
+  <p>
+    This is identical to adding vectors
+    <me>
+      \begin{pmatrix}a \\ b \end{pmatrix}  + \begin{pmatrix}c \\ d \end{pmatrix} = \begin{pmatrix}a+c \\ b+d \end{pmatrix}
+    </me>
+  </p>
+  <p>
+    What effect does multiplication have?
+  </p>
+  <example>
+    <statement>
+      <p>
+        Plot each of these complex numbers in the plane.
+      </p>
+      <tabular>
+        <row>
+          <cell>1. <m>1</m></cell>
+          <cell>2. <m>i</m></cell>
+          <cell>3. <m>-1</m></cell>
+          <cell>4.  <m>-i</m></cell>
+        </row>
+        <row>
+          <cell>5. <m>4+3i</m></cell>
+          <cell>6. <m>-3+4i</m></cell>
+          <cell>7. <m>-3-4i</m></cell>
+          <cell>8. <m>4-3i</m></cell>
+        </row>
+        <row>
+          <cell>9. <m>a+ib</m></cell>
+          <cell>10. <m>-b+ia</m></cell>
+          <cell>11. <m>-a-ib</m></cell>
+          <cell>12. <m>b-ia</m></cell>
+        </row>
+      </tabular>
+      <p>
+        where you may choose any non-zero <m>a</m> and <m>b</m> you think are suitable.
+      </p>
+      <p>
+        (i) Multiply each of them by <m>i</m> and plot the result on the same diagram.
+      </p>
+      <p>
+        (ii) Describe the geometric relationship between <m>z</m> and <m>iz</m>
+      </p>
+    </statement>
+  </example>
+  <p>
+    We will examine the geometry of complex multiplication fully in a short while.
+  </p>
+  <p>
+    Given <m>z\in\mathbb{C}</m> not equal to zero,
+    we let <m>z^{-1}=\frac{1}{z}</m> denote the complex number such that <m>z\cdot z^{-1}=1</m>.
+    Such a number (i) exists and (ii) is unique (a theorem we omit to save space).
+    In particular, we can divide complex numbers by each other,
+    but before we explain how to do this,
+    there are a couple of important quantities related to a complex number that will make this task easier.
+  </p>
+  <p>
+    The first is the <term>modulus</term>:
+  </p>
+  <definition>
+    <title>Modulus</title>
+    <statement>
+      <p>
+        Given a complex number <m>z=x+iy</m>,
+        the <term>modulus</term> of <m>z</m> is
+        <me>
+          |z|=|x+iy|=\sqrt{x^{2}+y^{2}}
+        </me>.
+      </p>
+      <p>
+        Geometrically,
+        the modulus of <m>z</m> is its distance from the origin,
+        which is the length of the hypotenuse of a triangle of base <m>x</m> and height <m>y</m>,
+        computed using the Pythagorean theorem.
+      </p>
+      <p>
+        <image width="92.5%" source="Figures/modulus.pdf"/>
+      </p>
+      <image source="images/be7f9ebe8518fd76de7d75daa198edc2d708c1aa.png"/>
+    </statement>
+  </definition>
+  <p>
+    This extends the definition of the absolute value to complex numbers,
+    and in fact, if <m>x</m> is real,
+    the modulus of <m>x</m> is equal to the absolute value.
+    This definition should remind you of the vector norm:
+    for a vector <m>(x,y)</m>,
+    its norm was <m>||(x,y)|| = \sqrt{x^2+y^2}</m> as well.
+  </p>
+  <p>
+    A second important quantity is the conjugate.
+  </p>
+  <definition>
+    <title>Complex Conjugate</title>
+    <statement>
+      <p>
+        Given a complex number <m>z=x+iy</m>,
+        its <term>complex conjugate</term> is defined to be
+        <me>
+          \overline{z}=x-yi
+        </me>.
+      </p>
+      <p>
+        Geometrically,
+        this is the complex number obtained by reflecting <m>z</m> across the <sq><m>x</m>-axis</sq>.
+      </p>
+      <p>
+        <image width="92.5%" source="Figures/conjugate.pdf"/>
+      </p>
+      <image source="images/377f69c3a7b6985b67ee73d948da15b9b9410650.png"/>
+    </statement>
+  </definition>
+  <p>
+    Note: many books and resources use <m>z^*</m> as the complex conjugate,
+    so please get used to using this notation.
+    But choose only one notation in your own writing and stick to it.
+  </p>
+  <p>
+    One useful thing about a conjugate is
+    <me>
+      z\overline{z} = (a+bi)(a-bi) = a^2 + b^2 = |z|^2
+    </me>.
+  </p>
+  <p>
+    We can use these concepts to show how to divide two complex numbers.
+    E.g.<nbsp/>let's look at <m>\frac{3+i}{1+i}</m>:
+    we can make the denominator real by multiplying and dividing by the conjugate of <m>1+i</m> (which is <m>\overline{1+i}=1-i</m>):
+    <me>
+      \frac{3+i}{1+i}=\frac{3+i}{1+i}\frac{1-i}{1-i} = \frac{(3+i)(1-i)}{(1+i)(1-i)} = \frac{5-2i}{2}=\frac{5}{2}-i
+    </me>.
+  </p>
+  <p>
+    In general, for <m>w,z\in\mathbb{C}</m> with <m>z\neq 0</m>, we have
+    <men xml:id="e_1_z">
+      \frac{w}{z} = \frac{w}{z}\frac{\overline z}{\overline z} = \frac{w\overline z}{z\overline z} = \frac{w\overline z}{|z|^2}, \;\; \;\;\;\;\;\frac{1}{z} = \frac{\overline{z}}{|z|^2}
+    </men>
+  </p>
+  <p>
+    Here are some other properties that we will use throughout the chapter.
+  </p>
+  <lemma xml:id="l_modulus-rules">
+    <statement>
+      <p>
+        For all <m>u,v\in \mathbb{C}</m>:
+        <ul>
+          <li>
+            <p>
+              <m>\overline{u+v} = \overline{u}+\overline{v}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\overline{uv} = \overline{u}\cdot\overline{v}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>|uv|=|u|\cdot|v|</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    We leave the proof as an exercise.
+  </p>
+  <p>
+    Note (a).
+    <m>a^2+b^2</m> is
+    <q>the difference of two squares</q>
+    <me>
+      a^2+b^2 = a^2-(ib)^2 = (a+ib)(a-ib)
+    </me>.
+  </p>
+  <p>
+    We can factor expressions over the complex numbers which have no factors over the reals, e.g.
+    <m>2=1^2+1^2=(1+i)(1-i)</m>.
+  </p>
+  <p>
+    Note (b).
+    The process for finding <m>z^{-1}</m> is very similar to removing surds from the denominator of a rational expression.
+    E.g. compare multiplying <m>\frac{1}{1+i}</m> by the conjugate,
+    <me>
+      \frac{1}{1+i} = \frac{1}{1+i}\frac{1-i}{1-i}= \frac{1-i}{2}
+    </me>
+    with
+    <me>
+      \frac{1}{\sqrt{3}+1} = \frac{1}{\sqrt{3}+1}\frac{\sqrt{3}-1}{\sqrt{3}-1}= \frac{\sqrt{3}-1}{2}
+    </me>.
+  </p>
+  <solution>
+    <proof>
+      <p>
+        These each follow by direct computation.
+        Let us denote <m>u=a+bi</m>, <m>v=c+di</m>,
+        for <m>a,b,c,d\in\mathbb{R}</m>.
+        <ul>
+          <li>
+            <p>
+              We have:
+              <me>
+                \overline{u+v} = \overline{(a+c) + (b+d)i} = a+c - (b+d)i = (a-bi) + (c-di) = \overline{u} + \overline{v}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We have:
+              <md>
+                <mrow>\overline{u\cdot v} \amp  = \overline{(a+bi)(c+di)}</mrow>
+                <mrow>\amp   = \overline{(ac-bd) + (bc+ad)i}</mrow>
+                <mrow>\amp  = ac-bd - (bc+ad)i</mrow>
+                <mrow>\amp  = (a-bi)(c-di)</mrow>
+                <mrow>\amp  = \overline{u}\cdot\overline{v}</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We have:
+              <me>
+                |uv|^2 = (uv)(\overline{u}\overline{v}) = u\overline{u}v\overline{v} = |u|^2\cdot|v|^2
+              </me>,
+              where we have used (b) and (c) above.
+              Since both sides of the final equality are non-negatives,
+              the inequality holds if, and only if,
+              it holds after taking square roots (as we showed in Chapter 5, on inequalities)
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Hence, we have established each of the four equalities.
+      </p>
+    </proof>
+  </solution>
+</section>

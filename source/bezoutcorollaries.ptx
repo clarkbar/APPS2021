@@ -1,0 +1,126 @@
+<section xml:id="bezoutcorollaries">
+  <title>Corollaries of Bezout's Identity and the Linear Combination Lemma</title>
+  <p>
+    Below we prove some useful corollaries using Bezout's Identity
+    (<xref ref="t_lincombgcd">Theorem</xref>)
+    and the Linear Combination Lemma.
+  </p>
+  <corollary xml:id="c_c_abc_b">
+    <statement>
+      <p>
+        Let <m>a,b,c\in\Z</m>.
+        Suppose <m>c\neq 0</m>, <m>c</m> divides <m>ab</m> and <m>\gcd(a,c)=1</m>.
+        Then <m>c</m> divides <m>b</m>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      There are integers <m>s</m> and <m>t</m> such that <m>1=\gcd(c,a)=sa+tc</m>.
+      This gives <m>b=sab+tcb</m>.
+      Then <m>c</m> divides <m>b</m> by the Linear Combination Lemma .
+    </p>
+  </proof>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>a,c\in\Z</m> and let
+        <m>d\in\mathbb{Z}</m> be so that <m>d</m> divides <m>a</m> and <m>d</m> divides <m>c</m>.
+        Then <m>d</m> divides <m>\gcd(a,c)</m>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      By Bezout's Identity,
+      there are integers <m>s</m> and <m>t</m> such that <m>\gcd(a,c)=sa+tc</m>.
+      Then as <m>d</m> divides <m>a</m> and <m>d</m> divides <m>b</m>,
+      we have <m>d</m> divides <m>\gcd(a,c)</m> by the Linear Combination Lemma.
+    </p>
+  </proof>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>d</m> be a common divisor of <m>a</m> and <m>c</m>,
+        which is divisible by all divisors of <m>a</m> and <m>c</m>.
+        Then <m>d = \pm gcd(a,c)</m>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      By the previous corollary, <m>d</m> divides <m>\gcd(a,c)</m>,
+      and since <m>d</m> is divisible by all divisors,
+      it is divisible by <m>\gcd(a,b)</m>,
+      so now we apply <xref ref="l_abba">Corollary</xref>.
+    </p>
+  </proof>
+  <p>
+    Here are some versions of the above corollaries when some of the numbers involved are primes:
+  </p>
+  <corollary xml:id="c_p_ab">
+    <statement>
+      <p>
+        If <m>a,b\in\mathbb{Z}</m>, <m>p</m> is prime,
+        and <m>p</m> divides <m>ab</m>,
+        then either <m>p</m> divides <m>a</m> or <m>p</m> divides <m>b</m>
+        (or both).
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    This just follows from <xref ref="c_c_abc_b">Corollary</xref> by letting <m>c=p</m>.
+  </p>
+  <corollary xml:id="c_p_p___p">
+    <statement>
+      <p>
+        If <m>n=p_1^{m_1}\cdots p_k^{m_k}</m>,
+        where each of <m>p_1,\dots,p_k</m> is <term>prime</term>,
+        and if <m>p</m> is a prime number that divides <m>n</m>,
+        then <m>p=p_i</m> for some <m>i=1,\ldots, k</m>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      We prove this by induction.
+      If <m>k=1</m>, then <m>p</m> divides <m>{p_1}^{m_1}</m>,
+      so by the previous corollary, <m>p=p_1</m>.
+      Assume that the theorem is true for <m>k=r</m>;
+      let us prove it for <m>k=r+1</m>.
+      Assume that <m>p</m> divides <m>p_{1}^{m_1}\cdots p_{r+1}^{m_{r+1}}</m>.
+      Again by the previous corollary,
+      either <m>p</m> divides <m>p_{k+1}^{m_{r+1}}</m> or <m>p</m> divides <m>p_1^{m_1}\cdots p_r^{m_r}</m>.
+      Thus, either <m>p=p_{r+1}</m>, or,
+      by the induction hypothesis, <m>p=p_i</m> for some <m>i=1,2,...,r</m>.
+      This completes the proof.
+    </p>
+  </proof>
+  <p>
+    Let's use these results to solve a simple diophantine equation.
+  </p>
+  <example xml:id="ex_2x_5y">
+    <statement>
+      <p>
+        Find all integer solutions to <m>2x=5y</m>.
+      </p>
+      <p>
+        Suppose <m>(x,y)</m> are integers solving <m>2x=5y</m>.
+        Then <xref ref="c_p_ab">Corollary</xref>
+        implies <m>2</m> divides <m>y</m> and <m>5</m> divides <m>x</m>,
+        so <m>y=2z</m> and <m>x=5w</m> for some integers <m>z</m> and <m>w</m>.
+        Inserting these into the original equation, we get a new equation
+        <me>
+          10w = 2(5w)=5(2z) = 10z
+        </me>.
+      </p>
+      <p>
+        Thus, <m>w=z</m>.
+        Hence, any solution <m>(x,y)</m> must be of the form
+        <m>(x,y)=(5w,2w)</m> for some integer <m>w</m>.
+        We can also see that each pair of integers of the form <m>(5w,2w)</m> is a solution.
+        Thus, the solutions to <m>2x=5y</m> are exactly all pairs of integers <m>\{(5w,2w) : w\in\mathbb{Z}\}</m>.
+      </p>
+    </statement>
+  </example>
+</section>

@@ -1,0 +1,86 @@
+<section xml:id="remainders">
+  <title>Remainders and divisibility</title>
+  <p>
+    The following theorem is the starting point for our studies on divisibility.
+  </p>
+  <theorem>
+    <title>The Remainder Theorem</title>
+    <statement>
+      <p>
+        Let <m>a\in\mathbb{N}</m> and <m>b\in\mathbb{Z}</m>.
+        There are unique integers <m>q\in \mathbb{Z}</m> and <m>0\leq r\lt a</m> such that
+        <me>
+          b=qa+r
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We prove existence and uniqueness separately.
+    </p>
+    <p>
+      <em>Existence:</em> Let <m>q</m> be the largest integer for which <m>qa\leq b</m>.
+      Let <m>r=b-qa\geq 0</m>.
+      Then we must also have <m>r\lt a</m>,
+      since if <m>r\geq a</m>,
+      then <m>b-qa\geq a</m>, and so <m>b-(q+1)a\geq 0</m>,
+      which contradicts <m>q</m> being the largest integer for which <m>qa\leq b</m>.
+      This shows the existence of a pair <m>(q,r)</m> satisfying the theorem.
+    </p>
+    <p>
+      <em>Uniqueness:</em> Assume that <m>(q',r')</m> is a pair of integers such that
+      <m>b=q'a+r'</m> and <m>0\leq r'\lt a</m>.
+      Then
+      <me>
+        0=b-b=q'a+r'-qa-r = (q'-q)a+(r'-r)
+      </me>,
+      and so
+      <me>
+        r'-r=(q-q')a
+      </me>.
+    </p>
+    <p>
+      Since <m>0\leq r,r'\lt a</m>,
+      we know <m>|r-r'|\lt a</m>.
+      Thus
+      <me>
+        a>|r-r'|=|(q-q')a|=|q-q'|\cdot a
+      </me>,
+      which implies that <m>1>|q-q'|</m>.
+      Since <m>|q-q'|</m> is a nonnegative integer,
+      it therefore follows that <m>q=q'</m>.
+    </p>
+  </proof>
+  <definition>
+    <statement>
+      <p>
+        For two integers <m>a</m> and <m>b</m> we say
+        <term><m>a</m> divides <m>b</m></term>
+        if there is an integer <m>c</m> so that <m>b=ac</m>.
+      </p>
+      <p>
+        Some authors will write <m>a | b</m> for the sentence
+        <q><m>a</m> divides <m>b</m>.</q>
+        (This isn't great notation.)
+      </p>
+    </statement>
+  </definition>
+  <p>
+    So for example, <m>2</m> divides <m>4</m>,
+    but <m>2</m> does not divide <m>3</m>.
+  </p>
+  <lemma xml:id="l_abba">
+    <statement>
+      <p>
+        If <m>a</m> divides <m>b</m> and <m>b</m> divides <m>a</m>,
+        then <m>a=\pm b</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Exercise.
+    </p>
+  </proof>
+</section>

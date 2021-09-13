@@ -1,0 +1,9 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="complexnumbers">
+  <title>Complex Numbers</title>
+  <xi:include  href="complexnumberssection.ptx"/>
+  <xi:include  href="cartesianandpolar.ptx"/>
+  <xi:include  href="geometryandarithmeticofC.ptx"/>
+  <xi:include  href="exponentialform.ptx"/>
+  <xi:include  href="rootsof1.ptx"/>
+  <xi:include  href="complexnumbersexercises.ptx"/>
+</chapter>

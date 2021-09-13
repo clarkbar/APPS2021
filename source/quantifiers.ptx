@@ -1,0 +1,299 @@
+<section xml:id="quantifiers">
+  <title>Quantifiers</title>
+  <p>
+    Sometimes a statement tells us about a number of things satisfying a certain property.
+    For example, consider the two statements
+    <q><m>x^2=4</m></q>
+    and
+    <q>there is an integer <m>x</m> so that <m>x^2=4</m>.</q>
+    The first statement asserts some condition about a
+    <term>particular</term> <m>x</m>,
+    whereas the second statement says there is <term>at least one</term>
+    <m>x</m> satisfying this condition.
+    Words like
+    <q>there is,</q>
+    <q>there exists,</q>
+    and
+    <q>for some</q>
+    are called <term>existential quantifiers</term>,
+    and we write <m>\exists</m> for short.
+    So the statement
+    <me>
+      \text{ there is an integer \(x\) such that \(x^2=4\) }
+    </me>
+    can be written more succinctly as
+    <me>
+      (\exists x\in\mathbb{Z})(x^2=4)
+    </me>.
+  </p>
+  <p>
+    (Some authors will write this a little more informally, as
+    <q><m>\exists x \in \mathbb{Z} \text{ st } x^2 = 4</m>,</q>
+    where the
+    <q>st</q>
+    is shorthand for
+    <q>such that.</q>
+    )
+  </p>
+  <p>
+    To prove an existentially quantified sentence <m>(\exists x\in S)(A(x))</m>,
+    you generally have to <term>construct</term> or <term>find</term>
+    an <m>x\in S</m> for which <m>A(x)</m> holds.
+  </p>
+  <example>
+    <statement>
+      <p>
+        To prove the statement <m>(\exists x\in\mathbb{Z})(x^2=4)</m>,
+        we have to construct an <m>x \in \mathbb{Z}</m> whose square is <m>4</m>.
+        But this is not too hard: <m>x = 2</m> has this property.
+      </p>
+      <p>
+        Note that this sentence didn't say anything about the question of whether <m>x=2</m> is the <term>only</term>
+        integer that satisfies this condition. (And of course,
+        it isn't!)
+      </p>
+    </statement>
+  </example>
+  <p>
+    If <m>S</m> is a set,
+    and <m>A(x)</m> is a statement with variable <m>x</m>,
+    then the sentence <m>(\exists x \in S)(A(x))</m> is equivalent to the sentence
+    <q>the set <m>\{x \in S : A(x)\}</m> is not the empty set.</q>
+  </p>
+  <p>
+    Some statement assert that <term>every</term>
+    <m>x \in S</m> satisfies some condition.
+    Terms like
+    <q>for every</q>
+    and
+    <q>for all</q>
+    are called <term>universal quantifiers</term>.
+    Symbolically,
+    we just write <m>\forall</m> to mean any one of these.
+    So the statement
+    <me>
+      \text{ every positive integer \(n\) is less than or equal to its square }
+    </me>
+    can be written
+    <me>
+      (\forall n\in\mathbb{N})(n\leq n^2)
+    </me>.
+  </p>
+  <p>
+    To prove a universally quantified sentence <m>(\forall x \in S)(A(x))</m>,
+    you generally have to contemplate an arbitrary element <m>x</m> of <m>S</m> and to prove that <m>A(x)</m> holds for it.
+  </p>
+  <example>
+    <statement>
+      <p>
+        To prove the statement <m>(\forall n \in \mathbb{N})(n \leq n^2)</m>,
+        we start with the word
+        <q>let.</q>
+        Let <m>n \in \mathbb{N}</m>.
+        Then <m>n-1</m> is an integer, and <m>n-1\geq 0</m>.
+        Thus <m>n^2-n = n(n-1) \geq 0</m>.
+        Consequently, <m>n^2 \geq n</m>, as desired.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Most mathematical statements involve many quantifiers at once.
+    For example, the statement that
+    <q>every positive real number is the square of some negative real number</q>
+    has two quantifiers.
+    To write it, let <m>P = \{ x \in \mathbb{R} : x > 0\}</m>,
+    the set of positive real numbers,
+    and let <m>N = \{ x \in \mathbb{R} : x \lt  0\}</m>,
+    the set of negative real numbers.
+    Now our sentence can be written:
+    <me>
+      (\forall x \in P)(\exists y \in N)(y^2 = x)
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let's define the <term>successor</term>
+        to a natural number <m>n</m> as the smallest natural number that is larger than <m>n</m>.
+        Let's consider the sentence
+        <q>every natural number has a successor.</q>
+      </p>
+      <p>
+        Let's unpack this sentence in stages.
+        First, we have
+        <me>
+          (\forall n \in \mathbb{N})(\text{ there is a natural number \(k\) such that \(k\) is a successor to \(n\) } )
+        </me>.
+      </p>
+      <p>
+        What we have there in parentheses can itself be unpacked;
+        now our sentence is
+        <me>
+          (\forall n \in \mathbb{N})(\exists k \in \mathbb{N})(\text{ \(k\) is a successor to \(n\) } )
+        </me>.
+      </p>
+      <p>
+        Going even farther, this becomes
+        <me>
+          (\forall n \in \mathbb{N})(\exists k \in \mathbb{N})(\forall m \in \mathbb{N})((m>n) \implies (n\lt k\leq m))
+        </me>.
+      </p>
+      <p>
+        This is about as unpacked as you can get.
+      </p>
+      <p>
+        The advantage of unpacking sentences like this is that you can now prove this claim by following the order of the quantifiers,
+        from left to right:
+        <ol label="labelalph">
+          <li>
+            <p>
+              The first quantifier is universal,
+              so the first sentence of our proof has to be:
+              <q>Let <m>n \in \mathbb{N}</m>.</q>
+            </p>
+          </li>
+          <li>
+            <p>
+              The second quantifier is existential,
+              so we have to <term>specify</term>
+              or <term>construct</term> the successor <m>k</m>.
+              We are free to <term>use</term> <m>n</m> in our definition of <m>k</m>
+              (in this case we'll <term>have</term> to),
+              and our <m>k</m> will be defined so that the condition that
+              <q>for any natural number <m>m>n</m>,
+              one has <m>n\lt k\leq m</m></q>
+              holds.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, we have to prove that condition,
+              which is our third quantifier, which is universal.
+              So that means we have to begin this portion of the proof with the words:
+              <q>Let <m>m \in \mathbb{N}</m>.</q>
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Let's follow that recipe to write our proof.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Let <m>n \in \mathbb{N}</m>.
+        We aim to construct a successor <m>k</m>;
+        so define <m>k</m> as <m>n+1</m>.
+        Now we aim to prove that the condition holds.
+        So let <m>m \in \mathbb{N}</m>.
+        Assume <m>m > n</m>.
+        Thus <m>m - n</m> is an integer and <m>m-n>0</m>.
+        That implies that <m>m-n\geq 1</m>.
+        Thus <m>m \geq n+1=k</m>.
+        Also, <m>n\lt n+1=k</m>,
+        so we deduce that <m>n\lt k \leq m</m>, just as we wanted.
+      </p>
+    </proof>
+  </example>
+  <p>
+    It's a good idea to reflect on what happened here.
+    Often, the hardest part about proving a statement is getting precise control over what the statement actually <term>is</term>.
+    In particular,
+    it should always be possible for you to convert a mathematical statement into a series of <m>\forall</m>'s and <m>\exists</m>'s with logical connectives relating simple statements.
+    Doing this in the right order,
+    and manipulating the resulting expressions carefully,
+    is at the heart of doing pure mathematics.
+  </p>
+  <p>
+    <em>How do we negate a statement with a quantifier?</em> Consider the statement
+    <q>every person in this room has blue eyes.</q>
+    What would it take for this statement to be false?
+    You need at least one person in the room to <term>not</term>
+    have blue eyes, and you're in business!
+    That is, the statement
+    <q>there is some person in this room who does not have blue eyes</q>
+    is the negation of the statement
+    <q>every person in this room has blue eyes.</q>
+    Note that the original statement has the universal quantifier
+    <q>every</q>
+    and its negation has the existential quantifier
+    <q>there is some,</q>
+    and the last part of the sentence
+    <q>has blue eyes</q>
+    become
+    <q>does not have blue eyes.</q>
+  </p>
+  <p>
+    So to negate a statement with a quantifier, we can
+    <q>push</q>
+    the negation past the quantifier, and as we do,
+    <m>\forall</m> turns into <m>\exists</m>,
+    and <m>\exists</m> turns into a <m>\forall</m>.
+    It's maybe a little easier to see this if we use the <m>\neg</m> notation for negation.
+    Thus,
+    <me>
+      \neg(\forall x \in S)(A(x)) \iff (\exists x \in S)(\neg A(x))
+    </me>.
+  </p>
+  <p>
+    Similarly,
+    <me>
+      \neg(\exists x \in S)(A(x)) \iff (\forall x \in S)(\neg A(x))
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the statement
+        <me>
+          (\forall n \in \mathbb{N})(\exists m \in \mathbb{N})(m^2 = n)
+        </me>.
+      </p>
+      <p>
+        This statement isn't true, so let's write down its negation.
+        <me>
+          \neg(\forall n\in\mathbb{N})(\exists m\in\mathbb{N})(m^2=n)
+        </me>
+        <me>
+          \Updownarrow
+        </me>
+        <me>
+          (\exists n\in\mathbb{N})(\neg(\exists m\in\mathbb{N})(m^2=n))
+        </me>
+        <me>
+          \Updownarrow
+        </me>
+      </p>
+      <me>
+        (\exists n\in\mathbb{N})(\forall m\in\mathbb{N})\neg(m^2=n)
+      </me>
+      <me>
+        \Updownarrow
+      </me>
+      <me>
+        (\exists n\in\mathbb{N})(\forall m\in\mathbb{N})(m^2\neq n)
+      </me>.
+      <p>
+        The reason it's important to be able to do this is that if our aim is to <term>disprove</term>
+        the sentence <m>(\forall n \in \mathbb{N})(\exists m \in \mathbb{N})(m^2 = n)</m>,
+        then this unpacking shows us what we need to do.
+        We have to <term>specify</term> or <term>construct</term>
+        a natural number <m>n</m>;
+        let's take <m>n=2</m>.
+        Then we have to show that for every natural number <m>m</m>,
+        it is not the case that <m>m^2 = n</m>.
+        In this case, we can note that <m>1^2 = 1 \lt 2</m>,
+        and for any natural number <m>m \geq 2</m>,
+        we have <m>m^2 > 2^2 = 4 > 2</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    <em>All this work to negate quantifiers!
+    Do we need to show the above individual steps when negating in our homework?</em> No!
+    Don't worry,
+    in your homework you won't be expected to give the full justification of why the negation of some statement is what it is.
+    But, especially for complicated statements,
+    it's important to get keep this straight!
+  </p>
+</section>

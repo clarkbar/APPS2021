@@ -1,0 +1,14 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="induction">
+  <title>Induction</title>
+  <introduction>
+    <p>
+      Mathematical induction is a particular form of proof.
+      The goal of a proof by induction is to show that each member of an infinite family of statements is true.
+    </p>
+  </introduction>
+  <xi:include  href="summationnotation.ptx"/>
+  <xi:include  href="inductionsection.ptx"/>
+  <xi:include  href="stronginduction.ptx"/>
+  <xi:include  href="inequalitiesredux.ptx"/>
+  <xi:include  href="inductionexercises.ptx"/>
+</chapter>

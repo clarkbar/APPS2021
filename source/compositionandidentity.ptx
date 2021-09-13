@@ -1,0 +1,88 @@
+<section xml:id="compositionandidentity">
+  <title>Composition and identity</title>
+  <p>
+    For any two permutations <m>f\in\mathrm{S}_n</m> and <m>g\in\mathrm{S}_n</m>,
+    the composition
+    <me>
+      f\circ g\colon \{1,2,3,\ldots,n\}\to \{1,2,3,\ldots,n\}
+    </me>
+    is defined by <m>f\circ g(k)=f(g(k))</m> for every <m>k\in\{1,2,3,\ldots,n\}</m>.
+  </p>
+  <p>
+    Since we will be working with compositions of many functions below,
+    we will often drop the <m>\circ</m> all together and just write <m>fg</m> instead of <m>f\circ g</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let
+        <me>
+          f= \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4  \cr2 \amp  3 \amp  1 \amp  4  \cr \end{matrix} \right), \;\;\; \mbox{ and }  \;\;\; g= \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4  \cr4 \amp  3 \amp  2 \amp  1 \cr \end{matrix} \right)
+        </me>
+      </p>
+      <p>
+        We can determine <m>fg</m> by plugging in each number
+        <m>k\in \{1,2,3,4\}</m> and see what <m>g(k)</m> and then <m>f(g(k))</m> is:
+        <me>
+          \left(\begin{array}{c|cccc} k \amp  1 \amp  2 \amp  3 \amp  4  \\ g(k)  \amp  4 \amp  3 \amp  2 \amp  1   \crf(g(k)) \amp  4 \amp  1 \amp  3 \amp  2 \end{array} \right)
+        </me>
+      </p>
+      <p>
+        Thus, taking the top and bottom rows, we see that
+        <me>
+          fg = \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4  \cr4 \amp  1 \amp  3 \amp  2 \cr \end{matrix} \right)
+        </me>
+      </p>
+    </statement>
+  </example>
+  <p>
+    We use symbol <m>\iota</m>
+    (the Greek letter
+    <q>iota</q>
+    )
+    to denote the <term>identity permutation</term>
+    <me>
+      \iota =  \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  \ldots \amp  n \cr1 \amp  2 \amp  3 \amp  4 \amp  \ldots \amp  n\cr \end{matrix} \right), \;\;\; \iota(x) =x \;\;\mbox{ for all }  x\in \{1,2,...,n\}
+    </me>.
+  </p>
+  <p>
+    In particular, for every <m>f\in\mathrm{S}_{n}</m>,
+    we have <m>\iota\circ f=f\circ\iota=f</m>,
+    that is, <m>\iota f=f\iota=f</m>.
+  </p>
+  <p>
+    Another reason we drop the <m>\circ</m> from the above notation is so that we can think of composing functions as if we are multiplying elements together,
+    and the function <m>\iota</m> is playing the role of the number <m>1</m> in that,
+    when you multiply it by anything other element,
+    you get the same element back.
+    However, unlike multiplication for integers,
+    compositions of functions is not commutative.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let us consider composition of two permutations in <m>\mathrm{S}_5</m>.
+        <me>
+          f= \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \cr2 \amp  3 \amp  4 \amp  5 \amp  1\cr \end{matrix} \right)\;\;\;\mbox{ and }  \;\;\; g=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \cr2 \amp  1 \amp  3 \amp  4 \amp  5\cr \end{matrix} \right)
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          fg= \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \cr3 \amp  2 \amp  4 \amp  5 \amp  1\cr \end{matrix} \right), \;\;\; \mbox{ and } \;\;\; gf = \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \cr1 \amp  3 \amp  4 \amp  5 \amp  2\cr \end{matrix} \right)
+        </me>.
+      </p>
+      <p>
+        That is, <m>fg\neq gf</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    This doesn't mean we don't always have
+    <m>fg\neq gf</m><ndash/>in particular,
+    <m>fg=gf</m> for all <m>f\in S_{2}</m>...exercise!<ndash/>it just means that we can't assume <m>fg=gf</m> in general,
+    that is, <m>\forall n\geqslant 3</m>,
+    <m>\exists</m> <m>f</m> and <m>g</m> in
+    <m>\mathrm{S}_n</m> such that <m>fg\ne gf</m>.
+  </p>
+</section>

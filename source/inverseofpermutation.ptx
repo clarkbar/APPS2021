@@ -1,0 +1,65 @@
+<section xml:id="inverseofpermutation">
+  <title>Inverse permutations</title>
+  <p>
+    Let <m>f</m> be any permutation in <m>\mathrm{S}_n</m>.
+    Then
+    <me>
+      1\mapsto f(1),\  2\mapsto f(2),\  3\mapsto f(3),  \ldots,\  n\mapsto f(n)
+    </me>,
+    where all numbers <m>f(1), f(2), f(3),\ldots,
+    f(n)</m> are different (here
+    <m>x\mapsto y</m> means that <m>f(x)=y</m>, or that
+    <q><m>x</m> is mapped to <m>y</m> under <m>f</m></q>.
+  </p>
+  <p>
+    Given <m>f\in S_{n}</m>,
+    the inverse permutation <m>f^{-1}</m> always exists since <m>f</m> is bijection and
+    <me>
+      f f^{-1}=f^{-1} f=\iota
+    </me>.
+  </p>
+  <p>
+    To figure out what <m>f^{-1}</m> is given <m>f</m>,
+    just note that the permutation <m>f^{-1}</m> maps
+    <me>
+      f(1)\mapsto 1,\  f(2)\mapsto 2,\  f(3)\mapsto 3,  \ldots,\  f(n)\mapsto n
+    </me>.
+  </p>
+  <p>
+    Thus, if we have our matrix representing <m>f</m>,
+    <me>
+      f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  ... \amp  n\crf(1) \amp  f(2) \amp  f(3) \amp  ... \amp  f(n)\cr \end{matrix} \right)
+    </me>.
+  </p>
+  <p>
+    Then the inverse is
+    <me>
+      f^{-1}=\left(\begin{matrix}f(1) \amp  f(2) \amp  f(3) \amp  ... \amp  f(n)\cr1 \amp  2 \amp  3 \amp  ... \amp  n\cr \end{matrix} \right)
+    </me>.
+  </p>
+  <p>
+    Since <m>f(1),..</m>. runs through each integer <m>1,2,...,n</m> exactly once,
+    the top row is just a rearrangement of <m>\{1,2,...,n\}</m>,
+    so if we rearrange the columns so that the top row is in order,
+    then we will get the chart
+    <me>
+      f^{-1}=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  ... \amp  n\crf^{-1}(1) \amp  f^{-1}(2) \amp  f^{-1}(3) \amp  ... \amp  f^{-1}(n)\cr \end{matrix} \right)
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp 2 \amp 3 \amp 4 \amp 5\cr2 \amp 3 \amp 4 \amp 5 \amp 1\cr \end{matrix} \right)\in\mathrm{S}_5</m>.
+        Find <m>f^{-1}</m>.
+      </p>
+      <p>
+        First flip the matrix
+        (switching the bottom and top rows)
+        and then reorder the columns so that the top is ordered from 1 to 5:
+        <me>
+          f^{-1} = \left(\begin{matrix}2 \amp  3 \amp  4 \amp  5 \amp  1\cr1 \amp  2 \amp  3 \amp  4 \amp  5\cr \end{matrix} \right) =\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5\cr5 \amp  1 \amp  2 \amp  3 \amp  4\cr \end{matrix} \right)
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

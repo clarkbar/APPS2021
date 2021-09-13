@@ -1,0 +1,169 @@
+<section xml:id="absolutevalues">
+  <title>Absolute Values</title>
+  <definition>
+    <statement>
+      <p>
+        For <m>x\in \mathbb{R}</m>,
+        we define the <term>absolute value</term>
+        or <term>modulus</term> of <m>x</m> to be
+        <me>
+          |x| = \left\{\begin{array}{ll} x \amp  \mbox{ if }  x\geq 0 \\ -x \amp  \mbox{ if }  x\leq 0 \end{array} \right.
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Geometrically,
+    <m>|x|</m> measures the distance from <m>x</m> to <m>0</m> along the real line, e.g.
+    <m>|-3|=3</m>.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        For <m>x\in\mathbb{R}</m>,
+        <me>
+          -|x|\leq x\leq |x|
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      If <m>x\geq 0</m>, then since <m>|x|\geq 0</m>,
+      <me>
+        -|x|\leq 0\leq x=|x|
+      </me>
+      and if <m>x\leq 0</m>, then <m>-x=|x|</m>, so <m>x=-|x|</m>, hence
+      <me>
+        -|x|=x\leq 0\leq |x|
+      </me>.
+    </p>
+  </proof>
+  <note>
+    <title>Proofs with $|\cdot|$</title>
+    <p>
+      Since the definition of <m>|x|</m> is defined in terms of cases,
+      a proof involving absolute values may need to be split into cases depending on what sign <m>x</m> has.
+    </p>
+  </note>
+  <example xml:id="ex__x__2_x_2">
+    <statement>
+      <p>
+        For <m>x\in \mathbb{R}</m>, <m>|x|^2=x^2</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        We split the proof into two cases.
+      </p>
+      <p>
+        <em>Case 1:</em> If <m>x\geq 0</m>.
+        Then <m>|x|=x</m> and so <m>|x|^2=x^2</m>,
+        which proves the claim in this case.
+      </p>
+      <p>
+        <em>Case 2:</em> If <m>x\lt 0</m>,
+        then <m>|x|=-x</m>, so <m>|x|^2=(-x)^2=(-1)^2x^2=1</m>.
+      </p>
+      <p>
+        Thus, the claim is true in all cases.
+      </p>
+    </proof>
+  </example>
+  <example>
+    <statement>
+      <p>
+        For which <m>x\in\mathbb{R}</m> do we have <m>|x-1|\lt |x+2|</m>?
+      </p>
+      <p>
+        Notice that the signs of the absolute value change as <m>x</m> crosses <m>1</m> and <m>-2</m>,
+        so we split into cases depending on where <m>x</m> lies in relation to these numbers:
+      </p>
+      <p>
+        <em>Case 1:</em> If <m>x\leq -2</m>, then <m>x-1\lt 0</m>,
+        so <m>|x-1|=1-x</m> and <m>x+2\leq 0</m> so <m>|x+2|=-2-x</m>,
+        so <m>|x-1|\lt |x+2|</m> holds if and only if <m>1-x\lt -2-x</m>,
+        or equivalently, <m>2\lt -1</m>, which never holds.
+      </p>
+      <p>
+        <em>Case 2:</em> If <m>-2\leq x\leq 1</m>,
+        then <m>|x-1|=1-x</m> again but <m>|x+2|=x+2</m>,
+        so <m>|x-1|\lt |x+2|</m> if and only if
+        <m>1-x\lt x+2</m> , i.e. if <m>-1\lt 2x</m>,
+        so the only <m>x</m>'s between <m>-2</m> and <m>1</m> where the inequality holds is for <m>x>-\frac{1}{2}</m>.
+      </p>
+      <p>
+        <em>Case 3:</em> If <m>x\geq 1</m>,
+        then <m>|x-1|=x-1</m> and <m>|x+2|=x+2</m>,
+        so <m>|x-1|\lt |x+2|</m> if and only if <m>x-1\lt x+2</m>,
+        i.e. if <m>-1\lt 2</m>, which always holds.
+      </p>
+      <p>
+        Bringing it all together,
+        we see that our inequality holds if and only if <m>-\frac{1}{2}\lt x</m>.
+      </p>
+    </statement>
+  </example>
+  <lemma xml:id="l__xy___x__y_">
+    <statement>
+      <p>
+        For <m>x,y\in \mathbb{R}</m>, <m>|xy|=|x|\cdot |y|</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    We leave the proof as an exercise.
+  </p>
+  <theorem>
+    <title>The Triangle Inequality</title>
+    <statement>
+      <p>
+        For <m>x,y\in\mathbb{R}</m>,
+        <me>
+          |x+y|\leq |x|+|y|
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We split into cases,
+      and will use the fact that <m>\pm x\leq |x|</m> by definition.
+    </p>
+    <p>
+      <em>Case 1:</em> If <m>x+y\geq 0</m>, then
+      <me>
+        |x+y|=x+y\leq |x|+|y|
+      </me>.
+    </p>
+    <p>
+      <em>Case 2:</em> If <m>x+y\leq 0</m>, then
+      <me>
+        |x+y|=-(x+y)=-x+(-y)\leq |x|+|y|
+      </me>.
+    </p>
+    <p>
+      Thus, the claim is true in all cases.
+    </p>
+  </proof>
+  <p>
+    We leave the following corollary as an exercise.
+  </p>
+  <corollary>
+    <title>The Reverse Triangle Inequality</title>
+    <statement>
+      <p>
+        For <m>x,y\in\mathbb{R}</m>,
+        <me>
+          \bigl||x|-|y|\bigr|\leq |x+y|
+        </me>.
+      </p>
+      <p>
+        In particular,
+        <me>
+          |x|-|y|\leq |x+y|
+        </me>.
+      </p>
+    </statement>
+  </corollary>
+</section>

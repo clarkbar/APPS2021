@@ -1,0 +1,145 @@
+<section xml:id="rootcoefficienttheorem">
+  <title>Root-Coefficient Theorem</title>
+  <p>
+    Another useful tool is the following theorem which shows how the coefficients of a polynomial relate to the roots.
+  </p>
+  <theorem>
+    <title>Root-Coefficient Theorem</title>
+    <statement>
+      <p>
+        If <m>p(x)=x^{n}+a_{n-1}x^{n-1}+\cdots + a_{1}x+a_{0}</m>,
+        has roots <m>r_{1},...,r_{n}</m>
+        (counting multiplicities),
+        then
+        <me>
+          r_{1}+\cdots + r_{n} = -a_{n-1}
+        </me>
+        <me>
+          r_{1}\cdots r_{n} = (-1)^{n}a_{0}
+        </me>.
+      </p>
+      <p>
+        In general, if <m>s_{j}</m> denotes the sum of all products of <m>j</m>-tuples of the roots (e.g.
+        <m>s_{2} = r_{1}r_{2}+r_{1}r_{3}+r_{2}r_{3}+\cdots</m>), then
+        <me>
+          s_{j} = (-1)^{j}a_{n-j}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    A
+    <q>tuple</q>
+    is a finite ordered list of items, here the roots.
+    The phrase
+    <q><m>j</m>-tuples</q>
+    means a list of items of length <m>j</m>.
+  </p>
+  <proof>
+    <p>
+      First, factorize
+      <me>
+        p(x)=x^{n}+a_{n-1}x^{n-1}+\cdots + a_{1}x+a_{0}=a(x-r_{1})\cdots (x-r_{n})
+      </me>.
+    </p>
+    <p>
+      Note that as the coefficient of <m>x^{n}=1</m>, we know <m>a=1</m>
+      (since otherwise the right side,
+      when multiplied out, wouldn't equal the left).
+      We can establish the formulas in the theorem now by multiplying out the product on the right.
+    </p>
+  </proof>
+  <p>
+    This theorem looks complicated,
+    but in fact it just encodes a pattern.
+    <me>
+      (x-\alpha)=x-\alpha
+    </me>
+    <me>
+      (x-\alpha)(x-\beta)=x^2-(\alpha+\beta)x + \alpha\beta
+    </me>
+    <me>
+      (x-\alpha)(x-\beta)(x-\gamma) =x^3-(\alpha+\beta+\gamma)x^2 +(\alpha\beta+\beta\gamma +\alpha\gamma)x^2 - \alpha\beta\gamma
+    </me>
+  </p>
+  <p>
+    In the language of the theorem,
+    a single <m>2</m>-tuple from the set
+    <m>\{\alpha,\beta,\gamma\}</m> would be a two of these items.
+    The set of all different <m>2</m>-tuples is
+    <me>
+      \alpha\beta,\beta\gamma,\alpha\gamma
+    </me>
+  </p>
+  <example>
+    <statement>
+      <p>
+        Suppose <m>x^{3}+ax^{2}+bx+c</m> has roots <m>\alpha,\beta</m>,
+        and <m>\gamma</m>.
+        Find a polynomial with roots <m>\alpha\beta</m>,
+        <m>\beta\gamma</m>, and <m>\gamma\alpha</m> in terms of <m>a,b,c</m>
+        (that is, the coefficients of your polynomial should only be described using <m>a,b</m>,
+        and <m>c</m>, not <m>\alpha,\beta</m>, and <m>\gamma</m>).
+      </p>
+      <p>
+        By the Root Coefficient Theorem,
+        <me>
+          \alpha+\beta+\gamma = -a
+        </me>,
+        <me>
+          \alpha\beta+\beta\gamma+\gamma\alpha = b
+        </me>
+        and
+        <me>
+          \alpha\beta\gamma = -c
+        </me>.
+      </p>
+      <p>
+        Let <m>x^{3}+Ax^{2}+Bx+C</m> be a polynomial with roots <m>\alpha\beta</m>,
+        <m>\beta\gamma</m> and <m>\gamma\alpha</m>.
+        Then we know
+        <me>
+          -A=\alpha\beta+\beta\gamma+\gamma\alpha = b
+        </me>
+        <me>
+          B=\alpha\beta^{2}\gamma+\alpha\beta\gamma^{2}+\alpha^{2}\beta\gamma=-c(\alpha+\beta+\gamma)=ac
+        </me>
+        and
+        <me>
+          -C=\alpha\beta \cdot \beta\gamma\cdot \gamma\alpha = (\alpha\beta\gamma)^{2}=c^{2}
+        </me>
+      </p>
+      <p>
+        Hence, the polynomial is
+        <me>
+          x^{3}-bx^{2}+acx-c^{2}
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Are all the roots of <m>x^{3}+11x^2+7</m> integers?
+      </p>
+      <p>
+        Suppose they were.
+        Notice that by the Factorization Theorem,
+        this polynomial has three roots <m>a,b,c</m>
+        (where some of these roots could repeat).
+        By the Root-Coefficient Theorem,
+        <m>abc=-7</m>, so <m>7=|abc|=|a|\cdot|b|\cdot |c|</m>.
+        Since <m>7</m> is prime and we are assuming the roots are integers,
+        the only way this is possible is if one of these absolute values is <m>7</m> and the others are <m>1</m>,
+        say <m>|a|=7</m> and <m>|b|=|c|=1</m>.
+        The Root-Coefficient Theorem also says <m>a+b+c=-11</m>,
+        so by the triangle inequality,
+        <me>
+          11=|-11|=|a+b+c|\leq |a|+|b|+|c|=1+1+7=9
+        </me>,
+        which is impossible.
+        Thus, at least one of the roots is not an integer.
+      </p>
+    </statement>
+  </example>
+</section>

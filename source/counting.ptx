@@ -1,0 +1,42 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="counting">
+  <title>Counting</title>
+  <introduction>
+    <p>
+      \epigraph<term> Though combinatorics has been successfully applied to many branches of mathematics,
+      these cannot be compared either in importance or in depth to the applications of analysis in number theory or algebra to topology,
+      but I hope that time and the ingenuity of the younger generation will change this. </term>{Paul Erd&#337;s, 1970.}
+    </p>
+    <p>
+      This week we will introduce <term>combinatorics</term>,
+      which is the study of counting.
+      As you can see from the above quotation, Paul Erd&#337;s<fn>
+      Paul Erd&#337;s was one of the greatest combinatorists in history,
+      and the most prolific mathematician,
+      publishing at least 1,525 mathematical papers,
+      more than any other mathematician
+      (though Euler wrote more total pages).
+      His life is incredibly interesting as well,
+      as he spent a large part of it technically homeless,
+      with no permanent address,
+      just travelling and staying with other mathematicians.
+      For a short summary,
+      you can read here ({\url{http://www-history.mcs.st-and.ac.uk/Biographies/Erdos.html}}), otherwise his biography
+      <term> The Man Who Loved Only Numbers</term> is a great read.
+      </fn> felt that combinatorics played second fiddle to the fields of analysis and algebra.
+      However, with the advent of computer science,
+      combinatorics became essential for building efficient algorithms,
+      and thus has a much larger importance for society than Erd&#337;s could have anticipated back in 1970.
+    </p>
+    <p>
+      If you enjoy the material this week,
+      you may enjoy the course <term>Combinatorics and Graph Theory</term>.
+    </p>
+  </introduction>
+  <xi:include  href="multiplicationprinciple.ptx"/>
+  <xi:include  href="correspendenceandovercounting.ptx"/>
+  <xi:include  href="countingsubsets.ptx"/>
+  <xi:include  href="countingpartitions.ptx"/>
+  <xi:include  href="binomialmultinomial.ptx"/>
+  <xi:include  href="inclusionexclusion.ptx"/>
+  <xi:include  href="countingexercises.ptx"/>
+</chapter>

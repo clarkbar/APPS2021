@@ -1,0 +1,183 @@
+<section xml:id="logicalequivalence">
+  <title>Logical equivalence</title>
+  <p>
+    This idea of
+    <q>repackaging</q>
+    a sentence in another way is called
+    <term>logical equivalence</term>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        We say that two statements <m>A</m> and <m>B</m> are <term>equivalent</term>
+        if <m>A</m> is true if and only if <m>B</m> is true.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    One also says
+    <q><m>A</m> if and only if <m>B</m></q>
+    or
+    <q><m>A</m> iff <m>B</m></q>
+    or <m>A \iff B</m>.
+    Here is the truth table for this connective:
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \iff B</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+  </tabular>
+  <p>
+    In other words,
+    <m>A \iff B</m> is the same statement as <m>(A\implies B) \wedge (B \implies A)</m>.
+  </p>
+  <p>
+    Equivalence behaves like
+    <q>=</q>
+    does in algebra:
+    you are free to swap one statement for another equivalent statement.
+    For example, if <m>A\iff B</m>,
+    then the statement <m>A \vee C</m> is equivalent to the statement <m>B \vee C</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>A</m> be a statement.
+        The <term>double negation</term> of <m>A</m> is the statement <m>\overline{\overline{A}}</m>.
+        Then <m>\overline{\overline{A}}</m> is equivalent to <m>A</m>.
+        In other words, <m>\overline{\overline{A}} \iff A</m>.
+        Indeed, <m>A</m> is true if and only if <m>\overline{A}</m> is false,
+        which happens if and only if <m>\overline{\overline{A}}</m> is true.
+      </p>
+    </statement>
+  </example>
+  <p>
+    To prove <m>A\iff B</m>,
+    you'll usually have to prove <term>both</term>
+    <m>A\implies B</m> and <m>B\implies A</m>.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be statements.
+        Then <m>A \implies B</m> is equivalent to <m>\overline{A} \vee B</m>.
+        That is, <m>(A \implies B) \iff (\overline{A} \vee B)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We begin with the forward direction;
+      that is, we shall show first that <m>(A \implies B) \implies (\overline{A} \vee B)</m>.
+      So assume <m>A\implies B</m>.
+      We aim to show <m>\overline{A} \vee B</m>.
+    </p>
+    <p>
+      There are two options for <m>A</m>:
+      it is either true or false.
+      Let's consider these options in turn:
+      <ul>
+        <li>
+          <p>
+            If <m>A</m> is false, then <m>\overline{A}</m> is true,
+            and so certainly <m>\overline{A} \vee B</m> is true as well.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>A</m> is true, then since we are assuming
+            <m>A\implies B</m>, we can conclude <m>B</m>.
+            Thus <m>\overline{A} \vee B</m> is true as well.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Either way, we see that <m>\overline{A} \vee B</m> holds,
+      so it follows that <m>A\implies B</m> implies <m>\overline{A} \vee B</m>.
+    </p>
+    <p>
+      Now we prove the reverse direction;
+      that is, we shall show that <m>(\overline{A} \vee B) \implies (A \implies B)</m>.
+      Assume <m>\overline{A} \vee B</m>.
+      We aim to show that <m>A\Rightarrow B</m> is true.
+      To prove this, we assume that <m>A</m> is true,
+      and we aim to conclude <m>B</m>.
+      But we are <term>assuming</term> that either
+      <m>\overline{A}</m> is true or <m>B</m> is true.
+      Since <m>A</m> is true, <m>\overline{A}</m> is false.
+      So <m>B</m> must be true.
+      Thus, we conclude <m>A\implies B</m>,
+      and so we have shown that <m>\overline{A} \vee B</m> implies <m>A \implies B</m>.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be statements.
+        Then <m>A \implies B</m> is equivalent to <m>\overline{B} \implies \overline{A}</m>.
+        That is, <m>(A \implies B) \iff (\overline{A} \vee B)</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We begin with the forward direction;
+      that is, we shall show first that <m>(A \implies B) \implies (\overline{B} \implies \overline{A})</m>.
+      So assume <m>A\implies B</m>.
+      We aim to show that <m>\overline{B} \implies \overline{A}</m>.
+      So assume <m>\overline{B}</m>;
+      that is, that <m>B</m> is false.
+    </p>
+    <p>
+      The previous theorem shows that
+      <m>A \implies B</m> is equivalent to <m>\overline{A} \vee B</m>.
+      Since <m>B</m> is false,
+      the only remaining option is that <m>\overline{A}</m> holds.
+      We have thus shown that <m>\overline{B} \implies \overline{A}</m>.
+    </p>
+    <p>
+      Now we prove the reverse direction;
+      that is, we shall show that <m>(\overline{B} \implies \overline{A}) \implies (A \implies B)</m>.
+      So assume that <m>\overline{B} \implies \overline{A}</m>.
+      We aim to show that <m>A \implies B</m>.
+      So assume <m>A</m>.
+      We aim to deduce <m>B</m>.
+    </p>
+    <p>
+      By the previous theorem,
+      <m>\overline{B} \implies \overline{A}</m> is equivalent to <m>\overline{\overline{B}} \vee \overline{A}</m>,
+      which is in turn equivalent to <m>B \vee \overline{A}</m>.
+      Since <m>A</m> is true, <m>\overline{A}</m> is false,
+      and so the only option remaining is that <m>B</m> holds.
+      Thus we have shown that <m>A \implies B</m>.
+    </p>
+  </proof>
+</section>

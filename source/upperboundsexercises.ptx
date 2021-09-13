@@ -1,0 +1,346 @@
+<section xml:id="upperboundsexercises">
+  <title>Exercises</title>
+  <p>
+    The exercises in Liebeck's book relevant to this section are in Chapter 22.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>A,B\subseteq \mathbb{R}</m> be nonempty sets that are bounded above.
+        For each statement below, either prove it or provide a counterexample.
+        <ol label="labelalph">
+          <li>
+            <p>
+              If <m>A</m> is bounded above,
+              then <m>\LUB(-A)=-\LUB(A)</m>,
+              where <m>-A=\{-x \; | \; x\in A\}</m>.
+              <solution>
+                <p>
+                  This is not true: if <m>A=(-1,2)</m>,
+                  then <m>-A=(-2,1)</m>, so <m>-\LUB(A)=-2\neq \LUB(-A)=-1</m>.
+                  Another example is <m>A = (-\infty, 0)</m> with <m>\LUB(A) = 0</m>,
+                  for which <m>-A</m> is not even bounded above,
+                  and thus <m>-A</m> has no LUB. Many more examples are possible.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> is bounded above,
+              then <m>-A</m> is bounded below and <m>\GLB(-A)=-\LUB(A)</m>.
+              <solution>
+                <p>
+                  This is true: Let <m>L=\LUB(A)</m>,
+                  we claim <m>\GLB(-A)=-L</m>.
+                  First we show it is a lower bound:
+                  if <m>x\in -A</m>, then <m>-x\in A</m>,
+                  so <m>-x\leq L</m>, hence <m>x\geq -L</m>.
+                  Now we show it is the greatest lower bound:
+                  let <m>t>-L</m>,
+                  we will show there is <m>x\in -A</m> with <m>x\lt t</m>.
+                  Note that <m>-t\lt L</m>,
+                  and since <m>L=\LUB(A)</m>, there is <m>y\in A</m> with <m>y>-t</m>,
+                  so <m>-y\lt t</m> and <m>-y\in -A</m>,
+                  thus <m>t</m> is not a lower bound.
+                  This proves <m>\GLB(-A)=-L</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>c\in \mathbb{R}</m>,
+              then <m>\LUB(c+A)=c+\LUB(A)</m> where <m>c+A=\{c+x \; | \; x\in A\}</m>.
+              <solution>
+                <p>
+                  This is true: let <m>L=\LUB(A)</m>,
+                  we claim <m>\LUB(c+A)=c+L</m>.
+                  First we show <m>c+L</m> is an upper bound:
+                  if <m>x\in c+A</m>, then <m>x-c\in A</m>,
+                  so <m>x-c\leq L</m>, so <m>x\leq c+L</m>.
+                  Now we show that it is a least upper bound,
+                  i.e., that for <m>t\lt c+L</m>,
+                  there is <m>x\in c+A</m> with <m>x>t</m>: Let
+                  <m>t\lt c+L</m>, then <m>t-c\lt L</m>,
+                  and since <m>L=\LUB(A)</m>, there is <m>y\in A</m> with <m>y>t-c</m>,
+                  and so <m>y+c>t</m> and <m>y+c\in A</m>,
+                  so <m>t</m> is not an upper bound for <m>A</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\LUB(A)=\max(A)</m>.
+              <solution>
+                <p>
+                  This is not true in general since <m>\max(A)</m> may not be defined.
+                  A concrete conterexample is <m>A = (0,1)</m> for which
+                  <m>\LUB(A) =1</m>, but which has no maximum.
+                  Many more examples are possible.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>c>0</m>,
+              then <m>\LUB(cA)=c\LUB(A)</m> where <m>cA=\{cx\; | \; x\in A\}</m>.
+              <solution>
+                <p>
+                  This is true, its proof is very similar to (c), so we omit it.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\LUB(AB)=\LUB(A)\cdot \LUB(B)</m> where <m>AB=\{xy \;\; | \;\; x\in A,\; y\in B\}</m>.
+              <solution>
+                <p>
+                  Not true: let <m>A=(-2,1)</m> and <m>B=(-2,1)</m>,
+                  then <m>AB=(-2,4)</m> so <m>\LUB(AB)=4\neq \LUB(A)\cdot \LUB(B)=1</m>.
+                  Many more examples are possible.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              if <m>A\subseteq B</m>, then <m>\LUB(A)\leq \LUB(B)</m>.
+              <solution>
+                <p>
+                  This is true:
+                  note that <m>x\leq \LUB(B)</m> for all <m>x\in B</m>,
+                  and so <m>x\leq \LUB(B)</m> for all <m>x\in A</m> since <m>A\subseteq B</m>.
+                  Hence, <m>\LUB(A)\leq \LUB(B)</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>A</m> and <m>B</m> are bounded above.
+        Show that <m>\LUB(A+B)=\LUB(A)+\LUB(B)</m>,
+        where <m>A+B=\{x+y\; | \; x\in A,\; y\in B\}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>L=\LUB(A)</m> and <m>L'=\LUB(B)</m>,
+        we'll show <m>\LUB(A+B)=L+L'</m>.
+        First we show (a) that <m>L+L'</m> is an upper bound for <m>A+B</m>: Note that if <m>z\in A+B</m>,
+        then <m>z=x+y</m> where <m>x\in A</m> and <m>y\in B</m>, so
+        <me>
+          z=x+y\leq L+L'
+        </me>
+        and so <m>L+L'</m> is an upper bound.
+        Now we show (b) that if <m>t\lt L+L'</m>,
+        then there is <m>z\in A+B</m> with <m>z>t</m>.
+        Recall that since <m>L=\LUB(A)</m>,
+        for any <m>s\lt L</m> there is <m>x\in A</m> with <m>x>s</m>,
+        and since <m>L'=\LUB(B)</m>,
+        for any <m>s'\lt L'</m> there is <m>y\in B</m> with <m>y>s'</m>,
+        and so <m>x+y>s+s'</m> and <m>x+y\in A+B</m>.
+        Hence, we just need to find values of <m>s\lt L</m> and
+        <m>s'\lt L'</m> so that <m>s+s= t</m>,
+        since then <m>x+y>s+s'= t</m>.
+        Let's rewrite <m>s</m> and <m>s'</m> as <m>s=L-r</m> and <m>s'=L-'r'</m> where <m>r,r'>0</m>.
+        Then we want to find <m>r,r'>0</m> so that <m>t=s+s'=L+L'-r-r'</m>,
+        i.e. so that <m>r+r'=L+L'-t</m>,
+        so we can just choose <m>r=r'=\frac{L+L'-t}{2}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Determine which of the following sets are bounded or unbounded above.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>A=\{x \in \R\; | \; x^2-3x+2\lt 2\}</m>.
+              <solution>
+                <p>
+                  If <m>x</m> is in <m>A</m>, then
+                  <me>
+                    x^2-3x=x(x-3)\lt 0
+                  </me>
+                  so exactly one of <m>x</m> or <m>x-3</m> is negative,
+                  which is only possible if <m>x-3\lt  0\lt  x</m>.
+                  Thus for all <m>x \in A</m>, <m>0\lt x\lt 3</m>,
+                  so <m>0</m> and <m>3</m> are lower and upper bounds for <m>A</m> respectively.
+                  Therefore <m>A</m> is bounded.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A= \{x \in \R \; | \; \cos x\lt 1/2\}</m>. [You may assume any familiar properties of the cosine function.]
+              <solution>
+                <p>
+                  Note that <m>\cos \left(\frac{\pi}{2}+2\pi n\right)=0</m> for all <m>n\in\mathbb{Z}</m> and so
+                  <m>\frac{\pi}{2}+2\pi n</m> is in <m>A</m> for all <m>n</m>.
+                  In particular, <m>A</m> is unbounded above and below:
+                  if <m>M\in\mathbb{R}</m>,
+                  by the Archimedean property,
+                  we can find <m>n</m> so that <m>2\pi n>M-\frac{\pi}{2}</m>,
+                  i.e. so that <m>2\pi n+\frac{\pi}{2}>M</m>,
+                  hence <m>A</m> is not bounded above.
+                  That it is not bounded below is similar.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A = \{n^2-n \; | \; n\in\mathbb{N}\}</m>.
+              <solution>
+                <p>
+                  If <m>n\in\mathbb{N}</m>, then <m>n\geq 1</m> and so <m>n^2\geq n</m>, i.e.
+                  <m>n^2-n \geq 0</m>,
+                  hence <m>A</m> is bounded below with <m>0</m> being a lower bound.
+                  It is not bounded above.
+                  Indeed, let <m>M \in \R</m>.
+                  Note that for <m>n > 1</m> we have <m>n^2-n=n(n-1)> n</m>,
+                  so by the Archimedean property,
+                  we may find <m>n>\max\{M,1\}</m> such that <m>n^2-n=n(n-1)\geq n>M</m>.
+                  Thus <m>M</m> cannot be an upper bound for <m>A</m>,
+                  and we deduce that <m>A</m> is not bounded above.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>A=\{ab \;\;| \;\;  a, b \in \R, \; a+b=1\}</m>.
+              <solution>
+                <p>
+                  Note that if <m>a+b=1</m>, then <m>b=1-a</m>, so that
+                  <me>
+                    A = \{a(1-a)\;\; |\;\;a\in\mathbb{R}\} = \{- a^2 +a \;\; |\;\;a\in\mathbb{R}\}
+                  </me>.
+                </p>
+                <p>
+                  Which real numbers <m>r</m> are members of this set?
+                  It is precisely those <m>r \in \R</m> such that the quadratic equation
+                  <me>
+                    -a^2 + a =r
+                  </me>
+                  has a real solution.
+                  To figure this out we complete the square:
+                  <me>
+                    -a^2 + a =r \iff -\left(a-\frac{1}{2}\right)^2 = r -\frac{1}{4} \iff \left(a-\frac{1}{2}\right)^2 =\frac{1-4r}{4}
+                  </me>,
+                  and so long as <m>(1-4r)/4 \geq 0</m> <mdash/> that is,
+                  <m>r \leq 1/4</m> <mdash/> it has a real square root by Proposition 2.7.
+                  Thus <m>r \in A</m> if and only if <m>r \leq 1/4</m>.
+                  Therefore
+                  <me>
+                    A = (- \infty, 1/4]
+                  </me>
+                  and this is bounded above
+                  (with <m>1/4</m> as an upper bound)
+                  but not bounded below.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Find the least upper bounds for the following sets:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>\{\frac{1}{n} \; | \; n\in \mathbb{N}\}</m>.
+              <solution>
+                <p>
+                  Note that for <m>n\geq 1</m>,
+                  <m>\frac{1}{n}\leq 1</m>, so <m>1</m> is an upper bound.
+                  Since <m>1</m> is in the set,
+                  it is in fact a maximum and thus equal to the least upper bound.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\{-\frac{1}{n^2} \; | \; n\in\mathbb{N}\}</m>.
+              <solution>
+                <p>
+                  We claim that the LUB is <m>0</m>.
+                  It is clearly an upper bound since all elements of the set are negative.
+                  Now we must show it is the least upper bound:
+                  let <m>t\lt 0</m>, we'll show there is <m>-\frac{1}{n^2}>t</m>.
+                  This is the same as finding <m>n</m> so that <m>n>(-t)^{-1/2}</m>,
+                  which is possible by the Archimedean property.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\{2-x^2 \; | \; x\in \R\setminus\{0\}\}</m>.
+              <solution>
+                <p>
+                  We claim the least upper bound is 2.
+                  Since <m>x^2\geq 0</m>, <m>2-x^2\leq 2</m> for any <m>x\neq 0</m>,
+                  so <m>2</m> is an upper bound.
+                  Now suppose <m>t\lt 2</m>,
+                  we'll show there is <m>x</m> so that <m>2-x^2>t</m>,
+                  i..e. so that <m>x^2\lt 2-t</m>.
+                  Since <m>2-t>0</m>,
+                  we can just set <m>x=\sqrt{\frac{2-t}{2}}</m> and this will work.
+                  This proves <m>2</m> is the least upper bound.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\{x\in\mathbb{Q}: x^2\lt 2\}</m>.
+              <solution>
+                <p>
+                  This is the same as the set of <m>x\in\mathbb{Q}</m> so that
+                  <me>
+                    0>x^2-2=(x-\sqrt{2})(x+\sqrt{2})
+                  </me>
+                  so exactly one of these terms must be negative,
+                  so we must have <m>-\sqrt{2}\lt x\lt \sqrt{2}</m>, that is,
+                  <me>
+                    \{x\in\mathbb{Q}: x^2\lt 2\}=(-\sqrt{2},\sqrt{2})
+                  </me>
+                </p>
+                <p>
+                  We claim the least upper bound is <m>\sqrt{2}</m>:
+                  clearly <m>\sqrt{2}</m> is an upper bound,
+                  so now we must show it is a least upper bound:
+                  let <m>t\lt \sqrt{2}</m>,
+                  we'll show there is <m>x</m> in the set with <m>x>\sqrt{2}</m>.
+                  From Week 1, we saw that for any <m>a\lt b</m>,
+                  there is a rational <m>x</m> with <m>a\lt x\lt b</m>,
+                  so in particular, there is <m>x</m> with <m>t\lt x\lt \sqrt{2}</m>.
+                  This completes the proof that
+                  <m>\sqrt{2}</m> is a LUB. The proof that
+                  <m>-\sqrt{2}</m> is the GLB is similar.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+</section>

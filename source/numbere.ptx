@@ -1,0 +1,49 @@
+<section xml:id="numbere">
+  <title>The number <m>e</m></title>
+  <p>
+    The number <m>e</m>, together with <m>0,1</m> and <m>\pi</m>,
+    is perhaps the most important of all the real numbers.
+    It arose in practical calculations in compound interest when one wants to calculate the interest on a
+    <q>continuous</q>
+    basis rather than on a discrete (annually,
+    monthly, daily, hourly) basis.
+    It is in this context that it arises as the limit of the sequence <m>(a_n)</m>, where
+    <me>
+      a_n = \left(1 + \frac{1}{n}\right)^n
+    </me>.
+  </p>
+  <p>
+    In one of the exercises we shall establish that this sequence does indeed have a limit <m>L</m> such that <m>2 \lt L \lt 4</m>.
+  </p>
+  <p>
+    It was also used as the base for natural logarithms.
+    These were invented as early as 1618 by John Napier in the Merchiston area of Edinburgh.
+  </p>
+  <p>
+    Finally, it arises as the infinite sum
+    <me>
+      e := \sum_{n=0}^\infty \frac{1}{n!}
+    </me>
+    which converges by the comparison test since for <m>n \geq 1</m>
+    <me>
+      \frac{1}{n!}=\frac{1}{n\cdot (n-1)\cdots 2\cdot 1}\leq \frac{1}{2\cdot 2\cdots 2\cdot 1 } = \frac{1}{2^{n-1}}
+    </me>,
+    and the geometric series <m>\sum_{n=1}^{\infty}\frac{1}{2^{n-1}}</m> converges.
+    This is the definition of <m>e</m> which we adopt officially in mathematics.
+    In one of the exercises
+    (quite hard!)
+    we establish that
+    <me>
+      \sum_{n=0}^\infty \frac{1}{n!} = \limn \left(1 + \frac{1}{n}\right)^n
+    </me>,
+    showing that the two definitions of <m>e</m> which we have proposed are in fact the same.
+  </p>
+  <p>
+    What is not clear from either defintion of <m>e</m> is whether it is rational or irrational:
+    it is not clear whether <m>e</m> has a repeating decimal expansion or not from its definition.
+    In the Appendix below we establish that <m>e</m> is in fact irrational.
+    In the Honours Analysis course you will study the more general exponential function which gives a rigorous framework for raising the number <m>e</m> to an arbitrary
+    (not just rational)
+    real power <m>x</m>, and much else besides.
+  </p>
+</section>

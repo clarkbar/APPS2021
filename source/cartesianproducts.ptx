@@ -1,0 +1,64 @@
+<section xml:id="cartesianproducts">
+  <title>Cartesian products</title>
+  <p>
+    When we have two mathematical objects <m>x</m> and <m>y</m>,
+    an ordered pair <m>(x,y)</m> is a way of listing the objects in order,
+    so that <m>(x,y) \neq (y,x)</m>.
+    The main point is that we want
+    <m>(x,y) = (u,v)</m> to hold if and only if both <m>x =u</m> and <m>y = v</m>.
+    This is in contrast with the sets <m>\{x,y\}</m> and <m>\{u,v\}</m>,
+    where the order does not matter:
+    we have <m>\{x,y\} = \{y,x\}</m>.
+  </p>
+  <p>
+    Here is the way we make this set-theoretically sensible:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be sets,
+        and let <m>x \in S</m> and <m>y \in T</m>.
+        Then we define the <term>ordered pair</term>
+        <me>
+          (x,y) = \{\{x\},\{x,y\}\}
+        </me>.
+      </p>
+      <p>
+        The set of all ordered pairs is the
+        <term>cartesian product</term>:
+        <me>
+          X \times Y = \{(x,y) : (x \in X)\wedge (y \in Y)\}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    You have already seen some Cartesian products in ILA:
+    <me>
+      \R^{2} = \{(x,y) : x,y\in\mathbb{R}\} = \mathbb{R}\times \mathbb{R}
+    </me>.
+  </p>
+  <p>
+    A rectangle in <m>\mathbb{R}^{2}</m> can be defined using two intervals,
+    <m>[a,b]</m> in the <m>x</m>-axis and <m>[c,d]</m> in the <m>y</m> axis:
+    <me>
+      [a,b]\times [c,d]=\{(x,y) : (x\in [a,b]) \wedge (y\in [c,d])\}
+    </me>.
+  </p>
+  <p>
+    We can take products of very different sets.
+    For example,
+    <m>\{1,2,...,8\}\times \{Cat,Dog\}</m> is the set of all pairs of numbers between 1 and 8 with either a cat or dog,
+    so elements of the form <m>(2,Dog)</m>, <m>(8,Cat)</m>, etc.
+  </p>
+  <p>
+    We can also define <term>ordered <m>n</m>-tuples</term>:
+    <me>
+      (x_1, \dots, x_n) = \{\{x_1\}, \{x_1,x_2\}, \dots, \{x_1, \dots, x_n\}\}
+    </me>,
+    as well as <m>n</m>-fold cartesian products:
+    <me>
+      A_1 \times \cdots \times A_n =\{(x_1, \dots, x_n) : (\forall i \in \{1,\dots,n\})(x_i \in A_i)\}
+    </me>.
+  </p>
+</section>

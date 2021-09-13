@@ -1,0 +1,175 @@
+<section xml:id="rationals">
+  <title>The rationals and irrationals</title>
+  <p>
+    The next important subset of the reals is the <term>rationals</term>:
+    <me>
+      \mathbb{Q} = \left\{\frac{a}{b} \;|\; a,b\in \mathbb{Z},\; b\neq 0\right\}
+    </me>
+  </p>
+  <p>
+    While we can multiply and add integers together,
+    <m>\mathbb{Z}</m> not a field since (M4) fails:
+    given an integer <m>x</m> we can't find another <term>integer</term>
+    <m>y</m> with <m>xy=1</m>.
+    The rationals is the smallest subset of <m>\mathbb{R}</m> that contains
+    <m>\mathbb{Z}</m> and <term>is</term> a field.
+    Indeed, if we add two rationals
+    <m>\frac{a}{b}</m> and <m>\frac{c}{d}</m> we get
+    <me>
+      \frac{a}{b}+\frac{c}{d} = \frac{ad}{bd}+\frac{cb}{db} = \frac{ad+cb}{bd}\in\mathbb{Q}
+    </me>
+    so (A0) holds, and similarly (M0) holds since
+    <me>
+      \frac{a}{b}\cdot \frac{c}{d}=\frac{ac}{bd}\in\mathbb{Q}
+    </me>.
+  </p>
+  <p>
+    The other axioms can easily be checked as well.
+  </p>
+  <p>
+    The rationals are <term>dense</term>
+    in the reals in the following sense:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Given any two real numbers <m>a\lt b</m>,
+        there is <m>r\in\mathbb{Q}</m> with <m>a\lt r\lt b</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    <term>Idea for proof:</term> Imagine placing dots along the real line equally spaced apart by a distance <m>d</m> with <m>d\lt b-a</m>.
+    Notice that the interval between <m>a</m> and <m>b</m> is of length bigger than <m>d</m>,
+    so one of the dots in this progression must land in this interval
+    (otherwise, it would have to make a jump a distance at least <m>b-a</m> to avoid the interval).
+    Now let's give the real proof:
+  </p>
+  <proof>
+    <p>
+      Since <m>b>a</m>, <m>b-a>0</m>,
+      and by the Archimedean property,
+      there is <m>n\in  \mathbb{Z}</m> with <m>n>\frac{1}{b-a}</m>,
+      and so <m>\frac{1}{n}\lt b-a</m>.
+      Let's look at the numbers <m>\{j/n:j\in\mathbb{Z}\}</m>:
+      they are equally spaced along the real line by a distance <m>\frac{1}{n}</m>.
+      Now we need to find one of them between <m>a</m> and <m>b</m>.
+      We pick the last one before <m>b</m>, that is,
+      we let <m>j</m> be the largest integer so that <m>\frac{j}{n}\lt b</m>.
+      We claim that <m>\frac{j}{n}>a</m> (which will then finish the theorem,
+      as now we have a rational <m>\frac{j}{n}</m> between <m>a</m> and <m>b)</m>.
+      We prove by contradiction: If <m>\frac{j}{n}\leq a</m>, then
+      <me>
+        \frac{j+1}{n}=\frac{j}{n}+\frac{1}{n}\leq a+\frac{1}{n}\lt a+(b-a)=b
+      </me>,
+      but then <m>j</m> wasn't the largest integer for which <m>\frac{j}{n}\lt b</m>,
+      since <m>\frac{j+1}{n}</m> is,
+      too, and so we get a contradiction.
+      Thus, <m>\frac{j}{n}>a</m>.
+    </p>
+  </proof>
+  <p>
+    In other words,
+    no matter how small an interval <m>(a,b)</m> that we look at<fn>
+    The notation <m>(a,b)</m> here means <m>\{ x \in \mathbb{R} : a \lt x \lt b\}</m>.
+    </fn>,
+    we can always find a rational number inside.
+    However, not all real numbers are rational numbers.
+    A real number is said to be <term>irrational</term>
+    if it is not a rational number.
+    In other words,
+    the set of irrational numbers is the set <m>\mathbb{R} \setminus \mathbb{Q}</m>.
+  </p>
+  <p>
+    The first known irrational number is <m>\sqrt{2}</m>,
+    that is, the positive real number whose square is <m>2</m>.
+    We will actually prove that
+    <m>\sqrt{2}</m> exists in a couple weeks.
+    For now, let us assume this fact and prove that it is irrational:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        The number <m>\sqrt{2}</m> is irrational.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We prove by contradiction.
+      Assume <m>\sqrt{2}</m> is rational,
+      so there are integers <m>p</m> and <m>q\neq 0</m> so that <m>\sqrt{2}=\frac{p}{q}</m>.
+      By reducing the fractions,
+      we can assume <m>p</m> and <m>q</m> share no common factor.
+      Squaring both sides gives
+      <me>
+        2=\frac{p^{2}}{q^2,}
+      </me>
+      whence <m>2q^2=p^2</m>.
+      This means that <m>p^2</m> is even, so <m>p</m> must be even
+      (otherwise, <m>p</m> is odd,
+      and we have already proved that the square of an odd number is odd).
+      Thus, <m>p=2r</m> for some integer <m>r</m>,
+      so the above equation gives
+      <me>
+        2q^2=p^2=(2r)^2=4r^2
+      </me>,
+      whence <m>q^2=2r^2</m>.
+      Again, this means <m>q</m> is also even,
+      but now <m>p</m> and <m>q</m> are both divisible by <m>2</m>,
+      contradicting our assumption that they shared no common factor.
+      Thus, <m>\sqrt{2}</m> must be irrational.
+    </p>
+  </proof>
+  <p>
+    This is just one irrational number,
+    but the next proposition says that we can construct infinitely many irrational numbers just from one:
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>a</m> be rational and <m>b</m> be irrational.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>a+b</m> is irrational.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>a\neq 0</m>, then <m>ab</m> is irrational.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      We just prove (a) as (b) is similar.
+      Suppose <m>a+b</m> is rational.
+      Then
+      <me>
+        b=0+b=(-a+a)+b=-a+(a+b)
+      </me>
+      that is, <m>b</m> is a sum of two rational numbers:
+      <m>-a</m> and <m>a+b</m>, so it is rational,
+      and we get a contradiction since <m>b</m> is irrational.
+      Thus <m>a+b</m> is irrational.
+    </p>
+  </proof>
+  <p>
+    There are of course many other irrational numbers out there like <m>e</m> and <m>\pi</m>.
+    Interestingly,
+    there are some numbers that seem like they should be irrational but to this date we still don't know.
+    For example,
+    it is unknown whether the following numbers are irrational:
+    <me>
+      \pi\pm e,\;\;  \pi e,\;\;  \pi/e,\;\; \pi^e,\;\; \pi^{\sqrt{2}},\;\; \pi^\pi,\;\; e^{\pi^2}, \;\; 2^{e},\;\; e^{e}
+    </me>.
+  </p>
+  <p>
+    We will discuss how to construct many irrational numbers not involving <m>e</m>,
+    <m>\pi</m>, in the coming weeks when we discuss decimals.
+  </p>
+</section>

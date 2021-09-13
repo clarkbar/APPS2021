@@ -1,0 +1,165 @@
+<section xml:id="sups">
+  <title>Least Upper Bounds</title>
+  <p>
+    Note that a nonempty set which is bounded above will have many upper bounds:
+    if <m>M</m> is an upper bound for a set <m>A</m>,
+    so is every <m>t\geq M</m>.
+    It is often useful to know what is the best or
+    <term>least</term> upper bound for a set.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given a nonempty set <m>A\subseteq \mathbb{R}</m>,
+        a number <m>L</m> is a <term>least upper bound</term>
+        (LUB) or <term>supremum</term> for <m>A</m> if
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>L</m> is an upper bound for <m>A</m>, that is,
+              <m>x\leq L</m> for all <m>x\in A</m>, and
+            </p>
+          </li>
+          <li>
+            <p>
+              for all <m>t\lt L</m>, <m>t</m> is not an upper bound,
+              that is, there is <m>x\in A</m> so that <m>x>t</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        Similarly, we say <m>L</m> is a
+        <term>greatest lower bound</term>
+        (GLB) or <term>infimum</term> for <m>A</m> if
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>L</m> is a lower bound for <m>A</m>, that is,
+              <m>x\geq L</m> for all <m>x\in A</m>, and
+            </p>
+          </li>
+          <li>
+            <p>
+              for all <m>t>L</m>, <m>t</m> is not a lower bound,
+              that is, there is <m>x\in A</m> so that <m>x\lt t</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        If an LUB exists for a set <m>A</m>,
+        we denote it by <m>\LUB(A)</m>.
+        Similarly, we denote a GLB for <m>A</m> by <m>\GLB(A)</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In other words,
+    <m>L</m> is a least upper bound for a set <m>A</m> if and only if it is the mimimum of all upper bounds for <m>A</m>.
+    This allows us to speak of <term>the</term>
+    LUB of a set rather than <term>an</term>
+    LUB. When proving that a number is the LUB for some set,
+    we follow a two-step process of verifying conditions (a) and (b) in the definition.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the set <m>[0,1)</m>.
+        The least upper bound is <m>1</m> since (a) <m>1</m> is clearly an upper bound for the set by the definition of <m>[0,1)</m> and (b) if <m>t\lt 1</m>,
+        then <m>t</m> is not an upper bound,
+        since we can find <m>x\in [0,1)</m> bigger than <m>t</m>:
+        if <m>t\lt 0</m>, we can just take <m>x=0</m>;
+        otherwise, if <m>0\leq t\lt 1</m>,
+        then <m>\frac{1+t}{2}\in [0,1)</m> is larger than <m>t</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>S=\{x\in\mathbb{Q} \; | \; x\lt 0\}</m>.
+        We claim that <m>\LUB(S)=0</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Since every <m>x\in S</m> is negative by definition,
+              <m>0</m> is an upper bound.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>t\lt 0</m>, we need to show <m>t</m> is not an upper bound.
+              Recall from Week 1 that every interval contains a rational,
+              so in particular,
+              the interval <m>(t,0)</m> contains a rational <m>r</m>,
+              and since <m>r\lt 0</m>, we know <m>r\in S</m>.
+              Since <m>r>t</m>, <m>t</m> is not an upper bound for <m>S</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>A=\{\frac{1}{n} \; | \; n\in\mathbb{N}\}</m>,
+        we claim that <m>\GLB(A)=0</m>.
+      </p>
+      <p>
+        Again, we verify the two conditions of being a GLB:
+        <ol label="labelalph">
+          <li>
+            <p>
+              Since <m>\frac{1}{n}>0</m> for all <m>n\in\mathbb{N}</m>,
+              <m>0</m> is clearly a lower bound for <m>A</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Next, we need to show each <m>t>0</m> is not a lower bound, that is,
+              that there is <m>\frac{1}{n} \in A</m> with <m>\frac{1}{n}\lt t</m>.
+              Let <m>t>0</m>.
+              By the Archimedean property,
+              we can find <m>n\in\mathbb{N}</m> so that <m>n>\frac{1}{t}</m>,
+              and so <m>\frac{1}{n}\lt t</m>.
+              Since <m>\frac{1}{n}\in A</m>,
+              this proves <m>t</m> is not a lower bound.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+  <p>
+    Given that a maximum or minimum of a set need not exist,
+    why should the least upper bound
+    (which is just the minimum of all upper bounds)
+    exist at all?
+    It turns out that this is an important axiom for the real numbers which we shall need to assume,
+    and it cannot be derived from any of the axioms we have assumed so far: \begin{tcolorbox} {
+    <em>Completeness Axiom for the real numbers:</em>
+    Every nonempty subset of <m>\mathbb{R}</m> which is bounded above has a least upper bound. } \end{tcolorbox}
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Why does the completeness axiom imply that every nonempty subset of
+        <m>\mathbb{R}</m> which is bounded below has a GLB?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        See Exercise 5.3 (c) below.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    An important consequence of the Completeness Axiom is the existence of <m>n</m>'th roots of positive real numbers as described in Proposition 2.7.
+    We will establish this as Theorem 6.5.
+    Another very important consequence of the Completeness Axiom for the real numbers is the Archimedean property which we mentioned earlier.
+    We will visit this implication later.
+    For now you should feel free to use the Archimedean property in the exercises below.
+  </p>
+</section>

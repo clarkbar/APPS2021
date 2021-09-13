@@ -1,0 +1,205 @@
+<section xml:id="equivalencerels">
+  <title>Equivalence Relations</title>
+  <p>
+    In this section we will talk about relations.
+    A relation, loosely speaking,
+    is a way two things are connected to each other,
+    and there are many different ways that things can be related.
+    The relation
+    <q>=</q>
+    is an example, two things are related via
+    <q>=</q>
+    if they are actually equal.
+    Another example is the relationship that one number is at most another,
+    and we write <m>a\leq b</m> when we want to say <m>a</m> and <m>b</m> are related in this way.
+    A less mathematical example is the relation
+    <q>daughter of,</q>
+    so for example
+    <q><m>a</m> is the daughter of <m>b</m>,</q>
+    let's denote this relationship by <m>a\sim b</m>.
+  </p>
+  <p>
+    Now we give a precise definition of a relation.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>relation</term> <m>R</m> on a set <m>S</m> is just a subset of <m>S\times S</m>.
+        Given <m>a,b\in S</m>, we write <m>aRb</m> if <m>(a,b)\in R</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    This may seem like a strange way of defining relations,
+    but this definition encapsulates what we do when we define a relation:
+    a relation is a specific way of pairing up elements of a set.
+    In the earlier example,
+    the daughter-of relation is the set of all pairs of people <m>(a,b)</m> where <m>a</m> is the daughter of <m>b</m>.
+    Another familiar example is <m>\leq</m>:
+    we declare <m>a\leq b</m> if the pair <m>(a,b)</m> is among the set of pairs where <m>a</m> is at most <m>b</m>.
+  </p>
+  <p>
+    Below we mention some important properties relations can have:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a set.
+        Let <m>\sim</m> be a relation on <m>S</m>.
+        We say <m>\sim</m> is
+        <ul>
+          <li>
+            <p>
+              <term>reflexive</term> if <m>a\sim a</m> for all <m>a\in S</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>symmetric</term> if for all <m>a</m> and <m>b</m> in <m>S</m>,
+              we have <m>a\sim b \Longleftrightarrow b\sim a</m>, and
+            </p>
+          </li>
+          <li>
+            <p>
+              <term>transitive</term> if for all <m>a</m>,
+              <m>b</m>, <m>c</m> in <m>S</m>,  we have
+              <me>
+                a\sim b\sim c\Longrightarrow  a\sim c
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        If <m>\sim</m> satisfies all three of these properties,
+        we say <m>\sim</m> is an <term>equivalence relation</term>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The relations we discussed earlier satisfy different combinations of these properties.
+  </p>
+  <example>
+    <statement>
+      <p>
+        \item Equality is an equivalence relation.
+        We also showed last week that
+        <m>\equiv \mod m</m> is an equivalence relation. \item <m>\leq</m> is reflexive and transitive but not symmetric
+        (<m>1\leq 2</m> but <m>2\not\leq 1</m>). \item The daughter-of relation <m>\sim</m> is not symmetric:
+        if <m>a</m> is the daughter of <m>b</m>,
+        then <m>b</m> is certainly not the daughter of <m>a</m>,
+        and it is certainly not reflexive since no one is the daughter of themselves.
+        Also,and the daughter-of relation is not transitive
+        (if <m>a</m> is the daughter of <m>b</m> and <m>b</m> is the daughter of <m>c</m>,
+        that does not mean <m>a</m> is the daughter of <m>c</m>).
+      </p>
+    </statement>
+  </example>
+  <p>
+    The moral here is that a relation does not necessarily satisfy all or any of the three properties above.
+    So whenever we define a relation,
+    we need to check these properties carefully.
+  </p>
+  <note>
+    <title>Disproving properties</title>
+    <p>
+      Remember that to disprove a statement like <m>\forall x\;\; P</m>,
+      you want to prove the negation,
+      which is <m>\exists x\mbox{ s.t. } \bar{P}</m>.
+      Hence, to disprove a property like symmetry,
+      it suffices to just find <term>one</term>
+      pair <m>a</m> and <m>b</m> for which <m>a\sim b</m> but <m>b\not\sim a</m>.
+      In the previous example,
+      clearly <m>\leq</m> does not satisfy symmetry for more than just the numbers <m>1</m> and <m>2</m>,
+      but to verify that symmetry fails,
+      we only need to show it fails for one pair.
+    </p>
+  </note>
+  <p>
+    <em>Why care?</em> Relations and equivalence relations come about when there is a collection of objects and you would like to treat many of them as really the same object.
+    Take for example the rational numbers <m>\mathbb{Q}</m>,
+    these are the sets of fractions <m>\frac{p}{q}</m> where
+    <m>p\in\mathbb{Z}</m> and <m>q\in \mathbb{N}</m>.
+    But notice that the notation
+    <m>\frac{p}{q}</m> is really just an ordered pair,
+    we could have also just written <m>(p,q)</m>.
+    But we know that several fractions should give the same number,
+    that is <m>\frac{2}{1}=\frac{4}{2}</m>.
+    Really what we're doing here is defining an equivalence relation
+    <q>=</q>
+    by saying <m>\frac{p}{q}=\frac{r}{s}</m> if there is an integer <m>a</m> so that either
+    <m>(p,q)=(ar,as)</m> or <m>(r,s)=(ap,aq)</m>.
+    We will also see in the next chapter that functions are also relations.
+    You'll see more important examples in future classes.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        If <m>\sim</m> is an equivalence relation on a set <m>S</m> and <m>x\in S</m>,
+        the <term>equivalence class</term> of <m>x</m> is
+        <me>
+          \cl(x) = \{y\in S : x\sim y\}
+        </me>.
+      </p>
+      <p>
+        The set of <term>equivalence classes</term>
+        is the set <m>X/{\sim} = \{\cl(x) : x\in S\}</m>.
+        This set comes with a map <m>\cl \colon X \to X/{\sim}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As long as <m>X \neq \varnothing</m> the map <m>\cl</m> is a surjection.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the relation on people that <m>a\sim b</m> if <m>a</m> and <m>b</m> were born in the same country.
+        One can check this is an equivalence relation.
+        What if we want to describe the equivalence classes?
+        We could just say
+        <q>they are the sets <m>\cl(x)</m> where <m>x</m> ranges over all people</q>
+        but this is not helpful in general;
+        this says no more about the relation or what the classes look like than making the same statement about any other relation.
+        A more natural way of describing the equivalence classes is that they are just the sets of people born in a given country, that is,
+        they are the sets <m>A_x</m> of people born in country <m>x</m> as <m>x</m> ranges over all countries.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Note that in the previous example,
+    the relation partitioned people into disjoint groups based on their country of birth.
+    This happens with all equivalence relations.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the equivalence relation on <m>\mathbb{Z}</m> defined by
+        <m>\equiv \mod m</m> where <m>m\in\mathbb{N}</m>.
+        What are the equivalence classes?
+        If <m>x\in \mathbb{Z}</m>,
+        then the equivalence class associated to <m>x</m> is
+        <md>
+          <mrow>\cl(x) \amp   =\{ y\in\mathbb{Z} : x\equiv y \mod m\}</mrow>
+          <mrow>\amp  = \{y\in\mathbb{Z} : y=x+mj\mbox{ for some integer } j\}</mrow>
+          <mrow>\amp  = \{x+mj : j\in\mathbb{Z}\}</mrow>
+        </md>.
+      </p>
+      <p>
+        Notice that for each <m>x</m> there is
+        <m>i\in \{0,1,...,m-1\}</m> so that <m>x\equiv i\mod m</m>,
+        and so <m>\cl(x) = \cl(i)</m>.
+        Thus, all equivalence classes are one of
+        <me>
+          \cl(0),\cl(1),...,\cl(m-1)
+        </me>
+        that is, they are the sets of arithmetic progressions of the form
+        <m>...,i-2m,i-m,i,i+m,i+2m,..</m>. for some <m>i\in \{0,1...,m-1\}</m>.
+        Observe that <m>i \mapsto \cl(i)</m> defines a bijection from
+        <m>\Z/m = \{0,1,\dots,m\}</m> to the set <m>\{\cl(0),\dots,\cl(m-1)\}</m>.
+        In this way, we think of <m>\Z/m</m> as the
+        <q>set of integers, modulo <m>m</m>.</q>
+      </p>
+    </statement>
+  </example>
+</section>

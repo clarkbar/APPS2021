@@ -1,0 +1,93 @@
+<section xml:id="inequalitiesredux">
+  <title>Inequalities revisited</title>
+  <p>
+    Powered with induction, we can now prove some more useful inequalities.
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        Suppose <m>x,y>0</m> and <m>n\in\mathbb{N}</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>x^n>y^n</m> if and only if <m>x>y</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>x^{\frac{1}{n}}>y^{\frac{1}{n}}</m> if and only if <m>x>y</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>x,y>0</m>.
+      <ol label="labelalph">
+        <li>
+          <p>
+            First we show <m>x>y</m> implies <m>x^n>y^n</m>.
+            We prove this by induction.
+            The <m>n=1</m> case is trivial.
+            Suppose the claim is true for some integer <m>n</m>,
+            we will prove the <m>n+1</m> case.
+            Let <m>x>y>0</m>.
+            Then
+            <me>
+              x^{n+1}-y^{n+1} =y^{n+1}\left(\left(\frac{x}{y}\right)^{n+1}-1\right)
+            </me>.
+            Let <m>a=\frac{x}{y}</m>.
+            Since <m>x>y>0</m>, <xref ref="p_1_x_0">Proposition</xref>
+            implies <m>1/y>0</m> and  <xref ref="p_xu_xv">Proposition</xref>
+            implies <m>x\cdot \frac{1}{y}>y\cdot\frac{1}{y}</m>,
+            that is, <m>\frac{x}{y}>1</m>.
+            Letting <m>a=\frac{x}{y}</m>,
+            <me>
+              x^{n+1}-y^{n+1} =y^{n+1}\left(a^{n+1}-1\right) =y^{n+1}(a^{n}a-1) \geq y^{n+1}(a^{n}\cdot 1-1) = y^{n+1}(a^{n}-1)
+            </me>.
+            By the induction hypothesis, we know <m>x^n>y^n</m>,
+            which implies <m>a^{n}=\frac{x^{n}}{y^{n}}>1</m>,
+            so the above quantity is positive.
+            Thus, <m>x>y>0</m> implies <m>x^n>y^n</m>.
+            The converse statement is <m>x^n>y^n</m> implies <m>x>y</m>,
+            which is equivalent to the contrapositive statement that <m>x\leq y</m> implies <m>x^{n}\leq y^{n}</m>.
+            If <m>x=y</m>, then clearly <m>x^n=y^n</m>;
+            if <m>x\lt y</m>,
+            then <m>x^n\lt y^n</m> follows from the above proof.
+          </p>
+        </li>
+        <li>
+          <p>
+            By part (a),
+            <m>x^{\frac{1}{n}}>y^{\frac{1}{n}}</m> if and only if
+            <m>(x^{\frac{1}{n}})^{n}>(y^{\frac{1}{n}})^{n}</m>, that is,
+            <m>x>y</m>.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+  <p>
+    Let's finish proving the Cauchy-Schwarz inequality:
+    <me>
+      x_{1}y_{1}+\cdots + x_{n}y_{n} \leq \sqrt{x_{1}^2+\cdots + x_{n}^{2}} \sqrt{y_{1}^2+\cdots + y_{n}^{2}} \;\;\; \mbox{ for }  \;\;\; x_{1},...,x_{n},y_{1},...,y_{n}\in\mathbb{R}
+    </me>.
+  </p>
+  <p>
+    We prove this by Strong Induction.
+    We already proved the base case <m>n=2</m>.
+    Suppose we have shown the above inequality for <m>n=2,3,...,N</m>.
+    By applying the <m>n=N</m> and <m>n=2</m> cases in succession,
+    <md>
+      <mrow>x_{1}y_{1}+\cdots + x_{N}y_{N}+x_{N+1}y_{N+1} \amp  \leq \sqrt{x_{1}^2+\cdots + x_{N}^{2}} \sqrt{y_{1}^2+\cdots + y_{N}^{2}}+x_{N+1}y_{N+1}</mrow>
+      <mrow>\amp  \leq  \left(  \sqrt{x_{1}^2+\cdots + x_{N}^{2}}^{2}+x_{N+1}^{2}\right)^{\frac{1}{2}} \left(  \sqrt{y_{1}^2+\cdots + y_{N}^{2}}^{2}+y_{N+1}^{2}\right)^{\frac{1}{2}}</mrow>
+      <mrow>\amp  =\left(x_{1}^{2}+\cdots + x_{N}^{2}+x_{N+1}^{2}\right)^{\frac{1}{2}} \left(y_{1}^{2}+\cdots + y_{N}^{2}+y_{N+1}^{2}\right)^{\frac{1}{2}}</mrow>
+    </md>
+  </p>
+  <p>
+    This proves the induction step,
+    and thus proves the Cauchy-Schwarz inequality.
+  </p>
+</section>

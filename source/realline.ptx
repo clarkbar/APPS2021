@@ -1,0 +1,8 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="realline">
+  <title>The Real Line</title>
+  <xi:include  href="realnumbers.ptx"/>
+  <xi:include  href="archimedeanproperty.ptx"/>
+  <xi:include  href="rationals.ptx"/>
+  <xi:include  href="roots.ptx"/>
+  <xi:include  href="realexercises.ptx"/>
+</chapter>

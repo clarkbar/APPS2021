@@ -1,0 +1,100 @@
+<section xml:id="pythagoreantriples">
+  <title>Application: Pythagorean Triples*</title>
+  <p>
+    In this section we will classify all Pythagorean Triples, that is,
+    all positive integer solutions to
+    <me>
+      x^2+y^2=z^2
+    </me>.
+  </p>
+  <p>
+    This is a bit more involved than other diophantine problems and harder to figure out on your own on a homework problem
+    (so it is not required reading),
+    but we'll give a proof here since it's a neat application of what we've learned and can test your knowledge of the material in this chapter.
+  </p>
+  <p>
+    We narrow down the solutions in a few steps:
+    <ul>
+      <li>
+        <p>
+          If <m>x=0</m>,
+          then we must have <m>y^2=z^2</m>, and so <m>y=\pm z</m>.
+          Thus, we know all solutions if <m>x=0</m>,
+          so let's assume <m>x> 0</m>.
+          Similarly, we can assume <m>y,z> 0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          We can assume that <m>x,y</m> and <m>z</m> are coprime
+          (that is, no two of them share a common factor other than <m>1</m>).
+          To see this, suppose <m>d=\gcd(x,y)</m>.
+          Then <m>a=x/d</m> and <m>b=y/d</m> are coprime, and then
+          <me>
+            z^2= x^2+y^2 = d^2(a^2+b^2)
+          </me>.
+          By <xref ref="t_abn">Theorem</xref>,
+          <m>a^2+b^2=c^2</m> for some integer <m>c</m>,
+          and so <m>z^2=d^2 c^2=(cd)^2</m>.
+          Hence, <m>(x,y,z)=(da,db,dc)</m> for some other Pythagorean Triple <m>(a,b,c)</m> where <m>a</m> and <m>b</m> are coprime.
+          Thus, if we find all solutions <m>(x,y,z)</m> where <m>x</m> and <m>y</m> are coprime,
+          then all other solutions are multiples of these.
+          A similar proof shows that all solutions will be multiples of solutions where <m>x</m> and <m>z</m> are coprime and where <m>y</m> and <m>z</m> are coprime.
+        </p>
+      </li>
+      <li>
+        <p>
+          Thus, assume <m>x,y</m>,
+          and <m>z</m> are coprime and positive solutions to <m>x^2+y^2=z^2</m>.
+          Then either <m>x</m> or <m>y</m> is odd, assume it is <m>x</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          We now claim <m>z+y</m> and <m>z-y</m> are coprime.
+          Suppose not.
+          Then there is a prime <m>q</m> that divides them both.
+          But then
+          <me>
+            q\text{ divides } (z+y)-(z-y) = 2y,\;\; q\text{ divides }  (z+y)+(z-y) = 2z
+          </me>.
+          Since <m>y</m> and <m>z</m> are coprime, <m>q=2</m>.
+          But then
+          <me>
+            2\text{ divides } (z-y)(z+y)=z^{2}-y^{2}=x^{2}
+          </me>
+          which implies <m>x</m> is even, a contradiction.
+        </p>
+      </li>
+      <li>
+        <p>
+          Since <m>z\pm y</m> are coprime and <m>x^{2}=(z+y)(z-y)</m>,
+          we know that <m>z+y=s^{2}</m> and
+          <m>z-y=t^{2}</m> for some integers <m>s</m> and <m>t</m> by <xref ref="t_abn">Theorem</xref>.
+          Hence,
+          <me>
+            z=\frac{z+y+z-y}{2} = \frac{s^{2}+t^{2}}{2}
+          </me>
+          Similarly, <m>y=\frac{s^{2}-t^{2}}{2}</m>, and finally,
+          <me>
+            x^{2} =(z-y)(z+y) = s^{2}t^{2}
+          </me>.
+          Thus, all positive coprime solutions with <m>x</m> odd are of the form
+          <me>
+            (x,y,z) = \left( st, \frac{s^2-t^2}{2}, \frac{s^{2}+t^{2}}{2}\right)
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, we now recall that all solutions are multiples of these soluitions,
+          thus all Pythagorean Triples are of the form
+          <me>
+            (x,y,z) = \left( as t, a\frac{s^2-t^2}{2}, a\frac{s^{2}+t^{2}}{2}\right)
+          </me>
+          where <m>a,s,t</m> are integers.
+        </p>
+      </li>
+    </ul>
+  </p>
+</section>

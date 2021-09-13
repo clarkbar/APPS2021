@@ -1,0 +1,221 @@
+<section xml:id="multiplicationprinciple">
+  <title>The Multiplication Principle</title>
+  <p>
+    Suppose I toss a coin twice:
+    the total number outcomes is 4, since there are 2 outcomes for what the first coin can be
+    (heads or tails),
+    and then 2 outcomes for what the second coin can be.
+    Hence the overall outcomes are (T,T), (T,H), (H,T), and (H,H), of which there are 4.
+  </p>
+  <p>
+    We can generalise this to events that involve more than just two possible outcomes:
+    if I roll a 6-sided die and then an 8-sided die,
+    the total number of outcomes is <m>6\cdot 8=48</m>.
+    I can figure this out because,
+    for each of the outcomes for the first die
+    (either <m>1, 2, \dots , \mbox{ or } 6</m>),
+    there are 8 possible outcomes for the second die,
+    and so the total of all possible outcomes is <m>48</m>.
+    We can generalise this idea using the
+    <term>multiplication principle</term>.
+  </p>
+  <theorem>
+    <title>Multiplication Principle</title>
+    <statement>
+      <p>
+        Let <m>P</m> be a process consisting of <m>n</m> stages such that at each stage <m>i</m>,
+        there are <m>a_{i}</m> choices we can make,
+        and no two distinct choices can result in the same outcome.
+        Then after <m>n</m> stages,
+        the total number of outcomes is <m>a_{1}\cdot a_{2}\cdots a_{n}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We prove this by induction on <m>n</m>.
+      For <m>n\in \mathbb{N}</m>, let <m>P(n)</m> be the claim that,
+      if <m>P</m> is a process consisting of <m>n</m> stages such that at each stage <m>i</m>,
+      there are <m>a_{i}</m> choices we can make,
+      then there are <m>a_{1}\cdots a_{n}</m> outcomes.
+      <ul>
+        <li>
+          <title>\textbf{Base case:}</title>
+          <p>
+            If <m>n=1</m>,
+            then <m>P</m> is a process of one stage where there are just <m>a_{1}</m> choices,
+            and so there are only <m>a_{1}</m> many outcomes.
+            This proves the base case.
+          </p>
+        </li>
+        <li>
+          <title>\textbf{Inductive step:}</title>
+          <p>
+            Suppose <m>P(n)</m> is true for some <m>n\in \mathbb{N}</m>.
+            Suppose now <m>P</m> is a process with <m>n+1</m> stages and the <m>i</m>th stage has <m>a_{i}</m> choices.
+            Note that if we stop the process before the last stage,
+            we will have performed a process with <m>n</m> stages and for each <m>i=1, \dots ,n</m>,
+            there are <m>a_{i}</m> choices.
+            Then the induction hypothesis implies that there are <m>a_{1}\cdots a_{n}</m> outcomes.
+            However, for each outcome of the first <m>n</m> stages,
+            there are now <m>a_{n+1}</m> choices we can make.
+            So the total number of outcomes after the <m>n+1</m> stage is the total number of outcomes after <m>n</m> steps times the total number of outcomes that can happen from each of those outcomes,
+            that is <m>(a_{1}\cdots a_{n})\cdot a_{n+1}</m>.
+            This proves <m>P(n+1)</m> and finishes the proof.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </proof>
+  <p>
+    This seems quite abstract, but let's look at a simple example.
+  </p>
+  <proposition xml:id="c_1">
+    <statement>
+      <p>
+        Let <m>S</m> have <m>n</m> elements.
+        Then the number of subsets of <m>S</m> is <m>2^{n}</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>S</m> be a set of <m>n</m> elements and list the elements as <m>S=\{s_{1}, \dots ,s_{n}\}</m>.
+    </p>
+    <p>
+      Let us define a process for picking a subset <m>A</m> of <m>S</m>:
+      at each stage <m>i=1,2,\dots ,n</m>,
+      we decide whether to add <m>s_{i}</m> to our set or exclude it.
+      At the end of the process, we will have picked a subset of <m>A</m>,
+      and every subset of <m>A</m> is the outcome of such a process.
+      By the Multiplication Principle,
+      since there are <m>2</m> choices we can make at each stage,
+      there are <m>2\cdot 2\cdots 2=2^{n}</m> many outcomes for what <m>A</m> we could have chosen.
+      Thus, there are <m>2^{n}</m> sets.
+    </p>
+  </proof>
+  <p>
+    If <m>S</m> is a finite set consisting of exactly <m>n</m> distinct members,
+    we call <m>n</m> the <term>cardinality</term> or <term>size</term>
+    of <m>S</m> and we denote this by <m>|S| = n</m> (or in some texts by <m>\#(S) =n</m>).
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S = \{a_1, \dots , a_n\}</m> be a set of <m>n</m> distinct objects.
+        An <term>ordering</term>
+        (or <term>arrangement</term>)
+        of <m>S</m> is a sequence <m>(a_{1}, \dots ,a_{n})</m> in which each element of <m>S</m> appears exactly once.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For example <m>(1,3,2)</m> and <m>(3,2,1)</m> are orderings of <m>\{1,2,3\}</m>.
+    We can use the multiplication principle to count the number of orderings of <m>S</m>:
+  </p>
+  <example>
+    <statement>
+      <p>
+        How many ways are to order the set <m>\{1,2,3\}</m>?
+      </p>
+      <p>
+        What we do is develop a process for constructing all of the orderings.
+        Suppose we would like to choose an ordering
+        <m>(a_{1},a_{2},a_{3})</m> where the <m>a_{i}</m> are distinct integers in <m>\{1, 2, 3\}</m>.
+        We divide the process into 3 stages,
+        where in the <m>i</m>th stage we pick the number <m>a_{i}</m> for our ordering.
+        <ul>
+          <li>
+            <title>Stage 1:</title>
+            <p>
+              There are <m>3</m> choices for <m>a_{1}</m>: either 1, 2, or 3.
+            </p>
+          </li>
+          <li>
+            <title>Stage 2:</title>
+            <p>
+              Having chosen <m>a_{1}</m>,
+              there are now only 2 numbers remaining that we could pick to be <m>a_{2}</m>.
+              So there are 2 choices for <m>a_2</m>.
+            </p>
+          </li>
+          <li>
+            <title>Stage 3:</title>
+            <p>
+              Having chosen <m>a_{1}</m> and <m>a_{2}</m> there is now only one choice for <m>a_{3}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus, by the multiplication principle,
+        there are <m>3\cdot 2\cdot 1 = 6</m> outcomes,
+        that is, <m>6</m> orderings.
+      </p>
+    </statement>
+  </example>
+  <p>
+    In fact, more generally, we have the following:
+  </p>
+  <theorem>
+    <title>Ordering Theorem</title>
+    <statement>
+      <p>
+        Given a set <m>S</m> of <m>n</m> distinct objects,
+        there are <m>n!</m> ways of ordering them.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    This is a special case of the following proposition, (part (b) with <m>k=m</m>).
+  </p>
+  <proposition xml:id="p_n_k">
+    <statement>
+      <p>
+        Let <m>S</m> be a set with <m>n</m> elements and let <m>0\leq k\leq n</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              The number of ways of picking an ordered selection of <m>k</m> elements from <m>S</m> (i.e. an ordered list of elements <m>(a_{1}, \dots ,a_{k})</m>,
+              possibly with repetitions, with <m>a_i\in S</m>) is <m>n^{k}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The number of ways of picking an ordered selection of <m>k</m> <term>distinct</term>
+              elements from <m>S</m> is <m>n(n-1)\cdots (n-k+1) = \frac{n!}{(n-k)!}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          We count these possibilities using a <m>k</m>-step process:
+          there are <m>n</m> options for <m>a_1</m>,
+          <m>n</m> options for <m>a_2</m>, and so on.
+          The Multiplication Principle tells us that there are <m>n\cdot n\cdots n = n^{k}</m> outcomes.
+        </p>
+      </li>
+      <li>
+        <p>
+          Again, we use the multiplication principle as in (a),
+          but while there were <m>n</m> options for <m>a_1</m>,
+          now there are <m>n-1</m> options for <m>a_2</m> because,
+          for the <m>a_i</m> to be distinct, we cannot repeat,
+          so <m>a_{2}\neq a_{1}</m> and so there are only <m>n-1</m> options for <m>a_2</m>.
+          Similarly, for <m>a_{3}</m> there are <m>n-2</m> options for what it can be
+          (since it can't equal <m>a_{1}</m> or <m>a_{2}</m>).
+          Continuing in this way, after having picked <m>a_{1},\dots,a_{i-1}</m>,
+          there will be <m>n-i+1</m> remaining options for <m>a_i</m>.
+          Thus, the total number of sequences
+          <m>a_{1}, \dots ,a_{k}</m> of <m>k</m> <term>distinct</term>
+          elements of <m>S</m> is <m>n(n-1)\cdots (n-k+1)</m>.
+        </p>
+      </li>
+    </ol>
+  </proof>
+</section>

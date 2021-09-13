@@ -1,0 +1,341 @@
+<section xml:id="decimals">
+  <title>Decimals</title>
+  <p>
+    Given a sequence <m>(a_n)</m> with each <m>a_n \in \{0, 1, \dots , 9\}</m>,
+    what exactly do we mean by the decimal
+    <me>
+      0.a_1 a_2 \dots a_n \dots?
+    </me>
+  </p>
+  <p>
+    We all know the convention that the number <m>a_1</m> gives the number of tenths,
+    <m>a_2</m> gives the number of hundredths,
+    <m>a_3</m> gives the number of thousandths etc.
+    But what do we mean by the ellipses at the end of the expansion?
+    A good way to make sense of this is to consider the
+    <term>finite</term> decimal expansions
+    <me>
+      x_n := 0.a_1 a_2 \dots a_n = \frac{a_1}{10} + \frac{a_2}{100} + \dots + \frac{a_n}{10^n}
+    </me>
+    and declare the infinite decimal expansion
+    <me>
+      0.a_1 a_2 \dots a_n \dots
+    </me>
+    to be the limit of the sequence <m>(x_n)</m> as <m>n \to \infty</m>.
+    But this naturally poses the question of whether the limit must even exist.
+    Fortunately this is easy:
+    the sequence <m>(x_n)</m> consists of positive numbers,
+    and they satisfy <m>x_{n+1} \geq x_n</m> so that <m>(x_n)</m> is increasing.
+    Finally, using the formula for a finite geometric progression,
+    <me>
+      x_n = \frac{a_1}{10} + \frac{a_2}{100} + \dots + \frac{a_n}{10^n} \leq \frac{9}{10} + \frac{9}{100} + \dots + \frac{9}{10^n} =  \frac{9}{10}\frac{(1 - (\frac{1}{10})^{n+1})}{1 - \frac{1}{10}} \leq \frac{9}{10}\frac{1}{1 - \frac{1}{10}}=1
+    </me>,
+    so that <m>(x_n)</m> is bounded above by <m>1</m>.
+    By the MCT, the sequence <m>(x_n)</m> converges to some
+    <m>x \in \R</m> satisfying <m>0 \leq x \leq 1</m>.
+    We have thus proved:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Given a sequence <m>(a_n)</m> with <m>a_n \in \{0,1, \dots ,9\}</m> for all <m>n</m>,
+        the decimal expansion <m>x= 0.a_1 a_2 \dots a_n \dots</m> given by the limit of the sequence
+        <me>
+          x_n = \frac{a_1}{10} + \frac{a_2}{100} + \dots + \frac{a_n}{10^n}
+        </me>
+        defines a real number <m>x</m> satisfying <m>0 \leq x \leq 1</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    What about the converse <mdash/> does every real number <m>x</m> with
+    <m>0 \leq x \lt 1</m> have a decimal expansion?
+    Our intuition and experience tells us that this is so,
+    but now we prove it more formally.
+  </p>
+  <theorem xml:id="decimal_existence">
+    <statement>
+      <p>
+        Let <m>x\in\mathbb{R}</m> satisfy <m>0 \leq x \lt 1</m>.
+        Then there is a sequence of integers <m>(a_n)</m>,
+        with <m>a_{n}\in \{0,1,\dots,9\}</m> for all <m>n</m>,
+        so that if we let
+        <me>
+          x_n = \frac{a_1}{10} + \frac{a_2}{100} + \dots + \frac{a_n}{10^n}
+        </me>,
+        then <m>x_n \to x</m> as <m>n \to \infty</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We find the integers <m>a_{n}</m> inductively.
+      To find <m>a_1</m>,
+      we split the interval <m>[0,1)</m> into 10 equal subintervals
+      <me>
+        \left[0,\frac{1}{10}\right),  \; \left[\frac{1}{10}, \frac{2}{10}\right), \; \dots , \; \left[\frac{9}{10},\frac{10}{10}\right)
+      </me>.
+    </p>
+    <p>
+      Then <m>x</m> must be in exactly one of these intervals,
+      say <m>\left[\frac{a_1}{10}, \frac{a_1 +1}{10}\right)</m>,
+      for a unique <m>a_1 \in \{0, 1, \dots , 9\}</m>.
+      Notice that
+      <me>
+        0 \leq x - \frac{a_1}{10} \lt  \frac{1}{10}
+      </me>.
+    </p>
+    <p>
+      To find <m>a_2</m>, we split the interval
+      <m>\left[\frac{a_1}{10}, \frac{a_1 +1}{10}\right)</m> into 10 equal subintervals
+      <me>
+        \left[\frac{a_{1}}{10},\frac{a_{1}}{10}+\frac{1}{10^2}\right),\; \left[\frac{a_{1}}{10}+\frac{1}{10^2},\frac{a_{1}}{10}+\frac{2}{10^2}\right), \; \cdots \; ,\left[\frac{a_{1}}{10}+\frac{9}{10^2},\frac{a_{1}+1}{10}\right)
+      </me>.
+    </p>
+    <p>
+      Then <m>x</m> must be in exactly one of these intervals as well,
+      which can be written as <m>\left[\frac{a_{1}}{10}+\frac{a_{2}}{10^2},\frac{a_{1}}{10}+\frac{a_2+1}{10^2}\right)</m> for some unique <m>a_{2}\in \{0,1, \dots ,9\}</m>.
+      Notice that
+      <me>
+        0 \leq x - \left(\frac{a_1}{10} + \frac{a_2}{10^2}\right) \lt  \frac{1}{100}
+      </me>.
+    </p>
+    <p>
+      Continuing in this way,
+      we find for each <m>n</m> a unique integer <m>a_{n}\in \{0,1,\dots,9\}</m> so that
+      <men xml:id="e_xininterval">
+        x\in \left[\frac{a_{1}}{10}+\cdots +\frac{a_{n}}{10^{n}}, \frac{a_{1}}{10}+\cdots  +\frac{a_{n}+1}{10^{n}}\right)
+      </men>
+      and so that
+      <me>
+        0 \leq x- \left( \frac{a_{1}}{10}+\cdots +\frac{a_{n}}{10^{n}} \right) \lt  \frac{1}{10^n}
+      </me>.
+    </p>
+    <p>
+      Then we have
+      <me>
+        0 \leq x - x_n \lt  \frac{1}{10^n}
+      </me>,
+      and since <m>1/10^{n} \to 0</m> as <m>n \to \infty</m>,
+      we have that <m>x_n \to x</m> by the squeeze theorem.
+    </p>
+  </proof>
+  <p>
+    What about decimal expansions
+    <m>x = a_0.a_1 a_2 \dots</m> for real numbers outside the interval <m>[0,1)</m>?
+    We look at this in the exercises.
+    If <m>a_0 \in \mathbb{Z}</m> and
+    <m>a_n \in \{0,1,2, \dots , 9\}</m> for <m>n\geq 1</m> we write
+    <me>
+      x = a_0.a_1 a_2 \dots
+    </me>
+    to mean that the sequence <m>(x_n)</m> defined by
+    <me>
+      x_n = a_0 + \frac{a_{1}}{10}+\cdots +\frac{a_{n}}{10^{n}}
+    </me>
+    converges to <m>x</m>.
+  </p>
+  <p>
+    What about uniqueness of decimal expansions?
+    Can a real number <m>x</m> be represented by two distinct decimal expansions?
+    Unfortunately, yes: for example
+    <me>
+      \frac{1}{2} = 0.5000000\ldots = 0.4999999\dots
+    </me>
+    since, by the formula for finite geometric series,
+    <m>0.499999 \dots 99</m> (with <m>n</m> <m>9</m>'s)
+    <me>
+      = \frac{4}{10} + \frac {\frac{9}{100}(1- (\frac{1}{10})^{n})} {1- \frac{1}{10}} \rightarrow \frac{4}{10} + \frac{1}{10} = \frac{1}{2}
+    </me>
+    as <m>n \to \infty</m>. (Which of these two representations does the procedure of <xref ref="decimal_existence">Theorem</xref>
+    spit out?) It turns out that situations like this are essentially the only ones when this happens
+    (one expansion trailing <m>0</m>'s and the other trailing <m>9</m>'s),
+    and there are never more than two decimal expansions that give the same number.
+  </p>
+  <theorem xml:id="x83">
+    <statement>
+      <p>
+        Let <m>0 \leq x \lt 1</m> and suppose that <m>x=0.a_{1}a_2\ldots =0.b_{1}b_{2}\dots</m>.
+        Let <m>\ell</m> be the smallest integer for which
+        <m>a_{\ell}\neq b_{\ell}</m> and suppose that <m>a_{\ell}\lt b_{\ell}</m>.
+        Then <m>b_{\ell}=a_{\ell}+1</m>,
+        and for all <m>k> \ell</m> we have <m>b_{k}=0</m> and <m>a_{k}=9</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We have
+      <me>
+        0.b_{1}b_{2}\dots b_{\ell -1}b_{\ell}000 \ldots \leq x \leq 0.a_1 a_2 \dots a_{\ell - 1} a_{\ell} 999 \dots
+      </me>,
+      and since <m>a_j = b_j</m> for <m>1 \leq j \leq \ell -1</m> we have
+      <me>
+        0.a_1 a_2 \dots a_{\ell-1} b_{\ell}000\ldots \leq x \leq 0.a_1 a_2 \dots a_{\ell - 1} a_{\ell} 999 \dots
+      </me>
+    </p>
+    <p>
+      But
+      <me>
+        0.a_1 a_2 \dots a_{\ell - 1} a_{\ell} 999 \ldots = 0.a_1 a_2 \dots a_{\ell - 1} (a_{\ell} +1)000 \dots
+      </me>
+    </p>
+    <p>
+      (once again by the formula for finite geometric series).
+      Therefore <m>b_{\ell} \leq a_{\ell} +1</m>.
+      Since we are assuming <m>a_{\ell} \lt b_{\ell}</m>,
+      this forces <m>b_{\ell} = a_{\ell} +1</m>.
+    </p>
+    <p>
+      Now we have
+      <me>
+        x = 0.a_1 a_2 \dots a_{\ell - 1} a_{\ell} a_{\ell + 1} \ldots = 0.a_1 a_2 \dots a_{\ell - 1} (a_{\ell} + 1) b_{\ell + 1} \ldots
+      </me>
+      and if for some <m>k > \ell</m> we had either
+      <m>a_k \lt  9</m> or <m>b_k > 0</m>, this would be violated
+      (see <xref ref="x877">Exercise</xref>).
+      Hence we conclude that for all
+      <m>k > \ell</m> we have <m>a_k = 9</m> and <m>b_k = 0</m>.
+    </p>
+  </proof>
+  <p>
+    When we find a decimal expansion of a rational number,
+    it begins to repeat.
+    Why is this?
+    Because when doing long division,
+    eventually you obtain some remainder a second time,
+    and then you know the division process will repeat what you did from the beginning.
+    This holds for all rational numbers.
+  </p>
+  <lemma xml:id="l_rational-_repeat">
+    <statement>
+      <p>
+        If <m>x\geq 0</m> is rational,
+        then it has a periodic decimal expansion, that is,
+        <me>
+          x=a_0.a_{1}a_{2}\dots a_{k} \overline{b_{1}b_{2}\dots b_{\ell}}
+        </me>.
+      </p>
+      <p>
+        Here, this notation means that the digits <m>b_{1}, \dots b_{\ell}</m> repeat, so
+        <me>
+          a_0.a_{1}a_{2}\ldots a_{k} \overline{b_{1}b_{2}\ldots b_{\ell}} =a_0.a_{1}a_{2}\dots a_{k} {b_{1}b_{2}\dots b_{\ell}} {b_{1}b_{2}\dots b_{\ell}}\ldots
+        </me>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    Before proving this,
+    we will introduce a technique which is very useful throughout mathematics.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        <term>- Pigeonhole Principle</term>
+      </p>
+      <sidebyside>
+        Suppose <m>k>n</m>, and we have <m>a_1,\ldots, a_k \in S</m>, with <m>|S|=n</m>.  Then there exists <m>i\neq j</m> with <m>a_i=a_j</m>.
+        <image width="73%" source="Figures/pigeonhole.jpg"/>
+        10 pigeons, 9 boxes.
+      </sidebyside>
+    </statement>
+  </definition>
+  <proof>
+    <p>
+      Write <m>x=p/q</m> where <m>p</m> and <m>q</m> are positive integers.
+      Each step of the long division algorithm
+      <m>q\overline{)p.0000\ldots}</m> returns remainders in <m>\{1,\ldots, q\}</m>.
+      By the <term>pigeonhole principle</term>, one remainder,
+      call it <m>k</m>, must occur twice.
+      Because <m>p.0000\ldots</m> has trailing zeroes,
+      the algorithm starts repeating at that point.
+    </p>
+  </proof>
+  <p>
+    We define the <term>period</term>
+    of a decimal expansion to be the smallest number of digits in a repeating sequence in the decimal expansion.
+    For example, <m>0.121212..</m>. has period <m>2</m>,
+    <m>0.34\overline{345}</m> has period 3.
+    If there are no repeating sequences we say that the decimal expansion is <term>aperiodic</term>.
+  </p>
+  <corollary>
+    <title>of the proof</title>
+    <statement>
+      <p>
+        If <m>p</m> and <m>q</m> are positive integers,
+        the rational number <m>p/q</m> has a decimal expansion with period at most <m>q</m>.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    The converse to <xref ref="l_rational-_repeat">Lemma</xref> is also true:
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        If <m>x\geq 0</m> has a periodic decimal expansion,
+        then <m>x</m> is rational.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Suppose that <m>x=a_{0}.a_{1}a_{2}\ldots a_{k} \overline{b_{1}b_{2}\ldots b_{\ell}}</m>.
+      Let <m>y= 0.\overline{b_{1}b_{2}\ldots b_{\ell}}</m>.
+      If we show that <m>y</m> is rational,
+      then so will <m>x</m> be, because
+      <me>
+        x = a_0 + \frac{a_1}{10} + \dots + \frac{a_k}{10^k} + \frac{y}{10^{k}}
+      </me>.
+    </p>
+    <p>
+      Let <m>z = 0.{b_{1}b_{2}\ldots b_{\ell}}000\ldots</m>,
+      which is certainly rational.
+      Now <m>y = \limn y_n</m> where
+      <me>
+        y_n = z\left(1 + \frac{1}{10^{\ell}} + \frac{1}{10^{2\ell}} + \dots + \frac{1}{10^{n\ell}}\right) = \frac{z\left(1 - 10^{-(n+1)\ell}\right)}{1- 10^{-\ell}}
+      </me>
+      so that
+      <me>
+        y = \frac{z}{1- 10^{-\ell}}
+      </me>
+      which is indeed rational.
+    </p>
+  </proof>
+  <p>
+    We now summarise the results on rationality and periodicity:
+  </p>
+  <theorem xml:id="x87">
+    <statement>
+      <p>
+        A number <m>x \geq 0</m> is rational <m>\iff</m> it has a periodic decimal expansion.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Noting that all the <m>x</m> which have two distinct decimal expansions are necessarily rational,
+    we obtain:
+  </p>
+  <corollary xml:id="x88">
+    <statement>
+      <p>
+        A number <m>x \geq 0</m> is irrational <m>\iff</m> it has an aperiodic decimal expansion.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    Note that we proved this without ever working with irrational numbers!
+    This gives us a way of constructing many irrational numbers,
+    not just ones that arise as roots like
+    <m>\sqrt{2}</m> or <m>3^{\frac{1}{2}}</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The number <m>0.10010001\cdots</m> where the number of zeros between each <m>1</m> is <term>strictly</term>
+        increasing is irrational,
+        because there is no way the decimal expansion can repeat.
+      </p>
+    </statement>
+  </example>
+</section>

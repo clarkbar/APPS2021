@@ -1,0 +1,476 @@
+<section xml:id="limitsexercises">
+  <title>Exercises</title>
+  <p>
+    The exercises in Liebeck's book relevant to this section are in Chapter 23.
+  </p>
+  <exercise xml:id="one">
+    <statement>
+      <p>
+        Show that <m>|x- L| \lt \epsilon</m> if and only if <m>L - \epsilon \lt x \lt L+ \epsilon</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Suppose that <m>|x-L|\lt \epsilon</m>.
+        Then <m>x-L\leq |x-L|\lt \epsilon, \mbox{ and so } x \lt L + \epsilon;</m> moreover <m>L-x \leq |L-x|=|x-L|\lt \epsilon \mbox{ and so } x>L-\epsilon</m>.
+        Conversely, suppose that <m>L-\epsilon\lt x\lt L+\epsilon</m>.
+        Then <m>- \epsilon \lt x -L \lt \epsilon</m> and so <m>|x-L|\lt \epsilon</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Using the <m>\epsilon-N</m> definition of a limit, prove the following:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>\limn \frac{1}{n^{3}}=0</m>.
+              <solution>
+                <p>
+                  Let <m>\epsilon>0</m>.
+                  If <m>N=\epsilon^{-1/3}</m>, then for <m>n> N</m>,
+                  <me>
+                    \left|\frac{1}{n^3}-0\right|=\frac{1}{n^3}\lt  \frac{1}{N^3}=\frac{1}{ (\epsilon^{-1/3})^3}=\frac{1}{\epsilon^{-1}}=\epsilon
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\limn \frac{n^{4}}{n^{4}+1}=1</m>
+              <solution>
+                <p>
+                  Let <m>\epsilon>0</m>.
+                  We want to find <m>N</m> so that <m>n> N</m> implies
+                  <me>
+                    \left|\frac{n^{4}}{n^{4}+1}-1\right|=\frac{1}{n^4+1}\lt \epsilon
+                  </me>.
+                </p>
+                <p>
+                  If <m>\epsilon\geq 1</m>,
+                  then this always holds so we can just pick <m>N=1</m>.
+                  If <m>\epsilon\lt 1</m>,
+                  this is equivalent to saying <m>n^4+1>\epsilon^{-1}</m>.
+                  This will certainly hold if <m>n^4>\epsilon^{-1}</m>,
+                  i.e. when <m>n>\epsilon^{-\frac{1}{4}}</m>.
+                  Thus, the above inequality holds if <m>n>N</m> where <m>N=\epsilon^{-\frac{1}{4}}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\limn \frac{n^{2}+3}{n^{2}+n}=1</m>
+              <solution>
+                <p>
+                  Let <m>\epsilon>0</m>,
+                  we want to find <m>N</m> so that <m>n> N</m> implies
+                  <me>
+                    \left|\frac{n^{2}+3}{n^{2}+n}-1\right|=\left|\frac{3-n}{n^2+n}\right|\lt \epsilon
+                  </me>.
+                </p>
+                <p>
+                  Note that for <m>n> 3</m>, <m>n-3> 0</m> and so
+                  <me>
+                    \left|\frac{3-n}{n^2+n}\right|=\frac{n-3}{n^2+n}\lt \frac{n}{n^2+n}=\frac{1}{n+1}
+                  </me>.
+                </p>
+                <p>
+                  Thus, if we pick <m>N=\max\{3,\frac{1}{\epsilon}\}</m>,
+                  we see that <m>n> N</m> implies
+                  <me>
+                    \left|\frac{n^{2}+3}{n^{2}+n}-1\right|=\frac{n-3}{n^2+n}\lt \frac{1}{n+1}\lt  \frac{1}{N+1}\leq \frac{1}{\frac{1}{\epsilon}+1}\lt \frac{1}{1/\epsilon}=\epsilon
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\limn \frac{2n^{2}-n}{n^{2}+n-1}=2</m>.
+              <solution>
+                <p>
+                  Let <m>\epsilon>0</m>,
+                  we want to find <m>N</m> so that <m>n> N</m> implies
+                  <me>
+                    \left|\frac{2n^{2}-n}{n^{2}+n-1}-2\right| =\left|\frac{-3n+2}{n^2+n-1}\right|\lt \epsilon
+                  </me>.
+                </p>
+                <p>
+                  Since <m>n\geq 1</m>, <m>3n-2\geq 0</m>, so
+                  <me>
+                    \left|\frac{-3n+2}{n^2+n-1}\right|=\frac{3n-2}{n^2+n-1} \lt \frac{3n}{n^2-1}=\frac{3n}{(n-1)(n+1)}\lt \frac{3n}{(n-1)n}=\frac{3}{n-1}
+                  </me>.
+                </p>
+                <p>
+                  We want <m>N</m> so that <m>n> N</m> implies <m>\frac{3}{n-1}\lt \epsilon</m>,
+                  i.e. that <m>n>3\epsilon^{-1}+1</m>.
+                  Thus, if we pick <m>N=3\epsilon^{-1}+1</m>, then <m>n> N</m> implies
+                  <me>
+                    \left|\frac{2n^{2}-n}{n^{2}+n-1}-2\right|=\frac{3n-2}{n^2+n-1}\lt \frac{3}{n-1}\lt  \frac{3}{N-1} =\frac{3}{3\epsilon^{-1}+1-1}=\epsilon
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        For the following sequences, show that they tend to infinity.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>5n-2</m>
+              <solution>
+                <p>
+                  Let <m>M>0</m>.
+                  Let <m>N>\frac{M+2}{5}</m>, then for <m>n> N</m>,
+                  <me>
+                    5n-2> 5N-2\geq 5\frac{M+2}{5}-2=M
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n^{3}+1</m>
+              <solution>
+                <p>
+                  Note that <m>n^3+1>n^3</m>, so if <m>M>0</m>,
+                  we can pick <m>N=M^{\frac{1}{3}}</m> and then <m>n> N</m> will imply
+                  <me>
+                    n^3+1>n^3> N^3=M
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n^{4}-n+1</m>
+              <solution>
+                <p>
+                  Note that for <m>n>1</m>,
+                  <me>
+                    n^4-n+1=n(n^3-1)+1\geq n+1
+                  </me>
+                  and so if <m>N=M-1</m>, then for <m>n>N-1</m>,
+                  we have <m>n^4-n+1\geq n+1\geq N+1\geq M</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n!</m>
+              <solution>
+                <p>
+                  Let <m>M>0</m>.
+                  If we set <m>N=M</m>, then <m>n> N</m> implies
+                  <me>
+                    n!\geq n> N=M
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\sqrt{n}</m>
+              <solution>
+                <p>
+                  Let <m>M>0</m> and <m>N=M^2</m>, then <m>n> N</m> implies
+                  <me>
+                    \sqrt{n}> \sqrt{N}=\sqrt{M^2}=M
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that the limit of a sequence is unique, that is,
+        if <m>x_{n}\rightarrow L</m> and <m>x_{n}\rightarrow M</m>,
+        then <m>L=M</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Suppose <m>L\neq M</m>.
+        Let <m>\epsilon=\frac{|L-M|}{2}</m>.
+        Since <m>x_{n}\rightarrow L</m>,
+        there is <m>N_1</m> so that <m>n> N_1</m> implies <m>|x_{n}-L|\lt \epsilon</m>.
+        Similarly, <m>x_{n}\rightarrow M</m>,
+        there is <m>N_2</m> so that <m>n> N_2</m> implies <m>|x_{n}-L|\lt \epsilon</m>.
+        Thus, for <m>n>N= \max\{N_1,N_2\}</m>,
+        <me>
+          |L-M|=|L-x_{n}+x_{n}-M|\leq |L-x_{n}|+|x_{n}-M|\lt \frac{\epsilon}{2}+\frac{\epsilon}{2} = \epsilon = |L-M|
+        </me>
+        which is a contradiction.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        For each <m>L</m> below,
+        find sequences <m>(x_{n})</m> and <m>(y_{n})</m> so that <m>x_{n}\rightarrow 0</m>,
+        <m>y_{n}\rightarrow 0</m> and <m>x_{n}\neq 0, y_n \neq 0</m> for all <m>n</m>,
+        and such that <m>\frac{x_{n}}{y_{n}}\rightarrow L</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\infty</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <ol label="labelalph">
+        <li>
+          <p>
+            <m>x_n=y_n=\frac{1}{n}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x_n=\frac{1}{n^2}, y_n=\frac{1}{n}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>x_n=\frac{1}{n}, y_n=\frac{1}{n^2}</m>.
+          </p>
+        </li>
+      </ol>
+      <p>
+        (Many other solutions are possible.)
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        For each <m>L</m> below,
+        find sequences <m>(x_{n})</m> and <m>(y_{n})</m> so that <m>x_{n}\rightarrow 0</m>,
+        <m>y_{n}\rightarrow \infty</m> and <m>x_{n}y_{n}\rightarrow L</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\infty</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>x_n=y_n=n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>x_n=n, y_n=n^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>x_n=n^2, y_n=n</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>x_n\rightarrow x</m>,
+        then <m>|x_n|\rightarrow |x|</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>\epsilon>0</m>.
+        Since <m>x_n\rightarrow x</m>,
+        there is <m>N</m> so that <m>n> N</m> implies <m>|x_{n}-x|\lt \epsilon</m>.
+        By the reverse triangle inequality, for <m>n> N</m>,
+        <me>
+          ||x_{n}|-|x|| \leq |x_{n}-x|\lt \epsilon
+        </me>.
+      </p>
+      <p>
+        Thus, <m>|x_n|\rightarrow |x|</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise xml:id="x68">
+    <statement>
+      <p>
+        Suppose that <m>(x_{n})</m> converges.
+        Show that for any <m>k\in\mathbb{N}</m>,
+        <m>\limn x_{n}= \limn x_{n+k}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>L=\limn x_{n}</m>.
+        We want to show <m>\limn x_{n+k}=L</m>, that is,
+        for all <m>\epsilon>0</m> there is <m>N</m> so that <m>n> N</m> implies <m>|x_{n+k}-L|\lt \epsilon</m>.
+        Let <m>\epsilon>0</m>.
+        Since <m>L=\limn x_{n}</m>,
+        we know there is <m>N</m> so that <m>n> N</m> implies <m>|x_{n}-L|\lt \epsilon</m>.
+        If <m>n> N</m>, then <m>n+k>N</m>,
+        and so we also have <m>|x_{n+k}-L|\lt \epsilon</m> for all <m>n> N</m>.
+        This proves the claim.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose that <m>(x_{n})</m> converges.
+        Show that <m>x_{n}-x_{n+1}\rightarrow 0</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Using the limit rules and the previous exercise, if <m>\limn =L</m>, then
+        <me>
+          \limn(x_{n}-x_{n+1}) =\limn x_n - \limn x_{n+1} = L-L=0
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Using the <m>\epsilon-N</m> definition of a limit,
+        prove that if <m>x_n>0</m> and
+        <m>x_n\rightarrow x>0</m> and <m>x_n\neq x</m> for all <m>n</m>,
+        then <m>x_{n}^{\frac{1}{3}}\rightarrow x^{\frac{1}{3}}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that
+        <me>
+          |x^{\frac{1}{3}}-x_{n}^{\frac{1}{3}}| =\left| \frac{ (x^{\frac{1}{3}}-x_{n}^{\frac{1}{3}})(x^{\frac{2}{3}}+x^{\frac{1}{3}}x_{n}^{\frac{1}{3}}+x_{n}^{\frac{2}{3}})}{x^{\frac{2}{3}}+x^{\frac{1}{3}}x_{n}^{\frac{1}{3}}+x_{n}^{\frac{2}{3}}} \right| = \frac{|x-x_{n}|}{x^{\frac{2}{3}}+x^{\frac{1}{3}}x_{n}^{\frac{1}{3}}+x_{n}^{\frac{2}{3}}} \leq \frac{|x-x_{n}|}{x^{\frac{2}{3}}}.\\
+        </me>
+      </p>
+      <p>
+        Let <m>\epsilon>0</m>.
+        Pick <m>N</m> so that <m>n> N</m> implies <m>|x-x_{n}|\lt  \epsilon x^{\frac{2}{3}}</m>.
+        Then the above implies that for <m>n> N</m>,
+        <me>
+          |x^{\frac{1}{3}}-x_{n}^{\frac{1}{3}}| \leq  \frac{|x-x_{n}|}{x^{\frac{2}{3}}} \lt \frac{\epsilon x^{\frac{2}{3}}}{x^{\frac{2}{3}}}=\epsilon
+        </me>
+        which thus proves <m>x_{n}^{\frac{1}{3}}\rightarrow x^{\frac{1}{3}}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>a_n = \left( 1- \frac{1}{n^2}\right)^n</m>.
+        Show that <m>a_n \to 1</m> as <m>n \to \infty</m>.
+        What happens if we consider
+        <m>\left(1-\frac{1}{n^s}\right)^n</m> for <m>s > 1</m>? (<em>Hint:</em> Bernoulli's inequality.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By Bernoulli's inequality with <m>h= -1/n^2</m> we have
+        <me>
+          1 \geq \left( 1- \frac{1}{n^2}\right)^n \geq 1 - \frac{n}{n^2} = 1 - \frac{1}{n}
+        </me>.
+      </p>
+      <p>
+        By the squeeze theorem we deduce that
+        <me>
+          \left( 1- \frac{1}{n^2}\right)^n \to 1
+        </me>
+        as <m>n \to \infty</m>.
+        A similar argument works for
+        <m>\left(1-\frac{1}{n^s}\right)^n</m> whenever <m>s > 1</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>a_n = \left( 1+ \frac{1}{n^2}\right)^n</m>.
+        Show that <m>a_n \to 1</m> as <m>n \to \infty</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We have
+        <me>
+          \left( 1+ \frac{1}{n^2}\right)^n\left( 1- \frac{1}{n^2}\right)^n=\left( 1- \frac{1}{n^4}\right)^n
+        </me>.
+      </p>
+      <p>
+        Let <m>b_n = \left( 1- \frac{1}{n^2}\right)^n</m> and
+        <m>c_n = \left( 1- \frac{1}{n^4}\right)^n</m> so that <m>a_n b_n = c_n</m>.
+        But by the previous exercise,
+        <m>b_n \to 1</m> and <m>c_n \to 1</m>.
+        Therefore by the rules for limits, <m>a_n \to 1</m> too.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>a_n = \left( 1+ \frac{1}{n}\right)^n</m>.
+        Given that <m>a_n \to L</m> as <m>n \to \infty</m>,
+        what can you say about the sequence <m>(b_n)</m> where <m>b_n = \left( 1- \frac{1}{n}\right)^n</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By the argument for the previous exercise, <m>b_n \to 1/L</m>
+        (since <m>L \geq 1</m>).
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    \part{Week 4: More Analysis}
+  </p>
+</section>

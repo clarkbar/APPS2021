@@ -1,0 +1,21 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="monotoneconvergence">
+  <title>The Monotone Convergence Theorem</title>
+  <introduction>
+    <p>
+      Last week we studied how to formally show that a sequence <m>(x_{n})</m> converges to a specific limit <m>L</m>,
+      and we developed various rules for manipulating limits.
+      What if we are given a sequence <m>(x_{n})</m> and want to show it converges but we
+      <term>don't</term> know what the limit is?
+    </p>
+    <p>
+      This week we will talk about an important convergence theorem which gives us a sufficient condition for a sequence to converge.
+      This is the monotone convergence theorem,
+      which says that any increasing sequence which is bounded above must converge to something.
+      We'll then give some examples illustrating how this result can be useful.
+      Then we will see how this result can shed light on something we are already familiar with <mdash/> decimal expansions <mdash/> and lastly we'll introduce the notion of infinite series.
+    </p>
+  </introduction>
+  <xi:include  href="monotoneconvergencesection.ptx"/>
+  <xi:include  href="iterativelydefinedsequences.ptx"/>
+  <xi:include  href="monotoneexercises.ptx"/>
+</chapter>

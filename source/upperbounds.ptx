@@ -1,0 +1,67 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="upperbounds">
+  <title>Upper Bounds and Least Upper Bounds</title>
+  <introduction>
+    <p>
+      For the next two weeks,
+      we'll learn about the basics of <term>analysis</term>.
+      This branch of mathematics studies limits and approximations,
+      and you may have already met these when studying calculus.
+      If you end up enjoying this topic,
+      you might also like the following courses in subsequent years:
+      <ul>
+        <li>
+          <p>
+            Fundamentals of Pure Mathematics, 2nd year.
+          </p>
+        </li>
+        <li>
+          <p>
+            Honours Analysis, 3rd year.
+          </p>
+        </li>
+        <li>
+          <p>
+            Linear Analysis, Essentials in Analysis and Probability, Functional Analysis, Fourier Analysis, 4th year.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      <em>Why care?</em> Firstly,
+      a lot of what we now call analysis was not very rigorous prior to the 1800s.
+      The mathematician Niels Abel went so far as to say the following about the state of analysis at the time:
+    </p>
+    <p>
+      <term> I shall devote all my efforts to bring light into the immense obscurity that today reigns in Analysis.
+      It so lacks any plan or system,
+      that one is really astonished that so many people devote themselves to it <mdash/> and,
+      still worse, it is absolutely devoid of any rigour.</term><fn>
+      Niels Abel, <term>Oeuvres (1826).</term>
+      </fn>
+    </p>
+    <p>
+      To give an idea about what he was talking about, Leibniz
+      (that is, together with Newton,
+      one of the founders of modern calculus)
+      believed at one time that
+      <me>
+        \sum_{n=1}^{\infty} (-1)^{n} = \frac{1}{2}
+      </me>,
+      but with modern rigour we now understand that this is sadly not true.
+      In fact, this sum is meaningless, as we shall see later.
+      Making analysis rigorous was a big problem since it is the foundation of calculus:
+      many of the computations you perform in calculus,
+      such as taking derivatives and evaluating integrals,
+      in fact rely on analysis under the bonnet.
+      More shockingly,
+      we need tools from analysis even to just take <m>n</m>'th roots,
+      as we shall see later as well.
+      Before getting into limits,
+      however, we will need to discuss upper and lower bounds for sets,
+      and to introduce a final axiom for the real numbers.
+    </p>
+  </introduction>
+  <xi:include  href="upperlowerbounds.ptx"/>
+  <xi:include  href="sups.ptx"/>
+  <xi:include  href="upperboundsexercises.ptx"/>
+</chapter>

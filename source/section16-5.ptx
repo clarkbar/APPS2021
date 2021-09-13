@@ -1,0 +1,143 @@
+<section>
+  <title>Powers</title>
+  <p>
+    Let <m>f</m> be any permutation in <m>\mathrm{S}_n</m>,
+    let <m>m</m> be any positive integer.
+    Let
+    <me>
+      f^{m}=\underbrace{f\circ f\circ f\circ\cdots\circ f\circ f}_{m\ \mathrm{times}}
+    </me>.
+  </p>
+  <p>
+    We also let <m>f^{-m}=(f^{-1})^m</m>, and <m>f^{0}=\iota</m>.
+    Then we have the familiar power rules for compositions as we do for multiplication:
+    for <m>r,s\in\mathbb{Z}</m>,
+    <me>
+      f^{r}f^{s}=f^{r+s}\  \text{ and } \  \Big(f^{r}\Big)^{s}=f^{rs}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5\cr2 \amp  3 \amp  4 \amp  5 \amp  1\cr \end{matrix} \right)\in\mathrm{S}_5</m>.
+        Then, one can check
+        <me>
+          f^{-1}=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5\cr5 \amp  1 \amp  2 \amp  3 \amp  4\cr \end{matrix} \right),\  f^{0}=\iota,\  f^{1}= f,\  f^{2}=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5\cr3 \amp  4 \amp  5 \amp  1 \amp  2\cr \end{matrix} \right)
+        </me>,
+        <me>
+          f^{3}=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5\cr4 \amp  5 \amp  1 \amp  2 \amp  3\cr \end{matrix} \right),\ f^{4}= f^{-1},\ f^{5} = \iota,  f^{6}= f,  f^{7}= f^2,  \ldots
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp 2 \amp 3 \amp 4 \amp 5\cr2 \amp 1 \amp 3 \amp 4 \amp 5\cr \end{matrix} \right)\in\mathrm{S}_5</m>.
+        What is <m>f^{2019}</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since <m>f^{2}=\iota</m>, we have
+        <me>
+          \underbrace{f\circ f\circ f\circ\cdots\circ f\circ f}_{2019\ \mathrm{times}}=\underbrace{f\circ f\circ f\circ\cdots\circ f\circ f}_{1009\times 2\ \mathrm{times}}\circ f
+        </me>
+        <me>
+          =\Big(f\circ f\Big)^{1009}\circ f=\iota^{1009}\circ f= f
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    Let us summarize some of the properties about permutations in <m>\mathrm{S}_{n}</m> we have proved.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        The set <m>\mathrm{S}_n</m> equipped with the composition rule <m>\circ</m> has the following properties:
+        <ul>
+          <li>
+            <p>
+              <em>Closure</em>:
+              for any <m>f</m> and <m>g</m> in <m>\mathrm{S}_n</m>,
+              one has <m>f\circ g\in\mathrm{S}_n</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Associativity</em>: for any <m>f</m>,
+              <m>g</m>, and <m>h</m> in <m>\mathrm{S}_n</m>, one has
+              <me>
+                f\circ \Big(g\circ h\Big)=\Big(f\circ g\Big)\circ h
+              </me>,
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Identity element</em>:
+              there is unique permutation <m>\iota\in\mathrm{S}_n</m> such that
+              <me>
+                f\circ\iota=\iota\circ f=f
+              </me>
+              for any <m>f\in\mathrm{S}_n</m> (and we call <m>\iota</m> the identity permutation),
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Inverse</em>: for any <m>f\in\mathrm{S}_n</m>,
+              there is unique <m>f^{-1}\in\mathrm{S}_n</m><nbsp/> such<nbsp/>that
+              <me>
+                f\circ f^{-1}=f^{-1}\circ f=\iota
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    In <term>Fundamentals of Pure Math</term>
+    (FPM), you will learn more about <term>groups</term>,
+    which are sets equipped with the above structure, that is,
+    a way of composing elements that satisfies the above properties.
+    We have seen several examples so far:
+    <ul>
+      <li>
+        <p>
+          real numbers equipped with <m>+</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          non-zero real numbers equipped with <m>\cdot</m> (i.e. multiplication),
+        </p>
+      </li>
+      <li>
+        <p>
+          complex numbers equipped with <m>+</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          non-zero complex numbers equipped with <m>\cdot</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>n</m>-th root of unity equipped with <m>\cdot</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\mathbb{Z}_n</m> equipped with <m>+</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\mathbb{Z}_n</m> equipped with <m>\cdot</m> if <m>n</m> is prime (in which case every element has an inverse),
+        </p>
+      </li>
+    </ul>
+  </p>
+</section>

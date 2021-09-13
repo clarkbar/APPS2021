@@ -1,0 +1,436 @@
+<section xml:id="Zmodm">
+  <title><m>\mathbb{Z}/m</m></title>
+  <p>
+    In this section we introduce a set
+    <m>\mathbb{Z}/m</m> that will be important your future algebra classes.
+    Just like the integers, the rationals,
+    and the reals, it is what is called a <term>ring</term>:
+    it is equipped with addition,
+    subtraction, and multiplication operations.
+    Unlike <m>\mathbb{Z}</m>, <m>\mathbb{Q}</m>, or <m>\mathbb{R}</m>,
+    the set <m>\mathbb{Z}/m</m> is <term>finite</term>.
+  </p>
+  <p>
+    As a set,
+    <me>
+      \mathbb{Z}/m=\{0,1,\dots,m-1\}
+    </me>.
+  </p>
+  <p>
+    On this set we shall define addition and multiplication operations:
+    for any <m>x,y \in \mathbb{Z}/m</m>,
+    <me>
+      x + y = z \mbox{ where \(z\in \{0,1,...,m-1\}\) is the unique element such that }  x + y = z\mod m
+    </me>,
+    and
+    <me>
+      x \cdot y = z \mbox{ where \(z\in \{0,1,...,m-1\}\) is the unique element such that }  x \cdot y = z\mod m
+    </me>,
+  </p>
+  <p>
+    There is an additive inverse:
+    <me>
+      - x = m-x
+    </me>
+  </p>
+  <p>
+    (Some books write <m>\mathbb{Z}_m</m> for <m>\mathbb{Z}/m</m>,
+    but most algebraists reserve this notation for a very different object!!)
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let's write the addition and multiplication tables for <m>\mathbb{Z}/5=\{0,1,2,3,4\}</m>.
+      </p>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{<m>+</m>}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{1}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+          <cell>{0}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{2}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{3}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{4}</cell>
+          <cell>{4}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+      <tabular>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{<times/>}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+          <cell>{0}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{1}</cell>
+          <cell>{0}</cell>
+          <cell>{1}</cell>
+          <cell>{2}</cell>
+          <cell>{3}</cell>
+          <cell>{4}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{2}</cell>
+          <cell>{0}</cell>
+          <cell>{2}</cell>
+          <cell>{4}</cell>
+          <cell>{1}</cell>
+          <cell>{3}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{3}</cell>
+          <cell>{0}</cell>
+          <cell>{3}</cell>
+          <cell>{1}</cell>
+          <cell>{4}</cell>
+          <cell>{2}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>{4}</cell>
+          <cell>{0}</cell>
+          <cell>{4}</cell>
+          <cell>{3}</cell>
+          <cell>{2}</cell>
+          <cell>{1}</cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+      </tabular>
+    </statement>
+  </example>
+  <p>
+    We can check that for <m>m\in\mathbb{N}</m>,
+    <m>\mathbb{Z}/m</m> has all the nice algebraic properties of being a field
+    (recall this definition from Week 1)
+    apart from perhaps property (M4),
+    which said that each nonzero element must have a multiplicative inverse.
+    An element <m>x\in \mathbb{Z}/m</m> is <term>invertible</term>
+    if there exists <m>y\in \mathbb{Z}/m</m> so that <m>x\cdot y=1</m>.
+  </p>
+  <p>
+    If <m>m</m> is composite,
+    then not every nonzero element <m>\mathbb{Z}/m</m> is invertible.
+    Consider the multiplication table of <m>\mathbb{Z}/4</m>:
+  </p>
+  <tabular>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>{<times/>}</cell>
+      <cell>{0}</cell>
+      <cell>{1}</cell>
+      <cell>{2}</cell>
+      <cell>{3}</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>{0}</cell>
+      <cell>{0}</cell>
+      <cell>{0}</cell>
+      <cell>{0}</cell>
+      <cell>{0}</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>{1}</cell>
+      <cell>{0}</cell>
+      <cell>{1}</cell>
+      <cell>{2}</cell>
+      <cell>{3}</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>{2}</cell>
+      <cell>{0}</cell>
+      <cell>{2}</cell>
+      <cell>{0}</cell>
+      <cell>{2}</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>{3}</cell>
+      <cell>{0}</cell>
+      <cell>{3}</cell>
+      <cell>{2}</cell>
+      <cell>{1}</cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+  </tabular>
+  <p>
+    As you can see, <m>2x=1</m> has no solution modulo <m>4</m>.
+  </p>
+  <p>
+    Observe that an element <m>a \in \mathbb{Z}/m</m> is invertible if and only if the equation <m>ax = 1 \mod m</m> admits a solution.
+    Such a solution exists if and only if <m>\gcd(a,m)</m> divides <m>1</m>,
+    hence if and only if <m>a</m> and <m>m</m> are coprime.
+    Thus the invertible elements of
+    <m>\mathbb{Z}/m</m> are precisely those elements that are coprime to <m>m</m>.
+    In particular, if <m>p</m> is prime,
+    then every nonzero element of
+    <m>\mathbb{Z}/p</m> is coprime to <m>p</m>,
+    so we deduce the following.
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>m\geq 2</m> be a natural number.
+        Then <m>\mathbb{Z}/m</m> is a field if and only if <m>m</m> is prime.
+      </p>
+    </statement>
+  </proposition>
+  <exercise>
+    <statement>
+      <p>
+        How many invertible elements are there in <m>\mathbb{Z}/{81}</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        An element <m>y\in\mathbb{Z}/{81}</m> is invertible if and only if <m>x</m> and <m>81</m> are coprime.
+        The is possible if and only if <m>3</m> does not divide <m>y</m>.
+        The number of numbers in <m>\{0,1,...,80\}</m> divisible by <m>3</m> is <m>\frac{81}{3}=27</m>,
+        so the number of invertible elements is <m>81-27 = 54</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    Just like there is a notion of inverses for <m>\mathbb{Z}/m</m>,
+    we also have a notion of a root.
+    We say <m>y\in\mathbb{Z}/m</m> is the <m>n</m>-th root of <m>x\in\mathbb{Z}</m> if <m>x^n=y</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        In <m>\mathbb{Z}/{5}</m>, does <m>2</m> have a cubed root?
+        Let us test the values:
+        <ul>
+          <li>
+            <p>
+              <m>0^{3}=0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>1^{3}=1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>2^{3}=3</m> since <m>2^{3} = 8 = 3\mod 5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>3^{3}=2</m> since <m>3^{3} = 27 = 2\mod 5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>4^{3}=4</m> since <m>4^{3} = (-1)^{3}=-1 = 4 \mod 5</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus, the unique cubed root of <m>2</m> is <m>3</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    However, not all numbers in every <m>\mathbb{Z}/m</m> have roots!
+    Confirm for yourself that <m>2\in\mathbb{Z}/{4}</m> has no cubed root.
+  </p>
+</section>

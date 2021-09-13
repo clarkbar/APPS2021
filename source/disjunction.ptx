@@ -1,0 +1,267 @@
+<section xml:id="disjunction">
+  <title>Disjunction</title>
+  <definition>
+    <statement>
+      <p>
+        The <term>disjunction</term> of two statements <m>A</m> and <m>B</m> is the statement <m>A\text{ or } B</m>.
+        This is also sometimes written as <m>A \vee B</m>.
+      </p>
+      <p>
+        The truth-value of the disjunction operates like this:
+        <me>
+          A \vee B \text{ is true exactly when either } A\text{ is true or } B\text{ is true }
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Here is the truth table for the disjunction:
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \vee B</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+    </row>
+  </tabular>
+  <p>
+    Note that
+    <q>or</q>
+    in this sense is not taken in the
+    <term>exclusive</term> sense:
+    if both <m>A</m> and <m>B</m> are both true,
+    then <m>A\vee B</m> is true as well.
+  </p>
+  <example>
+    <statement>
+      <p>
+        From this we can see that the truth-value of
+        <q><m>2</m> is even or <m>57</m> is prime</q>
+        is True.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Once you have these basic connectives,
+    you can combine statements to your heart's content,
+    and you can analyze the results.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For example,
+        let's have a look at the statement <m>(A \vee B) \wedge C</m>.
+        Let's analyze the truth table by dealing with what's in parentheses first,
+        and then combining that with the statement <m>C</m>:
+      </p>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>B</m></cell>
+          <cell><m>C</m></cell>
+          <cell><m>A \vee B</m></cell>
+          <cell><m>(A \vee B) \wedge C</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+      </tabular>
+      <p>
+        This is the kind of sentence that we don't say too often in natural language (at least,
+        outside of the legal profession):
+        it asserts that both <m>A \vee B</m> is true and <m>C</m> is true.
+        Maybe a reasonable way to say this in English is
+        <q>Either <m>A</m> or <m>B</m> is true,
+        and <m>C</m> is true too.</q>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The previous example brings up a critical issue.
+        <term>We must write our connectives carefully!</term>
+        For example, consider the statement
+        <me>
+          \text{ ``\(57\) is prime or \(2\) is  and \(937\) is prime.'' }
+        </me>
+      </p>
+      <p>
+        What do we mean by this statement?
+        As written, it's ambiguous, and that ambiguity affects the truth-value!
+      </p>
+      <p>
+        Parentheses clarify things: the statement
+        <me>
+          \text{ ``(\(937\) is prime or \(2\) is even) and \(57\) is prime'' }
+        </me>
+        is false, whereas the statement
+        <me>
+          \text{ ``\(937\) is prime or (\(2\) is even and \(57\) is prime)'' }
+        </me>
+        is true.
+      </p>
+      <p>
+        Here's the truth table for <m>A \vee (B \wedge C)</m>;
+        notice the differences from the truth table for <m>(A \vee B) \wedge C</m> above:
+      </p>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>B</m></cell>
+          <cell><m>C</m></cell>
+          <cell><m>B \wedge C</m></cell>
+          <cell><m>A \vee (B \wedge C)</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+      </tabular>
+    </statement>
+  </example>
+</section>

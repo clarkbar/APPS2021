@@ -1,0 +1,189 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="infinitecardinals">
+  <title>Applications: What's bigger than <m>\infty</m>?*</title>
+  <p>
+    This section is not required reading,
+    but it is a preview into another aspect of mathematics that you will learn about later:
+    cardinality
+  </p>
+  <p>
+    Consider the following question:
+    <term>How do we compare sizes of infinite sets?</term>
+    The sets <m>\mathbb{N}</m>,
+    <m>\mathbb{Q}</m>, and <m>\mathbb{R}</m> are all infinite,
+    but is any one <term>more infinite</term> than the other?
+  </p>
+  <p>
+    We first need a notion of size.
+    Recall that in <xref ref="t_f-size">Theorem</xref>
+    we showed how two finite sets that have a bijection between them have the same size.
+    We use this idea to define when two infinite sets have the same size:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        We say two sets <m>A</m> and <m>B</m> have the same <term>cardinality</term>
+        if there is a bijective function <m>f:A\rightarrow B</m>,
+        and we write <m>|A|=|B|</m> or <m>A\sim B</m>.
+        If there is an injective man <m>f:A\rightarrow B</m>,
+        we write <m>|A|\leq |B|</m>,
+        and if <m>|A|\leq |B|</m> and there is no injective map from <m>B</m> to <m>A</m>,
+        we write <m>|A|\lt |B|</m>.
+      </p>
+      <p>
+        When <m>A\sim \mathbb{N}</m>,
+        we say <m>A</m> is <term>countable</term>.
+      </p>
+    </statement>
+  </definition>
+  <exercise>
+    <statement>
+      <p>
+        Show that the relation <m>\sim</m> is an equivalence relation on the collection of sets.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The word <term>countable</term> comes from the fact that,
+    if <m>A\sim \mathbb{N}</m>,
+    then there is a bijection <m>f:\mathbb{N}\rightarrow A</m>, and so
+    <me>
+      A=\{f(1),f(2),...\}
+    </me>,
+    that is, we can count off the elements of <m>A</m> in a list.
+  </p>
+  <example>
+    <statement>
+      <p>
+        We will show <m>\mathbb{Z}\sim \mathbb{N}</m> by constructing an explicit bijection from
+        <m>\mathbb{Z}</m> to <m>\mathbb{N}</m>.
+        Let
+        <me>
+          f(n) = \left\{ \begin{array}{cl} 2n \amp  n\geq 0 \\ -2n+1 \amp  n\lt 0 \end{array} \right.
+        </me>
+      </p>
+    </statement>
+  </example>
+  <p>
+    More surprising is the following:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        <m>\Q\sim \N</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The proof of this uses the so-called
+      <q>zig-zag</q>
+      trick: Write all the rational numbers in an infinite array,
+      and then start listing all the rationals by going up and down each diagonal as follows:
+    </p>
+    <p>
+      Let us add draw arrows in this infinite matrix as follows
+    </p>
+    <p>
+      So the list would be:
+      <me>
+        \frac{1}{1}, \;\; \frac{2}{1}, \;\; \frac{1}{2}, \;\; \frac{1}{3}, \;\; \frac{2}{2}, \;\; \frac{3}{1}, \;\; \frac{4}{1}, \;\; \frac{3}{2}, \;\; \frac{2}{3}, \;\; \frac{1}{4}, \;\; \frac{1}{5}, \;\; \frac{2}{4},...\cdots
+      </me>
+    </p>
+    <p>
+      Note that this list repeats numbers (e.g. the number 1 appears as both
+      <m>\frac{1}{1}</m> and <m>\frac{2}{2}</m>).
+      But we can just remove numbers that repeat,
+      so the modified list looks like this:
+      <me>
+        \frac{1}{1}, \;\; \frac{2}{1}, \;\; \frac{1}{2}, \;\; \frac{1}{3},  \;\; \frac{3}{1}, \;\; \frac{4}{1}, \;\; \frac{3}{2}, \;\; \frac{2}{3}, \;\; \frac{1}{4}, \;\; \frac{1}{5},...\cdots
+      </me>
+      and now this gives a bijection from
+      <m>\mathbb{N}</m> to <m>\mathbb{Q}</m>,
+      where we send <m>n\in\mathbb{N}</m> to the <m>n</m>th term in this list.
+    </p>
+  </proof>
+  <p>
+    Not everything is countable though:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>S</m> be an infinite set and let <m>P(S)</m> denote the <term>power set</term>
+        consisting of the subsets of <m>S</m>, i.e.
+        <m>P(S)= \{A\subseteq S\}</m>.
+        Then <m>|S|\lt |P(S)|</m>.
+      </p>
+    </statement>
+  </theorem>
+  <exercise>
+    <statement>
+      <p>
+        Prove the above theorem.
+        <term>Hint: Suppose there was
+        <m>f:S\rightarrow P(S)</m> bijective and think about the set <m>B=\{x\in S: x\not\in f(x)\}</m>.</term>
+      </p>
+    </statement>
+    <solution>
+      <proof>
+        <p>
+          Suppose there was <m>f:S\rightarrow P(S)</m> bijective,
+          let <m>B=\{x\in S: x\not\in f(x)\}</m>.
+          Since <m>f</m> is bijective,
+          it is surjective, and so there is <m>x</m> so that <m>f(x)=B</m>.
+          <ol>
+            <li>
+              <p>
+                If <m>x\in B</m>, then by definition of <m>B</m>,
+                <m>x\not\in f(x)=B</m>, a contradiction.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>x\not\in B</m>, then by definition of <m>B</m>,
+                <m>x\in f(x)=B</m>, again a contradiction.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Since these are the only two possibilities,
+          we have a full contradiction.
+          Thus, there cannot be a function <m>f:S\rightarrow P(S)</m> bijective,
+          thus <m>|S|\neq |P(S)|</m>.
+          Since there is a clear injection
+          <m>g:S\rightarrow P(S)</m> defined by <m>g(x)=\{x\}</m>,
+          we have that <m>|S|\leq |P(S)|</m>,
+          and so <m>|S|\lt |P(S)|</m>.
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+  <p>
+    A few natural questions arise from our discussions on cardinality.
+    Firstly, we have seen that <m>|\N|\lt |\R|</m>,
+    but is there anything in between?
+    This is the <term>continuum hypothesis</term> posed by George Cantor:
+    <ul>
+      <li>
+        <title>Continuum Hypothesis (CH)</title>
+        <p>
+          Is there no set <m>S</m> with <m>|\mathbb{N}|\lt |S|\lt |\mathbb{R}|</m>?
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Modern set theory
+    (and mathematics in general)
+    is based on a finite set of axioms called
+    <em>Zermelo<ndash/>Fraenkel</em> set theory
+    (<em>ZFC</em>).
+    In 1940, Kurt G&#xf6;del showed that the CH cannot be disproved assuming ZFC, so it would see then that CH has to be true...but then Paul Cohen showed in 1963 that CH cannot be <em>proved</em>
+    assuming ZFC. In other words, CH is <em>independent</em>
+    of the axioms of mathematics:
+    one can assume it's true or false and it won't contradict anything proven using the ZFC axioms!
+  </p>
+  <p>
+    \part{Week 9: Counting}
+  </p>
+</chapter>

@@ -1,0 +1,16 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="logic">
+  <title>Logic</title>
+  <xi:include  href="sets.ptx"/>
+  <xi:include  href="logicalstatements.ptx"/>
+  <xi:include  href="conjunction.ptx"/>
+  <xi:include  href="intersection.ptx"/>
+  <xi:include  href="disjunction.ptx"/>
+  <xi:include  href="union.ptx"/>
+  <xi:include  href="negation.ptx"/>
+  <xi:include  href="complements.ptx"/>
+  <xi:include  href="conditionals.ptx"/>
+  <xi:include  href="logicalequivalence.ptx"/>
+  <xi:include  href="proofbycontradiction.ptx"/>
+  <xi:include  href="quantifiers.ptx"/>
+  <xi:include  href="logicexercises.ptx"/>
+</chapter>

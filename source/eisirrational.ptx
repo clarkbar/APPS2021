@@ -1,0 +1,159 @@
+<section xml:id="eisirrational">
+  <title>*Appendix: irrationality of <m>e</m></title>
+  <p>
+    This section is optional,
+    and is here to give you a taste of
+    <term>analytic number theory</term>.
+  </p>
+  <p>
+    In addition to <xref ref="x88">Corollary</xref>,
+    there is another method for proving irrationality which involves this rather simple-looking lemma.
+  </p>
+  <lemma xml:id="irrattest">
+    <statement>
+      <p>
+        Let <m>x \in \R</m>.
+        Suppose that for every <m>c>0</m> there is a rational number <m>\frac{p}{q}\neq x</m> so that
+        <men xml:id="e_x-p_q">
+          \left|x-\frac{p}{q}\right| \lt  \frac{c}{q}
+        </men>.
+      </p>
+      <p>
+        Then <m>x</m> is irrational.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      We prove this using the contrapositive.
+      Suppose <m>x</m> is rational.
+      Then <m>x=\frac{a}{b}</m> for some integers <m>a</m> and <m>b</m> with <m>b >0</m>.
+      Hence if <m>\frac{p}{q}</m> is any other rational number not equal to <m>x</m>,
+      <me>
+        \left|x-\frac{p}{q}\right| =\left|\frac{a}{b}-\frac{p}{q}\right| =\left|\frac{aq-pb}{bq}\right| =\frac{|aq-pb|}{bq}
+      </me>.
+    </p>
+    <p>
+      Note that <m>aq-pb</m> is an integer.
+      Moreover <m>aq-pb\neq0</m>, since otherwise we would have <m>x = p/q</m>.
+      Hence, <m>|aq-pb|\geq 1</m>, and if we set
+      <me>
+        c=\frac{1}{b}
+      </me>,
+      then we have that for any rational number <m>\frac{p}{q}</m>,
+      <me>
+        \left|x-\frac{p}{q}\right| \geq \frac{|aq-pb|}{bq}\geq \frac{1}{bq}=\frac{c}{q}
+      </me>.
+    </p>
+    <p>
+      We have shown that, supposing <m>x</m> is rational,
+      there exists a <m>c>0</m> such that for all rational numbers
+      <m>\frac{p}{q}</m> we have <m>\left|x-\frac{p}{q}\right| \geq \frac{c}{q}</m> and we are done.
+    </p>
+  </proof>
+  <p>
+    As a corollary, we get the following:
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        Suppose that <m>p_n, q_n \in \Z, q_n \neq 0</m>,
+        and <m>\left|x-\frac{p_{n}}{q_{n}}\right|q_n\rightarrow 0</m>.
+        Then <m>x</m> is irrational.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      Let <m>c>0</m>.
+      By assumption, there is an <m>N</m> so that <m>n> N</m> implies
+      <me>
+        \left|x-\frac{p_{n}}{q_{n}}\right|q_n\lt c
+      </me>
+      or equivalently
+      <me>
+        \left|x-\frac{p_{n}}{q_{n}}\right| \lt  \frac{c}{q_n}
+      </me>.
+    </p>
+    <p>
+      Thus, for all <m>c>0</m>,
+      we can find <m>\frac{p_n}{q_n}</m> rational so that <xref ref="e_x-p_q"/> holds.
+      Thus <m>x</m> is irrational.
+    </p>
+  </proof>
+  <theorem>
+    <statement>
+      <p>
+        The number <m>e</m> is irrational.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>x = e-1</m>.
+      We aim to show that for every <m>c>0</m>,
+      we can find a rational number
+      <m>\frac{p}{q}</m> so that <xref ref="e_x-p_q"/> holds.
+      <xref ref="irrattest">Lemma</xref>
+      will then imply that <m>e-1</m>,
+      and hence <m>e</m>, is irrational.
+    </p>
+    <p>
+      So let <m>c>0</m>.
+      Let <m>N\in\mathbb{N}</m>.
+      Then
+      <me>
+        x=\sum_{n=1}^{\infty} \frac{1}{n!} =\sum_{n=1}^{N}\frac{1}{n!} + \sum_{n=N+1}^{\infty}\frac{1}{n!}
+      </me>
+    </p>
+    <p>
+      Note that
+      <md>
+        <mrow>\sum_{n=1}^{N}\frac{1}{n!} \amp  =1+\frac{1}{2!}+\frac{1}{3!}+\cdots + \frac{1}{N!}</mrow>
+        <mrow>\amp  = \frac{N!}{N!}+\frac{N!/2!}{N!}+\frac{N!/3!}{N!}+\cdots + \frac{1}{N!}</mrow>
+        <mrow>\amp  = \frac{N!+\frac{N!}{2!}+\frac{N!}{3!}+\cdots + 1}{N!} = \frac{p}{N!}</mrow>
+      </md>
+      where <m>p</m> is an integer since <m>N!/k!</m> is an integer for <m>k=0,1,...,N</m>.
+      We will now show, for <m>N</m> large enough, that
+      <me>
+        \left| x-\frac{p}{N!}\right|\lt \frac{c}{N!}
+      </me>.
+    </p>
+    <p>
+      We know exactly what <m>x-\frac{p}{N!}</m> is:
+      <me>
+        x-\frac{p}{N!} =x-\sum_{n=1}^{N}\frac{1}{n!} =\sum_{n=N+1}^{\infty}\frac{1}{n!} =\frac{1}{(N+1)!}\sum_{n=N+1}^{\infty}\frac{(N+1)!}{n!}
+      </me>
+    </p>
+    <p>
+      If we can show that there is some constant <m>C</m> such that
+      <me>
+        \sum_{n=N+1}^{\infty}\frac{(N+1)!}{n!} \leq C
+      </me>
+      for all <m>N</m>, we are done, since then
+      <me>
+        \left|x-\frac{p}{N!}\right| =\frac{1}{(N+1)!}\sum_{n=N+1}^{\infty}\frac{(N+1)!}{n!} \leq \frac{C}{(N+1)!}=\frac{C/(N+1)}{N!}
+      </me>
+      and so if <m>\frac{C}{N+1}\lt c</m>
+      (which happens if we pick <m>N>\frac{C}{c}-1</m>),
+      the above gives <m>\left|x-\frac{p}{N!}\right|\lt \frac{c}{N!}</m>.
+    </p>
+    <p>
+      For the missing step, we have that for <m>n \geq N+1</m>,
+      <me>
+        \frac{(N+1)!}{n!} = \frac{1}{{n\choose N+1}} \frac{1}{(n-N-1)!} \leq \frac{1}{(n-N-1)!}
+      </me>
+      since the binomial coefficients are all nonnegative integers,
+      and we have already seen that
+      <me>
+        \sum_{n = N+1}^\infty \frac{1}{(n-N-1)!} = \sum_{n=0}^\infty\frac{1}{n!}
+      </me>
+      converges.
+    </p>
+    <p>
+      To recap, for every <m>c>0</m>,
+      we have shown that we can pick <m>N</m> so that <m>\left|x-\frac{p}{N!}\right|\lt \frac{c}{N!}</m>,
+      which implies that <m>e</m> is irrational by <xref ref="irrattest">Lemma</xref>.
+    </p>
+  </proof>
+</section>

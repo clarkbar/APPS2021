@@ -1,0 +1,354 @@
+<section xml:id="inductionexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck are in Chapter 8.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        (Aug 2018 Exam) Show that,
+        for all <m>n\geq 0</m>, <m>\sum_{k=1}^{n} k\cdot k! = (n+1)!-1</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The base case is <m>\sum_{k=1}^{1} k\cdot k!=1=2!-1</m>.
+        For the induction step, assuming the <m>(n-1)</m>st case is true,
+        <me>
+          \sum_{k=1}^{n} k\cdot k! =\sum_{k=1}^{n-1} k\cdot k! + n\cdot n! =n!-1+ n\cdot n! =(n+1)\cdot n! -1 = (n+1)!-1
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for all <m>n\geq 0</m>,
+        <m>\sum_{k=1}^{n} k(k+1) = \frac{n(n+1)(n+2)}{3}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The base case is <m>\sum_{k=1}^{1} k(k+1) = \frac{1(1+1)(1+2)}{3}</m>.
+        For the induction step assume <m>\sum_{k=1}^{n} k(k+1) = \frac{n(n+1)(n+2)}{3}</m> and consider
+        <me>
+          \sum_{k=1}^{n+1} k(k+1) = \sum_{k=1}^{n} k(k+1) +(n+1)(n+2)
+        </me>
+        <me>
+          = \frac{n(n+1)(n+2)}{3}+(n+1)(n+2) =\frac{(n+1)(n+2)(n+3)}{3}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that <m>n!\leq n^{n}</m> for all <m>n\geq 1</m>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The base holds immediately.
+        Assume <m>n\geq 1</m> is so that <m>n^{n}\geq n!</m>.
+        Then
+        <me>
+          (n+1)!=n! (n+1)\leq n^{n} (n+1)\lt (n+1)^{n}(n+1)=(n+1)^{n+1}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>x_{1}=1</m> and
+        <m>x_{n+1} = \sqrt{1+2x_{n}}</m> for all <m>n\geq 1</m>.
+        Show <m>x_{n}\leq 4</m> for all <m>n</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This clearly holds for <m>n=1</m>.
+        Assume <m>x_{n}\leq 4</m>, then
+        <me>
+          x_{n+1}= \sqrt{1+2\cdot x_{n}}\leq \sqrt{1+2\cdot 4}=\sqrt{9}=3\lt 4
+        </me>
+        and thus the induction step also holds.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f_{1}=f_{2}=1</m> and <m>f_{n}=f_{n-1}+f_{n-2}</m> for <m>n>2</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Show that <m>3|f_{4n}</m> for all <m>n\geq 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>1\leq f_{n+1}/f_{n}\leq 2</m> for all <m>n\geq 1</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol label="labelalph">
+          <li>
+            <p>
+              We prove by induction.
+              We can compute that <m>f_{4}=3</m>,
+              which establishes the base case <m>n=1</m>.
+              Now assume <m>3|f_{4n}</m> for some <m>n\geq 1</m>,
+              we'll show <m>3|f_{4(n+1)}</m>:
+              <me>
+                f_{4(n+1)}=f_{4n+3}+f_{4n+2} =2f_{4n+2}+f_{4n+1} =2(f_{4n+1}+f_{4n})+f_{4n+1} =3f_{4n+1}+2f_{4n}
+              </me>.
+              By assumption, <m>3|f_{4n}</m>,
+              and clearly <m>3|3f_{4n+1}</m>,
+              and so <m>3|f_{4(n+1)}</m>,
+              which proves the induction step and hence the claim.
+            </p>
+          </li>
+          <li>
+            <p>
+              It is clear the inequalities hold for <m>n=1</m>.
+              Assume we have shown it to hold for some <m>n</m>.
+              Then
+              <me>
+                \frac{f_{n+2}}{f_{n+1}}=1+\frac{f_{n}}{f_{n}}\leq 1+1=2
+              </me>
+              and
+              <me>
+                \frac{f_{n+2}}{f_{n+1}}=1+\frac{f_{n}}{f_{n}}\geq 1+0=1
+              </me>.
+              This proves the induction step and hence the claim.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>F_{n}=2^{2^{n}}+1</m> for <m>n\geq 0</m>.
+        Prove that for <m>n>0</m>,
+        <me>
+          F_{n} = F_{n-1}\cdots F_{0}+2
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We prove by induction.
+        The base case <m>n=1</m> is immediate.
+        Suppose the statement is true for some <m>n\geq 1</m>.
+        Then
+        <me>
+          F_{n}\cdot F_{n-1}\cdots F_{0}+2 = F_{n}(F_{n}-2)+2 =F_{n}^{2}-2F_{n}+2 =(F_{n}-1)^2+1 =(2^{2^{n}})^2+1 = 2^{2^{n+1}}+1 =F_{n+1}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Find a formula for the number of diagonals in a convex polygon with <m>n\geq 3</m> vertices.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>f(n)</m> denote the number of diagonals in a convex polygon of <m>n</m> vertices.
+        We will find a recurrence relation that <m>f</m> satisfies.
+      </p>
+      <p>
+        Suppose we have a convex polygon with <m>n+1</m> vertices.
+        Draw an edge between the second vertex <m>a</m> and last vertex <m>c</m>,
+        so splits the polygon into a triangle between <m>a</m>,
+        <m>c</m>,
+        and the first vertex <m>c</m> and a polygon with <m>n</m> vertices.
+        The number of diagonals in this polygon
+        (which are diagonals for the original polygon)
+        are <m>f(n)</m> many.
+        The ones that are diagonals for the original polygon that weren't counted are the ones that have <m>b</m> as an endpoint
+        (of which there are <m>n+1-3=n-2</m> many)
+        and the edge that we first drew.
+        Thus the total is
+        <md>
+          <mrow>f(n+1) \amp  =f(n)+n-2+1=f(n)+n-1  = f(n-1) + n-2+n-1=\cdots</mrow>
+          <mrow>\amp  = f(3) + \sum_{k=2}^{n-1}k =0+\sum_{k=1}^{n-1}k-1 = \frac{n(n-1)}{2}-1</mrow>
+        </md>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for all integers <m>n\geq 3</m>,
+        there are <term>distinct</term> integers <m>x_{1},...,x_{n}</m> so that
+        <me>
+          \sum_{k=1}^{n} \frac{1}{x_{k}}=1
+        </me>.
+      </p>
+      <p>
+        (It is an open question whether you can always do this with <m>x_{n}</m> distinct
+        <term>odd</term> numbers.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We prove this by induction.
+        For the base case <m>n=3</m>, we see that
+        <me>
+          1=\frac{1}{2}+\frac{1}{3}+\frac{1}{6}
+        </me>.
+      </p>
+      <p>
+        Suppose the claim is true for some integer <m>n\geq 3</m>.
+        Let <m>x_{1},...,x_{n}</m> be so that
+        <me>
+          \sum_{k=1}^{n} \frac{1}{x_{k}}=1
+        </me>.
+      </p>
+      <p>
+        Note that we must have <m>x_{k}>1</m> for all <m>k</m>.
+        Then
+        <me>
+          \sum_{k=1}^{n} \frac{1}{2x_{k}}=\frac{1}{2}
+        </me>.
+      </p>
+      <p>
+        Hence,
+        <me>
+          \frac{1}{2} + \frac{1}{2x_{1}}+\cdots + \frac{1}{2x_{n}}=\frac{1}{2}+\frac{1}{2} =1
+        </me>,
+      </p>
+      <p>
+        Note that as <m>x_{k}\geq 2</m> for all <m>k</m>,
+        <m>2x_{k}\neq 2</m> for all <m>k</m>,
+        thus the integers <m>2,2x_{1},...,2x_{n}</m> are <m>n+1</m> distinct integers whose reciprocals add up to one,
+        which proves the induction step and hence the claim.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Joseph Bertrand conjectured in 1845
+        (and it was proven by Chebychev in 1852)
+        that, if <m>p_{1},p_{2},..</m>. are the primes in ascending order, then
+        <me>
+          p_{n+1}\lt 2p_{n}
+        </me>.
+      </p>
+      <p>
+        This is called <em>Bertrand's postulate</em>.
+        Using this result, show that for all <m>n\geq 4</m> we have
+        <me>
+          p_{n} \lt \sum_{k=1}^{n-1} p_{k}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We prove this by induction.
+        For <m>n=4</m>, we have
+        <me>
+          p_{4}=7 \lt  2+3+5 = \sum_{k=1}^{3} p_{k}
+        </me>.
+      </p>
+      <p>
+        This establishes the base case.
+        Now assume the statement is true for some integer <m>n</m>.
+        Then
+        <me>
+          p_{n+1}\lt 2p_{n} = p_{n}+p_{n} \lt  p_{n}+\sum_{k=1}^{n-1} p_{k} = \sum_{k=1}^{n} p_{k}
+        </me>.
+      </p>
+      <p>
+        This proves the induction step and hence the claim.
+      </p>
+    </solution>
+  </exercise>
+  <exercise xml:id="ex_AMGM">
+    <statement>
+      <p>
+        <em>Challenge:</em> In this exercise,
+        we will prove the Arithmetic-Geometric Inequality:
+        for <m>x_{1},...,x_{n}\geq 0</m>,
+        <me>
+          (x_{1}\cdots x_{n})^{\frac{1}{n}}\leq \frac{x_{1}+\cdots + x_{n}}{n}
+        </me>.
+      </p>
+      <p>
+        We will do this in several steps.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Prove that for all <m>n\in \mathbb{N}</m>,
+              if <m>x_{1},...,x_{2^n}</m> are positive numbers, then
+              <me>
+                (x_{1}x_{2}\cdots x_{2^n})^{1/2^{n}} \leq \frac{x_{1}+\cdots + x_{2^n}}{2^n}
+              </me>.
+              <solution>
+                <p>
+                  This follows by induction on <m>n</m>.
+                  The <m>n=2</m> case was shown just below the statement of <xref ref="t_AM-GM">Theorem</xref>.
+                  For the induction step,
+                  assume the <m>n</m>th case is true for some <m>n\geq 2</m>,
+                  we can prove the <m>(n+1)</m>st case using the base case: Let
+                  <m>a=(x_{1}\cdots x_{2^{n}})^{\frac{1}{2^{n}}}</m> and <m>y=(x_{2^{n}+1}\cdots x_{2^{n+1}})^{\frac{1}{2^{n}}}</m>.
+                  Then
+                  <me>
+                    (x_{1}....x_{2^{n+1}})^{\frac{1}{2^{n+1}}} =\sqrt{ab}\leq \frac{a+b}{2} \leq \frac{x_{1}+\cdots + x_{2^{n}}+x_{2^{n}+1}+\cdots + x_{2^{n+1}}}{2^{n+1}}
+                  </me>
+                  where in the last line we used the induction hypothesis.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Use  the previous case to prove the AM-GM inequality.
+              <term>Hint: Let <m>2^{m}>n</m> and define a new sequence
+              <m>y_{1},...,y_{2^{m}}</m> with <m>y_{i}=x_{i}</m> for
+              <m>i=1,2,...,n</m> and <m>y_{i}=A</m> otherwise where <m>A=\frac{x_{1}+\cdots + x_{n}}{n}</m>.
+              Apply the previous case to the product of the <m>y_{i}</m> and find an appropriate choice of <m>A</m> that will imply the inequality for the <m>x_{i}</m>.</term>
+              <solution>
+                <p>
+                  With the notation as in the hint, we see that
+                  <md>
+                    <mrow>(x_{1}\cdots x_{n}A^{2^{m}-n})^{\frac{1}{2^{m}}} \amp  = (y_{1}\cdots y_{2^{m}})^{\frac{1}{2^{m}}}</mrow>
+                    <mrow>\amp  \leq \frac{y_{1}+\cdots + y_{2^{m}}}{2^{m}}</mrow>
+                    <mrow>\amp  =\frac{x_{1}+\cdots + x_{n} + (2^{m}-n)A}{2^{m}}</mrow>
+                    <mrow>\amp  = \frac{nA+(2^{m}-n)A}{2^{m}}</mrow>
+                    <mrow>\amp  = A</mrow>
+                  </md>
+                </p>
+                <p>
+                  Taking both sides to the power <m>\frac{2^{m}}{n}</m>, we get
+                  <me>
+                    (x_{1}\cdots x_{n}A^{2^{m}-n})^{\frac{1}{n}} \leq A^{\frac{2^{m}}{n}}
+                  </me>.
+                </p>
+                <p>
+                  Now moving the <m>A</m> from the left side to the right, we get
+                  <me>
+                    (x_{1}\cdots x_{n})^{\frac{1}{n}}\leq A=\frac{x_{1}+\cdots + x_{n}}{n}
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    \part{Week 3: Analysis}
+  </p>
+</section>

@@ -1,0 +1,205 @@
+<section xml:id="subsequences">
+  <title>Subsequences</title>
+  <p>
+    Consider the sequence <m>x_n=(-1)^{n}</m>,
+    the simplest example of a bounded divergent sequence.
+    Note that, while this sequence doesn't approach one value as <m>n\rightarrow\infty</m>,
+    it concentrates on two values,
+    and if you throw out all the odd numbered terms of the sequence,
+    you get the new sequence <m>x_{2n}=(-1)^{2n}=1</m>, which does converge.
+    This was quite a simple sequence,
+    but it turns out this is more than just coincidence:
+    for any bounded sequence,
+    we can throw out some terms so that the sequence becomes convergent.
+    Below we make more precise what we mean by
+    <q>throwing out</q>
+    terms.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given a sequence <m>(x_{n})</m>,
+        a <term>subsequence</term> is a sequence of the form <m>(x_{n_{k}})</m> where
+        <m>n_{1}\lt n_{2}\lt \cdots</m> are positive integers.
+        A real number <m>x</m> is a <term>limit point</term>
+        of a sequence <m>(x_{n})</m> if there is a subsequence
+        <m>(x_{n_{k}})</m> so that <m>x_{n_{k}}\rightarrow x</m>.
+      </p>
+    </statement>
+  </definition>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>n_{1}\lt n_{2}\lt \cdots</m> is a strictly increasing sequence of positive integers,
+        then <m>n_k\geq k</m> for all <m>k\in\mathbb{N}</m>.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The following gives a criterion for detecting limit points:
+  </p>
+  <proposition xml:id="p_lim-points">
+    <statement>
+      <p>
+        Given a sequence <m>(x_n)</m> and a number <m>L</m>,
+        <m>L</m> is a limit point if and only if for all
+        <m>\epsilon>0</m> and for all integers <m>N</m>,
+        we can find <m>n> N</m> so that <m>|x_n-L|\lt \epsilon</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      If <m>L</m> is a limit point,
+      we will show that for all <m>\epsilon>0</m> and for all integers <m>N</m>,
+      we can find <m>n> N</m> so that <m>|x_n-L|\lt \epsilon</m>.
+      Let <m>\epsilon>0</m> and <m>N\in\mathbb{N}</m>.
+      Since <m>L</m> is a limit point,
+      there is a subsequence <m>(x_{n_{k}})</m> converging to <m>L</m> with <m>n_{1}\lt n_{2}\lt \cdots</m>,
+      so there is <m>K\in\mathbb{N}</m> so that <m>k> K</m> implies <m>|x_{n_{k}}-L|\lt \epsilon</m>.
+      By the previous exercise, <m>n_{k}\geq k</m>,
+      so if <m>k> \max\{N,K\}</m>,
+      then <m>n_k</m> is an integer bigger than <m>N</m> so that <m>|x_{n_{k}}-L|\lt \epsilon</m>.
+      This proves the forward implication of the proposition.
+    </p>
+    <p>
+      Now we prove the converse.
+      Assume <m>L</m> is a number so that for all
+      <m>\epsilon>0</m> and for all integers <m>N</m>,
+      we can find <m>n> N</m> so that <m>|x_n-L|\lt \epsilon</m>.
+      We will show <m>L</m> is a limit point.
+    </p>
+    <p>
+      By our assumption
+      (with <m>\epsilon=1</m> and <m>N=1</m>),
+      we can find <m>n_1\in\mathbb{N}</m> so that
+      <me>
+        |x_{n_{1}}-L|\lt 1
+      </me>.
+    </p>
+    <p>
+      By our assumption again
+      (now with <m>\epsilon=\frac{1}{2}</m> and <m>N=n_{1}+1</m>)
+      we can find <m>n_2>n_1</m> so that
+      <me>
+        |x_{n_{2}}-L|\lt \frac{1}{2}
+      </me>.
+    </p>
+    <p>
+      Now suppose we have picked <m>n_{k-1}</m> for some integer <m>k\geq 2</m>.
+      Using the same logic, we can find <m>n_{k}>n_{k-1}</m> so that
+      <men xml:id="e_xn-L_1_k">
+        |x_{n_{k}}-L|\lt \frac{1}{k}
+      </men>.
+    </p>
+    <p>
+      If we continue in this way,
+      we get a sequence of integers
+      <m>n_1\lt n_2\lt \cdots</m> so that <xref ref="e_xn-L_1_k"/> holds for all <m>k</m>.
+      This means <m>x_{n_k}\rightarrow L</m>: For <m>\epsilon>0</m>,
+      if <m>N=\frac{1}{\epsilon}</m>, then for <m>k> N</m>,
+      <me>
+        |x_{n_{k}}-L|\lt \frac{1}{k}\lt  \frac{1}{N}=\epsilon
+      </me>,
+      which implies <m>x_{n_k}\rightarrow L</m>.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        We have already seen that <m>x_n=(-1)^{n}</m> has a subsequence
+        <m>x_{2k}=1</m> that converges to <m>1</m>.
+        Also, <m>x_{2k+1}=(-1)^{2k+1}=-1</m> is a subsequence that converges to <m>-1</m>.
+        We claim that <m>\{-1,1\}</m> are the only limit points:
+      </p>
+      <p>
+        Suppose <m>L</m> is a limit point not equal to <m>-1</m> or <m>1</m>.
+        Then for all <m>n\geq 1</m>,
+        <m>|x_{n}-L|=|(-1)^{n}-L|</m> is either <m>|1-L|</m> or <m>|-1-L|=|1+L|</m>, hence
+        <me>
+          |x_{n}-L|\geq \min\{|1-L|,|1+L|\}
+        </me>.
+      </p>
+      <p>
+        Let <m>\epsilon=\min\{|1-L|,|1+L|\}</m> and <m>N=1</m>.Note
+        <m>\epsilon>0</m> since <m>L\neq \pm 1</m>.
+        Then <m>\epsilon>0</m> and <m>N</m> so that for all <m>n\geq N</m>,
+        <m>|x_{n}-L|\geq \epsilon</m>.
+        This is the negation of <xref ref="p_lim-points">Proposition</xref>,
+        and so <m>L</m> is not a limit point.
+        Thus, the only limit points are <m>\pm 1</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Our next convergence theorem says that,
+    while a sequence does not need to converge,
+    if it is <term>bounded</term> then we can always find a convergent <term>subsequence</term>,
+    no matter how wild the original sequence is.
+  </p>
+  <theorem>
+    <title>Bolzano–Weierstrass Theorem</title>
+    <statement>
+      <p>
+        If <m>(x_{n})</m> is a bounded sequence,
+        then it has a limit point, that is,
+        it has a convergent subsequence.
+      </p>
+    </statement>
+  </theorem>
+  <figure>
+    <caption>Above we have the graph of some bounded sequence, where the values <m>1,2,..</m>. are marked on the <m>x</m> axis and the values <m>x_{1},x_{2},..</m>. are indicated by the dots. This sequence doesn't have any discernible pattern and is not converging. However, by the Bolzano–Weierstrass Theorem there is a subsequence <m>(x_{n_{k}})</m> (denoted by the red points above the values <m>n_{1},n_{2},..</m>.) that does converge.</caption>
+    <image width="92.5%" source="Figures/subsequence.pdf"/>
+    <image source="images/08a9a96eba94759a7d6c4559d8471d0b788266ae.png"/>
+  </figure>
+  <proof>
+    <p>
+      Let
+      <me>
+        S=\{x \; | \; \mbox{ there are infinitely many \(n\in\mathbb{N}\) so that } x_n\geq x\}
+      </me>
+      and set <m>L=\LUB (S)</m>.
+      Since <m>(x_n)</m> is bounded, <m>\LUB(S)</m> exists.
+      By <xref ref="p_lim-points">Proposition</xref>,
+      <m>L</m> is a limit point if we can verify the following:
+    </p>
+    <p>
+      <em>Claim:</em> For all <m>\epsilon>0</m> and
+      <m>N\in\mathbb{N}</m> there is <m>n>N</m> so that <m>|x_{n}-L|\lt \epsilon</m>.
+    </p>
+    <p>
+      We prove by contradiction.
+      Suppose instead that there exists <m>\epsilon>0</m> and
+      <m>N\in\mathbb{N}</m> so that <m>|x_{n}-L|\geq \epsilon</m> for all <m>n> N</m>.
+      In other words, there are at most <m>N</m> many integers <m>n</m>
+      (hence only finitely many)
+      for which <m>|x_{n}-L|\lt \epsilon</m>, or equivalently
+      <men xml:id="e_finitely-many-betweenL-eL_e">
+        L-\epsilon\lt x_n\lt L+\epsilon
+      </men>.
+    </p>
+    <p>
+      Since <m>L+\epsilon>L=\LUB(S)</m> and <m>\LUB(S)</m> is an upper bound for <m>S</m>,
+      we can't have <m>L+\epsilon\in S</m>,
+      so by the definition of <m>S</m>,
+      there are only finitely many <m>n\in\mathbb{N}</m> so that
+      <men xml:id="e_finitely-many-aboveL_e">
+        x_n\geq L+\epsilon
+      </men>
+    </p>
+    <p>
+      Thus, there are only finitely many <m>n</m> satisfying <xref ref="e_finitely-many-betweenL-eL_e"/> or <xref ref="e_finitely-many-aboveL_e"/>,
+      so there can only be finitely many <m>n</m> so that <m>x_n>L-\epsilon</m>.
+      But then <m>L-\epsilon\geq \LUB(S)</m>,
+      since if <m>L-\epsilon\lt \LUB(S)</m>,
+      by definition of the LUB, <m>L-\epsilon</m> is not an upper bound for <m>S</m>,
+      so there is <m>t>L-\epsilon</m> so that there are infinitely many <m>x_n\geq t</m>,
+      which is impossible since there are only finitely many <m>x_n>\epsilon</m>.
+      Thus, <m>L-\epsilon\geq \LUB(S)=L</m>, which is a contradiction.
+      This proves the claim, and thus <m>L</m> is a limit point.
+    </p>
+  </proof>
+  <p>
+    \part{Week 5: Complex Numbers and Polynomials}
+  </p>
+</section>

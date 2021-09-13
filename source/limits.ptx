@@ -1,0 +1,8 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="limits">
+  <title>Limits</title>
+  <xi:include  href="epsilondefinitionoflimit.ptx"/>
+  <xi:include  href="rulesforlimits.ptx"/>
+  <xi:include  href="existenceofroots.ptx"/>
+  <xi:include  href="infinitelimits.ptx"/>
+  <xi:include  href="limitsexercises.ptx"/>
+</chapter>

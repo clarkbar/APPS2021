@@ -1,0 +1,367 @@
+<section xml:id="decimalsseriesexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck are in Chapter 3.
+  </p>
+  <exercise xml:id="x81">
+    <statement>
+      <p>
+        Use the formula for a finite geometric series to show that for
+        <m>a,
+        b \in \mathbb{R}</m> and <m>n \in \mathbb{N}</m> we have
+        <me>
+          a^n - b^n = (a-b)(a^{n-1} + a^{n-2}b + \cdots + ab^{n-2} + b^{n-1})
+        </me>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Write each of the following decimal expansions in the form of a fraction
+        <m>\frac{p}{q}</m> with <m>p, q \in \mathbb{Z}</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>0.\overline{123}</m> .
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0.\overline{2}</m> .
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>0.\overline{2331}</m> .
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Prove that if <m>a_{n},b_{n}\in \{0,1,...,9\}</m> are so that
+        <m>a_{n}+b_{n}\leq 9</m> for all <m>n</m>, then
+        <me>
+          0.a_{1}a_{2}\cdots + 0.b_{1}b_{2}\cdots = 0.(a_{1}+b_{1})(a_{2}+b_{2})..
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We use <xref ref="p_suman_bn">Proposition</xref>
+        and the definition of a decimal expansion to get
+        <md>
+          <mrow>0.a_{1}a_{2}\cdots + 0.b_{1}b_{2}\cdots \amp   =\sum_{n=1}^{\infty}\frac{a_{n}}{10^{n}} + \sum_{n=1}^{\infty}\frac{b_{n}}{10^{n}}</mrow>
+          <mrow>\amp  = \sum_{n=1}^{\infty}\left( \frac{a_{n}}{10^{n}} + \frac{b_{n}}{10^{n}} \right)</mrow>
+          <mrow>\amp  = \sum_{n=1}^{\infty} \frac{a_{n}+b_{n}}{10^{n}} =0.(a_{1}+b_{1})(a_{2}+b_{2})..</mrow>
+        </md>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise xml:id="x877">
+    <statement>
+      <p>
+        Suppose that <m>0 \leq a_1 \leq 8</m> and that <m>0.a_1 a_2 a_3\dots = 0.(a_1 +1) b_2 b_3 \dots</m>.
+        Show that <m>a_j = 9</m> and <m>b_j = 0</m> for all <m>j \geq 2</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By assumption,
+        <me>
+          \frac{a_1}{10} + \sum_{j=2}^\infty \frac{a_j}{10^j} = \frac{a_1 + 1}{10} + \sum_{j=1}^\infty \frac{b_j}{10^j}
+        </me>,
+        so that
+        <me>
+          \sum_{j=2}^\infty \frac{a_j - b_j}{10^j} = \frac{1}{10}
+        </me>.
+      </p>
+      <p>
+        But if <m>a_j - b_j \lt  9</m> for any <m>j</m> we will have
+        <me>
+          \sum_{j=2}^\infty \frac{a_j - b_j}{10^j} \lt  \sum_{j=2}^\infty \frac{9}{10^j} = \frac{1}{10}
+        </me>,
+        contradiction.
+        So indeed <m>a_j = 9</m> and <m>b_j = 0</m> for all <m>j \geq 2</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose that <m>a_{n}\geq 0</m> and the numbers <m>\sum_{j=1}^{n}a_{j}</m> are bounded above.
+        Is <m>\sum_{j=1}^{\infty}a_{j}</m> convergent?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Yes, note that <m>s_n=\sum_{j=1}^{n}a_{j}</m> is an increasing sequence since
+        <me>
+          s_{n+1}-s_{n}=\sum_{j=1}^{n+1}a_{j}-\sum_{j=1}^{n}a_{j} = a_{n+1}\geq 0
+        </me>.
+      </p>
+      <p>
+        By assumption, <m>(s_{n})</m> is bounded above,
+        so it must converge by the MCT.
+      </p>
+    </solution>
+  </exercise>
+  <exercise xml:id="eleven">
+    <statement>
+      <p>
+        In each case, either find a sequence <m>(a_n)</m> such that
+        <m>a_n \geq 0</m> for all <m>n</m> which has the desired property,
+        or else explain why no such sequence exists.
+      </p>
+      <p>
+        (i) the sequence <m>(a_n)</m> and the series <m>\sum_{n=1}^\infty a_n</m> both converge
+      </p>
+      <p>
+        (ii) the sequence <m>(a_n)</m> and the series
+        <m>\sum_{n=1}^\infty a_n</m> both fail to converge
+      </p>
+      <p>
+        (iii) the sequence <m>(a_n)</m> converges and the series <m>\sum_{n=1}^\infty a_n</m> fails to converge
+      </p>
+      <p>
+        (iv) the sequence <m>(a_n)</m> fails to converge and the series <m>\sum_{n=1}^\infty a_n</m> converges.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        (i) <m>a_n = 2^{-n}</m>.
+      </p>
+      <p>
+        (ii) <m>a_n = 2^n</m>.
+      </p>
+      <p>
+        (iii) <m>a_n = 1/n</m>.
+        Then <m>a_n \to 0</m> but <m>\sum_{n=1}^\infty \frac{1}{n}</m> diverges <mdash/> see his week's Lecture Quiz.
+      </p>
+      <p>
+        (iv) Not possible: by <xref ref="divgcetest">Proposition</xref>,
+        if <m>\sum_{n=1}^\infty a_n</m> converges,
+        then the sequence <m>(a_n)</m> converges
+        (in fact it converges to <m>0</m>).
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>\sum_n |a_n|</m> converges,
+        show that <m>\sum_n a_n</m> converges.
+        <em>Harder:</em> Does the converse hold?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This follows directly from the comparison test.
+        The converse is not true: take <m>a_n = \frac{(-1)^n}{n}</m>.
+        The convergence of <m>\sum_{n=1}^\infty a_n</m> for this case is treated in Calculus and its Applications.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>a_n \to 0</m>, does <m>\sum_n a_n</m> necessarily converge?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        No: take <m>a_n = 1/n</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose that <m>|a_n - a_{n-1}| \leq 2^{-n}</m> for all <m>n \in \mathbb{N}</m>.
+        Show that the sequence <m>(a_n)</m> converges. (<em>Hint:</em>
+        Consider the <term>series</term>
+        <m>\sum_{n=1}^\infty (a_n - a_{n-1})</m>.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By the comparison test and the geometric series,
+        we have that <m>\sum_{n=1}^\infty (a_n - a_{n-1})</m> converges.
+        But the partial sums for this series are
+        <me>
+          s_n = \sum_{j=1}^n (a_j - a_{j-1}) = a_n - a_0
+        </me>.
+      </p>
+      <p>
+        Since <m>(s_n)</m> converges, so does <m>(a_n)</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        A fun fact you'll learn how to prove if you take the 4th year course
+        <term>Fourier Analysis</term> is that
+        <me>
+          \sum_{n=1}^{\infty}\frac{1}{n^2}=\frac{\pi^{2}}{6}
+        </me>.
+      </p>
+      <p>
+        Given this fact,
+        compute <m>\sum_{n=1}^{\infty}\frac{1}{(2n+1)^2}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that for any integer <m>N</m>,
+        <md>
+          <mrow>\sum_{n=1}^{2N+1}\frac{1}{n^{2}} \amp  = \sum_{n=1}^{2N+1}\frac{1}{n^{2}} =\frac{1}{1^{2}}+\frac{1}{2^{2}}+\frac{1}{3^{2}}+\cdots + \frac{1}{(2N+1)^2}</mrow>
+          <mrow>\amp  =\left(\frac{1}{1^{2}}+\frac{1}{3^{2}}+\cdots + \frac{1}{(2N+1)^2}\right) +\left(\frac{1}{2^{2}}+\frac{1}{4^{2}}+\cdots + \frac{1}{(2N)^2}\right)</mrow>
+          <mrow>\amp  =\sum_{n=1}^{N}\frac{1}{(2n+1)^{2}}+ \sum_{n=1}^{N}\frac{1}{(2n)^{2}} = \sum_{n=1}^{N}\frac{1}{(2n+1)^{2}}+\frac{1}{2^2} \sum_{n=1}^{N}\frac{1}{n^{2}}</mrow>
+        </md>
+      </p>
+      <p>
+        Now taking limits of both sides gives
+        <md>
+          <mrow>\frac{\pi^{2}}{6} = \amp  \sum_{n=1}^{\infty}\frac{1}{n^2} =\lim_{N\rightarrow\infty}\sum_{n=1}^{2N+1}\frac{1}{n^{2}} =\lim_{N\rightarrow\infty} \left(\sum_{n=1}^{N}\frac{1}{(2n+1)^{2}}+\frac{1}{2^2} \sum_{n=1}^{N}\frac{1}{n^{2}}\right)</mrow>
+          <mrow>\amp  =\sum_{n=1}^{\infty}\frac{1}{(2n+1)^{2}}+ \frac{1}{2^2} \sum_{n=1}^{\infty}\frac{1}{n^{2}} = \sum_{n=1}^{\infty}\frac{1}{(2n+1)^{2}}+ \frac{1}{4} \cdot \frac{\pi^{2}}{6}</mrow>
+        </md>
+        and solving for the sum on the right gives
+        <me>
+          \sum_{n=1}^{\infty}\frac{1}{(2n+1)^{2}}= \frac{\pi^{2}}{6} - \frac{1}{4} \cdot \frac{\pi^{2}}{6}=\frac{\pi^{2}}{8}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        (Quite challenging.) Let <m>a_n = \left(1 + \frac{1}{n}\right)^n</m>,
+        and let <m>b_n = 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!}</m>.
+        Show that <m>(a_n)</m> and <m>(b_n)</m> both converge to the same limit. (You may assume that <m>(a_n)</m> is convergent.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We have already seen in the previous exercise that
+        <me>
+          \left(1 + \frac{1}{n}\right)^n \leq 1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!}
+        </me>
+        so by the rules for limits we have <m>\limn a_n \leq \limn b_n</m>.
+        (Note that <m>\lim_n b_n</m> exists by our discussion of the number <m>e</m>.)
+        To show that <m>\limn b_n \leq \limn a_n</m> we must control
+        <m>1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!}</m> by <m>\left(1 + \frac{1}{m}\right)^m</m> for some <m>m</m>
+        (which will probably satisfy <m>m \gg n</m>).
+        Indeed, note that for <m>m \geq n</m> we have
+        <me>
+          \left(1 + \frac{1}{m}\right)^m = 1 + 1 + \frac{m(m-1)}{2!m^2} + \frac{m(m-1)(m-2)}{3!m^3} + \dots +
+        </me>
+        <me>
+          + \dots + \frac{m(m-1) \dots (m-n+1)}{n! m^n} + \dots + \frac{m!}{m!m^m}
+        </me>
+        <me>
+          \geq 1 + 1 + \frac{1}{2!}\frac{m(m-1)}{m^2} + \frac{1}{3!}\frac{m(m-1)(m-2)}{m^3} + \dots + \frac{1}{n!}\frac{m(m-1) \dots (m-n+1)}{m^n}
+        </me>.
+      </p>
+      <p>
+        The hope is that by taking <m>m</m> sufficiently large we should be able to take all of the terms
+        <me>
+          \frac{m(m-1)}{m^2}, \frac{m(m-1)(m-2)}{m^3}, \dots, \frac{m(m-1) \dots (m-n+1)}{m^n}
+        </me>
+        very close to <m>1</m>.
+      </p>
+      <p>
+        Fix <m>n</m> and fix <m>\epsilon>0</m>.
+        Since <m>\frac{m(m-1)}{m^2} \to 1</m> as
+        <m>m \to \infty</m> there is an <m>M_1</m> such that for <m>m > M_1</m> we have
+        <me>
+          \frac{m(m-1)}{m^2} > 1- \epsilon
+        </me>.
+      </p>
+      <p>
+        Since <m>\frac{m(m-1)(m-2)}{m^3}\to 1</m> as
+        <m>m \to \infty</m> there is an <m>M_2</m> such that for <m>m > M_2</m> we have
+        <me>
+          \frac{m(m-1)(m-2)}{m^3} > 1- \epsilon
+        </me>.
+      </p>
+      <p>
+        Continuing in the same way,
+        we eventually obtain an <m>M_{n-1}</m> such that for <m>m > M_{n-1}</m> we have
+        <me>
+          \frac{m(m-1) \dots (m-n+1)}{m^n} > 1-\epsilon
+        </me>.
+      </p>
+      <p>
+        So for <m>m > M :=\max\{M_1, \dots, M_{n-1}\}</m> we have
+        <me>
+          \frac{m(m-1) \dots (m-j+1)}{m^j} >1-\epsilon
+        </me>
+        for all <m>2\leq j \leq n</m>.
+        Hence, for <m>m >M</m> we have
+        <me>
+          \left(1 + \frac{1}{m}\right)^m \geq 1 + 1 +(1 - \epsilon)\left( \frac{1}{2!} + \cdots + \frac{1}{n!}\right) \geq (1 - \epsilon)\left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!}\right)
+        </me>.
+      </p>
+      <p>
+        Therefore
+        <me>
+          \lim_{m \to \infty} \left(1 + \frac{1}{m}\right)^m \geq (1 - \epsilon) \limn \left(1 + \frac{1}{1!} + \frac{1}{2!} + \cdots + \frac{1}{n!} \right)
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for every real number <m>x</m> there is a unique integer
+        <m>a_0 \in \mathbb{Z}</m> such that <m>a_0 \leq x \lt a_0 +1</m>.
+        (We sometimes call <m>a_0</m> the
+        <term>integer part</term> of <m>x</m>, or the
+        <q>floor</q>
+        or
+        <q>staircase</q>
+        of <m>x</m>, denoted by <m>a_0 = \lfloor x \rfloor</m>.)
+        Deduce that every real number <m>x</m> has a decimal expansion <m>x = a_0.a_1 a_2 \dots a_n \dots</m> where
+        <m>a_0 \in \mathbb{Z}</m> and <m>a_n \in \{0,1,2, \dots, 9\}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>x \in \mathbb{R}</m>.
+        If <m>x \in \mathbb{Z}</m> we simply take <m>a_0 = x</m> and we are finished.
+        So assume <m>x \notin \mathbb{Z}</m>.
+        Let <m>A= \{ n \in \mathbb{Z} \; | \; n > x\}</m>.
+        Then <m>A \neq \emptyset</m> by the Archimedean property,
+        and <m>x</m> is a lower bound for <m>A</m>.
+        Then <m>A</m> has a minimum member <m>n_0</m>.
+        Therefore <m>x \lt n_0</m> and <m>n_0 - 1 \leq x</m>.
+        Take <m>a_0 = n_0 -1</m>.
+        (Note that this argument works if and only if we are in the setting of an ordered field with the Archimedean property.)
+        The uniqueness of <m>a_0</m> is easy.
+      </p>
+      <p>
+        (The fact that <m>A</m> actually has a minimum member deserves more discussion.
+        <m>A</m> is nonempty and has some lower bound.
+        By the Archimedean property we can assert that it has a lower bound in <m>\mathbb{Z}</m>.
+        The well-ordering principle <mdash/> which states that a nonempty subset of <m>\mathbb{N}</m> has a least member,
+        and which follows from the principle of induction <mdash/> allows us to conclude that the minimum exists.)
+      </p>
+      <p>
+        For the second assertion, let <m>a_{0}</m> be the integer part of <m>x</m>.
+        Then <m>a_{0}\leq x\lt a_{0}+1</m>.
+        So <m>x\in [a_{0},a_{0}+1)</m>, i.e.
+        <m>x - a_0 \in [0,1)</m>.
+        Now apply <xref ref="decimal_existence">Theorem</xref> to <m>x - a_0</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    Formulate and prove results analogous to <xref ref="x83">Theorems</xref> and <xref ref="x87"></xref>
+    for arbitrary <m>x \in \mathbb{R}</m>.
+  </p>
+</section>

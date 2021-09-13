@@ -1,0 +1,689 @@
+<section xml:id="euclideanalgo">
+  <title>The GCD and the Euclidean Algorithm</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be two nonzero integers.
+        A <term>common divisor</term> or
+        <term>common factor</term>
+        of <m>a</m> and <m>b</m> is an integer
+        <m>d \in \N</m> such that <m>d</m> divides both <m>a</m> and <m>b</m>.
+        The <term>greatest common divisor</term> (AKA the
+        <term>highest common factor</term>) of <m>a</m> and <m>b</m> is the <term>largest</term>
+        common divisor of <m>a</m> and <m>b</m>.
+        We denote this integer <m>d</m> by
+        <m>\gcd(a,b)</m> (you may also see the notation <m>\mathrm{hcf}(a,b)</m>.
+      </p>
+      <p>
+        If <m>\gcd(a,b)=1</m>,
+        then we say that <m>a</m> and <m>b</m> are said to be <term>coprime</term>
+        or <term>relatively prime</term>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Thus <m>a</m> and <m>b</m> are coprime if and only if their only (positive) common divisor is <m>1</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        <m>\gcd(15,45)=15</m>, <m>\gcd(6,15)=3</m>, and <m>\gcd(17,91)=1</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        We allow ourselves the flexibility to speak of the gcd of negative integers as well as positive ones,
+        but we notice that
+        <me>
+          \gcd(a,b) = \gcd(a,-b) = \gcd(-a,b) = \gcd(-a,-b)
+        </me>.
+      </p>
+      <p>
+        (So for instance <m>\gcd(-6,-27) = \gcd(6, 27) = 3</m>.) As a result,
+        we will mostly focus on the gcd of natural numbers.
+      </p>
+    </statement>
+  </example>
+  <p>
+    For a prime <m>p>1</m> and any integer <m>n</m>, we have:
+    <md>
+      \gcd(p,n) = \left\{\aligned\amp 1\ \text{ if \(p\) does not divide \(n\) } ,\\ \amp p\ \text{ if \(p\)  divides \(n\) } .\\ \endaligned \right.
+    </md>
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be integers.
+        An <term>integer linear combination</term>
+        of <m>a</m> and <m>b</m> is an integer of the form <m>ma + nb</m> for some <m>m,n \in \Z</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Notice that a linear combination of linear combinations is a linear combination.
+    That is, if <m>c</m> and <m>b</m> are each linear combinations of <m>a</m> and <m>b</m>,
+    then for some integers <m>m</m>,
+    <m>n</m>, <m>p</m>, and <m>q</m>,
+    we have <m>c = m a + n b</m> and <m>d = p a + q b</m>.
+    If we form a linear combination of <m>c</m> and <m>d</m>, we get
+    <me>
+      r c + s d = (rm+sp)a + (rn+sq)b
+    </me>,
+    which is a linear combination of <m>a</m> and <m>b</m>.
+  </p>
+  <p>
+    A little trick that we will use repeatedly is the observation that common divisors of two integers are also divisors of linear combinations of those integers:
+  </p>
+  <lemma xml:id="l_easy-lemma">
+    <title>Linear Combination Lemma</title>
+    <statement>
+      <p>
+        Let <m>a</m>, <m>b</m>, and <m>d</m> be integers.
+        If <m>d</m> divides both <m>a</m> and <m>b</m>,
+        then <m>d</m> divides every integer linear combination of <m>a</m> and <m>b</m>.
+        In other words,
+        for every pair of integers <m>m,n\in\mathbb{Z}</m>,
+        the integer <m>d</m> also divides <m>ma + nb</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Since <m>d</m> divides <m>a</m> and <m>d</m> divides <m>b</m>,
+      there are integers <m>s</m> and <m>t</m> so that <m>a=sd</m> and <m>b=td</m>.
+      Hence
+      <me>
+        ma+nb=msd+ntd=(ms+nt)d
+      </me>
+      and so <m>d</m> divides <m>ma+nb</m>.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Let <m>a, b \in \Z</m>.
+        If there is a linear combination of <m>a</m> and <m>b</m> that gives <m>1</m>,
+        then <m>a</m> and <m>b</m> are coprime.
+        Indeed, if <m>m,n \in \Z</m> have the property that <m>ma+nb = 1</m>,
+        then any common divisor <m>d</m> of <m>a</m> and <m>b</m> must also divide <m>1</m>.
+        But then <m>d=1</m>, so <m>\gcd(a,b)=1</m>.
+      </p>
+      <p>
+        Here we'll show <m>n</m> and <m>n+1</m> are coprime: By the Linear Combination Lemma,
+        <m>\gcd(n,n+1)</m> divides <m>(n+1)-n=1</m>,
+        so <m>\gcd(n,n+1)</m> divides <m>1</m>.
+        Thus <m>\gcd(n,n+1)=1</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    We can also use it to narrow down the gcd of two numbers:
+  </p>
+  <example>
+    <statement>
+      <p>
+        For <m>n\in\mathbb{N}</m>,
+        what is <m>\gcd(4n^2-2,2n)?</m> Observe that by the Linear Combination Lemma,
+        <m>\gcd(4n^2-2,2n)</m> divides <m>(2n)(2n)-(4n^2-2)=2</m>,
+        so the highest common factor of these numbers is either <m>1</m> or <m>2</m>.
+        Since <m>2</m> divides both <m>4n^2-2</m> and <m>2n</m>,
+        it also divides the <m>\gcd</m>,
+        so <xref ref="l_abba">Lemma</xref>
+        implies <m>\gcd(4n^2-2,2n)=2</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    How do we find the gcd for very large numbers?
+    For this we use the <term>Euclidean Algorithm</term>
+    which exploits the Remainder Theorem and the Linear Combination Lemma.
+  </p>
+  <p>
+    Let <m>a,b\in\N</m>.
+    Let us also assume <m>a\lt b</m>.
+    We are going to construct a sequence of nonnegative integers
+    <me>
+      0 = r_{n+1} \lt  r_n \lt  \cdots \lt  r_2 \lt  r_1 = a \lt  r_0 = b
+    </me>
+    such that for each <m>k \in \N</m>, if <m>k\leq n</m>, then:
+    <ol>
+      <li>
+        <p>
+          <m>r_{k-1}</m> is an integer linear combination of <m>r_k</m> and <m>r_{k+1}</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>r_{k+1}</m> is an integer linear combination of <m>r_k</m> and <m>r_{k-1}</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    If we manage to construct a sequence with these properties,
+    then <m>\gcd(a,b)</m> will be the natural number <m>r_n</m>.
+    Before we perform the construction, let's understand why.
+    The key is the Linear Combination Lemma.
+    <ul>
+      <li>
+        <p>
+          We first claim that <m>\gcd(a,b)</m> divides <m>r_{n}</m>.
+          Note that <m>r_0=b</m> and <m>r_1=a</m> are certainly linear combinations of <m>a</m> and <m>b</m>.
+          Let <m>k\in \N</m> with <m>1\leq k \leq n</m>.
+          If <m>r_{k-1}</m> and <m>r_k</m> are each integer linear combinations of <m>a</m> and <m>b</m>,
+          so is <m>r_{k+1}</m>.
+          By induction,
+          we conclude that <m>r_n</m> is a integer linear combination of <m>a</m> and <m>b</m>.
+          Hence it follows from the Linear Combination Lemma<nbsp/>that <m>\gcd(a,b)</m> divides <m>r_n</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          On the other hand,
+          we claim that <m>r_{n}</m> divides <m>\gcd(a,b)</m>.
+          This is equivalent to the claim that <m>r_n</m> is a common divisor of <m>a</m> and <m>b</m>.
+          Note that since <m>r_{n+1}=0</m>,
+          it follows that <m>r_{n-1}=q_{n+1}r_{n}</m> for some <m>q_{n+1}\in\Z</m>,
+          so <m>r_{n}</m> divides <m>r_{n-1}</m>.
+          Let <m>k\in \N</m> with <m>k \leq n</m>.
+          Assume that <m>r_n</m> divides <m>r_k</m> and <m>r_{k+1}</m>;
+          since <m>r_{k-1}</m> is a linear combination of <m>r_k</m> and <m>r_{k+1}</m>,
+          it follows from the Linear Combination Lemma<nbsp/>that <m>r_n</m> divides <m>r_{k-1}</m> as well.
+          By induction,
+          we conclude that <m>r_n</m> divides <m>r_1=a</m> and <m>r_0=b</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    This proves
+    (using <xref ref="l_abba">Lemma</xref>)
+    that <m>\gcd(a,b)=r_n</m>.
+  </p>
+  <p>
+    So our goal now is to present an iterative construction of a sequence of nonnegative integers
+    <me>
+      0 = r_{n+1} \lt  r_n \lt  \cdots \lt  r_2 \lt  r_1 = a \lt  r_0 = b
+    </me>
+    such that for each <m>k \in \N</m>, if <m>k\leq n</m>, then
+    <ol>
+      <li>
+        <p>
+          <m>r_{k-1}</m> is an integer linear combination of <m>r_k</m> and <m>r_{k+1}</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>r_{k+1}</m> is an integer linear combination of <m>r_k</m> and <m>r_{k-1}</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    To begin the iteration, we set <m>r_0 = b</m> and <m>r_1 = a</m>.
+    To construct the rest of the sequence,
+    assume that for some <m>k\in\N</m> we have constructed nonnegative integers
+    <m>r_k \lt  r_{k-1} \lt  \dots \lt  r_1 \lt  r_0</m> with the two properties above.
+    Now use the Remainder Theorem to find an integers <m>q_{k+1}</m> and <m>r_{k+1}</m> such that
+    <me>
+      r_{k-1} = q_{k+1}r_k + r_{k+1}
+    </me>.
+  </p>
+  <p>
+    Thus <m>r_{k-1}</m> is a linear combination of <m>r_k</m> and <m>r_{k+1}</m>,
+    but also <m>r_{k+1} = r_{k-1} - q_{k+1} r_k</m> so <m>r_{k+1}</m> is a linear combination of <m>r_k</m> and <m>r_{k-1}</m>.
+  </p>
+  <p>
+    This process must terminate with <m>r_{n+1}=0</m> for some <m>n</m>,
+    since the <m>r_{j}</m> are nonnegative and strictly decreasing.
+    This completes the construction of the sequence
+    <me>
+      0 = r_{n+1} \lt  r_n \lt  \cdots \lt  r_2 \lt  r_1 = a \lt  r_0 = b
+    </me>
+    with the desired properties.
+  </p>
+  <p>
+    Let's watch this algorithm in action.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 6</m> and <m>b = r_0 = 15</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>15</m> by <m>6</m> to get <m>2</m> with a remainder of <m>r_2=3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>6</m> by <m>3</m> to get <m>2</m> with a remainder of <m>r_3 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>r_2 = 3</m> is the gcd of <m>6</m> and <m>15</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 48</m> and <m>b = r_0 = 66</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>66</m> by <m>48</m> to get <m>1</m> with a remainder of <m>r_2=18</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>48</m> by <m>18</m> to get <m>2</m> with a remainder of <m>r_3 = 12</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>18</m> by <m>12</m> to get <m>1</m> with a remainder of <m>r_4 = 6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>12</m> by <m>6</m> to get <m>2</m> with a remainder of <m>r_5 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>r_4 = 6</m> is the gcd of <m>48</m> and <m>66</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 120</m> and <m>b = r_0 = 214</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>214</m> by <m>120</m> to get <m>1</m> with a remainder of <m>r_2=94</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>120</m> by <m>94</m> to get <m>1</m> with a remainder of <m>r_3 = 26</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>94</m> by <m>26</m> to get <m>3</m> with a remainder of <m>r_4 = 16</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>26</m> by <m>16</m> to get <m>1</m> with a remainder of <m>r_5 = 10</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>16</m> by <m>10</m> to get <m>1</m> with a remainder of <m>r_6 = 6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>10</m> by <m>6</m> to get <m>1</m> with a remainder of <m>r_7 = 4</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>6</m> by <m>4</m> to get <m>1</m> with a remainder of <m>r_8 = 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>4</m> by <m>2</m> to get <m>2</m> with a remainder of <m>r_9 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>r_8 = 2</m> is the gcd of <m>120</m> and <m>214</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 14</m> and <m>b = r_0 = 348</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>348</m> by <m>14</m> to get <m>24</m> with a remainder of <m>r_2=12</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>14</m> by <m>12</m> to get <m>1</m> with a remainder of <m>r_3 = 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>12</m> by <m>2</m> to get <m>6</m> with a remainder of <m>r_4 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>r_3 = 2</m> is the gcd of <m>14</m> and <m>348</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 2059</m> and <m>b = r_0 = 6744</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>6744</m> by <m>2059</m> to get <m>3</m> with a remainder of <m>r_2=567</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>2059</m> by <m>567</m> to get <m>3</m> with a remainder of <m>r_3 = 358</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>567</m> by <m>358</m> to get <m>1</m> with a remainder of <m>r_4 = 209</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>358</m> by <m>209</m> to get <m>1</m> with a remainder of <m>r_5 = 149</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>209</m> by <m>149</m> to get <m>1</m> with a remainder of <m>r_6 = 60</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>149</m> by <m>60</m> to get <m>2</m> with a remainder of <m>r_7 = 29</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>60</m> by <m>29</m> to get <m>2</m> with a remainder of <m>r_8 = 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>29</m> by <m>2</m> to get <m>14</m> with a remainder of <m>r_9 = 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>2</m> by <m>1</m> to get <m>2</m> with a remainder of <m>r_{10} = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>r_9 = 1</m> is the gcd of <m>2059</m> and <m>6744</m>.
+        In particular, <m>2059</m> and <m>6744</m> are coprime.
+      </p>
+    </statement>
+  </example>
+  <p>
+    One important corollary of the Euclidean Algorithm is the following.
+  </p>
+  <theorem xml:id="t_lincombgcd">
+    <title>Bezout’s  Identity</title>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be integers.
+        Then <m>\gcd(a,b)</m> is an integer linear combination of <m>a</m> and <m>b</m>.
+        That is, there are integers <m>s</m> and <m>t</m> so that <m>\gcd(a,b)=sa+tb</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Let's revisit some of the examples above to find the <m>s</m> and <m>t</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 6</m> and <m>b = r_0 = 15</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>15</m> by <m>6</m> to get <m>2</m> with a remainder of <m>r_2=3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>6</m> by <m>3</m> to get <m>2</m> with a remainder of <m>r_3 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>\gcd(6,15) = 3 = 15-2\cdot 6</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 48</m> and <m>b = r_0 = 66</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>66</m> by <m>48</m> to get <m>1</m> with a remainder of <m>r_2=18</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>48</m> by <m>18</m> to get <m>2</m> with a remainder of <m>r_3 = 12</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>18</m> by <m>12</m> to get <m>1</m> with a remainder of <m>r_4 = 6</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>12</m> by <m>6</m> to get <m>2</m> with a remainder of <m>r_5 = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus <m>\gcd(48,66) = 6 = 18-12 = 3\cdot 18-48 = 3\cdot 66 -4\cdot 48</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>a = r_1 = 2059</m> and <m>b = r_0 = 6744</m>.
+        <ul>
+          <li>
+            <p>
+              We divide <m>6744</m> by <m>2059</m> to get <m>3</m> with a remainder of <m>r_2=567</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>2059</m> by <m>567</m> to get <m>3</m> with a remainder of <m>r_3 = 358</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>567</m> by <m>358</m> to get <m>1</m> with a remainder of <m>r_4 = 209</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>358</m> by <m>209</m> to get <m>1</m> with a remainder of <m>r_5 = 149</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>209</m> by <m>149</m> to get <m>1</m> with a remainder of <m>r_6 = 60</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>149</m> by <m>60</m> to get <m>2</m> with a remainder of <m>r_7 = 29</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>60</m> by <m>29</m> to get <m>2</m> with a remainder of <m>r_8 = 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>29</m> by <m>2</m> to get <m>14</m> with a remainder of <m>r_9 = 1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We divide <m>2</m> by <m>1</m> to get <m>2</m> with a remainder of <m>r_{10} = 0</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus
+        <md>
+          <mrow>\gcd(6744, 2059) = 1 \amp = 29 - 14\cdot 2</mrow>
+          <mrow>\amp = 29\cdot 29 - 14 \cdot 60</mrow>
+          <mrow>\amp = 29\cdot 149-72\cdot 60</mrow>
+          <mrow>\amp = 101\cdot 149-72\cdot 209</mrow>
+          <mrow>\amp = 101\cdot 358-173\cdot 209</mrow>
+          <mrow>\amp = 274\cdot 358-173\cdot 567</mrow>
+          <mrow>\amp = 274\cdot 2059-995\cdot 567</mrow>
+          <mrow>\amp = 3259\cdot 2059-995\cdot 6744</mrow>
+        </md>
+      </p>
+    </statement>
+  </example>
+  <p>
+    Bezout's Identity is incredibly useful,
+    even in examples that seem to have nothing to do with the gcd:
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> be coprime integers.
+        Show that
+        <ul>
+          <li>
+            <title>(i)</title>
+            <p>
+              If <m>a</m> divides <m>c</m> and <m>b</m> divides <m>c</m> then <m>ab</m> divides <m>c</m>.
+            </p>
+          </li>
+          <li>
+            <title>(ii)</title>
+            <p>
+              If <m>a</m> divides <m>bc</m> then <m>a</m> divides <m>c</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Show that both parts of this result can fail if <m>a</m> and <m>b</m> are not coprime.
+      </p>
+    </statement>
+    <solution>
+      <ul>
+        <li>
+          <title>(i)</title>
+          <p>
+            Since <m>a</m> and <m>b</m> are coprime,
+            we can find integers <m>s</m> and <m>t</m> so that <m>sa + tb = 1</m>.
+            If <m>a</m> divides <m>c</m> then we can write <m>c = ax</m>,
+            and if <m>b</m> divides <m>c</m> then we can write <m>c = by</m> for some <m>x,y \in \Z</m>.
+            Then <m>c = csa + ctb = (by)sa + (ax)tb = (ab)sy + (ab)xt</m>,
+            so <m>ab</m> divides <m>c</m>.
+          </p>
+        </li>
+        <li>
+          <title>(ii)</title>
+          <p>
+            As in (i), <m>c = csa + ctb</m>.
+            If <m>a</m> divides <m>bc</m> then write <m>az = bc</m> for some integer <m>z</m>,
+            and then we have <m>c = csa + t(az) = a(cs + tz)</m>,
+            so <m>a</m> divides <m>c</m>.
+          </p>
+        </li>
+      </ul>
+    </solution>
+  </exercise>
+  <exercise>
+    <p>
+      Show that if <m>a, b</m> are postive integers,
+      and <m>d=gcd(a,b)</m> then there exist positive integers
+      <m>s,
+      t</m> such that <m>d=sa-tb</m>.
+      <em>Note:</em> that this exercise differs from Bezout’s Identity,
+      in that we ask <m>s, t</m> to be <em>positive</em>.
+    </p>
+    <solution>
+      <p>
+        <em>Claim</em>: If <m>a,b</m> are positive integers and <m>d=gcd(a,b)</m>,
+        we can find positive integers
+        <m>s,
+        t \in\mathbb{Z}</m> such that <m>d=sa-tb</m>.
+      </p>
+      <proof>
+      <p>
+        By the Euclidean algorithm,
+        we can find integers <m>s,t\in\mathbb{Z}</m>, such that
+        <men xml:id="gcdeqn">
+          d=sa+tb
+        </men>
+      </p>
+      <p>
+        Since <m>0\lt d\leq a,b</m>,
+        at most one of <m>s</m> and <m>t</m> can be positive,
+        and at most one can be non-positive (i.e. zero or negative).
+        If it happens that <m>t</m> is negative,
+        then we will have produced the desired expression for <m>d</m> (by writing <m>d=sa - (-t)b</m>).
+      </p>
+      <p>
+        In case <m>t</m> is non-negative,
+        we can apply the following observation:
+      </p>
+      <lemma>
+        <statement>
+          <p>
+            The integers <m>s</m> and <m>t</m> satisfy Equation <xref ref="gcdeqn"/> if,
+            and only if,
+            the integers <m>s+kb</m> and <m>t-ka</m> do as well, for any integer <m>k</m>.
+          </p>
+        </statement>
+      </lemma>
+      <proof>
+        <p>
+          We have <m>(s+kb)a + (t-ka)b = sa+tb</m>,
+          simply by expanding the LHS, so one finds the same condition for both pairs.
+        </p>
+      </proof>
+      <p>
+        Choosing <m>k</m> sufficiently large,
+        we can replace <m>t</m> by <m>t-ka</m> so that it is negative.
+        It follows then that <m>s+kb</m> is positive.
+      </p>
+      </proof>
+    </solution>
+  </exercise>
+</section>

@@ -1,0 +1,319 @@
+<section xml:id="modularexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck's book are in Chapters 13 and 14.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Determine whether the following equations have integer solutions:
+        <ul>
+          <li>
+            <p>
+              <m>x^2+y^2=9z+3</m>.
+              <solution>
+                <p>
+                  If <m>(x,y,z)</m> was a solution,
+                  then <m>x^2+y^2 = 3\mod 9</m>,
+                  but the squares modulo <m>9</m> are <m>0,1,4,0,7,0,0,1</m>,
+                  and adding any pair of these gives <m>0,1,2,4,5,7,8</m> modulo <m>9</m>,
+                  and none of these are <m>3</m>,
+                  thus there cannot be any solutions to the original equation.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>3x^2-y^2=-2</m>.
+              <solution>
+                <p>
+                  If <m>(x,y)</m> was a solution,
+                  then <m>-y^2 = -2\mod 3</m>,and so <m>y^2 = 2\mod 3</m>,
+                  but if we look at the squares of integers mod 3, we see that they are just <m>0</m> and <m>1</m>,
+                  so there is no integer <m>y</m> for which <m>y^2 = 2 \mod 3</m>,
+                  thus there are no solutions to the original equation.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>3x^2+2=y^2+6z^3</m>.
+              <solution>
+                <p>
+                  If <m>(x,y,z)</m> is a solution,
+                  we see then that <m>y^2 = 2\mod 3</m>,
+                  and we have already seen that this has no solutions.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that If <m>n\in\mathbb{N}</m>,
+        then <m>n^5</m> and <m>n</m> have the same last digit
+        (that is, the digit in the <m>1</m>'s place).
+      </p>
+    </statement>
+    <solution>
+      <p>
+        FLT says that <m>n^{4} = 1 \mod 5</m>,
+        hence <m>n^{5} = n \mod 5</m>,
+        and so <m>n^{5}-n = 0\mod 5</m>.
+        Also, <m>n^5-n=n^4(n-1)</m>,
+        and since either <m>n</m> or <m>n-1</m> is even,
+        we have <m>n^5-n = 0\mod 2</m>.
+        Thus, we have <m>2</m> divides <m>n^5-n</m> and <m>5</m> divides <m>n^5-n</m>,
+        hence <m>10</m> divides <m>n^5-n</m>,
+        so the last digit of <m>n^5</m> and <m>n</m> must be the same.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Find the last digit of <m>7^{7^{7^{7}}}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <m>7^2=49 = -1\mod 10</m>,
+        <m>7^3 = -7 = 3\mod 10</m>, <m>7^4 = 1 \mod 10</m>.
+        Thus, as we take powers of <m>7</m>,
+        the 1's digit cycles through 7,9,3, and 1.
+        So we should look at what <m>7^{7^7}\mod 4</m> is.
+      </p>
+      <p>
+        Note that <m>7 = 3\mod 4</m>, and <m>7^2 = 1\mod 4</m>,
+        thus odd powers of <m>7</m> are equivalent to <m>3\mod 4</m>.
+        Since <m>7^7</m> is odd,
+        <m>7^{7^7} = 3\mod 4</m>, and so <m>7^{7^{7^{7}}} = 3\mod 10</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>n\in\mathbb{N}</m> satisfies <m>n = 3\mod 4</m>.
+        Show that <m>n</m> has a prime factor <m>p</m> with <m>p = 3\mod 4</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that <m>n</m> is not even,
+        so <m>n</m> has prime factorizaiton <m>p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}</m> for some primes
+        <m>2\lt p_{1}\lt \cdots \lt  p_{k}</m> and integers <m>r_{i}>0</m>.
+        Suppose <m>p_{i} = 1 \mod 4</m> for all <m>i</m>.
+        Then <m>p_{i}^{r_{i}} = 1 \mod 4</m> as well, and so
+        <me>
+          n=p_{1}^{r_{1}}\cdots p_{k}^{r_{k}} = 1 \mod 4
+        </me>,
+        which is a contradiction.
+        Thus, there is <m>i</m> so that <m>p_{i} = 3\mod 4</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that there are no integer solutions to
+        <m>m^3-n^3=3</m> or <m>m^3-n^3=4</m>. (Hint:
+        if there were solutions, there would also be a solution <m>\mod 7</m>).
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let us look at what cubes are <m>\mod 7</m>:
+        <md>
+          <mrow>1^3 \amp  =1 = 1 \mod 7</mrow>
+          <mrow>2^3 \amp  =8  = 1 \mod 7</mrow>
+          <mrow>3^3 \amp  =27  = -1 \mod 7</mrow>
+          <mrow>4^3 \amp  =64  = 1 \mod 7</mrow>
+          <mrow>5^3 \amp  =125 = -1 \mod 7</mrow>
+          <mrow>6^3 \amp  = 216  = -1 \mod 7</mrow>
+        </md>
+      </p>
+      <p>
+        Thus, the only values <m>m^3-n^3</m> can be <m>\mod 7</m> are <m>0,\pm 1</m>,
+        and <m>\pm 2</m>, or alternatively, <m>0,1,2,5,6</m>.
+        In particular,
+        <m>m^3-n^3=3</m> and <m>m^3-n^3=4</m> have no solutions.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for all primes <m>p>3</m>, <m>p = \pm 1\mod 6</m>.
+        Use this to show <m>24</m> divides <m>p^2-1</m> for all primes <m>p>3</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that <m>p</m> is odd so <m>p\not = 2,4\mod 6</m>.
+        Also, <m>p>3</m>, hence <m>p\neq 3\mod 6</m>.
+        Thus, the only remaining possibilities are <m>\pm 1 \mod  6</m>.
+        Hence, <m>p=6k\pm 1</m> for some integer <m>k</m>, so that
+        <me>
+          p^2-1 = (6k\pm 1)^2-1=36k^2\pm 12k=12(3k^2\pm k)
+        </me>.
+      </p>
+      <p>
+        Note that <m>3k^2\pm k</m> is always even
+        (just consider the different cases when <m>k</m> is odd or even),
+        so in fact <m>p^2-1</m> is divisible by 24.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>p_{1}\lt \cdots \lt p_{31}</m> are prime and <m>30</m> divides <m>p_{1}^{4}+\cdots + p_{31}^{4}</m>,
+        then <m>p_{1}=2</m>, <m>p_{2}=3</m> and <m>p_{3}=5</m>.
+        <term>Hint: Assume the contrary and use FLT.</term>
+      </p>
+    </statement>
+    <solution>
+      <ul>
+        <li>
+          <p>
+            If <m>p_1\neq 2</m> then <m>p_1>2</m> and so <m>p_1,p_2,\cdots p_{31}</m> are all odd,
+            hence <m>p_1^4+p_2^4+\cdots+p_{31}^4</m> is odd,
+            so in particular <m>30</m> does not divide <m>p_{1}^{4}+\cdots + p_{n}^{4}</m>,
+            and we get a contradiction.
+            Thus, <m>p_{1}=2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>p_2\neq 3</m> then <m>p_{i} = \pm 1\mod 3</m> since <m>p_{1}=2 = -1</m>,
+            and for <m>i\geq 2</m>, <m>p_{i}\neq 3</m>.
+            Thus, <m>p_{i}^{2} = 1\mod 3</m> by FLT, so
+            <m>p_i^{4} = 1(\mod 3)</m> for <m>i=1,2,\cdots,31</m>.
+            Thus,
+            <me>
+              p_1^4+p_2^4+\cdots+p_{31}^4 = 31 = 1 \mod 3
+            </me>.
+            Thus, <m>p_1^4+p_2^4+\cdots+p_{31}^4</m> is not a multiple of <m>30</m>.
+            So <m>p_3=3</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            A similar argument shows that <m>p_3</m> should be <m>5</m>:
+            <m>p_3\neq 5</m> implies <m>p_i^4 = 1 (\mod 5)</m> for
+            <m>i=1,2,\cdots,31</m> by FLT and <m>p_1^4+p_2^4+\cdots+p_{31}^4 = 1 (\mod 5)</m>.
+          </p>
+        </li>
+      </ul>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        (Regional Mathematical Olympiad 1998, India) Show that if
+        <m>5\lt p_{1}\lt \cdots \lt p_{n}</m> and <m>6</m> divides <m>p_{1}^{2}+\cdots + p_{n}^{2}</m>,
+        then <m>6</m> divides <m>n</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        From an earlier exercise,
+        we know that <m>p_{i} = \pm 1 \mod 6</m>,
+        hence <m>p_{i}^{2} = 1 \mod 6</m>, thus
+        <me>
+          0=p_{1}^{2}+\cdots + p_{n}^{2}  = n\mod 6
+        </me>,
+        where in the first equation we used our problem assumption,
+        thus <m>n = 0\mod 6</m>, hence <m>6</m> divides <m>n</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Given that <m>p</m> and <m>8p^2+1</m> are prime, find <m>p</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By trying out some primes,
+        we can see that it seems like <m>3</m> is the only option,
+        so let's try to prove <m>p=3</m>.
+        Suppose <m>p\neq 3</m>.
+        Note that any prime <m>p\neq 3</m> satisfies <m>p = \pm 1 \mod 3</m>,
+        so <m>p^2  = 1 \mod 3</m>.
+        Thus, since <m>8 = -1\mod 3</m>,
+        <me>
+          8p^2+1 = (-1)1+1=0\mod 3
+        </me>,
+        thus <m>8p^2+1</m> is a prime divisible by 3, which is only possible if
+        <m>8p^2+1=3</m>, which is impossible.
+        Thus <m>p=3</m> is the only solution.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Prove that <m>42</m> divides <m>n^7-n</m> for all <m>n\in\mathbb{N}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since <m>42 = 2\cdot 3 \cdot 7</m>,
+        we just need to verify each of these factors divides <m>n^7-n</m> for each <m>n\in\mathbb{N}</m>.
+        <ul>
+          <li>
+            <p>
+              Since <m>n^7-n=n^6(n-1)</m>, one of <m>n</m> and <m>n-1</m> must be even,
+              so one of <m>n^6</m> and <m>n</m> must be even,
+              so <m>2</m> divides <m>n^{7}-n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n^7-n = n^4\cdot (n-1)n\cdot (n-1)</m>,
+              and one of <m>n-1,n,n+1</m> must be divisible by 3.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, by FLT,
+              <me>
+                n^7-n = n-n=0 \mod 7
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>7</m> does not divide <m>a</m>,
+        then <m>7</m> divides <m>a^3-1</m> or <m>7</m> divides <m>a^3+1</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that since <m>7</m> does not divide <m>a</m>, FLT implies
+        <me>
+          (a^{3}-1)(a^3+1) = a^6-1 = 1-1=0 \mod 7
+        </me>
+        and so <m>7</m> divides <m>(a^{3}-1)(a^3+1)</m>,
+        and since <m>7</m> is prime, it must divide one of the factors.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    \part{Week 8: Relations and Functions}
+  </p>
+</section>

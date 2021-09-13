@@ -1,0 +1,285 @@
+<section xml:id="countingsubsets">
+  <title>Counting subsets</title>
+  <p>
+    We will now use the method of overcounting to count the number of subsets of a set <m>S</m> with <m>|S|=n</m> which have a given size <m>k</m>.
+    Because this number appears over and over again,
+    we give it a special notation:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be set with <m>n</m> distinct members,
+        and let <m>k</m> be an integer such that <m>0\leq k\leq n</m>.
+        We let
+        <me>
+          {n \choose k}
+        </me>
+        denote the number of subsets of <m>S</m> which have exactly <m>k</m> members
+        (and the above is read
+        <q><m>n</m> choose <m>k</m></q>
+        because it gives the number of ways we can choose <m>k</m> members from an <m>n</m>-element set). (If <m>k>n</m>,
+        we set <m>{n \choose k}=0</m>).
+      </p>
+    </statement>
+  </definition>
+  <theorem xml:id="t_choose">
+    <statement>
+      <p>
+        For integers <m>0\leq k\leq n</m>, we have
+        <men xml:id="e_choose">
+          {n \choose k}=\frac{n!}{k!(n-k)!}
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Liebeck gives a different proof in the book of this theorem,
+    so please look at both.
+    Recall that by convention we declare <m>0! = 1</m>.
+  </p>
+  <p>
+    Notice also that
+    <men>
+      {n \choose k}=\frac{n!}{k!(n-k)!} = \frac{n(n-1) \dots(n-k +1)}{k(k-1) \dots 2. 1}
+    </men>.
+  </p>
+  <p>
+    For example <m>{3 \choose 2} = \frac{3!}{2!1!} = 3</m>,
+    <m>{6 \choose 3} = \frac{6!}{3!3!} = \frac{6 \cdot 5 \cdot 4}{3 \cdot 2 \cdot 1} =20</m> and <m>{n \choose 0} =1</m>.
+  </p>
+  <proof>
+    <p>
+      If <m>k=0</m>,
+      there is only one subset of size <m>0</m>, which is the empty set,
+      and in this case we see that <m>\frac{n!}{0!(n-0)!}=\frac{n!}{n!}=1</m>.
+      Now let <m>1\leq k\leq n</m> and <m>S</m> be a set of <m>n</m> elements.
+      Consider the process where we pick an ordered list
+      <m>(a_{1}, \dots ,a_{k})</m> of <m>k</m> distinct elements from <m>S</m>,
+      one at a time,
+      to form a set <m>A=\{a_{1}, \dots ,a_{k}\}</m> of <m>k</m> elements.
+      By <xref ref="p_n_k">Proposition</xref>,
+      there are <m>\frac{n!}{(n-k)!}</m> ways of picking the list <m>(a_{1}, \dots ,a_{k})</m>.
+      However, this is not the same thing as counting the number of subsets of size <m>k</m>,
+      since if we picked <m>a_1, \dots ,a_k</m> in a different order,
+      they would still give rise to the same set <m>A=\{a_{1}, \dots ,a_{k}\}</m>.
+      What we have really counted is the number of ways of picking an <term>ordered</term>
+      list of <m>k</m> elements,
+      not a <term>set</term> of <m>k</m> elements.
+      The number of orderings of
+      <m>\{a_{1}, \dots ,a_{k}\}</m> is <m>k!</m> by the Ordering Theorem.
+      Thus, we have overcounted the number of subsets of size <m>k</m> by a factor of <m>k!</m>,
+      hence if we divide<m>\frac{n!}{(n-k)!}</m> by <m>k!</m>,
+      we get that the number of subsets of size <m>k</m> is the right side of <xref ref="e_choose"/>.
+    </p>
+  </proof>
+  <p>
+    Note that it's perhaps not completely obvious that the right-hand side of <xref ref="e_choose"/> actually defines a whole number;
+    however once we can identify it as the number of ways of doing something,
+    it <term>has to be</term> a nonnegative integer!
+  </p>
+  <p>
+    This argument leads us to a new kind of proof,
+    called a <term>combinatorial proof</term>,
+    which is a way of proving a formula by showing that both sides of an equation count the same number of things,
+    rather than trying to prove establish the equation directly via algebra.
+    Let's start with an easy example:
+  </p>
+  <example>
+    <statement>
+      <p>
+        For <m>0 \leq k \leq n</m> we have
+        <me>
+          {n\choose k} = {n \choose n-k}
+        </me>.
+      </p>
+      <p>
+        This can be easily shown using the formula <xref ref="e_choose"/>,
+        but we will prove it instead using one-to-one correspondence (that is,
+        <m>m</m>-to-one correspondence with <m>m=1</m>):
+      </p>
+      <p>
+        Note that if <m>S</m> is a set of size <m>n</m> and <m>A</m> is a subset of size <m>k</m>,
+        then <m>S\setminus A</m> is a set of size <m>n-k</m>.
+        Conversely, if <m>B</m> is a set of size <m>n-k</m>,
+        then <m>S \setminus B</m> is a set of size <m>k</m>.
+        Therefore to every set of size <m>k</m> we can associate a unique set of size <m>n-k</m> and vice-versa.
+        Thus the sets of size <m>k</m> and sets of size <m>n-k</m> are in one-to-one correspondence,
+        so the number of these sets is the same, that is,
+        <m>{n\choose k} = {n \choose n-k}</m>.
+        (If you need a bit more convincing,
+        check that if <m>B = S \setminus A</m>,
+        then <m>S \setminus B = A</m>.)
+        Slightly more formally we describe the correspondence
+        <m>A \leftrightarrow S \setminus A</m> as a <term>bijection</term>
+        between the sets of size <m>k</m> and the sets of size <m>n-k</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Let's prove another identity where it may be less clear how to prove it algebraically.
+  </p>
+  <corollary xml:id="c_2_n_nk">
+    <statement>
+      <p>
+        For <m>n\geq 0</m>, we have
+        <me>
+          2^{n} = \sum_{k=0}^{n} {n\choose k}
+        </me>.
+      </p>
+    </statement>
+  </corollary>
+  <proof>
+    <p>
+      Let <m>S</m> be a set of size <m>n</m>,
+      let <m>A</m> be the set of subsets of <m>S</m>,
+      and for <m>k=0, \dots ,n</m>,
+      let <m>A_k</m> denote the subsets of <m>S</m> of size <m>k</m>,
+      so <m>A_{k}</m> has size <m>{n\choose k}</m> by <xref ref="t_choose">Theorem</xref>.
+      These sets are disjoint and their union is all of <m>A</m>,
+      so they form a <term>partition</term> of <m>A</m>.
+      Thus, the size of <m>A</m> is the sum of the sizes of the <m>A_{k}</m>.
+      Hence, with <m>|A|</m> denoting the size of <m>A</m>,
+      <me>
+        |A|=|A_{1}|+\cdots + |A_{n}|= \sum_{k=0}^{n} |A_{k}|=\sum_{k=0}^{n}{n\choose k}
+      </me>.
+    </p>
+    <p>
+      We also know by <xref ref="c_1">Proposition</xref> that <m>|A|=2^{n}</m>,
+      and this proves the corollary.
+    </p>
+  </proof>
+  <p>
+    We have surreptitiously introduced the notion of a partition above.
+    More formally, a <term>partition</term>
+    of a nonempty finite set <m>A</m> is a collection of subsets
+    <m>A_1, \dots , A_m</m> of <m>A</m> such that
+    <m>\bigcup_{i=1}^m A_i = A</m> and such that for <m>i \neq j</m>,
+    <m>A_i \cap A_j = \emptyset</m>.
+    In other words, every <m>x \in A</m> belongs to
+    <term>exactly one</term> <m>A_i</m>.
+  </p>
+  <p>
+    Suppose we are given <m>n</m> identical red objects laid out along a line,
+    and we are told to <term>intersperse</term>
+    <m>m</m> identical blue objects amongst them.
+    (We are allowed to begin and end our new chain of objects with blue objects if we wish.)
+    How many ways of doing this are there?
+  </p>
+  <proposition xml:id="interspersion">
+    <statement>
+      <p>
+        <em><ndash/> Linear interspersion principle.</em>
+        The number of ways of interspersing <m>m</m> identical blue objects amongst <m>n</m> identical red objects laid along a line is <m>n+m \choose m</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Each linear arrangement combining the <m>m</m> blue objects and the <m>n</m> red objects corresponds to choosing a subset of size <m>m</m>
+      (the blue objects)
+      from a set of size <m>m+n</m>
+      (all the objects).
+      There are <m>n+m \choose m</m> such choices,
+      and hence <m>n+m \choose m</m> ways of interspersing <m>m</m> identical blue objects amongst <m>n</m> identical red objects laid along a line.
+    </p>
+  </proof>
+  <example xml:id="ex_1__s">
+    <statement>
+      <p>
+        How many ways are there to express the number <m>9</m> as a sum of three nonnegative integers?
+      </p>
+      <p>
+        This uses a clever trick which reduces matters to the linear interspersion principle. (It might look intimidating to think it up on your own,
+        but now you'll know it!).
+      </p>
+      <p>
+        Consider a sum <m>x+y+z=9</m> with
+        <m>0\leq x,y,z\leq 9</m> and replace <m>x,y,z</m> with the number of <m>1</m>'s that add up to <m>x</m>,
+        <m>y</m> and <m>z</m> respectively separated by <m>+</m>'s.
+        For example, <m>4+3+2=9</m> and <m>5+0+4</m> correspond to
+        <me>
+          1\;\; 1\;\; 1\;\; 1\;\; + \;\;1\;\; 1\;\; 1\;\; +\;\;1\;\; 1\;\; \;\;\;\;\;\mbox{ and } \;\;\;\;\; 1\;\; 1\;\; 1\;\; 1\;\;  1 \;\; + \;\; + \;\; 1\;\; 1\;\; 1\;\; 1\;\;
+        </me>.
+      </p>
+      <p>
+        <em>Thus, the number of solutions to <m>x+y+z=9</m> is exactly the number of ways to intersperse 2 +'s amongst 9 1's laid out in a row.</em>
+        This is the case <m>n=9</m>,
+        <m>m=2</m> of the linear interspersion principle,
+        and is the number of such solutions is thus <m>{9+2 \choose 2} = {11\choose 2}</m>.
+      </p>
+    </statement>
+  </example>
+  <example xml:id="identicalballsinboxes">
+    <statement>
+      <p>
+        How many ways are there to place <m>9</m> identical red balls in three boxes?
+      </p>
+      <p>
+        This is the previous example in disguise!
+        Put the <m>9</m> balls in a line, and introduce two
+        <q>dividers</q>
+        to delineate the
+        <q>gaps</q>
+        between the three boxes.
+        So, for example
+        <me>
+          B\;B\;B\;B\; |\; B\; |\; B\; B\;B\;B
+        </me>
+        denotes placing <m>4</m> balls in box <m>1</m>,
+        <m>1</m> ball in box <m>2</m> and <m>4</m> balls in box 3.
+        The number of ways of inserting two dividers in a line of <m>9</m> balls is therefore <m>{11\choose 2}</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Now try your hand at combinatorial proofs in the following exercises.
+    The second one will be a workshop problem.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Given <m>S=\{1,2, \dots ,n\}</m> and <m>0\leq j\lt n</m>,
+        show that number of subsets of <m>S</m> of the form
+        <m>\{a,a+1, \dots ,a+j\}\subseteq S</m> is <m>{n\choose 2} + n</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that a set of the form
+        <m>\{a,a+1, \dots ,a+j\}\subseteq S</m> is uniquely determined by the first and last element of the set,
+        which could be any two numbers,
+        or the same number if <m>j=0</m>.
+        Thus, the total number of sets of this form is the same as counting the number of subsets of size <m>2</m> plus the number of sets of size <m>1</m>,
+        and adding them together, hence the total number is
+        <me>
+          {n\choose 2} + n
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>1 \leq r \leq n</m>.
+        Prove that
+        <men xml:id="e_n_1_r">
+          \begin{pmatrix} n+1 \\ r \end{pmatrix}= \begin{pmatrix}n \\ r \end{pmatrix} + \begin{pmatrix} n \\ r-1\end{pmatrix}
+        </men>.
+      </p>
+      <p>
+        (You may be familiar with this result if you know about
+        <term>Pascal's triangle</term>.) First prove this by induction using <xref ref="e_choose"/>.
+        But then can you give another proof by counting a single quantity in two different ways?
+      </p>
+      <p>
+        Use this result to show that for <m>2 \leq r \leq n</m>,
+        <me>
+          \begin{pmatrix}n+2 \\ r \end{pmatrix} = \begin{pmatrix}n \\ r \end{pmatrix}  + 2\begin{pmatrix}n \\ r-1 \end{pmatrix}  + \begin{pmatrix}n \\ r-2 \end{pmatrix}
+        </me>.
+      </p>
+      <p>
+        How can you further generalise these results?
+      </p>
+    </statement>
+  </exercise>
+</section>

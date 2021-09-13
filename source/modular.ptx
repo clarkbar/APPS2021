@@ -1,0 +1,56 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="modular">
+  <title>Modular Arithmetic</title>
+  <introduction>
+    <p>
+      Is <m>30^{99}+61^{100}</m> divisible by 31?
+      This seems like a daunting question.
+      However, in a couple of pages,
+      you'll learn a trick that will make this and other problems involving divisibility of very large numbers much easier.
+      This method involves <term>modular arithmetic</term>.
+    </p>
+    <p>
+      The framework of modular arithmetic as we are familiar with it was first developed by Gauss in his book
+      <term> Disquisitiones Arithmeticae</term> in 1801,
+      whereas many fundamental results that are now stated in terms of congruences were in fact proven much earlier;
+      for example, Fermat's Little Theorem below was proven in 1640,
+      though now it is standard to formulate it using congruences.
+    </p>
+    <p>
+      Despite its classical roots,
+      modular arithmetic is important for both mathematics and applications.
+      In mathematics, it is fundamental for studying
+      <term>abstract algebra</term>,
+      which you will learn more about in
+      <term>Fundamentals of Pure Math</term>
+      next year and in <term>Honours Algebra</term> the year after that.
+      Moreover, it is also a cornerstone of modern cryptography (Chapter 15 in Liebeck's book has a good introduction to
+      <term>public key cryptography</term>).
+    </p>
+    <p>
+      If you like the material from this week,
+      you might enjoy taking the following classes:
+      <ul>
+        <li>
+          <p>
+            Fundamentals of Pure Math (2nd year)
+          </p>
+        </li>
+        <li>
+          <p>
+            Honours Algebra, Introduction to Number Theory (3rd year)
+          </p>
+        </li>
+        <li>
+          <p>
+            Commutative Algebra, Group Theory, Galois Theory, Algebraic Geometry (4th Year)
+          </p>
+        </li>
+      </ul>
+    </p>
+  </introduction>
+  <xi:include  href="arithmeticmodm.ptx"/>
+  <xi:include  href="linearequationsmodm.ptx"/>
+  <xi:include  href="Zmodm.ptx"/>
+  <xi:include  href="Fermatlittle.ptx"/>
+  <xi:include  href="modularexercises.ptx"/>
+</chapter>

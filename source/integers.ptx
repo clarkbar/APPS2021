@@ -1,0 +1,85 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="integers">
+  <title>Integers</title>
+  <introduction>
+    <p>
+      This week we will study the integers,
+      particularly the techniques of studying divisibility,
+      the highest common factor, and prime factorization.
+    </p>
+    <p>
+      These techniques are especially useful for solving
+      <term>diophantine equations</term>,
+      which are polynomial equations where we seek
+      <term>integer</term> solutions.
+      The most famous diophantine equation is
+      <me>
+        x^{n}+y^{n}=z^{n}
+      </me>
+    </p>
+    <p>
+      It was famously claimed by Fermat
+      (without proof)
+      that there are solutions <m>x,y,z,n\in\mathbb{N}</m> only if <m>n=1</m> or <m>n=2</m>.
+      It wasn't until 1994 when Andrew Wiles actually gave a proof.
+    </p>
+    <p>
+      This week's set of tools are also useful when we are trying to show at a diophantine
+      <term>can't</term> be solved.
+      You have seen one such proof before:
+      that <m>\sqrt{2}</m> is irrational.
+      Let's recall the proof briefly:
+    </p>
+    <p>
+      Suppose there was a rational number <m>\frac{m}{n}</m>
+      (where <m>m</m> and <m>n</m> are reduced in the sense that they have no common divisors apart from <m>1</m>)
+      so that <m>\left(\frac{m}{n}\right)^2=2</m>, then <m>m^2=2n^2</m>.
+      This means that <m>m^2</m> is even.
+      Then <m>m</m> must be even since,
+      if instead <m>m=2k+1</m> for some integer <m>k</m>,
+      then <m>m^2=(2k+1)^2=4(k^2+k)+1</m>,
+      which is odd, a contradiction.
+      Hence, <m>m=2k</m> for some integer <m>k</m>, and so
+      <me>
+        2n^2=m^2=(2k)^2=4k^2
+      </me>
+      and so <m>n^2=2k^2</m>, and using a similar reasoning,
+      we get that <m>n</m> must also be even,
+      which is a contradiction since we assumed <m>m</m> and <m>n</m> had no common factors,
+      but now we have shown they are both divisible by <m>2</m>.
+    </p>
+    <p>
+      The important feature of the proof was to use the <term>coprimality</term>
+      of <m>m</m> and <m>n</m>, that is,
+      that they share no common divisors,
+      as well as the fact that if <m>m^2</m> is divisible by <m>2</m>
+      (that is, if <m>m^2</m> was even, then so was <m>m</m>).
+      If we want to generalize this proof,
+      we will need to develop these tools about divisibility and coprimality.
+      Later, we will in fact show that
+      <m>\sqrt{n}</m> is rational exactly when <m>n=m^2</m> for some integer <m>m</m>.
+    </p>
+    <p>
+      As motivation for the techniques we develop along the way,
+      we will show how they can be used to solve various diophantine equations.
+      As a special final application of these techniques,
+      we'll also classify all <term>Pythagorean Triples</term>,
+      that is, integers <m>x,y,z</m> so that
+      <me>
+        x^2+y^2=z^2
+      </me>.
+    </p>
+    <p>
+      If you like the material from this week,
+      you might enjoy taking <term>Introduction to Number Theory</term> (4th year).
+    </p>
+  </introduction>
+  <xi:include  href="remainders.ptx"/>
+  <xi:include  href="euclideanalgo.ptx"/>
+  <xi:include  href="bezoutcorollaries.ptx"/>
+  <xi:include  href="fundamentaltheoremofarithmetic.ptx"/>
+  <xi:include  href="findingdivisors.ptx"/>
+  <xi:include  href="lcmandgcd.ptx"/>
+  <xi:include  href="powersofintegers.ptx"/>
+  <xi:include  href="pythagoreantriples.ptx"/>
+  <xi:include  href="numbertheoryexercises.ptx"/>
+</chapter>

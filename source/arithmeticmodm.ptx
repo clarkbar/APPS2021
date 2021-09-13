@@ -1,0 +1,263 @@
+<section xml:id="arithmeticmodm">
+  <title>Arithmetic modulo <m>m</m></title>
+  <definition xml:id="d_mod">
+    <statement>
+      <p>
+        For <m>m\in \mathbb{N}</m> and <m>a,b\in \mathbb{Z}</m>,
+        we write <m>a = b\mod m</m> or sometimes <m>a = b\mod m</m>
+        (read <term><m>a</m> is congruent to <m>b</m> modulo <m>m</m></term>)
+        if one of the following equivalent conditions holds:
+        <ul>
+          <li>
+            <p>
+              <m>m</m> divides <m>a-b</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>a</m> and <m>b</m> have same remainder when divided by <m>m</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>b=qm+a</m> for some <m>q\in \mathbb{Z}</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+  <proposition>
+    <statement>
+      <p>
+        For any integer <m>n</m>,
+        there exists a unique element
+        <m>\overline{n}</m> such that <m>n = \overline{n} \mod m</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Exercise.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        <m>32=2\mod 10</m>.
+        <m>82=1 \mod 3</m>.
+      </p>
+    </statement>
+  </example>
+  <theorem>
+    <statement>
+      <p>
+        We have the following properties for integers
+        <m>a,b,c\in\mathbb{Z}</m> and <m>m\in\mathbb{N}</m>:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>a = a\mod m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>a = b\mod m</m>, then <m>b = a\mod m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>a = b\mod m</m> and <m>b = c\mod m</m>, then <m>a = c\mod m</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          Since <m>m</m> divides <m>a-a=0</m>,
+          we have that <m>a = a</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>a = b\mod m</m>, then <m>m</m> divides <m>(a-b)</m>,
+          so <m>m</m> divides <m>(b-a)</m> as well,
+          hence <m>b = a \mod m</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose <m>a = b \mod m</m> and <m>b = c\mod m</m>.
+          Then <m>m</m> divides <m>a-b</m>,
+          so <m>a-b=km</m> for some integer <m>k</m>.
+          Moreover, <m>m</m> divides <m>b-c</m>,
+          so <m>b-c=jm</m> for some integer <m>j</m>.
+          Thus,
+          <me>
+            a-c = a-b+b-c = km+jm = (k+j)m
+          </me>,
+          hence <m>m</m> divides <m>(a-c)</m>,
+          thus <m>a = c \mod m</m>.\qedhere
+        </p>
+      </li>
+    </ol>
+  </proof>
+  <theorem xml:id="t_mod-artithmetic">
+    <statement>
+      <p>
+        Suppose <m>a = x \mod m</m> and <m>b = y \mod m</m>.
+        Then
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>-a = -x \mod m</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>a+b = x+y \mod m</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>ab = xy \mod m</m>;
+            </p>
+          </li>
+          <li>
+            <p>
+              for any natural number <m>k</m>,
+              one has <m>a^{k} = x^{k} \mod m</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We have that <m>m</m> divides <m>a-x</m> and <m>m</m> divides <m>b-y</m>
+      <ol label="labelalph">
+        <li>
+          <p>
+            It is clear that <m>m</m> divides <m>-(a-x)=(-a)-(-x)</m>,
+            so that <m>-a = -x \mod m</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The Linear Combination Lemma implies that <m>m</m> divides
+            <me>
+              (a-x)+(b-y)=(a+b)-(x+y)
+            </me>,
+            and so <m>a+b = x-y\mod m</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a = x \mod m</m> implies <m>a=x+pm</m> for some <m>p\in\mathbb{Z}</m> and
+            <m>b = y \mod m</m> implies <m>b=y+qm</m> for some <m>q\in\mathbb{Z}</m>.
+            Thus,
+            <me>
+              ab = (x+pm)(y+qm) = xy+pmy+xqm+ pqm^2 = xy + m(py+xq+pqm)
+            </me>,
+            and so <m>ab = xy</m> by <xref ref="d_mod">Definition</xref>(3).
+          </p>
+        </li>
+        <li>
+          <p>
+            This can be proven by induction.
+            For the base case of <m>k=1</m>, this is immediate.
+            Now suppose <m>a^{k} = x^{k}\mod m</m> for some <m>k\geq 1</m>.
+            Then by part (b) of this theorem with <m>b=a^{k}</m> and <m>x=y^{k}</m> and our induction hypothesis
+            <me>
+              a^{k+1}=a\cdot a^{k} = a x^{k} \mod m
+            </me>
+            and then applying part (b) again but with <m>b=y=x^k</m>,
+            <me>
+              a x^{k} = x\cdot x^k=x^{k+1}
+            </me>.
+            This proves the induction and hence the theorem. \qedhere
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+  <p>
+    This result proves that many of the algebraic manipulations we enjoy performing on integers <mdash/> addition,
+    subtraction,
+    and multiplication <mdash/> can be done modulo <m>m</m> systematically.
+    This simplifies many challenging-looking problems.
+    Let's revisit our earlier example:
+    is <m>30^{99}+61^{100}</m> divisible by 31?
+    Note that <m>30=31-1=-1\mod 31</m> and <m>61=2\cdot 31-1=-1\mod 31</m>, and so
+    <me>
+      30^{99}+61^{100} = (-1)^{99}+(-1)^{100}=-1+1=0 \mod 31
+    </me>.
+  </p>
+  <p>
+    Indeed, <m>31</m> divides <m>30^{99}+61^{100}</m>.
+  </p>
+  <p>
+    <xref ref="t_mod-artithmetic">Theorem</xref>
+    says we can add and multiply modulo <m>m</m>.
+    Can we also divide?
+    That is, if <m>ad = bd\mod m</m>,
+    do we also have <m>a = b\mod m</m>?
+    This is <term>not</term> always the case.
+    Perhaps the simplest example is the following:
+    <m>2 = 0 \mod 2</m>, but we cannot divide this equation by <m>2</m>,
+    because <m>1 \neq 0 \mod 2</m>.
+    More subtly, <m>12 = 24 \mod 6</m>,
+    but here we cannot divide by <m>3</m>,
+    because <m>4 \neq 8 \mod 6</m>.
+    The following theorem says when we can divide in this way.
+  </p>
+  <proposition xml:id="p_xa_ya-x_a">
+    <statement>
+      <p>
+        Let <m>d</m> and <m>m</m> be coprime.
+        If <m>x,y\in \mathbb{Z}</m> and
+        <m>xd=yd\mod m</m>, then <m>x = y\mod m</m>.
+        In particular,
+        if <m>p</m> is prime and <m>p</m> does not divide <m>a</m>,
+        then <m>xa = ya\mod p</m> implies that <m>x = y\mod p</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Suppose <m>a</m> and <m>m</m> are coprime and <m>xa = ya\mod m</m>.
+      Then <m>m</m> divides <m>xa-ya=(x-y)a</m>.
+      Since <m>m</m> and <m>a</m> are coprime,
+      <m>m</m> divides <m>x-y</m>, and so <m>x = y\mod m</m> by definition.
+      The second part of the proposition follows from the first.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Find an integer <m>x\in \{0,1,..,6\}</m> so that <m>4^{6} = x\mod 7</m>.
+      </p>
+      <p>
+        Let's look at some powers of <m>4</m> and see what they are modulo <m>7</m>.
+        <md>
+          <mrow>4^2 \amp  = 16 =14+2 = 2 \mod 7</mrow>
+          <mrow>4^4 \amp  = (4^2)^2  = 2^2 =4 \mod 7</mrow>
+        </md>.
+      </p>
+      <p>
+        Thus,
+        <me>
+          4^6=4^2\cdot 4^4 = 2\cdot 4=8 = 1 \mod 7
+        </me>.
+      </p>
+      <p>
+        This is certainly much quicker than computing <m>4^6</m> by hand and then doing long division!
+      </p>
+    </statement>
+  </example>
+</section>

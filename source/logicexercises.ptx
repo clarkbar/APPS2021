@@ -1,0 +1,252 @@
+<section xml:id="logicexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck's book are at the end of Chapter 1.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Find statements <m>A</m> and <m>B</m> so that <m>A\Rightarrow B</m> is true but
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>A</m> is false and <m>B</m> is true.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>B</m> is false.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol label="labelalph">
+          <li>
+            <p>
+              Recall that <m>A\Rightarrow B</m> is equivalent to <m>\bar{A}</m> or <m>B</m>,
+              so we just need to find a statement so that <m>A</m> is false
+              (so <m>\bar{A}</m> is true)
+              and <m>B</m> is true.
+              This could be <m>A</m>=
+              <q>2 is odd</q>
+              and <m>B</m>=
+              <q>2 is even.</q>
+            </p>
+          </li>
+          <li>
+            <p>
+              Recall that <m>A\Rightarrow B</m> is equivalent to <m>\bar{A}</m> or <m>B</m>,
+              so if <m>B</m> is false, then <m>\bar{A}</m> must be true (i.e.
+              <m>A</m> is false).
+              We can let <m>A=B</m>=
+              <q>2 is odd</q>, for example.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that <m>A\Rightarrow B</m> is not equivalent to <m>A\Leftarrow B</m>,
+        either by finding examples or using their truth tables.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        One could have A=
+        <q><m>n</m> is a prime bigger than 2</q>
+        and B=
+        <q><m>n</m> is odd.</q>
+      </p>
+      <p>
+        Recall that <m>A\Rightarrow B</m> is equivalent to
+        <q><m>\bar{A}</m> or <m>B</m>,</q>
+        and <m>B\Rightarrow A</m> is equivalent to
+        <q><m>\bar{B}</m> or <m>A</m>,</q>
+        which have truth tables
+      </p>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>B</m></cell>
+          <cell><m>\bar{A}</m></cell>
+          <cell><m>\bar{A}</m> or <m>{B}</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+      </tabular>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>B</m></cell>
+          <cell><m>\bar{B}</m></cell>
+          <cell><m>\bar{B}</m> or <m>{A}</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+        </row>
+      </tabular>
+      <p>
+        Since the truth tables are not the same, they are not equivalent.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>A,B,C</m> are statements.
+        Negate the statements
+        <me>
+          A\mbox{ and } (B \mbox{ or } C)
+        </me>
+        and
+        <me>
+          A\mbox{ or } (B \mbox{ and } C)
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The negations are, respectively,
+        <me>
+          \bar{A} \mbox{ or }  (\bar{B}\mbox{ and } \bar{C})
+        </me>
+        and
+        <me>
+          \bar{A} \mbox{ and }  (\bar{B}\mbox{ or } \bar{C})
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>P,Q,R</m> are statements and <m>P\Rightarrow Q</m>,
+        <m>Q\Rightarrow R</m> and <m>R\Rightarrow P</m>.
+        Show that <m>P\Leftrightarrow R</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Assume <m>P\Rightarrow Q</m>,
+        <m>Q\Rightarrow R</m> and <m>R\Rightarrow P</m>,
+        we will show that <m>P\Leftrightarrow R</m>.
+        To prove this, we need to show
+        <m>P\Rightarrow R</m> and <m>R\Rightarrow P</m>.
+        We area already assuming <m>R\Rightarrow P</m>,
+        so we just need to prove <m>P\Rightarrow R</m>.
+        Hence, assume <m>P</m>.
+        Then since <m>P\Rightarrow Q</m>,
+        we know <m>Q</m> is also true,
+        and since <m>Q\Rightarrow R</m>,
+        we also know <m>R</m> is true.
+        Thus <m>P\Rightarrow R</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Negate the following statements
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>(\forall x \;\; P)\Rightarrow ((\exists y \mbox{ s.t. } Q) \mbox { and }R)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\forall x\;\; \exists y \mbox{ s.t. } P\Rightarrow Q</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\exists x \mbox{ s.t. } ((\forall y \;\; A)\Rightarrow (\exists z \mbox{ s.t. } B))</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>(\forall x \;\; P) \mbox{ and } ((\forall y \;\; \bar{Q}) \mbox { or }\bar{R})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\exists x \mbox{ s.t. } \;\; \forall y \; (P\mbox{ and } \bar{Q})</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\forall x ( (\forall y \;\; A) \mbox{ and } (\forall z \bar{B}))</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+</section>

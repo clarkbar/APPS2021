@@ -1,0 +1,211 @@
+<section xml:id="countingpartitions">
+  <title>Counting partitions</title>
+  <p>
+    The binomial coefficient <m>{n\choose k}</m> counts the number of ways to pick a subset of size <m>k</m> from a set of size <m>n</m>,
+    or in other words,
+    the number of ways of splitting a set of size <m>n</m> into a set of size <m>k</m> and a set of size <m>n-k</m>.
+    What if we wanted to count the number of ways to partition a set into more than two sets?
+  </p>
+  <p>
+    For example, let <m>A = \{1,2,3,4,5,6\}</m>.
+    Then <m>\{\{1,2,3\},\{4,5\},\{6\}\}</m> is a partition of <m>A</m> into sets of sizes <m>3</m>,
+    <m>2</m> and <m>1</m> respectively.
+    Another one is <m>\{\{1,4,6\},\{3,5\},\{2\}\}</m>.
+    How many such partitions are there?
+    One way to look at this is as follows.
+    First we work out the number of ways to select <m>3</m> members of <m>A</m> for our first set:
+    there are <m>{6 \choose 3}</m> such ways.
+    Each such choice leaves us with a set of <m>3</m> remaining members of <m>A</m>,
+    from which we choose <m>2</m> for our second set,
+    and there are <m>3 \choose 2</m> ways to do this.
+    Finally there is exactly one choice for the last set.
+    So altogether there are
+    <me>
+      {6 \choose 3} \times {3 \choose 2} \times 1= \frac{6!}{3! 3!} \times \frac{3!}{2! 1!} \times \frac{1!}{1!} = \frac{6!}{3! 2! 1!}
+    </me>
+    ways to form such a partition,
+    by the Multiplication Principle.
+  </p>
+  <p>
+    Another example: again let
+    <m>A = \{1,2,3,4,5,6\}</m> and suppose this time we want to partition <m>A</m> into non-interchangeable sets of sizes <m>2, 2</m> and <m>2</m>.
+    More concretely,
+    suppose we are given a red, a blue and a green bin,
+    and we want to calculate the number of ways of throwing <m>2</m> elements of <m>A</m> into the red bin,
+    <m>2</m> elements of <m>A</m> into the blue bin and <m>2</m> elements of <m>A</m> into the green bin.
+    (In the previous example there was no need to assign colours to the bins because they were always going to hold <term>different</term>
+    numbers of members of <m>A</m> <mdash/> the red bin was always going to hold <m>3</m> members of <m>A</m>,
+    the blue bin <m>2</m> members and the green bin <m>1</m> member of <m>A</m>.)
+    There are <m>6 \choose 2</m> ways to throw <m>2</m> members of <m>A</m> into the red bin,
+    <m>4\choose2</m> ways of throwing <m>2</m> of the remaining <m>4</m> members of <m>A</m> into the blue bin,
+    and <m>2 \choose 2</m> ways of throwing the remaining <m>2</m> members of <m>A</m> into the green bin.
+    So altogether there are
+    <me>
+      {6 \choose 2} \times {4 \choose 2} \times {2 \choose 2}= \frac{6!}{4! 2!} \times \frac{4!}{2! 2!} \times \frac{2!}{2!} = \frac{6!}{2! 2! 2!}
+    </me>
+    ways to form such a partition,
+    by the Multiplication Principle.
+  </p>
+  <p>
+    What we are discussing is more formally described using the terminology of an
+    <term>ordered partition</term>.
+  </p>
+  <definition xml:id="part">
+    <statement>
+      <p>
+        Let <m>S</m> be a nonempty finite set.
+        An <term>ordered partition</term>
+        of <m>S</m> is a sequence of sets
+        <m>(A_{1}, \dots ,A_{k})</m> that partitions <m>S</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In the case of our second example,
+    the two ordered partitions <m>(\{1,2\}, \{3,4\}, \{5,6\})</m> and
+    <m>(\{3,4\}, \{1,2\}, \{5,6\})</m> are distinct because in the first case <m>1</m> and <m>2</m> are in the red bin while in the second case they are in the blue bin;
+    we want to count these separately.
+    In general we think of having <m>k</m> colours,
+    and the set <m>A_1</m> as being assigned colour <m>1</m>,
+    <m>A_2</m> as being assigned colour <m>2</m>, and so on.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given <m>n \in \mathbb{N}</m>,
+        <m>k \in \mathbb{N}</m> with <m>k \geq 2</m>,
+        and nonnegative integers <m>r_{1}, \dots ,r_{k}</m> such that <m>r_{1}+\cdots + r_{k}=n</m>,
+        we denote the number of ordered partitions
+        <m>(A_{1}, \dots ,A_{k})</m> of a set <m>S</m> such that <m>|A_{i}|=r_{i}</m> by
+        <me>
+          {n \choose r_{1}, \dots , r_{k}}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Our examples show us that
+    <me>
+      {6 \choose 3, 2, 1} = \frac{6!}{3!2!1!}
+    </me>
+    and
+    <me>
+      {6 \choose 2,2,2} = \frac{6!}{2!2!2!}
+    </me>.
+  </p>
+  <p>
+    The following result should therefore not be too surprising.
+  </p>
+  <theorem xml:id="t_mutlinomial">
+    <statement>
+      <p>
+        For <m>n \in \mathbb{N}</m>,
+        <m>k \geq 2</m> and nonnegative integers
+        <m>r_{1}, \dots ,r_{k}</m> such that <m>r_{1}+\cdots + r_{k}=n</m>, we have
+        <me>
+          {n \choose r_{1}, \dots , r_{k}} = \frac{n!}{r_{1}!r_{2}!\cdots r_{k}!}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Again, we give a different proof from Liebeck.
+  </p>
+  <proof>
+    <p>
+      Let <m>S</m> be a set of size <m>n</m>.
+      We prove the above formula by induction on <m>k</m>.
+      Our inductive hypothesis is that for a certain <m>k</m>,
+      the statement of <xref ref="t_mutlinomial">Theorem</xref>
+      holds for <term>all</term> <m>n</m> and <term>all</term>
+      <m>r_1, \dots , r_k</m> such that <m>r_1 + \dots + r_k = n</m> .
+      <ul>
+        <li>
+          <title>\textbf{Base case:}</title>
+          <p>
+            If <m>k=2</m>,
+            this follows since the number of ordered partitions <m>(A_{1},A_{2})</m>,
+            where <m>|A_{1}|=r_{1}</m> and
+            <m>|A_{2}|=r_{2}=n-r_{1}</m> is just the number of ways of choosing an <m>r_1</m>-element subset of <m>S</m> which equals
+            <me>
+              {n \choose {r_1}} = {n \choose {r_1, n-r_1}}
+            </me>.
+            This proves the base case.
+          </p>
+        </li>
+        <li>
+          <title>\textbf{Inductive Step:}</title>
+          <p>
+            Suppose the inductive hyothesis holds for some <m>k\geq 2</m> and all <m>n</m>.
+            Picking an ordered partition
+            <m>(A_{1}, \dots,A_{k+1})</m> with <m>|A_{i}|=r_i</m> and
+            <m>r_{1}+\cdots + r_{k+1}=n</m> is the same as picking an <m>r_{k+1}</m>-member subset <m>A_{k+1}</m> of <m>S</m>, and,
+            for each such,
+            then picking an ordered partition
+            <m>A_1, \dots , A_k</m> of the remaining <m>(n - r_{k+1})</m>-member set with
+            <m>A_i = r_i</m> for <m>1 \leq i \leq k</m>.
+            By the Multiplication Principle the number of ways of doing this is
+            <me>
+              { n \choose r_{k+1}} \times  {n- r_{k+1} \choose r_1, \dots , r_{k}}
+            </me>
+            which, by the inductive hypothesis, is
+            <me>
+              { n \choose r_{k+1}} \times \frac{(n- r_{k+1})!}{ r_1! \dots r_{k}!}= \frac{n!}{(n-r_{k+1})! r_{k+1}!}\frac{(n- r_{k+1})!}{ r_1! \dots r_{k}!}= \frac{n!}{r_{1}!r_{2}!\cdots r_{k+1}!}
+            </me>,
+            completing the inductive step.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </proof>
+  <p>
+    Take a good look at the above proof and check that the inductive hypothesis was indeed valid at the inductive step.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let's revisit the
+        <q>banana</q>
+        problem.
+        Each arrangement of
+        <q>banana</q>
+        corresponds to an ordered partition <m>(B,A,N)</m> of the set
+        <m>\{1,2, \dots ,6\}</m> with <m>|B|=1,|A|=3,|N|=2</m>,
+        where <m>i\in B</m> if the <m>i</m>th letter in the rearrangement is a
+        <q>b</q>, <m>i\in A</m> if the <m>i</m>th letter is an
+        <q>a</q>, and <m>i\in N</m> if the <m>i</m>th letter is an <m>N</m>.
+        Thus, the total number of rearrangements is again
+        <me>
+          {6 \choose 3 , 2, 1} = \frac{6!}{3!2!1!}=60
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        How many ways are there to choose from a set of size <m>10</m> three disjoint subsets of sizes <m>5,3</m>,
+        and <m>2</m> respectively?
+        What about sizes <m>4,4</m>, and <m>2</m> respectively?
+      </p>
+      <p>
+        Let <m>S=\{1,2,\dots,10\}</m>.
+        There are <m>{10\choose 5,3,2}</m> ways of choosing an ordered partition of <m>S</m> into a first set of size 5, a second set of size 3, and a third set of size 2 by <xref ref="t_mutlinomial">Theorem</xref>.
+      </p>
+      <p>
+        For the second part, there are
+        <m>{10\choose 4,4,2}</m> ways of picking an <term>ordered</term>
+        partition with sets of sizes <m>4,4</m>, and <m>2</m>.
+        But what if we instead wanted the number <m>N</m> of <term>unordered</term>
+        partitions <m>\{A_{1},A_{2},A_{3}\}</m> where
+        <m>|A_{1}|=|A_{2}|=4</m> and <m>|A_{3}|=2</m>?
+        Given such a partition,
+        there are <m>2!</m> ordered partitions we can make from it,
+        (by swapping the two sets <m>A_1</m> and <m>A_2</m> of the same size <m>4</m>),
+        so that the first two sets have size 4 and the last has size 2.
+        Thus, counting the number of ordered partitions overcounts the number of unordered partitions by a factor of <m>2</m>,
+        so the number of partitions is <m>N= {10\choose 4,4,2}/2</m>.
+      </p>
+    </statement>
+  </example>
+</section>

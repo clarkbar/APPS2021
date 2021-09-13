@@ -1,0 +1,13 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="permutations">
+  <title>Permutations</title>
+  <xi:include  href="permutationssection.ptx"/>
+  <xi:include  href="tablenotation.ptx"/>
+  <xi:include  href="compositionandidentity.ptx"/>
+  <xi:include  href="inverseofpermutation.ptx"/>
+  <xi:include  href="section16-5.ptx"/>
+  <xi:include  href="cycles.ptx"/>
+  <xi:include  href="cyclenotation.ptx"/>
+  <xi:include  href="section16-8.ptx"/>
+  <xi:include  href="evenandoddpermutations.ptx"/>
+  <xi:include  href="permutationexercises.ptx"/>
+</chapter>

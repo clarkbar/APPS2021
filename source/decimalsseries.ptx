@@ -1,0 +1,64 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="decimalsseries">
+  <title>Decimals and Series</title>
+  <introduction>
+    <p>
+      We are all familiar with decimal representation of numbers.
+      For example,
+      given a rational number <m>x = \frac{p}{q}</m> with
+      <m>p,
+      q \in \mathbb{N}</m> and <m>0 \lt  p \lt  q</m>,
+      we can go through the process of dividing <m>q</m> into <m>p</m> to represent it as
+      <me>
+        x = 0.a_1 a_2 \dots a_n \dots
+      </me>
+      where each <m>a_n</m> is an integer in the set <m>\{0,1,\dots, 9\}</m>.
+      So we are used to writing
+      <me>
+        \frac{1}{2} = 0.5 = 0.50000\dots \mbox{ and }  \frac{2}{3} = 0.66666\dots
+      </me>
+      and we are also familiar with such expressions as
+      <me>
+        \sqrt{2} = 1.414\dots \mbox{ and }  \pi = 3.14159 \dots
+      </me>.
+    </p>
+    <p>
+      There are also more random looking examples such as
+      <m>0.7264082793684301..</m>. which have no discernible pattern nor immediate purpose in life.
+      But what exactly do we mean by these expansions?
+      In this chapter we explore this question,
+      and give a precise meaning to decimal expansions.
+      We will show that <term>every</term>
+      real number has a decimal expansion, and conversely,
+      every decimal expansion gives rise to a real number.
+      Thus, in some sense,
+      decimal expansions provide a complete description of the real numbers.
+      In order to do this,
+      we use the study of sequences which we have already begun, and,
+      in particular,
+      we will make crucial use of the Completeness Axiom for <m>\mathbb{R}</m>
+      (as indeed we must).
+    </p>
+    <p>
+      Then we will introduce infinite series and relate them to decimal expansions.
+      You are probably familiar with certain infinite series already,
+      such as the infinite geometric series
+      <me>
+        \sum_{n=1}^\infty \frac{1}{2^n} = 1
+      </me>,
+      but we will examine series such as these from a more general perspective.
+      Now is a good time to recall the formula for a finite geometric series:
+      <me>
+        a + ar + ar^2 + \cdots + ar^{n-1} = \frac{a(1-r^{n})}{1-r}
+      </me>
+      whenever <m>r \neq 1</m>.
+      You will learn more about infinite series if you are taking the course Calculus and its Applications.
+      Finally, we introduce the number <m>e</m> and study some of its basic properties.
+    </p>
+  </introduction>
+  <xi:include  href="decimals.ptx"/>
+  <xi:include  href="series.ptx"/>
+  <xi:include  href="numbere.ptx"/>
+  <xi:include  href="decimalsseriesexercises.ptx"/>
+  <xi:include  href="eisirrational.ptx"/>
+  <xi:include  href="subsequences.ptx"/>
+</chapter>

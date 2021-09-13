@@ -1,0 +1,50 @@
+<section xml:id="cartesianandpolar">
+  <title>Cartesian and Polar form</title>
+  <p>
+    Another useful representation of a complex number <m>z=x+iy</m> is <term>polar form</term>.
+    In polar form we represent a complex number by specifying an angle <m>\theta</m> from the <m>x</m> axis,
+    and a distance from the origin which, recall, is <m>|z|</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>z\neq 0</m> be a complex number.
+        Let <m>r = |z|</m> and define the <term>argument</term>
+        of <m>z</m> be the angle <m>\theta\in [0,2\pi)</m> between the line from <m>0</m> to <m>z</m> and the positive <m>x</m>-axis.
+        We can then write
+        <me>
+          z= r(\cos\theta+i\sin\theta)
+        </me>.
+      </p>
+      <p>
+        This is the <term>polar form</term> of <m>z</m>.
+      </p>
+      <p>
+        <image width="92.5%" source="Figures/modulus.pdf"/>
+      </p>
+      <image source="images/9fff395f04046cfdc0c9d842f3961492599d7163.png"/>
+    </statement>
+  </definition>
+  <p>
+    If we look at the triangle in the above figure,
+    the hypotenuse is <m>r=|z|</m>,
+    and so the base and height of the triangle are
+    <m>r\cos \theta</m> and <m>r\sin\theta</m> respectively,
+    and so these give the real and imaginary parts (i.e. the <m>x</m> and <m>y</m> coordinates) of <m>z</m>.
+  </p>
+  <p>
+    While we specify that the argument <m>\theta</m> of a complex number <m>z</m> to be in the range <m>[0,2\pi)</m>,
+    there are infinitely many numbers <m>\phi</m> so that
+    <m>z= r(\cos\phi+i\sin\phi)</m> (where <m>r=|z|</m>):
+    we can just take <m>\phi = \theta+ 2n\pi</m> for <m>n\in\mathbb{Z}</m>.
+    We have made a choice to only take <m>\theta\in [0,2\pi)</m>.
+    This is called the <term>principal argument</term>.
+    Other books and resources sometimes choose <m>\theta\in (-\pi,\pi]</m>.
+    Mathematicians are free to
+    <q>cut</q>
+    the complex plane where we choose,
+    but be clear about which choice you make and stick to it.
+    For PPS only take <m>\theta\in [0,2\pi)</m>,
+    unless otherwise stated clearly.
+  </p>
+</section>

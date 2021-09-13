@@ -1,0 +1,237 @@
+<section xml:id="series">
+  <title>Infinite Series</title>
+  <p>
+    We know how to add up a finite set of numbers <m>a_1 + a_2 + \cdots + a_n</m>.
+    But what does it mean to add up an infinite sequence of numbers
+    <me>
+      a_1 + a_2 + \cdots + a_j + \cdots ?
+    </me>
+  </p>
+  <p>
+    A good way to make sense of this is to form the
+    <term>new sequence</term> <m>(s_n)</m> where
+    <me>
+      s_n := a_1 + a_2 + \dots + a_n
+    </me>
+    and to define the infinite sum
+    <me>
+      a_1 + a_2 + \cdots + a_j + \cdots = \sum_{j=1}^\infty a_j := \limn s_n
+    </me>
+    to be the limit of the sequence <m>(s_n)</m> whenever it exists.
+    The numbers <m>s_n</m> are called the <term>partial sums</term>
+    of <m>\sum_{j=1}^\infty a_j</m>.
+    <term>If the sequence of partial sums <m>(s_n)</m> does not converge,
+    we assign no meaning to <m>\sum_{j=1}^\infty a_j</m>.</term> More formally:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given a sequence <m>(a_{j})</m>,
+        we say that the infinite series
+        <m>\sum_{j=1}^\infty a_{j}</m> <term>converges</term>
+        if the sequence of partial sums
+        <me>
+          s_{n}=\sum_{j=1}^{n}a_{j}
+        </me>
+        converges as <m>n\rightarrow\infty</m>.
+        When <m>(s_n)</m> converges we denote its limit by <m>\sum_{j=1}^{\infty}a_{j}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Alternatively, given the sequence <m>(a_n)</m>,
+    we can equivalently define the sequence <m>(s_n)</m> recursively by
+    <m>s_1 = a_1</m> and <m>s_{n} = a_n + s_{n-1}</m> for <m>n \geq 2</m>.
+  </p>
+  <p>
+    <em>Question:</em> Give an example of an infinite series <m>\sum_{n=1}^\infty a_n</m> which converges,
+    and an example of one which fails to converge.
+  </p>
+  <p>
+    Decimal expansions can be thought of as special cases of infinite series:
+    given a sequence <m>(b_j)</m> with each <m>b_j \in \{0, 1, \dots , 9\}</m>,
+    we can interpret the decimal expansion
+    <m>0.b_1b_2 \dots</m> as the infinite series <m>\sum_{j=1}^\infty \frac{b_j}{10^j}</m>.
+  </p>
+  <p>
+    <term><em>A word of warning about a possible source of confusion.</em>
+    Given a sequence <m>(a_n)</m>,
+    we can consider two questions about it:
+    convergence of the <em>sequence</em> <m>(a_n)</m>,
+    and convergence of the <em>series</em>
+    <m>\sum_{j=1}^\infty a_j</m>.
+    <em>It is important to realise that these are two completely different things.</em>
+    Convergence of the sequence <m>(a_n)</m> is just what it says,
+    while convergence of the series
+    <m>\sum_{j=1}^\infty a_j</m></term>is defined as convergence of the
+    <term>auxiliary</term> sequence <m>(s_n)</m>.
+    So it's always important to be clear whether we are talking about convergence of the sequence <m>(a_n)</m> or convergence of the series <m>\sum_{j=1}^\infty a_j</m>.
+    Some texts use the word <term>summable</term>
+    to describe convergent series,
+    and this goes some way towards relieving any potential confusion,
+    but the term <term>convergent series</term>
+    is just too ingrained in mathematical language to be eradicated.
+    (See also <xref ref="eleven">Exercise</xref>.)
+  </p>
+  <p>
+    Sometimes we will also work with series which start from a different position,
+    like <m>\sum_{j=2}^{\infty} \frac{1}{j(j-1)}</m>,
+    and the definition is the same:
+    we say this series is convergent if the partial sums <m>\sum_{j=2}^{n} \frac{1}{j(j-1)}</m> converge.
+    Whether we use the dummy variable <m>j</m> or <m>k</m>
+    (or anything else)
+    doesn't matter:
+    <m>\sum_{j=2}^{\infty} \frac{1}{j(j-1)}</m> has exactly the same meaning as
+    <m>\sum_{k=2}^{\infty} \frac{1}{k(k-1)}</m> or <m>\sum_{n=2}^{\infty} \frac{1}{n(n-1)}</m>.
+  </p>
+  <example xml:id="ex_geometric-series">
+    <statement>
+      <p>
+        The quintessential example of a convergent series is the
+        <term>geometric series</term>.
+        Recall that for any real number <m>r \neq 1</m>,
+        <men>
+          \sum_{j=0}^{n} ar ^{j}=\frac{a(1-r^{n+1})}{1-r}
+        </men>
+      </p>
+      <p>
+        If <m>|r|\lt 1</m>,
+        then <m>|r^{n+1}|=|r|^{n+1}\rightarrow 0</m> by <xref ref="ex_power">Example</xref>,
+        and so <m>r^{n+1}\rightarrow 0</m> as well.
+        Thus,
+        <me>
+          \limn \sum_{j=0}^{n}ar^{j} = \limn \frac{a(1-r^{n+1})}{1-r} = \frac{\limn a(1-r^{n+1})}{1-r}=\frac{a- a\limn r^{n+1}}{1-r}=\frac{a}{1-r}
+        </me>.
+      </p>
+      <p>
+        Thus, when <m>|r|\lt 1</m>, <m>\sum_{j=0}^\infty a r^{j}</m> is convergent,
+        and <m>\sum_{j=0}^{\infty} a r^{j}=\frac{a}{1-r}</m>.
+        We'll see below that this series converges if and only if <m>|r|\lt 1</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    One useful necessary condition for a series to converge is the following:
+  </p>
+  <proposition xml:id="divgcetest">
+    <statement>
+      <p>
+        Suppose the series <m>\sum_{j=1}^\infty a_j</m> converges.
+        Then the sequence <m>(a_j)</m> satisfies <m>a_j \to 0</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>s_n = \sum_{j=1}^n a_j</m>.
+      Then for some <m>s \in \mathbb{R}</m>, <m>s_n \to s</m>.
+      Hence <m>a_n = s_n - s_{n-1} \to s-s =0</m>.
+    </p>
+  </proof>
+  <p>
+    As a consequence of this we see that the geometric series of <xref ref="ex_geometric-series">Example</xref>
+    diverges when <m>|r| \geq 1</m> since the sequence
+    <m>(ar^j)_{j=1}^\infty</m> does not converge to <m>0</m> when <m>|r| \geq 1</m>.
+  </p>
+  <p>
+    Just as we had rules for manipulating limits of sequences,
+    we also have rules for manipulating infinite sums.
+    The one which follows says that the operation of taking infinite sums is linear.
+    Its proof will use the rules for limits of sequences.
+  </p>
+  <proposition xml:id="p_suman_bn">
+    <statement>
+      <p>
+        Let <m>(a_{j})</m> and <m>(b_{j})</m> be sequences.
+        If <m>\sum_{j=1}^\infty a_{j}</m> and <m>\sum_{j=1}^\infty b_{j}</m> are convergent,
+        then so is <m>\sum_{j=1}^\infty (a_{j}+b_{j})</m>, and
+        <me>
+          \sum_{j=1}^{\infty} (a_{j}+b_{j})=\sum_{j=1}^{\infty} a_{j}+\sum_{j=1}^{\infty} b_{j}
+        </me>.
+      </p>
+      <p>
+        If <m>c\in\mathbb{R}</m>, then <m>\sum ca_{j}</m> is convergent and
+        <me>
+          \sum_{j=1}^{\infty} ca_{j}=c \sum_{j=1}^{\infty} a_{j}
+        </me>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      We observe that
+      <md>
+        <mrow>\sum_{j=1}^{\infty} (a_{j}+b_{j}) \amp  = \lim_{n\rightarrow\infty} \sum_{j=1}^{n}(a_{j}+b_{j}) \amp  =\lim_{n\rightarrow\infty} \left(\sum_{j=1}^{n} a_{j}+\sum_{j=1}^{n}b_{j}\right) =\lim_{n\rightarrow\infty} \sum_{j=1}^{n} a_{j}+\lim_{n\rightarrow\infty}\sum_{j=1}^{n}b_{j}</mrow>
+        <mrow>\amp  =\sum_{j=1}^{\infty} a_{j}+\sum_{j=1}^{\infty}b_{j}</mrow>
+      </md>.
+    </p>
+    <p>
+      Similarly,
+      <me>
+        \sum_{j=1}^{\infty} ca_{j} =\lim_{n\rightarrow\infty}\sum_{j=1}^{n} ca_{j} =c\lim_{n\rightarrow\infty}\sum_{j=1}^{n} a_{j} =c\sum_{j=1}^{\infty} a_{j}
+      </me>.
+    </p>
+  </proof>
+  <problem>
+    <statement>
+      <p>
+        What about a rule for <term>products</term> of series?
+      </p>
+    </statement>
+  </problem>
+  <p>
+    In Calculus and its Applications,
+    you will learn about several tests for convergence of series.
+    We will discuss only one here.
+  </p>
+  <theorem>
+    <title>Comparison Test</title>
+    <statement>
+      <p>
+        If <m>b_j \geq 0</m> for all <m>j</m> and <m>\sum_{j=1}^\infty b_{j}</m> is convergent,
+        and if <m>|a_{j}|\leq b_{j}</m> for all <m>j</m>,
+        then <m>\sum_{j=1}^\infty a_{j}</m> is also convergent,
+        and moreover <m>|\sum_{j=1}^\infty a_j| \leq \sum_{j=1}^\infty b_j</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The idea is to write <m>a_j = (a_j - b_j) + b_j</m> and to use <xref ref="p_suman_bn">Proposition</xref>.
+      We know that <m>\sum_j b_j</m> converges by hypothesis,
+      and if we knew that <m>\sum_j(a_j - b_j)</m> converged we would be in business.
+    </p>
+    <p>
+      Note first that, since <m>a_j \leq b_j</m> for all <m>j</m>,
+      we have <m>t_n \geq 0</m> for all <m>n</m>,
+      and moreover the sequence <m>(t_n)</m> given by
+      <me>
+        t_{n}=\sum_{j=1}^{n}(b_{j}-a_{j})
+      </me>
+      is increasing.
+      Next, note that <m>b_{j}-a_{j}\leq 2b_{j}</m>, and so
+      <me>
+        t_{n}\leq \sum_{j=1}^{n}2b_{j}\leq \sum_{j=1}^{\infty}2b_{j}
+      </me>
+      and since this latter sum converges by <xref ref="p_suman_bn">Proposition</xref>,
+      this means that <m>(t_{n})</m> is bounded above.
+      Thus, by the MCT, <m>(t_{n})</m> converges and <m>\limn t_n \geq 0</m>.
+      Therefore, by <xref ref="p_suman_bn">Proposition</xref>.
+      <m>\sum_{j=1}^\infty(a_j - b_j)</m> converges to some nonpositive number.
+      We conclude that <m>\sum_{j=1}^\infty a_{j}</m> converges,
+      and the sum is <m>\sum_{j=1}^\infty b_j + \sum_{j=1}^\infty (a_j - b_j)</m>,
+      whose value is at most <m>\sum_{j=1}^\infty b_j</m>.
+      Finally, applying the same reasoning with <m>-a_j</m> in place of <m>a_j</m>,
+      we conclude that
+      <me>
+        |\sum_{j=1}^\infty a_j| \leq \sum_{j=1}^\infty b_j
+      </me>.
+    </p>
+  </proof>
+  <p>
+    For example,
+    since <m>\left|\frac{\sin j}{2^{j}}\right|\leq \frac{1}{2^{j}}</m> and
+    <m>\sum_{j=1}^\infty \frac{1}{2^{j}}</m> converges by <xref ref="ex_geometric-series">Example</xref>,
+    we can deduce that <m>\sum_{j=1}^\infty \frac{\sin j}{2^{j}}</m> converges too.
+  </p>
+</section>

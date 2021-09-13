@@ -1,0 +1,139 @@
+<section xml:id="rootsof1">
+  <title>Roots of Unity</title>
+  <p>
+    <term>How do we find all solutions to <m>z^{n}=1</m>? </term>
+    We now have enough tools in place to answer this.
+    We find them all in a few steps:
+    <ul>
+      <li>
+        <p>
+          First, using polar coordinates,
+          we can find one root rather easily:
+          <m>w=e^{\frac{2\pi i}{n}}</m>, since then
+          <me>
+            w^{n} = e^{\frac{2\pi i}{n}\cdot n}=e^{2\pi i}=1
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          In particular,
+          this means that any power of <m>w</m> is also a root,
+          since if <m>j\in\mathbb{N}</m>,
+          <me>
+            (w^{j} )^{n} = (w^{n})^{j}=1
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally, we will show later that for any degree <m>n</m> polynomial there are at most <m>n</m> distinct roots.
+          So if we show that the numbers
+          <me>
+            1,w,w^{2},...,w^{n-1}
+          </me>
+          are all distinct, then we will have all the roots.
+        </p>
+      </li>
+      <li>
+        <p>
+          Suppose for the sake of a contradiction that there are distinct integers <m>j</m> and <m>k</m> with
+          <m>0\leq j,k\lt n</m> so that <m>w^{j}=w^{k}</m>.
+          Then
+          <me>
+            1=w^{j-k}=e^{(j-k)\frac{2\pi i}{n}} = \cos \left((j-k)\frac{2\pi }{n}\right)+i\sin \left((j-k)\frac{2\pi }{n}\right)
+          </me>.
+          The only way this can be <m>1</m> is if the cosine is 1 and the sine is zero,
+          so which only happens if their arguments are multiples of <m>2\pi</m>, that is,
+          we must have
+          <me>
+            (j-k)\frac{2\pi }{n} = 2\pi \ell \mbox{ for some integer } \ell
+          </me>
+          which implies <m>j-k=n\ell</m> for some <m>\ell\in\mathbb{Z}</m>,
+          but this is impossible since <m>0\leq j,k\lt n</m>,
+          and hence <m>-n\lt j-k\lt n</m>,
+          so <m>j-k</m> must be zero, and so <m>j</m> and <m>k</m> cannot be distinct.
+          Thus, the numbers <m>1,w,...,w^{n-1}</m> are distinct and form all the roots.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    We have thus shown the following.
+  </p>
+  <theorem>
+    <title>Roots of Unity</title>
+    <statement>
+      <p>
+        The solutions to <m>z^{n}=1</m> are
+        <m>1,w,\cdots w^{n-1}</m> where <m>w=e^{\frac{2\pi i}{n}}</m>.
+        That is, they are <m>e^{\frac{2\pi k i}{n}}</m> for <m>k=0,1,...,n-1</m>.
+      </p>
+    </statement>
+  </theorem>
+  <example>
+    <title>The third roots of unity</title>
+    <statement>
+      <p>
+        The third roots of unity are
+        <md>
+          <mrow>z_1=\amp 1</mrow>
+          <mrow>z_2=\amp  e^{2\pi i/3} =  \cos \frac{2\pi}{3} + i\sin \frac{2\pi}{3}  = -\frac{1}{2}+i\frac{\sqrt{3}}{2}</mrow>
+          <mrow>z_3= \amp  e^{4\pi i/3} = \cos \frac{4\pi}{3} + i\sin \frac{4\pi}{3}  = -\frac{1}{2}-i\frac{\sqrt{3}}{2}</mrow>
+        </md>
+      </p>
+      <p>
+        <image width="92.5%" source="Figures/3rdroots.pdf"/>
+      </p>
+      <image source="images/52efce74c73255dd82c68c807763723186cb1935.png"/>
+      <p>
+        Note: the cube roots of unity are used so frequently that writers often define <m>\omega := e^{2\pi i/3}</m>.
+        Then we have <m>\omega^2=\bar{\omega}</m>,
+        and lots of other interesting and useful algebraic relationships.
+      </p>
+    </statement>
+  </example>
+  <p>
+    <term>How do we find all solutions to <m>z^{n}=a</m> where <m>a\in\mathbb{C}</m>?</term>
+  </p>
+  <p>
+    Again, we can use <m>n</m>th roots of unity.
+    We showcase the method in an example:
+  </p>
+  <example>
+    <statement>
+      <p>
+        Suppose we set <m>a=16i</m> and wish to find the fourth roots of <m>a</m> (i.e., solve <m>z^4=16i</m>).
+        We can find one quick root using polar coordinates:
+        note that <m>a=16e^{i\frac{\pi}{2}}</m>,
+        so we can spot one root as
+        <me>
+          z=16^{1/4}e^{i\frac{\pi}{2}\frac{1}{4}} = 2e^{i\frac{\pi}{8}}
+        </me>,
+        since then <m>z^{4} = a</m>.
+      </p>
+      <p>
+        Recall that there are at most <m>4</m> distinct roots for a degree <m>4</m> polynomial.
+        Note that since <m>z</m> is a solution, if <m>1,w,w^2,w^3</m>
+        (that is, <m>1,e^{i2pi/4}=e^{i\pi/2}, e^{i4\pi/4}=e^{i\pi}</m>,
+        and <m>e^{i6\pi/4}=e^{i3\pi/2}</m>)
+        are the <m>4</m>th roots of unity,
+        then for <m>k=0,1,2,3</m>,
+        <me>
+          (zw^{k})^{4}=z^{4}w^{4k}=a\cdot 1=a
+        </me>.
+      </p>
+      <p>
+        Thus, the other solutions are <m>z,zw,zw^2,zw^3</m>.
+        For <m>k \in \{0,1,2,3\}</m> this gives the following (in exponential form)
+        <me>
+          2e^{i\frac{\pi}{8}},2e^{i\frac{5\pi}{8}},2e^{i\frac{9\pi}{8}},2e^{i\frac{13\pi}{8}}
+        </me>
+        or equivalently
+        <me>
+          2e^{i\frac{\pi}{8}},2e^{i\frac{5\pi}{8}},2e^{i\frac{-7\pi}{8}},2e^{i\frac{-3\pi}{8}}
+        </me>
+      </p>
+    </statement>
+  </example>
+</section>

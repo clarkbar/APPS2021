@@ -1,0 +1,185 @@
+<section xml:id="cycles">
+  <title>Cycles</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>\{a_{1},a_{2},\ldots,a_{r}\}</m> be a<nbsp/>non-empty subset of the<nbsp/>set <m>\{1,2,\ldots,n\}</m>.
+        The permutation <m>f\in\mathrm{S}_{n}</m> such that
+        <me>
+          f\big(a_{1}\big)=a_{2},\ f\big(a_{2}\big)=a_{3}, \ldots,\  f\big(a_{r-1}\big)=a_{r},\  f\big(a_{r}\big)=a_{1}
+        </me>
+        and
+        <me>
+          f(k)=k\iff k\not\in\{a_{1},a_{2},\ldots,a_{r}\}
+        </me>
+        is denoted by
+        <me>
+          \big(a_{1}\ a_{2}\ \cdots\ a_{r}\big)
+        </me>
+        and is called a <term>cycle</term>
+        or <term>cyclic permutation</term>
+        (of length <m>r</m>).
+      </p>
+    </statement>
+  </definition>
+  <p>
+    We call these
+    <q>cycles</q>
+    since, if you imagine arranging the numbers <m>a_{1},...,a_{r}</m> around a circle,
+    <m>f</m> just rotates these numbers.
+    In other words,
+    this is the permutation that sends <m>a_{1}</m> to <m>a_{2}</m>,
+    <m>a_{2}</m> to <m>a_{3}</m>,..., and <m>a_{r}</m> to <m>a_{1}</m>,
+    and leaves everything else alone.
+  </p>
+  <p>
+    Notice that if <m>j\in \{1,2,...n\}</m>,
+    then <m>(j)=\iota</m>, so <m>\iota</m> is a cycle of length 1.
+  </p>
+  <example>
+    <statement>
+      <p>
+        To find the matrix representation of the cycle <m>f=\big(2\ 5\ 4\ 7\big)</m>,
+        observe that for <m>k\not\in \{2,5,4,7\}</m>, <m>f(k)=k</m>.
+        Moreover, the cycle notation tells us that <m>f(2)=5</m>,
+        <m>f(5)=4</m>,
+        <m>f(4)=7</m> and <m>f(7)=2</m>.
+        Thus, <m>f</m> has matrix representation <m>f=\left(\begin{matrix}1 \amp 2 \amp 3 \amp 4 \amp 5 \amp 6 \amp 7 \cr1 \amp 5 \amp 3 \amp 7 \amp 4 \amp 6 \amp 2 \cr \end{matrix} \right)\in\mathrm{S}_{7}</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6\cr1 \amp  5 \amp  3 \amp  2 \amp  4 \amp  6 \cr \end{matrix} \right)\in\mathrm{S}_6</m>.
+        If we are given that <m>f</m> is a cycle,
+        then we can figure out its cycle notation by first finding the values
+        <m>a_{1},...,a_{r}</m> that <m>f</m> cycles through,
+        that is, the values <m>k</m> for which <m>f(k)\neq k</m>.
+        These are <m>2,5</m>, and <m>4</m>,
+        and <m>f</m> leaves all other elements of
+        <m>\{1,2,3,4,5,6\}</m> fixed (that is <m>f(k)=k</m> for <m>k\not\in \{2,5,4\}</m>).
+        Then we just look at where <m>f</m> sends these numbers in succession:
+        <me>
+          f\big(2\big)=5,\  f\big(5\big)=4,\  f\big(4\big)=2
+        </me>,
+      </p>
+      <p>
+        Thus, <m>f=(2\ 5\ 4)</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Notice that the notation of a cycle is not unique:
+  </p>
+  <p>
+    Indeed, for a cycle <m>(a_{1}\ a_{2}\ \cdots\ a_{r})\in\mathrm{S}_n</m>, we have:
+    <men xml:id="e_rotations">
+      \big(a_{1}\ a_{2}\ \cdots\ a_{r}\big)=\big(a_{2}\ \cdots\ a_{r}\ a_{1}\big)=\big(a_{3}\cdots\ a_{r}\ a_{1}\ a_{2}\big)=\cdots
+    </men>
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7 \amp  8 \cr1 \amp  5 \amp  3 \amp  7 \amp  4 \amp  6 \amp  8 \amp  2 \cr \end{matrix} \right)\in\mathrm{S}_{9}</m>.
+        Then
+        <me>
+          f=\big(2\ 5\ 4\ 7\ 8\big)=\big(5\ 4\ 7\ 8\ 2\big)=\big(4\ 7\ 8\ 2\ 5\big)=\big(7\ 8\ 2\ 5\ 4\big)=\big(8\ 2\ 5\ 4\ 7\big)
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Note that if <m>f</m> is a cycle of length <m>r</m> in <m>\mathrm{S}_n</m>,
+    then the powers follow the following pattern:
+    <me>
+      \ldots f^{-1}=f^{r-1},\  \underbrace{\iota=f^{0},\ f^{1},\ f^{2},\ f^{3},\ldots,\ f^{r-1}},\  f^{r}=\iota,\  f^{r+1}=f,  \ldots
+    </me>
+    where the permutations <m>f^{0},f^{1},...,f^{r-1}</m> are all distinct.
+    This is because,
+    if <m>f=(a_{1}\; \cdots \; a_{r})</m> and <m>0\leq  k \lt  r</m>,
+    then <m>f^{k}(a_{1})=a_{1+k}</m>,
+    which ranges through <m>a_{1},a_{2},...,a_{r}</m> as
+    <m>k=0,1,...,r-1</m> and these are all distinct numbers.
+    Moreover, <m>f^{r}(a_{1})=f\circ f^{r-1}(a_{1})=f(a_{r})=a_{1}</m>,
+    and recalling <xref ref="e_rotations"/>,
+    we can also show that <m>f^{r}(a_{i})=a_{i}</m> for <m>i=1,...,r</m>.
+    Since <m>f(k)=k</m> for all <m>k\not\in \{a_{1},...a_{r}\}</m> anyway,
+    this means <m>f^{r}(k)</m> for those <m>k</m>,
+    and thus <m>f^{r}=\iota</m>.
+    We have thus shown the following.
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        If <m>a_{1},...,a_{r}</m> are distinct numbers in
+        <m>\{1,2,...n\}</m> and <m>f=(a_{1}\; a_{2} \; \cdots \; a_{r})</m>,
+        then <m>r</m> is the smallest positive integer such that <m>f^r=\iota</m>.
+      </p>
+    </statement>
+  </corollary>
+  <p>
+    In particular,
+    this implies that <m>\iota=f^{2r}=f^{3r}=f^{4r}=\ldots</m>,
+    and that <m>f^{kr+m}=f^{m}</m> for all <m>k,m\in\mathbb{Z}</m>.
+  </p>
+  <p>
+    Recall that <m>S_{n}</m> is not commutative for <m>n\geq 3</m>, that is,
+    we can find <m>f,g\in S_{n}</m> so that <m>fg\neq gf</m>.
+    However, if <m>f</m> and <m>g</m> are cycles that cycle through disjoint sets of numbers,
+    then we do have <m>fg=gf</m>.
+    We make this more precise below:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        If <m>f=(a_{1}\; a_{2}\; \cdots \; a_{r})</m> and <m>g=(b_{1}\; b_{2}\; \cdots \; b_{s})</m> where
+        <m>\{a_{1},...,a_{r}\}</m> and <m>\{b_{1},...,b_{s}\}</m> are disjoint sets,
+        we say that <m>f</m> and <m>g</m> are <term>disjoint</term>
+        in <m>\mathrm{S}_{n}</m>.
+      </p>
+    </statement>
+  </definition>
+  <proposition>
+    <statement>
+      <p>
+        If <m>f</m> and <m>g</m> are disjoint cycles in <m>S_{n}</m>,
+        then <m>fg=gf</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>f=(a_{1}\; a_{2}\; \cdots \; a_{r}\}</m> and
+      <m>g=(b_{1}\; b_{2}\; \cdots \; b_{s}\}</m> where <m>\{a_{1},...,a_{r}\}</m> and
+      <m>\{b_{1},...,b_{s}\}</m> are disjoint sets in <m>\{1,2,...,n\}</m>.
+      Let us look at the charts for <m>f</m> and <m>f\circ g</m>,
+      but ordering the first row so that they begin with <m>a_{1},...,a_{r},b_{1},...,b_{s}</m>:
+      <me>
+        \left(\begin{array}{c|ccccccccccc} k \amp  a_1 \amp  a_2 \amp  \cdots  \amp   a_{r-1} \amp   a_r \amp  b_{1} \amp  b_{2} \amp  ...  \amp  b_{s-1} \amp   b_{s} \amp  ... \\ g(k) \amp  a_1 \amp  a_2 \amp  \cdots  \amp   a_{r-1} \amp   a_r \amp  b_{2} \amp  b_{3} \amp  ...  \amp  b_{s} \amp   b_{1} \amp  ... \\ f(g(k)) \amp  a_2 \amp  a_3 \amp  \cdots  \amp   a_{r} \amp   a_1 \amp  b_{2} \amp  b_{3} \amp  ...  \amp  b_{s} \amp   b_{1} \amp  ... \end{array} \right)
+      </me>
+    </p>
+    <p>
+      Above, the final numbers in
+      <q><m>..</m>.</q>
+      are the remaining integers <m>\{1,2,...,n\}</m> not in either
+      <m>\{a_{1},...,a_{r}\}</m> or <m>\{b_{1},...,b_{s}\}</m>,
+      and for <m>k</m> in this range,
+      we have <m>f(k)=g(k)=k</m>.
+      Notice that since the <m>a</m>'s are not in <m>\{b_{1},...,b_{s}\}</m>,
+      <m>g</m> fixes the numbers <m>a_{1},...,a_{r}</m> (that is,
+      <m>g(a_{i})=a_{i}</m> for <m>i=1,...,r</m>) and then cycles through the <m>b</m>'s.
+      Similarly, since the <m>b</m>'s are not in <m>\{a_{1},...,a_{r}\}</m>,
+      <m>f</m> fixes the numbers <m>b_{1},...,b_{s}</m> (that is,
+      <m>f(b_{i})=b_{i}</m> for <m>i=1,...,s</m>) and then cycles through the <m>a</m>'s.
+      Thus, we get that
+      <me>
+        fg=  \left(\begin{array}{c|cccccccccc} a_1 \amp  a_2 \amp  \cdots  \amp   a_{r-1} \amp   a_r \amp  b_{1} \amp  b_{2} \amp  ...  \amp  b_{r-1} \amp   b_{r} \amp  ... \\ a_2 \amp  a_3 \amp  \cdots  \amp   a_{r} \amp   a_1 \amp  b_{2} \amp  b_{3} \amp  ...  \amp  b_{r} \amp   b_{1} \amp  ... \end{array} \right)
+      </me>.
+    </p>
+    <p>
+      Notice that if we did the exact same computation but with <m>gf</m> instead of <m>fg</m>,
+      we would get the same chart, thus <m>fg=gf</m>.
+    </p>
+  </proof>
+</section>

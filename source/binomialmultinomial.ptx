@@ -1,0 +1,110 @@
+<section xml:id="binomialmultinomial">
+  <title>The Binomial and Multinomial Theorems</title>
+  <p>
+    A very natural place that binomial coefficients appear
+    (and the reason why they are called binomial coefficients)
+    is in the following theorem,
+    with which you are probably already familiar from high school,
+    and use of which we have already made in Weeks 3 and 4 of this course :
+  </p>
+  <theorem>
+    <title>The Binomial Theorem</title>
+    <statement>
+      <p>
+        Let <m>n\in\mathbb{N}</m> and <m>a,b\in \mathbb{C}</m>.
+        Then<fn>
+        Liebeck assumes <m>a,b\in \mathbb{R}</m>,
+        but this is not necessary.
+        </fn>
+        <men xml:id="e_binomialtheorem">
+          (a+b)^{n} = \sum_{k=0}^{n} {n\choose k} a^{k}b^{n-k}
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    As an application,
+    let's give a second (faster) proof of <xref ref="c_2_n_nk">Corollary</xref>:
+    by the Binomial Theorem,
+    <me>
+      2^{n} = (1+1)^{n} =  \sum_{k=0}^{n} {n\choose k} 1^{k}1^{n-k}=\sum_{k=0}^{n} {n\choose k}
+    </me>.
+  </p>
+  <proof>
+    <p>
+      We have
+      <me>
+        (a+b)^n =  \underbrace{(a + b)}_{1}\cdot \underbrace{(a+b)}_{2}\cdots \underbrace{(a+b)}_{n}
+      </me>.
+    </p>
+    <p>
+      When we multiply out this product,
+      we will get a sum of terms of the form
+      <m>a^k b^{n-k}</m> for <m>0 \leq k \leq n</m>.
+      How many of each of these do we get?
+      Each bracket contributes either an <m>a</m> or a <m>b</m> in the final answer,
+      and the number of <m>a^k b^{n-k}</m> terms in this final answer will be precisely the number of ways of picking <m>k</m> brackets from the brackets labelled <m>1,2 ,\dots , n</m> above.
+      That is, it is <m>n \choose k</m>.
+      In other words, the coefficient of
+      <m>a^k b^{n-k}</m> in the expansion is exactly <m>n \choose k</m>.
+    </p>
+  </proof>
+  <p>
+    The binomial theorem is a special case of the following theorem which is proved in much the same way:
+  </p>
+  <theorem>
+    <title>The Multinomial Theorem</title>
+    <statement>
+      <p>
+        Let <m>n\in\mathbb{N}</m> and <m>x_{1}, \dots ,x_{k}\in \mathbb{C}</m>.
+        Then
+        <men xml:id="e_multinomialtheorem">
+          (x_{1}+\cdots + x_{k})^{n} = \sum {n\choose r_{1},\dots ,r_{k}} x_1^{r_{1}}\cdots x_{k}^{r_{k}}
+        </men>
+        where the sum is taken over all
+        <m>r_{i}\in \{0,1, \dots ,n\}</m> such that <m>r_{1}+\cdots + r_{k}=n</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let's number the parentheses in the product:
+      <me>
+        (x_{1}+\cdots + x_{k})^{n} = \underbrace{(x_{1}+\cdots + x_{k})}_{1}\cdot \underbrace{(x_{1}+\cdots + x_{k})}_{2}\cdots \underbrace{(x_{1}+\cdots + x_{k})}_{n}
+      </me>.
+    </p>
+    <p>
+      When we multiply out this product,
+      we will get terms of the form
+      <m>x_{1}^{r_{1}}\cdots x_{k}^{r_{k}}</m> where <m>r_{1}+\cdots + r_{k}=n</m>.
+      How many of these terms do we get?
+      We can form such a product by picking a partition
+      <m>A_{1}, \dots ,A_{k}</m> of <m>\{1,2, \dots ,n\}</m> with
+      <m>|A_i|=r_i</m> and then picking <m>x_j</m> from <m>A_i</m> to include in our
+      <m>x_{1}^{r_{1}}\cdots x_{k}^{r_{k}}</m> term if <m>j\in A_i</m>.
+      Thus, the number of times <m>x_{1}^{r_{1}}\cdots x_{k}^{r_{k}}</m> appears when we multiply out the above product is the same as counting the number of ordered partitions <m>(A_{1}, \dots ,A_{k})</m> of
+      <m>\{1,2, \dots ,n\}</m> with <m>|A_i|=r_i</m>,
+      which is <m>{n\choose r_{1}, \dots ,r_{k}}</m>.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        What is the coefficient of <m>x</m> in <m>(1+x+\frac{1}{x})^{5}</m>?
+      </p>
+      <p>
+        Let <m>a=1</m>, <m>b=x</m> and <m>c=\frac{1}{x}</m>.
+        When we expand <m>(a+b+c)^{5}</m>,
+        the terms of the form <m>a^{r_{1}}b^{r_{2}}c^{r_{3}}</m>
+        (where <m>r_{i}\geq 0</m> and <m>r_{1}+r_{2}+r_{3}=5</m>)
+        that equal <m>x</m> are of the form <m>a^{4}b</m>,
+        <m>a^{2}b^2c</m>, and <m>b^3c^{2}</m>,
+        so we just need to add together the coefficients of these terms,
+        which by the multinomial theorem are
+        <me>
+          {5 \choose 4,1,0} + {5 \choose 2,2,1} + {5 \choose 0,3,2} =\frac{5!}{4!0!} + \frac{5!}{2!2!1!}+\frac{5!}{0!3!2!} =5+\frac{120}{4} + \frac{120}{12} = 5+30+10 = 45
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

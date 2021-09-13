@@ -1,0 +1,192 @@
+<section xml:id="orderaxioms">
+  <title>The axioms for order</title>
+  <p>
+    An inequality is a relation on pairs of real numbers.
+    We use the symbols <m>\leq,\geq,\lt ,></m> to denote these relationships.
+    E.g.<nbsp/>we write <m>x \lt y</m>, spoken as
+    <q><m>x</m> is less than <m>y</m>.</q>
+    The informal idea is that <m>x\lt y</m> exactly when
+    <q><m>x</m> is strictly to the left of <m>y</m> on the number line.</q>
+    <m>x \lt y</m> means exactly the same thing as <m>y > x</m>
+    (spoken as
+    <q><m>y</m> is greater than <m>x</m></q>).
+    When we write <m>x \leq y</m> we mean that either <m>x \lt y</m> or <m>x=y</m>.
+    Hence it is true that <m>2 \leq 3</m>.
+    We prefer to list the formal properties that <m>\lt</m> possesses which,
+    together with the rules of addition and rules of multiplication from Section 2, make
+    <m>\mathbb{R}</m> into what is called an
+    <term>ordered field</term>.
+    These properties of the relation <m>\lt</m> on the real numbers should be very familiar!
+  </p>
+  <definition>
+    <statement>
+      <p>
+        An <term>ordered field</term> is a field <m>F</m>,
+        together with a relation <m>\lt</m>,
+        so that the following hold:
+        <ol>
+          <li>
+            <title>(R1)</title>
+            <p>
+              (Positive/negative) If <m>x\in F</m>,
+              then exactly one of the following is true:
+              <m>0\lt x</m>, <m>x=0</m>, or <m>x\lt 0</m>.
+            </p>
+          </li>
+          <li>
+            <title>(R2)</title>
+            <p>
+              (Negations reverse) If <m>y\lt x</m>, then <m>-x\lt -y</m>.
+            </p>
+          </li>
+          <li>
+            <title>(R3)</title>
+            <p>
+              (Can add constants) If <m>x\lt y</m>,
+              and <m>c\in F</m>, then <m>x+c\lt y+c</m>.
+            </p>
+          </li>
+          <li>
+            <title>(R4)</title>
+            <p>
+              (Positives multiply) If <m>0\lt x</m> and <m>0\lt y</m> then <m>0\lt xy</m>.
+            </p>
+          </li>
+          <li>
+            <title>(R5)</title>
+            <p>
+              (Transitive property) If <m>x\lt y</m> and <m>y\lt z</m> then <m>x\lt z</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    This definition gives a minimal set of
+    <term>axioms</term>, that is,
+    rules that we will take for granted,
+    which are minimal in the sense that no axiom can be deduced from the others.
+    Just like we demonstrated last week with the axioms of addition and multiplication,
+    in this section we'll show how many standard facts about inequalities that we are used to can be deduced from these axioms.
+  </p>
+  <p>
+    We can now define <m>x>y</m> if and only if <m>y\lt x</m>.
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        If <m>x>0</m>, then <m>-x\lt 0</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      This follows immediately from (R2) with <m>0</m> in place of <m>y</m>.
+    </p>
+  </proof>
+  <proposition>
+    <statement>
+      <p>
+        If <m>x\neq 0</m>, then <m>x^2>0</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      If <m>x>0</m> this follows from (R4).
+      If <m>x\lt 0</m> then <m>-x>0</m>, so
+      <me>
+        0\lt (-x)^2= (-1)^2x^2=x^2
+      </me>.
+    </p>
+    <p>
+      (Recall from Exercise 2.1 that <m>(-1)^2=1</m>.)
+    </p>
+  </proof>
+  <exercise>
+    <statement>
+      <p>
+        Prove that <m>1>0</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This follows from the last proposition with <m>x=1</m>,
+        since <m>0\lt 1^2=1\cdot 1=1</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    Pause for thought:
+    why are we wasting our time proving things like <m>1 > 0</m>,
+    which we have all known and understood since the early years of primary school?
+    Mathematics is not just to establish what is true and what is false,
+    but also to understand, in a critical way,
+    the relationships between statements.
+    What we learn from this exercise is that the statement <m>1 > 0</m> can be logically derived from the basic axioms (A0-A4), (M0-M5) and (R1-R5).
+    The same applies to most other true statements of elementary arithmetic.
+  </p>
+  <proposition xml:id="p_1_x_0">
+    <statement>
+      <p>
+        If <m>x>0</m>, then <m>\frac{1}{x}>0</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Suppose <m>\frac{1}{x}\leq 0</m>.
+      Then <m>-\frac{1}{x}\geq 0</m>, and so (R4) implies
+      <me>
+        0\leq -\frac{1}{x}\cdot x = -1 \lt  0
+      </me>,
+      which is a contradiction, thus <m>\frac{1}{x}> 0</m>.
+    </p>
+  </proof>
+  <proposition xml:id="p_xu_xv">
+    <statement>
+      <p>
+        If <m>x>0</m>, then <m>u>v</m> if and only if <m>xu>xv</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      First assume <m>u>v</m>.
+      If <m>x>0</m>, then
+      <md>
+        <mrow>u>v \amp  \stackrel{[R3]}{\Longrightarrow} u-v>v-v=0</mrow>
+        <mrow>\amp   \stackrel{[R4]}{\Longrightarrow} (u-v)x>0</mrow>
+        <mrow>\amp  \Longrightarrow ux-vx>0</mrow>
+        <mrow>\amp  \stackrel{[R3]}{\Longrightarrow} ux>vx</mrow>
+      </md>
+    </p>
+    <p>
+      Now assume <m>xu>xv</m>.
+      Then we can use the same proof as above,
+      but replacing <m>u</m> with <m>ux</m>,
+      <m>v</m> with <m>vx</m>, and <m>x</m> with <m>\frac{1}{x}</m>
+      (since <m>\frac{1}{x}>0</m> by <xref ref="p_1_x_0">Proposition</xref>).
+    </p>
+  </proof>
+  <proposition xml:id="p_u_2_v_2">
+    <statement>
+      <p>
+        If <m>0\lt u,v</m>, then <m>u^2>v^2</m> if and only if <m>u>v</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      First, notice that if <m>0\lt v,u</m>, then
+      <me>
+        u^2>v^2 \;\;\;   \stackrel{[R3]}{ \Longleftrightarrow} \;\;\;  u^2-v^2>v^2-v^2=0 \;\;\;  \Longleftrightarrow \;\;\;  (u-v)(u+v)>0
+      </me>
+      and by (R4), this last inequality is true if and only if <m>u-v>0</m>
+      (since <m>u+v>0</m> by assumption),
+      which by (R3) is true if and only if <m>0+v\lt u-v+v</m>,
+      that is, if and only if <m>v\lt u</m>.
+    </p>
+  </proof>
+</section>

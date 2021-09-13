@@ -1,0 +1,125 @@
+<section xml:id="roots">
+  <title>Roots</title>
+  <p>
+    In this class we will be working a lot with roots of numbers like <m>\sqrt{2}</m>,
+    but like <m>\sqrt{2}</m>, that they exist at all takes justification.
+    This is given in the following proposition whose proof we postpone until Week 3.
+    Recall that <m>y^n=y\cdot y\cdots y</m> with <m>n</m> <m>y</m>'s in the product.
+  </p>
+  <proposition xml:id="p_roots-exist">
+    <statement>
+      <p>
+        Given <m>x>0</m> and <m>n\in\mathbb{N}</m>,
+        there is a unique <m>y>0</m> so that <m>y^n=x</m>,
+        and we write this number <m>y</m> as <m>y=x^{\frac{1}{n}}</m>.
+      </p>
+    </statement>
+  </proposition>
+  <p>
+    We can define more generally any rational root:
+    if <m>\frac{m}{n}>0</m> is rational and <m>x>0</m>, we define
+    <men xml:id="e_x_m_n">
+      x^{\frac{m}{n}} = \left(x^{\frac{1}{n}}\right)^{m}=\underbrace{x^{\frac{1}{n}}\cdots x^{\frac{1}{n}}}_{m\mbox{ times} }
+    </men>.
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        Let <m>x>0</m> and <m>p,q\in \mathbb{Q}</m>.
+        Then
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>x^{p}x^q=x^{p+q}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(x^{p})^{q}=x^{pq}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(xy)^{p}=x^p y^p</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <note>
+    <title>Try special cases</title>
+    <p>
+      When given something to prove as above,
+      it might not be clear how to get started,
+      but you don't have to prove everything on the first try!
+      Try first proving the statement in some easier cases,
+      and then see if you can adjust your proof or even use your easy cases to prove the general case.
+    </p>
+  </note>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          First notice that this holds when <m>p</m> and <m>q</m> are integers,
+          since then
+          <me>
+            x^{p+q}=\underbrace{x\cdot x\cdots x}_{\mbox{\(p+q\) times} } =\underbrace{x\cdot x\cdots x}_{\mbox{\(p\) times} }\cdot \underbrace{x\cdot x\cdots x}_{\mbox{\(q\) times} } = x^{p}x^{q}
+          </me>.
+          Now suppose <m>p=\frac{a}{b}</m> and
+          <m>q=\frac{c}{d}</m> are two positive rationals and <m>x>0</m>.
+          Then
+          <md>
+            <mrow>x^{p+q} \amp  =x^{\frac{a}{b}+\frac{c}{d}} =x^{\frac{ad+bc}{bd}} \stackrel{(2.4.1)}{=} \left(x^{\frac{1}{bd}}\right)^{ad+bc} =\left(x^{\frac{1}{bd}}\right)^{ad}\left(x^{\frac{1}{bd}}\right)^{bc} \stackrel{(2.4.1)}{=}x^{\frac{ad}{bd}}x^{\frac{bc}{bd}}=x^{\frac{a}{b}}x^{\frac{c}{d}}=x^{p}x^{q}</mrow>
+          </md>
+          where in the fourth equation we used the integer case we proved earlier.
+        </p>
+      </li>
+      <li>
+        <p>
+          Let's first prove the slightly simpler case that
+          <men xml:id="e_x_abd">
+            \left(x^{\frac{a}{b}}\right)^{\frac{1}{d}}=x^{\frac{a}{b}\cdot\frac{1}{d}}
+          </men>.
+          By <xref ref="p_roots-exist">Proposition</xref>,
+          for the right side to equal the <m>d</m>th root on the left,
+          we need to show <m>(x^{\frac{a}{b}\frac{1}{d}})^{d} = x^{\frac{a}{b}}</m>:
+          <me>
+            \left(x^{\frac{a}{b}\frac{1}{d}}\right)^{d} =\left(x^{\frac{a}{bd}}\right)^{d} \stackrel{(2.4.1)}{=} \left(\left(x^{\frac{1}{bd}}\right)^{a}\right)^{d} =\left(x^{\frac{1}{bd}}\right)^{ad} \stackrel{(2.4.1)}{=}x^{\frac{ad}{bd}}=x^{\frac{a}{b}}
+          </me>,
+          and so <xref ref="e_x_abd"/> follows.
+          Now we prove the full case:
+          if <m>p=\frac{a}{b}</m> and <m>q=\frac{c}{d}</m>, then
+          <me>
+            (x^{p})^{q} = \left(x^{\frac{a}{b}}\right)^{\frac{c}{d}} \stackrel{(2.4.1)}{=}\left( \left(x^{\frac{a}{b}}\right)^{\frac{1}{d}}\right)^{c} \stackrel{(2.4.2)}{=}\left(x^{\frac{a}{bd}}\right)^{c} \stackrel{(2.4.1)}{=} x^{\frac{ac}{bd}}=x^{pq}
+          </me>.
+          This proves (b).
+        </p>
+      </li>
+      <li>
+        <p>
+          Let's first consider trying to show <m>(xy)^{\frac{1}{b}}=x^{\frac{1}{b}}y^{\frac{1}{b}}</m>.
+          By <xref ref="p_roots-exist">Proposition</xref>,
+          we just need to show that <m>(x^{\frac{1}{b}}y^{\frac{1}{b}})^{b}=xy</m>.
+          If we take <m>x^{\frac{1}{b}}y^{\frac{1}{b}}</m> times itself <m>b</m> times,
+          and rearrange the terms so that all the
+          <m>x^{\frac{1}{b}}</m>'s are on the left, we get
+          <me>
+            (x^{\frac{1}{b}}y^{\frac{1}{b}})^{b} =x^{\frac{1}{b}}y^{\frac{1}{b}}  x^{\frac{1}{b}}y^{\frac{1}{b}}  \cdots x^{\frac{1}{b}}y^{\frac{1}{b}} =\underbrace{x^{\frac{1}{b}}\cdots x^{\frac{1}{b}}}_{b\mbox{ times} }\underbrace{y^{\frac{1}{b}}\cdots y^{\frac{1}{b}}}_{b\mbox{ times} } =(x^{\frac{1}{b}})^{b}(y^{\frac{1}{b}})^{b}=x\cdot y
+          </me>.
+          Now let's try the general case: If <m>p=\frac{a}{b}</m>,
+          then by the case we just proved:
+          <me>
+            (xy)^{\frac{a}{b}} \stackrel{(2.4.1)}{=} \left((xy)^{\frac{1}{b}}\right)^{a} =\left(x^{\frac{1}{b}}y^{\frac{1}{b}}\right)^{a}
+          </me>
+          Just as before, if we take
+          <m>x^{\frac{1}{b}}y^{\frac{1}{b}}</m> times itself <m>a</m> times and then move all the
+          <m>x^{\frac{1}{b}}</m>'s to the left, we get that the above is
+          <me>
+            =(x^{\frac{1}{b}})^{a}(y^{\frac{1}{b}})^{a} \stackrel{(2.4.1)}{=} x^{\frac{a}{b}}y^{\frac{a}{b}}=x^{p}y^{p}
+          </me>.
+        </p>
+      </li>
+    </ol>
+  </proof>
+</section>

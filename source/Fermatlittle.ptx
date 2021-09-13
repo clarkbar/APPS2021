@@ -1,0 +1,355 @@
+<section xml:id="Fermatlittle">
+  <title>Fermat's Little Theorem</title>
+  <introduction>
+    <p>
+      The great thing about congruence is that arithmetic becomes easier since you can replace big numbers with smaller numbers that are congruent.
+      The following is a little but powerful theorem due to Fermat that allows you to eliminate large powers if you are working modulo some prime.
+    </p>
+    <theorem>
+      <title>Fermat's Little Theorem (FLT)</title>
+      <statement>
+        <p>
+          Let <m>a</m> be an integer, and let <m>p</m> be a prime number.
+          If <m>p</m> does not divide <m>a</m>, then
+          <me>
+            a^{p-1} = 1 \mod p
+          </me>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Without loss of generality, we may assume that <m>a \in \{1,\dots,p-1\}</m>.
+        We consider the numbers <m>a,2a,3a,\dots,(p-1)a</m>.
+        We first observe that each of these numbers is distinct modulo <m>p</m>;
+        that is, for each <m>c,d\in \mathbb{Z}/p</m>,
+        one has <m>ca = da\mod p</m> if and only if <m>c=d</m>.
+        This follows from <xref ref="p_xa_ya-x_a">Proposition</xref>.
+      </p>
+      <p>
+        If <m>\overline{a},\overline{2a}, \dots, \overline{(p-1)a}</m> are the remainders of
+        <m>a,2a,\dots,(p-1)a</m> after dividing by <m>p</m>,
+        then we deduce that the sets <m>\{\overline{a},\overline{2a}, \dots, \overline{(p-1)a}\}</m> and
+        <m>\{1,2,\dots,p-1\}</m> are equal Consequently,
+        <me>
+          a\cdot 2a \cdots (p-1)a = \overline{a}\cdot\overline{2a}\cdot \cdots\cdot \overline{(p-1)a} = 1\cdot 2 \cdots \cdot (p-1) \mod p
+        </me>.
+      </p>
+      <p>
+        Thus
+        <me>
+          (p-1)!a^{p-1} = (p-1)!\mod p
+        </me>.
+      </p>
+      <p>
+        Now since <m>p</m> does not divide <m>(p-1)!</m>,
+        <xref ref="p_xa_ya-x_a">Proposition</xref>
+        implies that <m>a^{p-1} = 1 \mod p</m>, as desired.
+      </p>
+    </proof>
+    <example>
+      <statement>
+        <p>
+          Find <m>5^{100}\mod 7</m>.
+        </p>
+        <p>
+          Since <m>7</m> does not divide <m>5</m>,
+          the FLT says <m>5^{6} = 1\mod 7</m>.
+          Thus, we can shave off any power of <m>5</m> from <m>5^{100}</m> that is a multiple of <m>6</m>.
+          Thus,
+          <me>
+            5^{100} = 5^{96}5^{4}=(5^{6})^{16}5^{4} = 1^{16}5^{4}= 5^{4}
+          </me>.
+        </p>
+        <p>
+          Then the rest is as before:
+          <md>
+            <mrow>5^{2} \amp  =25 = 4\mod 7</mrow>
+            <mrow>5^{4} \amp  =(5^{2})^{2} = 4^{2}=16 = 2\mod 7</mrow>
+          </md>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Fermat's Little Theorem gives us a way of solving a large class of polynomial equations mod <m>m</m>:
+    </p>
+    <theorem xml:id="t_x_n_bmodp">
+      <statement>
+        <p>
+          Let <m>n\in\mathbb{N}</m> and <m>p</m> be a prime number.
+          Assume <m>n</m> and <m>p-1</m> are coprime and <m>p</m> does not divide <m>b</m>.
+          Then the equation
+          <men xml:id="e_x_n_bmodp">
+            x^{n} = b\mod p
+          </men>.
+          has exactly one solution <m>x\in \{1,\dots,p-1\}</m>.
+        </p>
+      </statement>
+    </theorem>
+    <proof>
+      <p>
+        Since <m>n</m> and <m>p-1</m> are coprime,
+        there are integers <m>s,t</m> so that <m>sn+t(p-1)=1</m>.
+      </p>
+      <p>
+        Let us prove the uniqueness.
+        If <m>x_1,x_2 \in \{1,\dots,p-1\}</m> are two such solutions,
+        then <m>x_1^n=x_2^n \mod p</m>,
+        and so for <m>i \in \{1,2\}</m>,
+        <me>
+          x_i = x_i^{sn+t(p-1)} = x_i^{sn}x_i^{t(p-1)} = b^s(x_i^t)^{p-1} \mod p
+        </me>.
+      </p>
+      <p>
+        Since <m>p</m> does not divide <m>x_i^t</m>, Fermat's Little Theorem that each
+        <m>x_i = b^s \mod p</m>, whence <m>x_1=x_2</m>.
+      </p>
+      <p>
+        Now let us prove the existence.
+        Let <m>x</m> be the remainder after dividing <m>b^s</m> by <m>p</m>.
+        Now in <m>\mathbb{Z}/p</m>,
+        <me>
+          x^{n}  = (b^{s})^{n}=b^{ns}  = b^{1-t(p-1)}=b\cdot (b^{p-1})^{-t}
+        </me>.
+      </p>
+      <p>
+        (Note that this makes sense, since <m>p</m> does not divide <m>b</m>,
+        so <m>b</m> is invertible.) Since <m>p</m> does not divide <m>b</m>, Fermat's Little Theorem implies that <m>x^n = b \mod p</m>.
+      </p>
+    </proof>
+    <p>
+      Notice that even though the choice of <m>s, t</m> is not unique,
+      the remainder after dividing <m>b^s</m> by <m>p</m> <term>is</term> unique.
+      In other words,
+      if <m>s_1,t_1,s_2,t_2</m> are integers such that for <m>i \in \{1,2\}</m>, we have
+      <me>
+        s_in+t_i(p-1)=1
+      </me>,
+      then <m>b^{s_1} = b^{s_2} \mod p</m>.
+      To see this directly, note that in <m>\mathbb{Z}/p</m>,
+      we have by FLT:
+      <me>
+        b^{s_1} = (b^{s_1})^{s_2n+t_2(p-1)} = b^{s_1s_2}(b^{s_1t_2})^{p-1}=b^{s_1s_2}
+      </me>,
+      and by the same reasoning:
+      <me>
+        b^{s_2} = (b^{s_2})^{s_1n+t_1(p-1)} = b^{s_1s_2}(b^{s_2t_1})^{p-1}=b^{s_1s_2}
+      </me>.
+    </p>
+    <p>
+      We now have a blueprint to how to solve equations of the form <xref ref="e_x_n_bmodp"/> when <m>n</m> and <m>p-1</m> are coprime and <m>p</m> does not divide <m>b</m>.
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find <m>x\in\{0,1,...16\}</m> so that <m>x^{7} = 4\mod 17</m>.
+        </p>
+        <p>
+          Since <m>\gcd(7,17-1)=\gcd(7,16)=1</m>,
+          we can use the Euclidean Algorithm to show that <m>7\cdot 7=1+3\cdot 16</m>.
+          Thus, if <m>x</m> solves the above equation,
+          then <m>4 = x^{7}</m>, and so
+          <me>
+            4^{7} = (x^{7})^{7} = x^{7\cdot 7} = x^{1+3\cdot 16} = x\cdot (x^{16})^{3} = x\cdot (1)^{3} = x
+          </me>.
+        </p>
+        <p>
+          Thus, <m>x = 4^{7}</m>,
+          so we need to find a representative in <m>\{0,1,...,16\}</m>.
+          Note that <m>4^{2}=16 = -1\mod 17</m>, so
+          <me>
+            4^{7}=(4^{2})^{3} \cdot 4 = (-1)^{3} \cdot 4 =-4 = 13\mod 17
+          </me>.
+        </p>
+        <p>
+          Thus, <m>x=13</m> is the unique solution in <m>\{0,1,...,16\}</m>.
+        </p>
+      </statement>
+    </example>
+    <p>
+      Not all polynomial equations can be solved using the above method:
+    </p>
+    <example>
+      <statement>
+        <p>
+          Find a solution to <m>x^{22} = 3 \mod 11</m>.
+        </p>
+        <p>
+          Note that <m>\gcd(22,11-1)=\gcd(22,10)=2</m>,
+          so we can't use the method in <xref ref="t_x_n_bmodp">Theorem</xref>.
+          However, let's suppose <m>x</m> is a solution to the above equation and try to narrow down what it must be.
+          Note that <m>11</m> does not divide <m>x</m>
+          (otherwise <m>x^{22} = 0</m>).
+          Thus, FLT implies <m>x^{10} = 1 \mod 11</m>.
+          Hence,
+          <me>
+            x^{22}=x^{2}(x^{10})^{2}   = x^{2}
+          </me>.
+        </p>
+        <p>
+          Now we just need to solve <m>x^{2} = 3 \mod 11</m>.
+          Again, <m>\gcd(2,11-1)=\gcd(2,10)=2</m>,
+          so we still can't use the method of <xref ref="t_x_n_bmodp">Theorem</xref>.
+          But now the power <m>2</m> is small enough we can just try values <m>x\in \{0,1,...,10\}</m> and see what works:
+          <ul>
+            <li>
+              <p>
+                <m>1^{2}=1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2^{2}=4</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>3^{2}=9</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>4^{2}=16 = 5 \mod 11</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>5^{2}=25 = 3\mod 11</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus, <m>x=5</m> is a solution to <m>x^{22} = 3 \mod 11</m>:
+          <me>
+            5^{22}=5^{2}(5^{10})^{2} = 3\cdot (1)^{2}=3
+          </me>.
+        </p>
+        <p>
+          Note that if we can't use <xref ref="t_x_n_bmodp">Theorem</xref>,
+          then the solution may not be unique.
+          In this example, note that <m>x=6</m> is also a solution
+        </p>
+      </statement>
+    </example>
+    <example>
+      <statement>
+        <p>
+          Find <m>x\in\{0,1,...,10\}</m> that solves <m>x^{3} = 9 \mod 11</m>.
+        </p>
+        <p>
+          Note <m>\gcd(3,11-1)=\gcd(3,10)=1</m>,
+          so this tells us that the method of <xref ref="t_x_n_bmodp">Theorem</xref>
+          should work in finding the unique solution.
+          Note also that <m>7\cdot 3 = 21=1+2\cdot 10</m>.
+          Thus, if <m>x</m> is the solution,
+          then <m>9 = x^{3}\mod 11</m> implies
+          <me>
+            9^{7} = (x^{3})^{7} =x^{3\cdot 7} =x^{1+2\cdot 10} =x\cdot (x^{10})^{2} = x\cdot(1)^{2} =x \mod 11
+          </me>.
+        </p>
+        <p>
+          Thus, <m>x = 9^{7}</m>.
+          Now we must find <m>x\in \{0,1,...,10\}</m> so that <m>x = 9^{7}</m>.
+          <ul>
+            <li>
+              <p>
+                <m>9^{2}=81 = 4 \mod 11</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>9^{4}=(9^{2})^{2} = 4^{2} =16 = 5\mod 11</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>9^{7}=9^{4}\cdot 9^{2}\cdot 9 = 5\cdot 4\cdot 9 =180 =176+4 = 4\mod 11</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          Thus, <m>x=4</m> is the solution.
+          We can also check <m>4^{3}=64=55+9 = 9\mod 11</m>.
+        </p>
+      </statement>
+    </example>
+  </introduction>
+  <subsection>
+    <title>Diophantine equations</title>
+    <p>
+      As congruences relate to divisibility,
+      we can also use them to solve diophantine equations.
+    </p>
+    <example>
+      <statement>
+        <p>
+          What are the integer solutions to <m>9x^{2}+9x+2=y^{4}</m>?
+        </p>
+        <p>
+          We will present two methods for comparison,
+          first using the usual divisbility methods from last week,
+          and then a second method using modular arithmetic.
+        </p>
+        <p>
+          <em>Method 1:</em> If <m>x,y</m> are integer solutions, then
+          <me>
+            y^{4}=9x^{2}+9x+2 =(3x+2)(3x+1)
+          </me>.
+        </p>
+        <p>
+          Since <m>y^{4}\geq 0</m>, we know <m>3x+1,3x+2> 0</m> or <m>\lt 0</m>.
+          First assume <m>>0</m>.
+          They are coprime since <m>\gcd(3x+1,3x+2)</m> divides <m>(3x+2)-(3x+1)=1</m>.
+          Thus, <m>3x+1=a^{4}</m> and
+          <m>3x+2=b^{4}</m> for some integers <m>a</m> and <m>b</m>. (We can assume they are non-negative).
+          But then <m>b^{4}-a^{4} =3x+2-(3x+1) =1</m>.
+          This is only possible if <m>(a,b)=(0,1)</m>
+          (exercise :).
+          We can't have <m>a=0</m> since then <m>3x+1=0</m>,
+          which is impossible if <m>x</m> is an integer.
+          The same happens if <m>3x+1,3x+2\lt 0</m>.
+          Thus, there are no solutions.
+        </p>
+        <p>
+          As you can see, the above solution is quite long
+          (and we didn't do some of the details).
+          Now let's instead use modular arithmetic for a shorter proof:
+        </p>
+        <p>
+          <em>Method 2:</em> If <m>x,y</m> are integer solutions to <m>9x^{2}+9x+2=y^{4}</m>, then
+          <me>
+            y^{4}=9x^{2}+9x+2 = 2\mod 3
+          </me>.
+        </p>
+        <p>
+          Let <m>z\in \{0,1,2\}</m> be such that <m>z = y\mod 3</m>,
+          then <m>z^{4} = y^{4} = 2\mod 3</m>.
+          So let's test some <m>z</m>'s!
+          <ul>
+            <li>
+              <p>
+                <m>0^{4}=0</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>1^{4}=1</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>2^{4}=16 = 1 \mod 3</m>.
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          So there are no <m>z\in \{0,1,2\}</m> so that <m>z^{4} = 2 \mod 3</m>.
+          Thus, there are no integer solutions to <m>9x^{2}+9x+2=y^{4}</m>.
+        </p>
+      </statement>
+    </example>
+  </subsection>
+</section>

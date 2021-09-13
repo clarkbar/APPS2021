@@ -1,0 +1,308 @@
+<section xml:id="conditionals">
+  <title>Conditionals</title>
+  <p>
+    A <term>conditional</term> is a statement of the form
+    <q>if <m>A</m> then <m>B</m>,</q>
+    or
+    <q><m>A</m> only if <m>B</m>,</q>
+    or
+    <q><m>A</m> implies <m>B</m>.</q>
+    We write this symbolically as
+    <me>
+      A \implies B
+    </me>.
+  </p>
+  <p>
+    This statement says that whenever <m>A</m> is true,
+    we can conclude <m>B</m> is true.
+    Statement <m>A</m> is called the
+    <term>premise</term> of the conditional,
+    and <m>B</m> is its <term>conclusion</term>.
+    We can also write this backwards as <m>B \Longleftarrow A</m>,
+    which is read
+    <q><m>B</m> if <m>A</m>.</q>
+  </p>
+  <p>
+    Here is the truth table for the conditional
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \implies B</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+  </tabular>
+  <p>
+    Notice that if the statement <m>B</m> is true,
+    then the statement <m>A \implies B</m> is true.
+    If <m>A</m> is false,
+    then the statement <m>A \implies B</m> is again true.
+    The only way <m>A \implies B</m> ends up false is when <m>A</m> is true but <m>B</m> isn't.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The statement
+        <q>If <m>2</m> is even, then <m>14</m> is even</q>
+        is true.
+      </p>
+      <p>
+        The statement
+        <q>If <m>2</m> is even, then <m>15</m> is even</q>
+        is false.
+      </p>
+      <p>
+        The statement
+        <q>If <m>57</m> is prime, then <m>937</m> is prime</q>
+        is true.
+      </p>
+      <p>
+        The statement
+        <q>If <m>57</m> is prime, then <m>2</m> is odd</q>
+        is true.
+      </p>
+    </statement>
+  </example>
+  <p>
+    This sometimes surprises people a little, because in English
+    (and in other natural languages),
+    we are a little more casual in our use of the words
+    <q>if <m>A</m>, then <m>B</m>.</q>
+    In mathematics, the statement
+    <m>A \implies B</m> can be re-expressed as the following:
+    <me>
+      \text{ ``either \(B\) is true or \(A\) is false.'' }
+    </me>
+  </p>
+  <p>
+    Indeed, <m>A \implies B</m> has exactly the same truth table as <m>\overline{A} \vee B</m>.
+  </p>
+  <p>
+    To prove a conditional statement <m>A\Longrightarrow B</m>
+    <term>directly</term>, you proceed as follows:
+    <ol label="labelalph">
+      <li>
+        <p>
+          Start your proof by <term>assuming</term> the premise <m>A</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Then deduce the conclusion <m>B</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the following statement
+        <me>
+          \text{ ``If \(n\) is an odd integer, then \(n^2\) is odd.'' }
+        </me>
+      </p>
+      <p>
+        The premise in this example is
+        <q><m>n</m> is an odd integer</q>
+        and the conclusion is
+        <q><m>n^2</m> is odd.</q>
+        So to prove it,
+        we need to assume the premise and then deduce the conclusion.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Assume <m>n</m> is an odd number.
+        By definition this means <m>n=2k+1</m> for some integer <m>k</m>.
+        Then
+        <me>
+          n^2=(2k+1)^2=4k^2+4k+1=2(2k^2+2k)+1
+        </me>.
+      </p>
+      <p>
+        Consequently <m>n^2</m> is odd.
+      </p>
+    </proof>
+  </example>
+  <example>
+    <statement>
+      <p>
+        If <m>A\implies B</m> and <m>B\implies C</m>, then <m>A\implies C</m>.
+        In other words,
+        <m>((A \implies B) \wedge (B \implies C)) \implies (A \implies C)</m>.
+      </p>
+      <p>
+        The premise is <m>(A\implies B)\wedge(B\implies C)</m>.
+        The conclusion is <m>A\implies C</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Assume <m>(A\implies B)\wedge(B\implies C)</m>.
+        That is, both <m>A \implies B</m> and <m>B \implies C</m> are true.
+      </p>
+      <p>
+        We must deduce that <m>A\implies C</m>.
+        To do this, assume <m>A</m> is true.
+        We aim to show that <m>C</m> is true.
+      </p>
+      <p>
+        Since <m>A</m> is true, and since <m>A\implies B</m>,
+        we conclude <m>B</m> is true.
+        Since <m>B</m> is true, and since <m>B\implies C</m>,
+        we conclude <m>C</m> is true.
+      </p>
+      <p>
+        We have now shown that if <m>A</m> is true,
+        then <m>C</m> is true, thus <m>A\implies C</m>.
+      </p>
+    </proof>
+  </example>
+  <definition>
+    <statement>
+      <p>
+        The <term>converse</term> to the conditional
+        <m>A \implies B</m> is the statement <m>B \implies A</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Note that the converse of a conditional is
+    <term>not the same statement</term>.
+    Compare the truth tables:
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \implies B</m></cell>
+      <cell><m>B \implies A</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+  </tabular>
+  <p>
+    The conditional
+    <q>if <m>2</m> is odd, then <m>937</m> is prime</q>
+    is true
+    (if a little strange).
+    The converse
+    <q>if <m>937</m> is prime, then <m>2</m> is odd</q>
+    is false!
+  </p>
+  <definition>
+    <statement>
+      <p>
+        The <term>contrapositive</term> of a conditional
+        <m>A \implies B</m> is the statement <m>\overline{B} \implies \overline{A}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The contrapositive really is just a repackaging of the original conditional.
+    It has exactly the same truth table:
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \implies B</m></cell>
+      <cell><m>\overline{A}</m></cell>
+      <cell><m>\overline{B}</m></cell>
+      <cell><m>\overline{B} \implies \overline{A}</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+  </tabular>
+</section>

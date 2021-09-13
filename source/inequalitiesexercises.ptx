@@ -1,0 +1,344 @@
+<section xml:id="inequalitiesexercises">
+  <title>Exercises</title>
+  <p>
+    See Liebeck Chapter 5 and also Exercises 15, 16 and 17 in Chapter 8.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Show that
+        <me>
+          -\max\{a^2,b^2\}\leq ab\leq \max\{a^2,b^2\}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Suppose <m>|a|\leq |b|</m>
+        (the proof for the case that <m>|b|\leq |a|</m> is the same).
+        By <xref ref="ex__x__2_x_2">Exercise</xref>
+        and <xref ref="l__xy___x__y_">Lemma</xref>,
+        <me>
+          ab\leq |ab|=|a|\cdot|b|\leq |b|\cdot |b|=|b|^2=b^2= \max\{a^2,b^2\}
+        </me>.
+      </p>
+      <p>
+        Similarly,
+        <me>
+          ab\geq -|ab|=-|a|\cdot |b| \geq -|b|^2=-b^2=- \max\{a^2,b^2\}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for all <m>a,b,c\in\mathbb{R}</m> we have <m>|a-c|\leq |a-b|+|b-c|</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We add and subtract <m>b</m> from <m>a-c</m> and use the triangle inequality:
+        <me>
+          |a-c|=|a-b+b-c|\leq |a-b|+|b-c|
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that <m>|a+b|\geq |a|-|b|</m>.
+        In fact, show that <m>|a+b|\geq \left||a|-|b|\right|</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By applying the triangle inequality
+        <m>|x+y|\leq |x|+|y|</m> with <m>x=a+b</m> and <m>y=-b</m>,
+        <me>
+          |a|=|a+b-b|\leq |a+b|+|b|
+        </me>
+        and subtracting <m>|b|</m> from both sides gives <m>|a+b|\geq |a|-|b|</m>.
+        A similar proof shows that <m>|a+b|\geq |b|-|a|=-(|a|-|b|)</m>.
+        Since <m>||a|-|b||</m> is either <m>\pm (|a|-|b|)</m>
+        (depending on whether <m>|a|-|b|</m> is negative or not),
+        this means <m>|a+b|\geq \left||a|-|b|\right|</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        For <m>a,b>0</m>, show that
+        <me>
+          \sqrt{ab}\geq \frac{2ab}{a+b}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Using <xref ref="p_xu_xv">Proposition</xref>
+        first with <m>x=1/\sqrt{ab}</m>
+        (which is <m>\geq 0</m> by <xref ref="p_1_x_0">Proposition</xref>)
+        and then with <m>x=a+b</m>, we get
+        <me>
+          \sqrt{ab}\geq \frac{2ab}{a+b} \;\; \; \Longleftrightarrow \;\;\; 1\geq \frac{2\sqrt{ab}}{a+b} \;\; \; \Longleftrightarrow \;\;\; a+b\geq 2\sqrt{ab} \;\; \; \Longleftrightarrow \;\;\; a-2\sqrt{ab}+b=(\sqrt{a}-\sqrt{b})^{2}\geq 0
+        </me>
+        and since this last inequality is always true,
+        the original inequality is always true.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>0\lt a\leq b</m>, then
+        <me>
+          a\leq \frac{a+b}{2}\leq b
+        </me>.
+      </p>
+      <p>
+        Show that either of these inequalities is an equality if and only if <m>a=b</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since <m>a\leq b</m>, we have <m>a+b\leq b+b=2b</m>,
+        and so <m>\frac{a+b}{2} \leq b</m>.
+        The other inequality has a similar proof.
+        If either of the inequalities is an equality,
+        we can just solve it to get <m>a=b</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>a,b,c,d>0</m> and <m>0\lt \frac{a}{b}\lt \frac{c}{d}</m>, then
+        <me>
+          \frac{a}{b} \lt  \frac{a+c}{b+d}\lt \frac{c}{d}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Multiplying all sides by <m>b+d</m>,
+        by <xref ref="p_xu_xv">Proposition</xref>,
+        this string of inequalities is equivalent to
+        <me>
+          \frac{a}{b}(b+d) \lt  a+c \lt \frac{c}{d}(b+d) \;\; \; \Longleftrightarrow \;\;\; a+\frac{a}{b}d\lt  a+c \lt \frac{d}{d}b+c
+        </me>.
+      </p>
+      <p>
+        Since, <m>\frac{a}{b}\lt \frac{c}{d}</m>,
+        we know <m>\frac{a}{b}d \lt \frac{c}{d}d=c</m>,
+        and adding <m>a</m> to both sides gives the first of the inequalities above.
+        A similar argument gives the second inequality above.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show the following for <m>a,b,c,d\in\mathbb{R}</m>:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>(a^{2}-b^{2})(c^2-d^2)\leq (ac-bd)^2</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(a^2+b^2)(c^2+d^2)\geq (ac+bd)^2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(a^2-b^2)^2\geq 4ab(a-b)^2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <ol label="labelalph">
+          <li>
+            <p>
+              This inequality holds if and only if (after distributing the products)
+              <me>
+                a^2c^2-a^2d^2-b^2c^2+b^2d^2\leq a^2c^2-2acbd+b^2d^2
+              </me>
+              and, after cancelling common terms, this is equivalent to
+              <me>
+                -a^2d^2-b^2c^2\leq -2acbd \;\;\; \Longleftrightarrow a^2d^2+b^2c^2\geq 2acbd
+              </me>.
+              Now we have a product of terms at most a sum,
+              so this suggests using something like the AM-GM inequality.
+              Indeed, the above inequality is true by the AM-GM inequality
+              <m>\sqrt{xy}\leq \frac{x+y}{2}</m> with <m>x=ad</m> and <m>y=bc</m>:
+              <me>
+                \frac{a^{2}d^{2}+b^2c^2}{2} \geq abcd
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Again, by the AM-GM inequality
+              <md>
+                <mrow>(ac+bd)^2 \amp  = a^{2}c^{2}+2abcd+b^{2}d^{2}</mrow>
+                <mrow>\amp  \leq a^{2}c^{2}+2\frac{a^2d^2+b^2c^2}{2}+b^{2}d^{2}</mrow>
+                <mrow>\amp  =a^{2}c^{2}+a^{2}d^{2}+b^{2}c^{2}+b^{2}d^{2}</mrow>
+                <mrow>\amp = (ac+bd)^2</mrow>
+              </md>.
+            </p>
+          </li>
+          <li>
+            <p>
+              By the AM-GM inequality,
+              <me>
+                (ab)^{\frac{1}{2}} \leq \frac{a+b}{2}
+              </me>
+              and so
+              <me>
+                4ab(a-b)^2 \leq 4 \left(\frac{a+b}{2}\right)^2(a-b)^2=(a+b)^2(a-b)^2=((a+b)(a-b))^2=(a^2-b^2)^2
+              </me>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for <m>a,b\in\R</m> and <m>d>0</m>,
+        <me>
+          ab \leq \frac{a^2}{d} + 2db^2
+        </me>.
+      </p>
+      <p>
+        <term>Hint: First <m>ab=\frac{a}{c}(bc)</m>.</term>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Notice that by <xref ref="l_little-amgm">Lemma</xref> or the AM-GM inequality,
+        <me>
+          ab = \left(\frac{a}{c}\right) (bc) \leq \frac{\frac{a^2}{c^2}+b^2c^2}{2}
+        </me>
+      </p>
+      <p>
+        Set <m>c=\sqrt{2d}</m>, then gives the claim.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that for <m>a>0</m>, <m>a+\frac{1}{a}\geq 2</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        This follows from <xref ref="t_AM-GM">Theorem</xref>:
+        <me>
+          a+\frac{1}{a} \geq \sqrt{a\cdot \frac{1}{a}}=1
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Suppose <m>x,y>0</m> and <m>r</m> is a rational number so that <m>0\lt r\leq 1</m>.
+        Use the AM-GM inequality to prove
+        <me>
+          x^{r}y^{1-r} \leq rx+(1-r)y
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>r=\frac{p}{q}</m> For <m>i=1,...,p</m>,
+        let <m>x_i=x</m> and for <m>i=p+1,...,q</m>, let <m>x_i=y</m>.
+        Then
+        <md>
+          <mrow>x^{r}y^{1-r} \amp  =(x^{p}y^{1-p})^{\frac{1}{q}} =(x_{1}\cdots x_{p}\cdot x_{p+1}\cdots x_{q} )^{\frac{1}{q}}</mrow>
+          <mrow>\amp  \leq \frac{x_{1}+\cdots + x_{p}+x_{p+1}+\cdots + x_{q}}{q}</mrow>
+          <mrow>\amp  =\frac{px+(q-p)y}{q}=\frac{p}{q} x+(1-\frac{p}{q})y=rx+(1-r)y</mrow>
+        </md>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        {(Challenging!)} Prove that if
+        <m>m_{1},...,m_{k}</m> are positive integers and <m>y_{1},...,y_{k}>0</m>, then
+        <me>
+          {m_1y_1+m_2y_2+\cdots+m_ky_k \over m_1+m_2+\cdots+m_k} \geq \sqrt[ m_1+m_2+\cdots+m_k]{y_1^{m_1}\cdot y_2^{m_2}\cdots y_k^{m_k}}
+        </me>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>n=m_{1}+\cdots + m_{k}</m>.
+        Then
+        <md>
+          {m_1y_1+m_2y_2+\cdots+m_ky_k \over m_1+m_2+\cdots+m_k} = {m_1y_1+m_2y_2+\cdots+m_ky_k \over m_1+m_2+\cdots+m_k} \\ = \frac{\overbrace{(y_1+y_1+\dots+y_1)}^{m_1 \text{ times } }+\overbrace{(y_2+y_2+\dots+y_2)}^{m_2 \text{ times } }+\dots+\overbrace{(y_k+y_k+\dots+y_k)}^{m_k \text{ times } }}n \\ \qquad \geq  \sqrt[n]{\overbrace{(y_1 \cdot y_1 \dots y_1)}^{m_1 \text{ times } }\, \overbrace{(y_2 \cdot y_2 \dots y_2)}^{m_2 \text{ times } } \dots \overbrace{(y_k \cdot y_k \dots y_k)}^{m_k \text{ times } }}\\ =  \sqrt[n]{y_1^{m_1} y_2^{m_2} \dots y_k^{m_k}}\\ = \sqrt[ m_1+m_2+\cdots+m_k]{y_1^{m_1}\cdot y_2^{m_2}\cdots y_k^{m_k}}.
+        </md>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Given that <m>x,y,z\in\mathbb{N}</m>, solve
+        <me>
+          \left(1+\frac{1}{x}\right)\left(1+\frac{1}{y}\right)\left(1+\frac{1}{z}\right)=3
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We claim that the only solutions
+        <m>(x,y,z)\in \mathbb N</m> with <m>x\le y\le z</m> are <m>(1,3,8)</m>,
+        <m>(1,4,5)</m>, and <m>(2,2,3)</m>.
+      </p>
+      <proof>
+        <p>
+          We can assume <m>0\lt x\leq y\leq z</m>.
+          We see that the biggest factor
+          <m>1+\frac1x</m> is at least <m>\sqrt[3]3</m>,
+          which implies <m>x\leq 2</m>,
+          so <m>x=1</m> or <m>2</m>.
+        </p>
+        <p>
+          <em>Case 1:</em> <m>x=1</m>.
+          Then the equation becomes
+          <me>
+            \left(1+\frac1y\right)\left(1+\frac1z\right)=\frac32
+          </me>
+          and so <m>1+\frac1y\geq\sqrt{\frac32}</m>, i.e.
+          <m>y\leq 4</m>.
+          Thus the allowed cases <m>y=3</m> and <m>y=4</m> can be easily checked by hand:
+          <m>y=3</m> leads to <m>1+\frac1z = \frac98</m>, i.e.
+          <m>z=8</m>, whereas <m>y=4</m> leads to <m>1+\frac1z = \frac{6}{5}</m>, i.e.
+          <m>z=5</m>.
+        </p>
+        <p>
+          <em>Case 2:</em> <m>x=2</m>.
+          Then the equation becomes
+          <me>
+            \left(1+\frac1y\right)\left(1+\frac1z\right)=2
+          </me>
+          and we conclude <m>1+\frac1y\ge\sqrt{2}</m>, i.e.
+          <m>y\leq 2</m> and together with <m>y\geq x</m> this means <m>y=2</m> and finally <m>1+\frac1z=\frac43</m>, i.e.
+          <m>z=3</m>.
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+</section>

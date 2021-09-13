@@ -1,0 +1,133 @@
+<section xml:id="proofbycontradiction">
+  <title>Proof by Contradiction</title>
+  <p>
+    Suppose we have a statement <m>A</m> that we suspect is false.
+    How can we prove that?
+    One approach is to leverage a statement <m>B</m> that we
+    <term>know</term> is false,
+    and try to prove that <m>A \implies B</m>.
+    Remember, <m>A \implies B</m> is the same thing as <m>\overline{A} \vee B</m>,
+    so if we know that <m>B</m> is false,
+    then the only alternative is that <m>A</m> is false.
+    This is called proof by contradiction.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>A</m> and <m>B</m> be statements.
+        Then <m>\overline{A \vee B}</m> is equivalent to <m>\overline{A} \wedge \overline{B}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We begin with the forward direction;
+      that is, we shall show first that if <m>\overline{A \vee B}</m>,
+      then <m>\overline{A} \wedge \overline{B}</m>.
+      So let us assume <m>\overline{A \vee B}</m>.
+      We aim to prove that both <m>\overline{A}</m> and <m>\overline{B}</m>.
+    </p>
+    <p>
+      In other words,
+      we need to show that <m>A</m> is <term>false</term>.
+      So we want to prove that <m>A</m> implies something we know to be false.
+      In our case, we are assuming that <m>\overline{A \vee B}</m>,
+      so we know <m>A \vee B</m> to be false.
+      This is great news: if <m>A</m> is true,
+      then certainly <m>A \vee B</m> is true.
+      That is, <m>A \implies (A \vee B)</m>.
+      Since we know that <m>A \vee B</m> is false,
+      that implies that <m>A</m> is false as well.
+      Thus <m>\overline{A}</m> holds.
+      Similarly, <m>B \implies (A \vee B)</m>,
+      but that contradicts our assumption that <m>\overline{A \vee B}</m> is true.
+      Thus <m>\overline{B}</m> holds.
+    </p>
+    <p>
+      Now let's reverse directions;
+      that is, let's show that if <m>\overline{A} \wedge \overline{B}</m>,
+      then <m>\overline{A \vee B}</m>.
+      So let us assume that both
+      <m>\overline{A}</m> and <m>\overline{B}</m>.
+      We aim to prove that <m>\overline{A \vee B}</m>.
+    </p>
+    <p>
+      In other words, we need to show that
+      <m>A \vee B</m> is <term>false</term>.
+      If <m>A \vee B</m>, there are two options:
+      <ul>
+        <li>
+          <p>
+            One possibility is that <m>A</m> is true.
+            But this would contradict our assumption that <m>\overline{A}</m> is true.
+          </p>
+        </li>
+        <li>
+          <p>
+            So that leaves the other possibility,
+            which is that <m>B</m> is true.
+            But that contradicts our other assumption,
+            that <m>\overline{B}</m> is true.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      Either way, we arrive at a contradiction,
+      and so <m>A\vee B</m> is indeed false.
+    </p>
+  </proof>
+  <p>
+    As a quick corollary of this, we deduce that
+    <me>
+      \overline{A \wedge B} \iff \overline{\overline{\overline{A}} \wedge \overline{\overline{B}}} \iff \overline{\overline{\overline{A} \vee \overline{B}}} \iff (\overline{A} \vee \overline{B})
+    </me>.
+  </p>
+  <p>
+    Here's another example of proof by contradiction.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let's say we want to prove that <m>\sqrt{3}\lt 1+\sqrt{2}</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Let's prove this by contradiction:
+        we assume instead that <m>\sqrt{3}\geq 1+\sqrt{2}</m>,
+        and we aim to deduce something we know to be false.
+        If we square both sides of the inequality we assumed, we obtain
+        <me>
+          3\geq (1+\sqrt{2})^2=1+2\sqrt{2}+2=3+\sqrt{2}>3
+        </me>,
+        which is definitely false.
+        We have thus shown by contradiction that <m>\sqrt{3}\lt  1+\sqrt{2}</m>.
+      </p>
+    </proof>
+  </example>
+  <p>
+    Why didn't we do the same computations but with the original inequality?
+    If we assumed <m>\sqrt{3}\lt  1+\sqrt{2}</m>,
+    then squaring both sides gives
+    <me>
+      3\lt  (1+\sqrt{2})^2=1+2\sqrt{2}+2=3+\sqrt{2}
+    </me>
+    which is certainly true, but this doesn't help us.
+    We started by assuming the thing we wanted to prove and then deducing something we know to be true. if <m>A</m> is the statement
+    <q><m>\sqrt{3}\lt  1+\sqrt{2}</m></q>
+    and <m>B</m> is the statement
+    <q><m>3\lt 3+\sqrt{2}</m>,</q>
+    then what we just showed was <m>A\implies B</m>,
+    but that can't help us conclude that <m>A</m> is true.
+    In our proof of <m>A</m> by contradiction,
+    we assumed first that <m>A</m> is <term>false</term>,
+    and then we deduce the statement <m>C</m>:
+    <q><m>3>3</m>,</q>
+    which we know perfectly well is false.
+    Since <m>C</m> is false,
+    the implication <m>\overline{A} \implies C</m> ensures that
+    <m>\overline{A}</m> has to be false as well;
+    in other words, <m>A</m> is true.
+  </p>
+</section>

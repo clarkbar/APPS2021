@@ -1,0 +1,880 @@
+<section xml:id="numbertheoryexercises">
+  <title>Exercises</title>
+  <introduction>
+    <p>
+      The relevant exercises in Liebeck's book are in Chapters 10 and 11.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          Show that <m>n</m> and <m>n^2+n+1</m> are coprime.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>d=\gcd(n,n^2+n+1)</m>.
+          By The Linear Combination Lemma,
+          <me>
+            d\text{ divides }  n^2+n+1 - n\cdot n = n+1
+          </me>
+          and so we also have <m>d</m> divides <m>n+1 - n =1</m>,
+          thus <m>n</m> and <m>n^2+n+1</m> are coprime.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find all <m>n\in\mathbb{N}</m> so that <m>n-2</m> divides <m>n^2-2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Note that <m>n-2</m> divides <m>n^2-4</m>,
+          so The Linear Combination Lemma implies
+          <me>
+            n-2\text{ divides }  (n^2-2-(n^2-4))=2
+          </me>.
+        </p>
+        <p>
+          Thus <m>n-2</m> must be <m>\pm 1</m> or <m>\pm 2</m>,
+          and this is only possible if <m>n=1,3</m> or <m>4</m>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Show that <m>\gcd(n!+1,(n+1)!)</m> is either <m>1</m> or <m>n+1</m> for all <m>n\in\mathbb{N}</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>d=\gcd(n!+1,(n+1)!)</m>.
+          By The Linear Combination Lemma,
+          <me>
+            d \text{ divides }  (n+1)(n!+1)-(n+1)! = n+1
+          </me>
+        </p>
+        <p>
+          If <m>d>1</m> and <m>k\lt n+1</m> is such that <m>d|k</m>,
+          then by The Linear Combination Lemma
+          <me>
+            d \text{ divides }  n!+1- k\cdot \frac{n!}{k} =1
+          </me>
+          a contradiction,
+          thus <m>d</m> cannot divide any number less than <m>n+1</m> bigger than <m>1</m>,
+          so <m>d</m> is either <m>1</m> or <m>n+1</m>.
+        </p>
+      </solution>
+    </exercise>
+    <p>
+      Below, if an exercise just states an equation,
+      find all integer solutions to that equation.
+    </p>
+    <exercise>
+      <statement>
+        <p>
+          <m>x^2=16y^2+8y+2</m>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First note that if <m>(x,y)</m> is a solution, so is <m>(-x,y)</m>,
+          so we can assume first that <m>x\geq 0</m>.Note that <m>x^2=16y^2+8y+2</m> implies
+          <me>
+            x^2-1 =16y^2+8y+1=(4y+1)^2
+          </me>
+        </p>
+        <p>
+          Note that this implies <m>x\neq 0</m>, thus <m>x>0</m>.
+          Note that <m>x^2-1=(x-1)(x+1)</m>,
+          so their gcd is at most <m>2</m>,
+          but <m>x^2-1=(4y+1)^2</m> which is odd,
+          thus <m>x\pm 1</m> are coprime.
+          Thus, they are perfect squares that differ by <m>2</m>,
+          so <m>x+1=m^2</m> and <m>x-1=n^2</m>
+          (since <m>x>0</m>, both <m>x\pm 1\geq 0</m>).
+          We can assume <m>m>n\geq 0</m>.
+          But then
+          <me>
+            2= x+1-(x-1) = m^2-n^2 = (m-n)(m+n)
+          </me>,
+          so we must have that <m>m-n=1</m> and <m>m+n=2</m>
+          (since <m>m-n\leq m+n</m>),
+          which has no integer solutions.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>x^2+2y^2=8z+5</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Claim:</em> There are no integer solutions to <m>x^2+2y^2=8z+5</m>.
+        </p>
+        <proof>
+          <p>
+            Suppose <m>(x,y,z)</m> was an integer solution.
+            Notice that <m>8z+5</m> is odd,
+            so <m>x^2+2y^2</m> is odd as well,
+            thus <m>x^2</m> is odd, and so <m>x</m> is odd.
+            Thus, <m>x=2n+1</m> for some integer <m>n</m>.
+            Plugging that back into the above, we get
+            <me>
+              8z+5 =x^2+2y^2 = (2n+1)^2 +2y^2 = 4n^2 +4n+1 + 2y^2
+            </me>
+            and so
+            <me>
+              8z+4 = 4n^2+4n+2y^2
+            </me>.
+          </p>
+          <p>
+            Dividing both sides by <m>2</m>, we get
+            <me>
+              4z+2=2n^2+2n+y^3
+            </me>.
+          </p>
+          <p>
+            In particular, <m>y^3</m> must be even,
+            so <m>y</m> is even, hence <m>y=2m</m> for some <m>m</m>,
+            so we get
+            <me>
+              4z+2-2n^2-2n=y^3=8m^3
+            </me>
+            and dividing through by <m>2</m> gives
+            <me>
+              2z+1-n^2-n = 4m^3
+            </me>.
+          </p>
+          <p>
+            But notice that <m>2z+1-n^2-n = 2z-n(n+1)+1</m> is odd,
+            because <m>n(n+1)</m> is even and so is <m>2z</m>,
+            but <m>4m^3</m> is even, and we get a contradiction.
+            Thus, there are no solutions.
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>x^2 = y^3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Claim:</em> We have the following: The integer solutions of <m>x^2=y^3</m> are of the form <m>x=n^3</m>,
+          <m>y=n^2</m> for some integer <m>n</m>.
+        </p>
+        <proof>
+          <p>
+            It is clear to see that letting
+            <m>x=n^3, y=n^2</m> for any integer <m>n</m> solves the equation.
+            So we need to show that this is in fact necessary, not only sufficient.
+          </p>
+          <p>
+            Let <m>(x,y)</m> be a solution to <m>x^2=y^3</m>.
+            Note that if <m>(x,y)</m> is a solution, then so is <m>(-x,y)</m>,
+            and moreover, <m>y\geq 0</m> since <m>y^3=x^2\geq 0</m>.
+            Thus, we can assume for the moment that <m>x,y\geq 0</m>,
+            since if <m>(x,y)</m> is a solution with <m>x\lt 0</m>,
+            then <m>(-x,y)</m> will be a positive solution.
+          </p>
+          <p>
+            Since <m>x,y\geq 0</m>, we can look at their prime factorizations.
+            Let us write <m>x=p_1^{k_1}\cdots p_n^{k_n}</m> and
+            <m>y=q_1^{l_1}\cdots q_m^{l_m}</m> for the prime factorizations for <m>x</m> and <m>y</m> respectively,
+            (so we assume <m>p_i\lt p_j</m> for <m>i\lt j</m>,
+            and <m>q_r\lt q_s</m> for <m>r\lt s</m>).
+            Then we have:
+            <me>
+              p_1^{2k_1}\cdots p_n^{2k_n} = x^2=y^3 = q_1^{3l_1}\cdots q_m^{3l_m}
+            </me>.
+          </p>
+          <p>
+            Hence, applying the Fundamental Theorem of Arithmetic to <m>x^2</m>,
+            we have <m>m=n</m>, <m>p_i=q_i</m>,
+            for each <m>i</m>, and moreover,
+            <me>
+              2k_i=3l_i
+            </me>,
+            for each <m>i</m>.
+            Since 2 and 3 are coprime, Proposition 10.5 implies that <m>k_i</m> is divisible by 3 and <m>l_i</m> is divisible by 2.
+            Let <m>k_i'=\frac{k_i}{3}</m>.
+            Let <m>n:= p_1^{k_1'}\cdots p_n^{k_n'}</m>.
+            Then <m>x=n^3</m> and <m>y=n^2</m>, as claimed.
+            That is, if <m>(x,y)</m> is a solution with <m>x,y\geq 0</m>,
+            then <m>(x,y)=(n^3,n^2)</m> for some <m>n\geq 0</m>.
+            Thus, if <m>(x,y)</m> is <term>any </term> solution,
+            then <m>(x,y)=(\pm n^3,n^2)</m> for some <m>n\geq 0</m>,
+            or alternatively,
+            <m>(x,y)=(n^3,n^2)</m> for some <m>n\in \mathbb{Z}</m>.
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>x^3-y^3=7</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Claim:</em> The only solutions <m>(x,y)</m> are <m>(2,1)</m> and <m>(-1,-2)</m>.
+        </p>
+        <proof>
+          <p>
+            Suppose <m>(x,y)</m> is a solution.
+            First note that this implies <m>x^3>y^3</m>, and so <m>x>y</m>.
+            Furthermore,
+            we immediately see that <m>x=0</m> and <m>y=0</m> don't lead to solutions,
+            so we can assume that <m>x\neq 0 \neq y</m> as well.
+          </p>
+          <p>
+            Factoring, we see that
+            <me>
+              7 = x^3-y^3= (x-y)(x^2+xy+y^2)
+            </me>
+          </p>
+          <p>
+            Thus, <m>x-y</m> divides <m>7</m>,
+            and since <m>x>y</m>, this means <m>x-y>0</m>,
+            so the only possibilities then are <m>x-y=1</m> or <m>x-y=7</m>.
+            We split into two cases:
+            <ol label="labelalph">
+              <li>
+                <p>
+                  <m>x-y=1</m>.
+                  Then we have that <m>x=y+1</m>, and so
+                  <me>
+                    7=x^3-y^3= (y+1)^3-y^3 = 3y^2+3y+1
+                  </me>,
+                  thus <m>6=3y^2+y</m>, so <m>2=y^2+y=y(y+1)</m>,
+                  so we see that <m>y</m> divides <m>2</m> and <m>y+1</m> divides <m>2</m>.
+                  The only way this is possible is if either <m>y=1</m> or <m>y=-2</m>.
+                  By plugging these values into the original equation,
+                  we see that the solutions are in this case <m>(x,y)=(2,1)</m> and <m>(-1,-2)</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Suppose <m>x-y=7</m>.
+                  Then
+                  <me>
+                    7=(x-y)(x^2+xy+y^2)=7(x^2+xy+y^2)
+                  </me>
+                  implies
+                  <me>
+                    1=(x^2+xy+y^2)
+                  </me>.
+                  Note that if <m>|x|\geq |y|</m>,
+                  then <m>xy\geq -|x|\cdot |y|\geq -|x|^2=-x^2</m>,
+                  and so the above is at least
+                  <me>
+                    1\geq x^2-x^2=y^2>0
+                  </me>
+                  since we are assuming <m>y\neq 0</m>.
+                  Hence, <m>y^2=1</m>, so <m>y=\pm 1</m>.
+                  Again, we can plug these into our original equation
+                  <m>7=x^3-y^3</m> and we find that <m>y=-1</m> leads to no solution and <m>y=1</m> leads to
+                  <m>(x,y)=(2,1)</m>, which we already found.
+                  Thus, the solutions are just <m>(x,y)=(2,1)</m> and <m>(-1,-2)</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>xy= x+y+2y^2-1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Claim:</em> The only solutions <m>(x,y)</m> are <m>(1,0)</m>,
+          <m>(0,-1)</m>,
+          <m>(9,2)</m>, and <m>(10,3)</m>.
+        </p>
+        <proof>
+          <p>
+            First, let's rearrange and factor:
+            <me>
+              2y^2=xy-x-y+1 = (x-1)(y-1)
+            </me>
+            and since <m>\gcd(y,y-1)=1</m>,
+            we know <m>y-1</m> divides <m>2</m>, thus <m>y-1=-1,1,-2</m>,
+            or <m>2</m>, that is, <m>y=0,2,-1</m>, or <m>3</m>.
+            We can now just try al these values out to see what <m>x</m> should be:
+            <ul>
+              <li>
+                <title>invalidlabel</title>
+                <p>
+                  In this case, <m>0=(x-1)(0-1)=1-x</m>, i.e.
+                  <m>x=1</m>.
+                </p>
+              </li>
+              <li>
+                <title>invalidlabel</title>
+                <p>
+                  In this case, <m>2=2y^2=(x-1)(y-1)=-2(x-1)</m>, so <m>x=0</m>.
+                </p>
+              </li>
+              <li>
+                <title>invalidlabel</title>
+                <p>
+                  We see that <m>8=2y^2 = (x-1)(y-1)=x-1</m>, and so <m>x=9</m>,
+                  and the solution in this case is <m>(x,y)=(9,2)</m>.
+                </p>
+              </li>
+              <li>
+                <title>invalidlabel</title>
+                <p>
+                  We see that <m>18=2y^2 = (x-1)(y-1)=2(x-1)</m>, and so <m>x=10</m>,
+                  and the solution in this case is <m>(x,y)=(10,3)</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>x^3-x=12y+6</m>.
+        </p>
+      </statement>
+      <solution>
+        <proof>
+          <p>
+            Suppose <m>(x,y)</m> is a solution, then
+            <me>
+              6(2y+1) = x^3-x = (x+1)x(x-1)
+            </me>.
+          </p>
+          <p>
+            Note that <m>\gcd(x+1,x)=\gcd(x,x-1)=1</m>,
+            and <m>\gcd(x-1,x+1)</m> divides <m>2</m>,
+            so it is either <m>1</m> or <m>2</m>.
+            Note that since <m>2</m> does not divide <m>2y+1</m>,
+            the prime factorization of
+            <m>(x+1)x(x-1)</m> contains exactly one <m>2</m>.
+            In particular, <m>x-1</m> and <m>x+1</m> can't both be even,
+            so the only even number is <m>x</m>,
+            hence <m>\gcd(x-1,x+1)=1</m>.
+            Since <m>x</m> only has one 2 in its prime factorization,
+            <m>\frac{x}{2}</m> is an integer and <m>x\pm 1</m> and
+            <m>\frac{x}{2}</m> are all mutually coprime and
+            <me>
+              3(2y+1)=(x+1)\frac{x}{2}(x-1)
+            </me>.
+          </p>
+          <p>
+            Thus, by <xref ref="t_abn">Theorem</xref>,
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>xy+2x+3y=4</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Write
+          <me>
+            4=xy+2x+3y =(x+3)(y+2)-6
+          </me>
+        </p>
+        <p>
+          So now we have
+          <me>
+            (x+3)(y+2)=10=2\cdot 5=10\cdot 1
+          </me>
+          and so the only way this can happen is if either
+          <ul>
+            <li>
+              <p>
+                <m>y+2=2</m>,
+                <m>x+3=5</m> (which implies <m>y=0</m> and <m>x=2</m>)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=-2</m>, <m>x+3=-5</m> (so <m>y=-4</m> and <m>x=-8</m>)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=5</m>, <m>x+3=2</m> (so <m>y=3</m> and <m>x=-1</m>)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=-5</m>, <m>x+3=-2</m> (so <m>y=-7)</m> and <m>x=-5</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=10</m> and <m>x+3=1</m> (so <m>(x,y)=(-2,8))</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=-10</m> and <m>x+3=-1</m> (so <m>(x,y)=(-4,-12))</m>
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=1</m> and <m>x+3=10</m> (so <m>(x,y)=(7,-1)</m>)
+              </p>
+            </li>
+            <li>
+              <p>
+                <m>y+2=-1</m> and <m>x+3=-10</m> (so <m>(x,y)=(-13,-3)</m>)
+              </p>
+            </li>
+          </ul>
+        </p>
+        <p>
+          So the above pairs of <m>(x,y)</m> are the only solutions.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <m>6x^2=5x^3</m>.
+        </p>
+      </statement>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          <em>Challenging:</em> Find all integer solutions to the equation <m>x^3+3y^3+9z^3= 0</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <em>Claim:</em> <m>x^3+3y^3+9z^3= 0</m> does not have any solutions in positive integers.
+        </p>
+        <proof>
+          <p>
+            Assume that <m>(x, y, z)</m> is a solution in positive integers.
+            Clearly, <m>x</m> is divisible by <m>3</m>,
+            so <m>x= 3x_1</m> for some positive integer <m>x_1</m>.
+            But then <m>27x_{1}^{3}+3y^3+9z^3= 0</m>,hence <m>9x_1^3+y^3+3z^3= 0</m>.
+            Now <m>y= 3y_1</m>, and we find <m>3x_1^3+9y^{3}_{1}+z^3= 0</m>.
+            Finally, <m>z= 3z_1</m> for some positive integer <m>z_1</m>,
+            and <m>x_{1}^{3}+ 3y_{1}^{3}+ 9z_{1}^{3}= 0</m>.Thus if
+            <m>(x, y, z)</m> is a, integer solution of the equation <m>x^3+3y^3+9z^3= 0</m>,
+            then so is <m>(x/3,y/3,z/3)</m>.
+            Repeating this argument we find that for every positive solution there is a smaller solution in positive integers:
+            but this is nonsense, thus there is no solution in positive integers.
+          </p>
+        </proof>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Find all primes <m>p</m> and integers
+          <m>a,b\in\N</m> so that <m>p^{a}-p^{b}=24</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If <m>b=0</m>, then the above equation implies <m>p^{a}=25</m>,
+          so <m>p=5</m> and <m>a=2</m>.
+        </p>
+        <p>
+          If <m>b> 0</m>, then <m>p</m> divides <m>24</m>,
+          so <m>p=2</m> or <m>p=3</m> and as <m>a>b</m>,
+          <me>
+            24 = p^{a}-p^{b} = (p^{a-b}-1)p^{b}
+          </me>
+          so <m>p^{b}</m> divides <m>24</m>.
+          <ol label="labelalph">
+            <li>
+              <p>
+                If <m>p=2</m>, then <m>b=1</m> or <m>2</m>,
+                and checking both of these cases turns up no solutions for <m>a</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                If <m>p=3</m>, then <m>b=1</m>,
+                and we find that <m>p^{a} = 24+3^{1}=27=3^3</m> so <m>a=3</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+        <p>
+          Thus, the only solutions <m>(a,b,p)</m> are <m>(2,0,5)</m> and <m>(3,1,3)</m>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Is there a rational number <m>q</m> so that <m>q^{5}-q^{3}+39=0</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The answer is no: Suppose such rational number <m>q</m> exists.
+          Then <m>q=\frac{m}{n}</m> for some <term>coprime</term>
+          integers <m>m</m> and <m>n</m>.
+          Then
+          <me>
+            n^5-n^3m^3 + 39m^5 = 0
+          </me>,
+          which implies that <m>m</m> divides <m>n^5</m>.
+          Since <m>m</m> and <m>n</m> are coprime,
+          this implies that <m>m</m> divides <m>n</m> by <xref ref="c_c_abc_b">Corollary</xref>.
+          Then <m>m = 1</m>, because <m>m</m> and <m>n</m> are coprime.
+          Then
+          <me>
+            n^5-n^3+39=0
+          </me>,
+          which implies that <m>n</m> divides <m>39</m>,
+          so <m>n\in \{1,-1, 3,-3, 13,-13\}</m>.
+          Since <m>n^5-n^3 =-39</m> is divisible by <m>n^3</m>,
+          we see that either <m>n=1</m> or <m>n=-1</m>.
+          But
+          <me>
+            1^{5}-1^3+39=39\neq 37 = (-1)^{5}-(-1)^{3}+39
+          </me>
+          which is a contradiction.
+          Suppose such rational number <m>q</m> exists.
+          Then <m>q=\frac{m}{n}</m> for some <term>coprime</term>
+          integers <m>m</m> and <m>n</m>.
+          Then
+          <me>
+            n^5-n^3m^3 + 39m^5 = 0
+          </me>,
+          which implies that <m>m</m> divides <m>n^5</m>.
+          Since <m>m</m> and <m>n</m> are coprime,
+          this implies that <m>m</m> divides <m>n</m> by <xref ref="c_c_abc_b">Corollary</xref>.
+          Then <m>m=1</m>, because <m>m</m> and <m>n</m> are coprime.
+          Then
+          <me>
+            n^5-n^3 +39=0
+          </me>,
+          which implies that <m>n</m> divides <m>39</m>,
+          so <m>n\in \{1, -1, 3, -3, 13, -13\}</m>.
+          Since <m>n^5-n^3 =-39</m> is divisible by <m>n^3</m>,
+          we see that either <m>n=1</m> or <m>n=-1</m>.
+          But
+          <me>
+            1^{5}-1^3+39=39\neq 37 = (-1)^{5}-(-1)^{3}+39
+          </me>
+          which is a contradiction.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Recall that a natural number <m>n</m> is <term>perfect</term>
+          if it is the sum of all its proper divisors
+          (that is, all positive divisors other than <m>n</m>).
+          For example, <m>1 + 2 + 3 = 6</m>, so <m>6</m> is perfect.
+          If <m>p</m> is a prime and <m>n\in\mathbb{N}</m>,
+          when is <m>p^{n}</m> perfect?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Suppose <m>p^{n}</m> is perfect.
+          Then
+          <me>
+            p^{n} = 1+p+\cdots + p^{n-1} = \frac{p^{n}-1}{p-1}\lt p^{n}-1\lt p^{n}
+          </me>,
+          a contradiction.
+          Thus, <m>p^{n}</m> is <term>never</term> perfect.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Show that <m>x^{n}+y^{n}=z^{n}</m> has integer solutions if and only if it has rational solutions.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since integer solutions are also rational,
+          we just need to show that rational solutions imply integer solutions.
+          Suppose <m>(x,y,z)</m> satisfy the above equation, so <m>x=\frac{a}{b}</m>,
+          <m>y=\frac{c}{d}</m> and <m>z=\frac{e}{f}</m> for some integers <m>a,b,c,d,e,f</m>, so
+          <me>
+            \frac{a^n}{b^n} + \frac{c^n}{d^n}=\frac{e^{n}}{f^{n}}
+          </me>.
+        </p>
+        <p>
+          Multiplying both sides by all the denominators, we get
+          <me>
+            a^{n}d^{n}f^{n} + c^{n}b^{n}f^{n} = e^{n} b^{n}d^{n}
+          </me>
+          an so <m>(adf,cbf,ebd)</m> is an integer solution to the original equation.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Recall that there are infinitely many pythagorean triples,
+          i.e. triples of positive integers <m>(x,y,z)</m> so that <m>x^2+y^2=z^2</m>.
+          Using this, show that there are infinitely many integer solutions to <m>x^2+y^2=z^3</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Given <m>(x,y,z)</m> a pythagorean triple, so
+          <me>
+            x^2+y^2=z^2
+          </me>
+          then
+          <me>
+            x^2z^4+ y^2 z^4 = z^2 z^4
+          </me>
+          hence
+          <me>
+            (xz^2)^2+(yz^2)^2 = (z^2)^3
+          </me>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Let
+          <me>
+            \Z[\sqrt{-5}]=\{a+b\sqrt{-5}: a,b\in\Z\} = \{a+bi\sqrt{5}: a,b\in\Z\}\subseteq \C
+          </me>.
+        </p>
+        <p>
+          We say that <m>p\in \Z[\sqrt{-5}]</m> is <term>primo</term>
+          if the only solutions to <m>p=ab</m> wtih
+          <m>a,b\in \Z[\sqrt{-5}]</m> have either <m>a</m> or <m>b</m> equal to <m>\pm 1</m>.
+          <ol label="labelalph">
+            <li>
+              <p>
+                Prove that <m>|a+b\sqrt{-5}|=\sqrt{a^2+5b^2}</m>.
+                Conclude that if <m>|z|=1</m>, then <m>z=\pm 1</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                Assuming (a), prove that every nonzero
+                <m>z\in\Z[\sqrt{-5}]</m> can be written as a product of primos.
+              </p>
+            </li>
+            <li>
+              <p>
+                Show that <m>2,3,1\pm\sqrt{-5}</m> are all primo.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For part (a), the fact that
+          <m>|a+b\sqrt{-5}|=\sqrt{a^{2}+5b^{2}}</m> juts follows from the definition of the modulus of a complex number.
+          In particular,
+          if <m>z=a+b\sqrt{-5}</m> has modulus 1, then <m>1=|z|^{2}=a^{2}+5b^{2}</m>,
+          and the only way this can happen is if <m>b=0</m> and <m>a=1</m>
+          (since a and b are integers).
+        </p>
+        <p>
+          For part b, we can prove this by strong induction on <m>|z|^2</m>.
+          If <m>|z|^2=1</m>,
+          then <m>z</m> must be <m>\pm 1</m>, which is a primo
+          (since if we have <m>xy=z</m>,
+          then <m>1=|z|=|xy|=|x||y|</m>, so <m>|x|=|y|=1</m>,
+          and hence <m>x,y=\pm 1</m>, that is,
+          they are both equal to plus or minus z).
+        </p>
+        <p>
+          Now suppose we know that claim b holds for all <m>z</m> with
+          <m>|z|^2\leq n</m> for some integer <m>n</m>.
+          Let <m>z</m> now be an element with <m>|z|^2=n+1</m>.
+          If it is not primo,
+          then there is a way of writing z as <m>xy</m> where neither x or y are equal to plus or minus z, so in particular,
+          neither of them are <m>\pm 1</m> either.
+          By part (a),
+          since neither of them are 1, then <m>|x|,|y|>1</m>,
+          and <m>|z|=|xy|=|x||y|</m>, so <m>1\lt |x|^2=|z|^2/|y|^2\lt |z|^2=n+1</m>.
+          Thus, <m>x</m> can be factored into a product of primos by the induction hypothesis,
+          and y can be similarly.
+          This proves the induction step.
+        </p>
+        <p>
+          For c, note that 2 is primo since otherwise 2 can be written as a product of two numbers with modulus less than 2, but then they must have modulus 1, and so they must be <m>\pm1</m>,
+          which is impossible.
+        </p>
+        <p>
+          3 is primo since if it were the product of two numbers xy with modulus less than 3, then they would have to either be <m>\pm 1</m> or <m>\pm 2</m>,
+          which don't multiply up to 3.
+        </p>
+        <p>
+          <m>1+\sqrt{-5}</m> is primo since,
+          if it were written as a product <m>xy</m> with neither of x or y equal to 1 or <m>1+\sqrt{-5}</m>,
+          notice that <m>|x|\cdot |y|=|xy|=|1+\sqrt{-5}|=\sqrt{1+5}=\sqrt{6}</m>,
+          so <m>|x|,|y|\leq \sqrt{6}</m>,
+          and the only numbers for which this holds are <m>\pm 1</m> and <m>\pm 2</m>.
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Show that if <m>n> 4</m> is an integer that is <term>not</term> prime,
+          then <m>n</m> divides <m>(n-1)!</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Since <m>n</m> is not prime,
+          <m>n=ab</m> for some integers <m>1\lt a,b\lt n</m>.
+          <ol label="labelalph">
+            <li>
+              <p>
+                If <m>a\lt b</m>, then
+                <me>
+                  (n-1)!=1\cdot 2 \cdots a\cdots b\cdots (n-1)
+                </me>.
+                so <m>n=ab</m> divides <m>(n-1)!</m>.
+              </p>
+            </li>
+            <li>
+              <p>
+                if <m>a=b</m>, then <m>n=a^2</m> and <m>a>2</m>,
+                so <m>2a\leq a^2-1</m>, and
+                <me>
+                  (n-1)!=1\cdot 2 \cdots a\cdots 2a\cdots (a^2-1)
+                </me>
+                so we see that <m>a^2</m> divides <m>(n-1)!</m>.
+              </p>
+            </li>
+          </ol>
+        </p>
+      </solution>
+    </exercise>
+    <exercise>
+      <statement>
+        <p>
+          Recall that the Fermat numbers
+          <m>F_{n}=2^{2^{n}}+1</m> satisfy the recurrence relation
+          <me>
+            F_{n} = F_{n-1}\cdots F_{0}+2
+          </me>.
+        </p>
+        <p>
+          Show that the Fermat numbers are mutually relatively prime, that is,
+          <m>\gcd(F_{n},F_{m})=1</m> whenever <m>m\neq n</m>.
+        </p>
+      </statement>
+    </exercise>
+  </introduction>
+  <subsection>
+    <title>Challenging Exercise: A special case of Fermat's last theorem*</title>
+    <p>
+      In this exercise we will show that <m>x^4 + y^4 = z^4</m>
+      (the Fermat quartic)
+      has no <term>nontrivial solutions</term>,
+      that is, no integer solutions apart from <m>(x,y,z)=0</m>.
+      The method we will use is known as
+      <q>infinite descent</q>: we suppose there is a solution <m>(x,y,z)</m> with <m>z>0</m>,
+      then we assume <m>(x,y,z)</m> has <m>z</m> smallest among all such solutions,
+      then we show that we can find another solution <m>(u,v,w)</m> with <m>w\lt z</m>,
+      contradicting that <m>z</m> was the smallest integer appearing in a solution to <m>x^4+y^4=z^4</m>.
+      This is quite difficult and wouldn't be expected of you on a homework or exam,
+      it's just a bit of fun.
+      <ul>
+        <li>
+          <p>
+            Explain why it suffices to only find positive solutions?
+          </p>
+        </li>
+        <li>
+          <p>
+            Why does it suffice to show
+            <m>x^4+y^4=z^2</m> has no nontrivial integer solutions?
+          </p>
+        </li>
+        <li>
+          <p>
+            Suppose there is a non-trivial solution positive solution to <m>x^4 + y^4 = z^2</m>.
+            Then there is a solution <m>(x,y,z)</m> with smallest <m>z>0</m> among all solutions.
+            Show that <m>x,y,z</m> have no common factors.
+          </p>
+        </li>
+        <li>
+          <p>
+            Show that exactly one of <m>x</m> or <m>y</m> is odd.
+            Now assume <m>x</m> is odd and <m>y</m> is even.
+          </p>
+        </li>
+        <li>
+          <p>
+            Note that <m>a=x^2</m> and <m>b=y^2</m> along with <m>c=z</m> form a Pythagorean triple,
+            <m>a</m> is odd, and <m>x,y,z</m> are coprime.
+            Hence, by our work on classifying Pythagorean triples,
+            we must have
+            <me>
+              (a,b,c) = \left( as^2 t^2, a\frac{s^2-t^2}{2}, a\frac{s^{2}+t^{2}}{2}\right)
+            </me>
+            for some <m>s>t</m>.
+            Show that <m>4</m> divides <m>s-t</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Using that <m>(s-t)(s+t)=2b=2y^2</m>,
+            show that there are integers <m>u</m> and <m>v</m> with <m>s+t = 2u^2</m> and <m>s-t=4v^2</m>,
+            and <m>u</m> and <m>2v</m> are relatively prime. solving for <m>s</m> and <m>t</m>,
+            verify that <m>x^2+4v^4 = u^4</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A = x</m>, <m>B = 2v^2</m> and <m>C = u^2</m>.
+            Show that this is another Pythagorean triple of the form described in the parametrization theorem.
+            So they can be expressed as above for <m>(a,b,c)</m>,
+            but with parameters <m>S</m> and <m>T</m> instead of <m>s</m> and <m>t</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Arguing in a similar fashion to (d),
+            show that <m>S</m> and <m>T</m> satisfy <m>S+T = 2X^2</m> and
+            <m>S-T=2Y^2</m> for some positive integers<m>X</m> and <m>Y</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Solve for <m>S</m> and <m>T</m> and verify that <m>u^2 = X^4 + Y^4</m>.
+            Finally show that <m>uXY\neq 0</m> and that <m>0 \lt u \lt z</m>,
+            leading to a contradiction.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      \part{Week 7: Modular Arithmetic}
+    </p>
+  </subsection>
+</section>

@@ -1,0 +1,285 @@
+<section xml:id="realnumbers">
+  <title>The Reals</title>
+  <p>
+    In this course,
+    our aim is to derive as many useful tools and theorems as we can from the fewest assumptions.
+    We could spend a whole year
+    (or years!)
+    on the foundations of mathematics,
+    and try to make sense of, for example, what the number 2 is,
+    but instead we will take for granted the existence the <term>real</term>
+    numbers <m>\mathbb{R}</m> that you are all familiar with from school.
+    We assume that,
+    if an expression contains a term <m>x</m> and <m>x=y</m>,
+    we can replace <m>x</m> with <m>y</m> in that expression.
+    For example, <m>3+(5-1)=3+4</m> since <m>5-1=4</m>.
+  </p>
+  <p>
+    We will also assume we have the familiar addition operation
+    <q><m>+</m></q>
+    and multiplication operation
+    <q><m>\cdot</m></q>
+    that combines two numbers <m>a</m> and <m>b</m> to make another real number <m>a+b</m> and <m>a\cdot b=ab</m> respectively,
+    and which make <m>\mathbb{R}</m> into what we call a
+    <q>field</q>:
+  </p>
+  <definition>
+    <statement>
+      <p>
+        A <term>field</term> is a set <m>F</m> along with operations <m>+</m> and <m>\cdot</m> so that the following hold:
+      </p>
+      <ul>
+        <li>
+          <title>\textbf{Rules of Addition <m>+</m>:}</title>
+          <p>
+            For <m>a,b,c\in F</m>,
+          </p>
+          <ul>
+            <li>
+              <title>(A0)</title>
+              <p>
+                <m>a+b\in F</m>
+              </p>
+            </li>
+            <li>
+              <title>(A1)</title>
+              <p>
+                Commutativity: <m>a+b=b+a</m>.
+              </p>
+            </li>
+            <li>
+              <title>(A2)</title>
+              <p>
+                Associativity: <m>a+(b+c)=(a+b)+c</m>.
+              </p>
+            </li>
+            <li>
+              <title>(A3)</title>
+              <p>
+                There is an element <m>0\in F</m> so that <m>0+a=a</m> for all <m>a\in F</m>.
+              </p>
+            </li>
+            <li>
+              <title>(A4)</title>
+              <p>
+                There is an element we denote <m>-a\in F</m> so that <m>a+(-a)=0</m>.
+                We write <m>b+(-a)=b-a</m> for short.
+              </p>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <title>\textbf{Rules of Multiplication <m>\cdot</m>:}</title>
+          <p>
+            For <m>a,b,c\in F</m>,
+            <ul>
+              <li>
+                <title>(M0)</title>
+                <p>
+                  <m>a\cdot b\in F</m>
+                </p>
+              </li>
+              <li>
+                <title>(M1)</title>
+                <p>
+                  Commutativity: <m>a\cdot b=b\cdot a</m>
+                </p>
+              </li>
+              <li>
+                <title>(M2)</title>
+                <p>
+                  Associativity: <m>a\cdot (b\cdot c)=(a\cdot b)\cdot c</m>
+                </p>
+              </li>
+              <li>
+                <title>(M3)</title>
+                <p>
+                  There is an element <m>1\in F</m> so that <m>1\cdot a=a</m>
+                </p>
+              </li>
+              <li>
+                <title>(M4)</title>
+                <p>
+                  If <m>a\neq 0</m>, there is a number we denote
+                  <m>\frac{1}{a}</m> so that <m>a\cdot\frac{1}{a}=1</m>.
+                  We write <m>\frac{1}{a}\cdot b=\frac{b}{a}</m> for short.
+                </p>
+              </li>
+              <li>
+                <title>(M5)</title>
+                <p>
+                  Distribution: <m>a\cdot (b+c)=a\cdot b+a\cdot c</m>.
+                </p>
+              </li>
+            </ul>
+          </p>
+        </li>
+      </ul>
+    </statement>
+  </definition>
+  <p>
+    We will frequently write <m>ab</m> for
+    <m>a\cdot b</m> when there is no chance of ambiguity, so for example,
+    <q><m>a</m> times <m>b</m></q>
+    can be write <m>ab</m> or <m>a\cdot b</m>, but
+    <q><m>2</m> times <m>3</m></q>
+    must be written <m>2\cdot 3</m> to avoid confusion with the number <m>23</m>.
+  </p>
+  <p>
+    We will take as an <term>axiom</term>
+    that the real numbers <m>\mathbb{R}</m> form a field with the usual addition and multiplication operations, that is,
+    we assume they hold without proof.
+    There are many other fields apart from the reals,
+    and we will see a few more in this class
+    (you will learn about more interesting ones in future algebra classes).
+  </p>
+  <p>
+    Without these rules it would be hard to solve any equations.
+    For example, if we want to solve
+    <m>3x+2=2x+5</m>, what rules do we need?
+    Below we prove some propositions using only the axioms above that list the
+    <q>moves</q>
+    we would usually make in solving such an equation.
+  </p>
+  <proposition xml:id="p_field-consequences">
+    <statement>
+      <p>
+        The properties (A0),...,(A4) above imply that,
+        for <m>x,y,z\in \mathbb{R}</m>,
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>x+y=x+z</m> if and only if <m>y=z</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x+y=x</m>, then <m>y=0</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x+y=0</m>, then <m>x=-y</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>-(-x)=x</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          If <m>y=z</m>,
+          then we can just substitute <m>y</m> with <m>z</m> in <m>x+y</m> to get that this equals <m>x+z</m>.
+          Conversely, if <m>x+y=x+z</m>, then
+          <md>
+            <mrow>y \amp  \stackrel{(A3)}{=}y+0\stackrel{(A4)}{=}y+(x-x)\stackrel{(A2)}{=}(y+x)-x\stackrel{(A1)}{=}(x+y)-x =(x+z)-x\stackrel{(A1)}{=}(z+x)-x</mrow>
+            <mrow>\amp \stackrel{(A2)}{=}z+(x-x) \stackrel{(A4)}{=}z+0 \stackrel{(A3)}{=}z</mrow>
+          </md>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>x+y=x</m>, then by (A3), <m>x+y=x=x+0</m>, so (a)
+          (with <m>z=0</m>)
+          implies <m>y=0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>x+y=0</m>, then
+          <me>
+            x+y=0 \stackrel{(A4)}{=}y+(-y)
+          </me>
+          and so (a) (with <m>z=-y</m>) implies <m>x=-y</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          By definition,
+          <me>
+            -x+-(-x)\stackrel{(A4)}{=} 0\stackrel{(A2)}{=}x-x \stackrel{(A1)}{=}-x+x
+          </me>
+          so (a) implies <m>-(-x)=x</m>.
+        </p>
+      </li>
+    </ol>
+  </proof>
+  <p>
+    Try this proposition on your own (the proof is very similar to the above):
+  </p>
+  <proposition>
+    <statement>
+      <p>
+        The properties (M0),...,(M5) imply that,
+        for <m>x,y,z\in \mathbb{R}</m>, if <m>x\neq 0</m>,
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>xy=xz</m> if and only if <m>y=z</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>xy=x</m>, then <m>y=1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>xy=1</m>, then <m>y=\frac{1}{x}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>1/(1/x)=x</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <p>
+    We mention a few more useful facts about the reals.
+    Again, they look obvious,
+    but it takes some work to show that they are derived from the property that <m>\mathbb{R}</m> being a field.
+    We leave their proofs as an exercise,
+    but remember to use the above axioms and propositions that we have proved so far:
+  </p>
+  <proposition xml:id="p_0x_0">
+    <statement>
+      <p>
+        For <m>x,y\in \mathbb{R}</m>,
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>0\cdot x=0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x\neq 0\neq y</m>, then <m>xy\neq 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(-x)y=-(xy)=x(-y)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(-x)(-y)=xy</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+</section>

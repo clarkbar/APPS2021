@@ -1,0 +1,144 @@
+<section xml:id="negation">
+  <title>Negation</title>
+  <p>
+    The <term>negation</term> of a statement <m>A</m>
+    (which we denote <m>\overline{A}</m> or <m>\neg A</m>)
+    is the statement
+    <q><m>A</m> is false.</q>
+    For example, the negation of the statement
+    <q><m>57</m> is prime</q>
+    is
+    <q><m>57</m> is not prime.</q>
+    The negation of the statement
+    <q><m>57</m> is not prime</q>
+    is
+    <q><m>57</m> is prime.</q>
+    Depending on the statement,
+    its negation can be written differently from just inserting a
+    <q>not</q>:
+    <ol label="labelalph">
+      <li>
+        <p>
+          If <m>S</m> is a set,
+          and <m>s</m> is not an element of <m>S</m>, then the sentence
+          <q><m>s \notin S</m></q>
+          is the negation of the sentence
+          <q><m>s \in S</m>.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>B</m> is the statement
+          <q><m>x = y</m>,</q>
+          then the negation <m>\overline{B}</m> is the sentence
+          <q><m>x \neq y</m>.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>C=``a=b''</m>, then <m>\bar{C}=``a\neq b''</m>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    The negation of a statement has the opposite truth value:
+    if <m>A</m> is true, then <m>\overline{A}</m> is false;
+    if <m>A</m> is false, then <m>\overline{A}</m> is true.
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>\overline{A}</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+    </row>
+  </tabular>
+  <example>
+    <statement>
+      <p>
+        For any statement <m>A</m>, consider the statement <m>A \vee \overline{A}</m>.
+        That's the statement that either <m>A</m> is true or <m>A</m> is not true.
+        In other words,
+        it's the assertion that either <m>A</m> is true or false.
+        Here's the truth table:
+      </p>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>\overline{A}</m></cell>
+          <cell><m>A \vee \overline{A}</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>T</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>T</cell>
+        </row>
+      </tabular>
+      <p>
+        Note that we only have T's in the last column.
+        That means that the sentence <m>A \vee \overline{A}</m> is always true,
+        no matter what the truth-value of <m>A</m> is.
+        This statement is sometimes called the
+        <term>Law of Excluded Middle</term>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Now let's contemplate the statement <m>A \wedge \overline{A}</m>.
+        Here's the truth table:
+      </p>
+      <tabular>
+        <row>
+          <cell><m>A</m></cell>
+          <cell><m>\overline{A}</m></cell>
+          <cell><m>A \vee \overline{A}</m></cell>
+        </row>
+        <row bottom="minor">
+          <cell></cell>
+          <cell></cell>
+          <cell></cell>
+        </row>
+        <row>
+          <cell>T</cell>
+          <cell>F</cell>
+          <cell>F</cell>
+        </row>
+        <row>
+          <cell>F</cell>
+          <cell>T</cell>
+          <cell>F</cell>
+        </row>
+      </tabular>
+      <p>
+        Note that we only have F's in the last column.
+        That means that <m>A \wedge \overline{A}</m> is always false,
+        no matter what the truth-value of <m>A</m> is.
+        This statement is sometimes just called a
+        <term>Contradiction</term>.
+      </p>
+    </statement>
+  </example>
+</section>

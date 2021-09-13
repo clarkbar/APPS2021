@@ -1,0 +1,78 @@
+<section xml:id="sizesofsets">
+  <title>Comparing sizes of sets with functions</title>
+  <p>
+    In the earlier diagram,
+    note that whenever the function is injective there has to be at least as many elements in <m>B</m> as there are in <m>A</m>,
+    otherwise the arrows from <m>A</m> couldn't point to distinct points in <m>B</m>.
+    Similarly, when the function is surjective,
+    there needs to be at least as many points in <m>A</m> as there are in <m>B</m>,
+    since the number of arrows
+    (and hence the number of places they point to in <m>B</m>)
+    is at most the size of <m>A</m>.
+    We make this more precise in the following theorem.
+    For a finite set <m>A</m>,
+    we will let <m>|A|</m> equal the size of <m>A</m>, that is,
+    the number of elements in <m>A</m>.
+  </p>
+  <theorem xml:id="t_f-size">
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be finite sets and let <m>f:X\rightarrow Y</m> be a function.
+        <ol>
+          <li>
+            <p>
+              If <m>f</m> is injective, then <m>|X|\leq |Y|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f</m> is surjective, then <m>|X|\geq |Y|</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f</m> is bijective, then <m>|X|=|Y|</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Since <m>X</m> is finite,
+      we may number the elements <m>\{x_{1},...,x_{n}\}</m> where <m>n=|X|</m>.
+      <ol>
+        <li>
+          <p>
+            If <m>f</m> is injective,
+            then the element <m>f(x_{1}),...,f(x_{n})</m> are distinct,
+            so there are exactly <m>n</m> elements in the set <m>S=\{f(x_{1}),...,f(x_{n}))\}</m>,
+            and since this is a subset of <m>Y</m>,
+            <m>Y</m> must have at least as many elements as <m>S</m>,
+            so <m>|Y|\geq n=|X|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>f</m> is surjective,
+            then if we number the elements <m>Y=\{y_{1},...,y_{m}\}</m> where <m>m=|Y|</m>,
+            then for each <m>i=1,...,m</m>,
+            there is <m>s_{i}\in X</m> so that <m>f(s_{i})=y_{i}</m>.
+            Each of the <m>s_{i}</m> are distinct,
+            since otherwise if <m>s_{i}=s_{j}</m>,
+            for some <m>i\neq j</m>, then <m>y_{i}=f(s_{i})=f(s_{j})=y_{j}</m>,
+            which is a contradiction since <m>y_{i}</m> and <m>y_{j}</m> are distinct.
+            Thus, there are <m>m</m> distinct elements <m>s_{1},...,s_{m}</m> in <m>X</m>,
+            and so <m>|X|\geq m=|Y|</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            This follows by combining (1) and (2).
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+</section>

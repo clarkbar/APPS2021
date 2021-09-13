@@ -1,0 +1,126 @@
+<section xml:id="correspendenceandovercounting">
+  <title>Correspondence and overcounting</title>
+  <p>
+    Sometimes we may try to count the members of some set,
+    but we accidentally count the same elements more than once.
+    We can avoid this by trying to be more careful.
+    However, if we are aware of how many times we overcount,
+    we can also use this to our advantage!
+  </p>
+  <example>
+    <statement>
+      <p>
+        How many diagonals are there in a regular polygon with <m>n \geq 3</m> sides?
+      </p>
+      <p>
+        This was an exercise in the chapter on induction,
+        but now we will give a different proof.
+        A first attempt is as follows using the Multiplication Principle.
+        Given two vertices <m>v</m> and <m>w</m>,
+        we will let <m>\overline{vw}</m> denote the line segment between them.
+        Pick a corner <m>v</m>, there are <m>n</m> options.
+        Then there are <m>n-3</m> other corners <m>w</m> that you can pick to form a diagonal <m>\overline{vw}</m>
+        (since we have to exclude the vertex <m>v</m> and the two vertices next to it,
+        since connecting to those from <m>v</m> won't form a diagonal contained in the polygon).
+        Thus, there are <m>n(n-3)</m> ways of picking a corner <m>v</m> and then another corner <m>w</m> so that <m>\overline{vw}</m> forms a diagonal.
+      </p>
+      <p>
+        However, this is <term>not</term> the final answer.
+        Notice that in this algorithm,
+        each diagonal actually gets counted twice,
+        since for two nonadjacent corners <m>v</m> and <m>w</m>,
+        <m>\overline{vw}=\overline{wv}</m>.
+        What we have really counted is the number of ordered pairs <m>(v,w)</m> of corners that are not adjacent,
+        and every diagonal corresponds to exactly two such pairs.
+        Thus, if we divide <m>n(n-3)</m> by two,
+        we get the true number of diagonals, that is,
+        <m>n(n-3)/2</m>. (And note that either <m>n</m> or <m>n-3</m> is even!)
+      </p>
+    </statement>
+  </example>
+  <p>
+    The general idea behind overcounting is as follows:
+    suppose you want to count a set of things <m>A</m>.
+    Suppose there is another set <m>B</m> that (a) is easier to count and (b)
+    <term>to each <m>a\in A</m> there correspond <m>m</m> elements of <m>B</m></term>, that is,
+    <term><m>B</m> and <m>A</m> are in <m>m</m>-to-one correspondence</term>.
+    This means we can pair each element of <m>A</m> with <m>m</m> elements of <m>B</m> so that every element of <m>B</m> belongs to exactly one pairing.
+    If we call the set of these pairs <m>P</m>,
+    then <m>m|A|=|P|</m> (since every <m>a</m> is in exactly <m>m</m> pairongs of the form <m>(a,b)\in P</m>),
+    and <m>|P|=|B|</m> since every <m>b\in B</m> belongs in exactly one pairing.
+    Thus, we get that <m>m|A|=|B|</m>.
+  </p>
+  <p>
+    In the previous example,
+    we could match every diagonal <m>d</m> with two ordered pairs of nonadjacent corners;
+    the total number of such ordered pairs is <m>n\cdot (n-3)</m>,
+    and this is twice the number of diagonals.
+    Thus, the number of diagonals is this number divided by <m>2</m>.
+    In the figure below, we show an example of how,
+    to each element in a set <m>A</m>,
+    there correspond 3 elements in a set <m>B</m>
+    (and so <m>|B|=3|A|</m>).
+  </p>
+  <p>
+    <image width="92.5%" source="Figures/corresponds.pdf"/>
+  </p>
+  <image source="images/2670bb489011efef45b490e1bf36e678ce82c015.png"/>
+  <example>
+    <statement>
+      <p>
+        How many ways are there to rearrange the letters in the words
+        <q>orange</q>
+        and
+        <q>banana</q>?
+      </p>
+      <p>
+        By the Ordering Theorem,
+        there are <m>6!</m> ways of rearranging the letters in
+        <q>orange</q>
+        since there are six <term>distinct</term> letters, but for
+        <q>banana</q>
+        we have to be careful.
+      </p>
+      <p>
+        Suppose first that we treat each letter as an individual letter, that is,
+        we look at the number of rearrangements of the word
+        <q><m>ba_{1}n_{1}a_{2}n_{2}a_{3}</m></q>. There are now 6 distinct characters,
+        so there are a total of <m>6!</m> ways of rearranging this word.
+        This isn't the same thing as counting the number of ways of rearranging
+        <q>banana</q>, since if we change the <m>a_{1},a_{2},a_{3}</m> in a rearrangement back into a's and the <m>n_{1}</m> and <m>n_{2}</m> back into n's, there are multiple ways of getting the same rearrangement of
+        <q>banana.</q>
+        For example,
+        <q>nanaba</q>
+        can be obtained from
+        <q><m>n_{1}a_{1}n_{2}a_{3}ba_{2}</m></q>
+        as well as
+        <q><m>n_{2}a_{2}n_{1}a_{3}ba_{1}</m>.</q>
+        However, to each arrangement of
+        <q>banana,</q>
+        there are <m>3!</m> ways of treating the a's as distinct letters and <m>2!</m> ways of treating the n's as distinct letters so that they return the same rearrangement,
+        and hence there are <m>3!\cdot 2!</m> rearrangements of
+        <q><m>ba_{1}n_{1}a_{2}n_{2}a_{3}</m></q>
+        that correspond to the same rearrangement of
+        <q>banana</q>
+        when we turn the <m>n_i</m>'s into <m>n</m>'s and the <m>a_i</m>'s into 'a's.
+        Thus, counting the number of rearrangements of
+        <q><m>ba_{1}n_{1}a_{2}n_{2}a_{3}</m></q>
+        (which is <m>6!</m>) overcounts the number of rearrangements of
+        <q>banana</q>
+        by a factor of <m>3!\cdot 2!</m>.
+        Hence, we just need to divide <m>6!</m> by
+        <m>3!\cdot 2!</m> to get the number of rearrangements of
+        <q>banana,</q>
+        which is
+        <me>
+          \frac{6!}{3!\cdot 2!} = \frac{720}{12} = 60
+        </me>.
+      </p>
+      <p>
+        (Note that the original arrangement of the letters in
+        <q>orange</q>
+        counts as one of the <m>6!</m> rearrangements.)
+      </p>
+    </statement>
+  </example>
+</section>

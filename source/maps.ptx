@@ -1,0 +1,137 @@
+<section xml:id="maps">
+  <title>Maps</title>
+  <p>
+    The real point of defining things as we have is so we can talk about
+    <term>maps</term> as soon as possible.
+    Maps <mdash/> <sc>aka</sc> <term>set maps</term>, <term>mappings</term>,
+    <term>functions</term> <mdash/> are an important notion in set theory.
+    The idea is that a map <m>f\colon S \to T</m> is a way of taking each element <m>s\in S</m> and associating one and only one element <m>f(s)\in T</m> thereto.
+  </p>
+  <p>
+    The phrase <term>there is a unique <m>x</m> such that <m>\phi(x)</m></term>
+    <mdash/> sometimes written
+    <m>(\exists ! x)(\phi(x))</m> <mdash/> is a helpful shorthand for the longer sentence
+    <me>
+      (\exists x)(\phi(x)) \wedge ((\forall y)(\forall z)((\phi(y)\wedge \phi(z))\implies(y=z)))
+    </me>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m>, be two sets.
+        A <term>map</term> or <term>function</term>
+        <m>f</m> from <m>S</m> to <m>T</m>,
+        denoted <m>f\colon S\to T</m>,
+        is a subset <m>\Gamma(f) \subseteq S \times T</m> such that for every <m>x \in S</m>,
+        there exists a unique <m>f(x) \in T</m> such that <m>(x,f(x)) \in \Gamma(f)</m>.
+        The set <m>S</m> is called the <term>domain</term>
+        or <term>source</term> of <m>f</m>,
+        and <m>T</m> is the <term>codomain</term>
+        or <term>target</term> of <m>f</m>.
+        The subset <m>\Gamma(f)</m> is called the
+        <term>graph</term> of <m>f</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    In practice, the way we describe maps is pretty relaxed.
+    We typically identify the source <m>S</m> and the target <m>T</m>,
+    and then we provide a <term>rule</term>
+    for sending elements of <m>S</m> to the associated elements of <m>T</m>.
+    The idea is that for every <m>s \in S</m>,
+    we have to specify a unique
+    <m>f(s) \in T</m> attached to <m>s</m> in the sense that <m>(s, f(s)) \in \Gamma(f)</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        We can define a map <m>f \colon \mathbb{Z}\rightarrow \mathbb{N}_0</m> by the rule <m>f(m)=m^2</m>.
+        What this means is that the graph of <m>f</m> is the subset <m>\Gamma(f) = \{(m,n) \in \mathbb{Z}\times\mathbb{N}_0 : n = m^2\}</m>.
+        Note that for each <m>m \in \mathbb{Z}</m>,
+        there is of course a unique element
+        <m>n \in \mathbb{N}_0</m> such that <m>n=m^2</m>.
+      </p>
+      <p>
+        On the other hand, it is not sensible to define a map
+        <m>g \colon \mathbb{Z} \to \mathbb{Z}</m> by a rule like <m>g(m)^2 = m</m>.
+        This would have graph <m>\Gamma(g) = \{(m,n) \in \mathbb{Z}\times\mathbb{Z} : m = n^2\}</m> The trouble here is twofold: First,
+        there are some integers <m>m</m> such that there is no integer <m>m</m> for which <m>m = n^2</m>.
+        (No negative integer has a square root, for instance.)
+        Second, there are other integers <m>m</m> such that there exists
+        <term>more than one</term>
+        integer <m>n</m> such that <m>m = n^2</m>.
+        (The integer <m>4</m> has two square roots:
+        <m>2</m> and <m>-2</m>.)
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>n</m> be a natural number.
+        Recall that <m>\Z/n</m> is the set <m>\{0,1,\dots,n-1\}</m>.
+        Then we may define a map <m>\mu_n \colon \Z \to \Z/n</m> by the rule that for any integer <m>m</m>,
+        <me>
+          \mu_n(m) = m\mbox{ mod } n
+        </me>.
+      </p>
+      <p>
+        In other words,
+        <m>\mu_n(m)</m> is the remainder of <m>m</m> after dividing by <m>n</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Sometimes, it's handy to use the following notation:
+    we may define a map <m>f \colon S \to T</m> by the <term>assignment</term>
+    <me>
+      s \mapsto \text{ [some formula involving \(s\)]. }
+    </me>
+  </p>
+  <example>
+    <statement>
+      <p>
+        We may define a map <m>e \colon \mathbb{R} \to \mathbb{R}</m> by the rule
+        <me>
+          x \mapsto \exp(-x^2)
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>T</m> be a set, and let <m>S \subseteq T</m> be a subset.
+        Then there is a map <m>i \colon S \to T</m> given by the rule <m>i(x)=x</m>.
+        This is called the <term>inclusion map</term>.
+        In the particular case in which <m>S=T</m>,
+        the map <m>i</m> is called the <term>identity</term>
+        map <m>\mathrm{id} \colon S \to S</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Maps can be <term>composed</term>.
+    If <m>f\colon S \to T</m> is a map,
+    and <m>g\colon T \to U</m> is another,
+    then you can <term>do <m>f</m> first,
+    and then do <m>g</m></term>.
+    That is, one can form a new map
+    <m>g\circ f\colon S \to U</m> such that for any <m>s\in S</m>, one has
+    <me>
+      (g\circ f)(s)= g(f(s))
+    </me>.
+  </p>
+  <p>
+    More formally, the graph <m>\Gamma(g\circ f)</m> is given by
+    <me>
+      \Gamma(g\circ f)=\{(s,u)\in S\times U : (\exists t\in T)((s,t)\in\Gamma(f)\wedge(t,u)\in\Gamma(g))\}
+    </me>.
+  </p>
+  <p>
+    It is easy enough to see that
+    <m>g\circ\mathrm{id}=g</m> and <m>\mathrm{id}\circ f=f</m>,
+    and moreover composition is associative,
+    so that <m>(h\circ g)\circ f=h\circ(g\circ f)</m>.
+  </p>
+</section>

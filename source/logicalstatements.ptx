@@ -1,0 +1,184 @@
+<section xml:id="logicalstatements">
+  <title>Logical Statements</title>
+  <p>
+    By a <term>statement</term>,
+    we mean a sentence that asserts that something is the case.
+    Here are some statements:
+    <ul>
+      <li>
+        <p>
+          <q><m>2</m> is even.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          <q><m>937</m> is prime.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          <q><m>57</m> is prime.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          <q>The only subset of <m>\varnothing</m> is <m>\varnothing</m> itself.</q>
+        </p>
+      </li>
+      <li>
+        <p>
+          <q>There are two points on opposite sides of the equator of the Earth where the temperatures are identical.</q>
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    Sentences like
+    <q>go to bed</q>
+    or
+    <q>why so serious?</q>
+    are not statements,
+    because they don't assert that something is the case.
+  </p>
+  <p>
+    Every statement is either True or False.
+    That is, to any statement <m>A</m>,
+    there is one and only one corresponding element of the set <m>\{True, False\}</m>.
+    This is called the <term>truth-value</term> of <m>A</m>.
+    Thus the truth value of
+    <q><m>2</m> is even</q>
+    is True; the truth-value of
+    <q><m>937</m> is prime</q>
+    is True; the truth-value of
+    <q><m>57</m> is prime</q>
+    is False; and the truth-value of
+    <q>the only subset of <m>\varnothing</m> is <m>\varnothing</m> itself</q>
+    is True.
+  </p>
+  <p>
+    Let's emphasize that there are plenty of statements whose truth-value is unknown to us.
+    That is, we just don't know whether they are true or false.
+    For instance,
+    <q>Every even integer greater than <m>2</m> can be written as the sum of exactly two primes</q>
+    is a statement,
+    but we don't know whether this sentence is True or False.
+    (This particular statement is known as the
+    <term>Goldbach Conjecture</term>.)
+  </p>
+  <p>
+    Statements that include a <term>free variable</term>
+    are useful in describing subsets of existing sets.
+    For example,
+    let's say we write down the set of integer multiples of <m>5</m>.
+    If <m>n</m> is an integer, then we can consider the statement
+    <me>
+      A(n) = \text{ ``\(n\) is divisible by \(5\)'' }
+    </me>.
+  </p>
+  <p>
+    Now what we want to do is to look at the set of integers <m>n</m> such that <m>A(n)</m> holds.
+    This is a subset of the set <m>\mathbb{Z}</m> of integers;
+    here's how we write it:
+    <me>
+      S = \{n \in \mathbb{Z} : A(n)\} = \{n \in \mathbb{Z} : n \text{ is divisible by 5 } \} \subseteq \mathbb{Z}
+    </me>.
+  </p>
+  <p>
+    This reads
+    <q><m>S</m> is the set of integers <m>n</m> such that <m>n</m> is divisible by <m>5</m>.</q>
+    This is called <term>set-builder notation</term>.
+    The colon <m>:</m> reads as
+    <q>such that</q>; some authors use a vertical bar <m>|</m> for this,
+    so that the sentence above could be rewritten
+    <me>
+      S=\{n\; |\; n \text{ is divisible by 5 } \}
+    </me>.
+  </p>
+  <p>
+    Informally, <m>S</m> is the set
+    <me>
+      \{ \dots, -10, -5, 0, 5, 10, 15, \dots \}
+    </me>,
+    but the set-builder notation above is generally preferable to this informal description,
+    because it isn't always clear what the pattern is.
+    For example: if we write
+    <me>
+      \{3, 5, 7, \dots \}
+    </me>,
+    is that the set of odd numbers greater than <m>1</m>,
+    or the set of odd prime numbers?
+  </p>
+  <example>
+    <statement>
+      <p>
+        If <m>x</m> is a real number,
+        then let <m>A(x)</m> be the statement
+        <q><m>x\geq 0</m>.</q>
+        Now we can look at the subset
+        <me>
+          \{x \in \mathbb{R} : A(x)\} = \{x \in \mathbb{R} : x \geq 0 \} \subseteq \mathbb{R}
+        </me>
+      </p>
+      <p>
+        That's the set of nonnegative real numbers.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Consider the sets
+        <me>
+          A=\{x\in\mathbb{R} : x^2= 1\}  \text{ and }   B=\{-1,1\}
+        </me>.
+      </p>
+      <p>
+        These are two subsets of <m>\mathbb{R}</m>.
+        In fact, we claim <m>A=B</m>.
+        To prove this, we will first prove that
+        <m>A \subseteq B</m> and then that <m>B \subseteq A</m>:
+        <ol label="labelalph">
+          <li>
+            <p>
+              If <m>x\in A</m>, then <m>x^2=1</m>,
+              so <m>0=1-x^2=(1-x)(1+x)</m>.
+              The only way the product of two numbers is zero is if at least one of them is zero,
+              so <m>1-x=0</m> or <m>1+x=0</m>, i.e.
+              <m>x=1</m> or <m>x=-1</m>, hence <m>x\in B</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x\in B</m>, then <m>x=1</m> or <m>x=-1</m>,
+              and in either case <m>x^2=1</m>, so <m>x\in A</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let <m>S=\{x\in\mathbb{R} : x^2=-1\}</m>.
+        The sentence
+        <q><m>x^2=-1</m> has no solutions in <m>\mathbb{R}</m></q>
+        is the natural language translation of the sentence
+        <q><m>S=\varnothing</m>.</q>
+      </p>
+    </statement>
+  </example>
+  <p>
+    <em>Warning.</em> In order for set-builder notation <m>\{x \in S : A(x)\}</m> to be meaningful,
+    it has to be the case that the statement <m>A(x)</m> makes sense for all elements <m>x \in S</m>.
+    For example, if <m>S</m> is the set of all trees, then the set
+    <me>
+      \{ x \in S : x^2 = 1\}
+    </me>
+    doesn't make any sense,
+    because we don't know how to take the square of a tree,
+    or what it means for such a square to be equal to <m>1</m>.
+    That may seem like a silly point,
+    but this basic error leads to lots of mistakes!
+  </p>
+</section>

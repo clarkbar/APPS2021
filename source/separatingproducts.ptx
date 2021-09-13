@@ -1,0 +1,172 @@
+<section xml:id="separatingproducts">
+  <title>Separating products</title>
+  <p>
+    In this section we cover some very useful inequalities that allow us to essentially separate terms in a product.
+    They all stem from the following lemma:
+  </p>
+  <lemma xml:id="l_little-amgm">
+    <statement>
+      <p>
+        For <m>u,v\in\mathbb{R}</m>,
+        <me>
+          uv \leq \frac{u^2+v^2}{2}
+        </me>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    Notice that on one side of the above inequality,
+    the terms <m>u</m> and <m>v</m> are multiplied together,
+    and on the other side, they are separate
+    (but now squared).
+  </p>
+  <proof>
+    <p>
+      Since<m>(u-v)^2\geq 0</m>, we get
+      <me>
+        0\leq (u-v)^2 =u^2-2uv + v^2
+      </me>.
+    </p>
+    <p>
+      So by (R3), we can add <m>2uv</m> to both sides to get
+      <me>
+        2uv \leq u^2+v^2
+      </me>
+      and then by (R4), we can multiply both sides by
+      <m>\frac{1}{2}</m> to get <m>uv \leq \frac{u^2+v^2}{2}</m> as desired.
+    </p>
+  </proof>
+  <exercise xml:id="ex_uv_u_2_v_2_2">
+    <statement>
+      <p>
+        When does equality hold in the previous lemma?
+        That is, when do we have <m>uv = \frac{u^2+v^2}{2}</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's retrace the proof of <xref ref="l_little-amgm">Lemma</xref>
+        backwards trying to use only equalities:
+        <me>
+          uv = \frac{u^2+v^2}{2} \;\;\; \Longleftrightarrow \;\;\; 2uv = u^2+v^2 \;\;\; \Longleftrightarrow \;\;\; 0=u^2+v^2-2uv = (u-v)^{2}
+        </me>
+        and this last equality holds if and only if <m>u=v</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    From this, we get the famous {Arithmetic Mean-Geometric Mean (AM-GM) inequality}:
+  </p>
+  <theorem xml:id="t_AM-GM">
+    <title>AM-GM Inequality</title>
+    <statement>
+      <p>
+        Let <m>n\in\mathbb{N}</m> and <m>x_{1},...,x_{n}\geq 0</m>.
+        Then
+        <me>
+          (x_{1}\cdot x_{2}\cdots x_{n})^{\frac{1}{n}}\leq \frac{x_{1}+\cdots + x_{n}}{n}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    That is, the <term>geometric mean</term>
+    on the left is at most the <term>arithmetic mean</term> on the right.
+  </p>
+  <proof>
+    <p>
+      The <m>n=2</m> case follows from <xref ref="l_little-amgm">Lemma</xref>:
+      if we set <m>u=\sqrt{x_{1}}</m> and <m>v=\sqrt{x_{2}}</m>, then
+      <men xml:id="e_x1x2_1_2_x1_x2_2">
+        (x_{1}x_{2})^{\frac{1}{2}}=uv\leq \frac{u^2+v^2}{2} = \frac{x_{1}+x_{2}}{2}
+      </men>.
+    </p>
+    <p>
+      For the <m>n>2</m> case, see <xref ref="ex_AMGM">Exercise</xref>.
+    </p>
+  </proof>
+  <exercise>
+    <statement>
+      <p>
+        For <m>x_{1},x_{2}\geq 0</m>,
+        when do we have <m>(x_{1}x_{2})^{\frac{1}{2}}= \frac{x_{1}+x_{2}}{2}</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If there is equality,
+        that means there is equality in <xref ref="e_x1x2_1_2_x1_x2_2"/>,
+        and by <xref ref="ex_uv_u_2_v_2_2">Exercise</xref>,
+        this holds if and only if <m>u=v</m>, that is,
+        if <m>\sqrt{x_{1}}=\sqrt{x_{2}}</m>,
+        which holds if and only if <m>x_{1}=x_{2}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    The next useful inequality is the
+    <term>Cauchy-Schwarz</term> inequality:
+  </p>
+  <theorem>
+    <title>Cauchy-Schwarz Inequality</title>
+    <statement>
+      <p>
+        Let <m>n\in\mathbb{N}</m>,
+        <m>x_{1},...,x_{n},y_{1},...,y_{n}\in\mathbb{R}</m>.
+        Then
+        <me>
+          x_{1}y_{1}+\cdots + x_{n}y_{n} \leq \sqrt{x_{1}^2+\cdots + x_{n}^{2}} \sqrt{y_{1}^2+\cdots + y_{n}^{2}}
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Why is this useful?
+    On the left we have a <term>mixed</term>
+    product of <m>x</m>-terms and <m>y</m>-terms,
+    and we are able to relate it to a product of two terms where now the <m>x</m>'s and <m>y</m>'s are <term>separated</term>.
+  </p>
+  <p>
+    We'll just prove the <m>n=2</m> case for now and return to the general case later.
+    Note that
+    <me>
+      (x_{1}y_{1}+x_{2}y_{2})^2 =x_{1}^2y_{1}^2+x_{2}^2y_{2}^2+2x_{1}y_{1}x_{2}y_{2}
+    </me>
+    and using <xref ref="l_little-amgm">Lemma</xref>
+    on the second term with <m>u=x_{1}y_{2}</m> and
+    <m>v=x_{2}y_{1}</m>, this above is at most
+    <me>
+      \leq x_{1}^2y_{1}^2+x_{2}^2y_{2}^2+2\frac{(x_{1}y_{2})^2+(x_{2}y_{1})^2}{2} =x_{1}^2y_{1}^2+x_{2}^2y_{2}^2+x_{1}^2y_{2}^2+x_{2}^2y_{1}^2 =(x_{1}^2+x_{2}^2)(y_{1}^2+y_{2}^2)
+    </me>
+  </p>
+  <p>
+    Thus we have shown
+    <me>
+      (x_{1}y_{1}+x_{2}y_{2})^2\leq (x_{1}^2+x_{2}^2)(y_{1}^2+y_{2}^2) =\left(\sqrt{x_{1}^2+x_{2}^2}\sqrt{y_{1}^2+y_{2}^2}\right)^{2}
+    </me>
+    and now by <xref ref="p_u_2_v_2">Proposition</xref>, we get
+    <me>
+      x_{1}y_{1}+x_{2}y_{2}\leq\sqrt{x_{1}^2+x_{2}^2}\sqrt{y_{1}^2+y_{2}^2}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Show that
+        <me>
+          \frac{a+b}{2} \leq \left(\frac{a^2+b^2}{2}\right)^{\frac{1}{2}}
+        </me>.
+      </p>
+      <p>
+        Which of our above inequalities should we try using?
+        <xref ref="l_little-amgm">Lemma</xref>
+        and AM-GM don't seem relevant since we don't have something like <m>ab</m> on the left,
+        so let's see if we can use the Cauchy-Schwarz inequality: Rewrite <m>\frac{a+b}{2}=a\cdot \frac{1}{2} +b\cdot\frac{1}{2}</m>,
+        then the Cauchy Schwarz inequality implies:
+        <me>
+          \frac{a+b}{2} = a\cdot\frac{1}{2} + b\cdot\frac{1}{2} \leq \sqrt{a^2+b^2}\sqrt{\frac{1}{2^{2}}+\frac{1}{2^{2}}} =\left(\frac{a^2+b^2}{2}\right)^{\frac{1}{2}}
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

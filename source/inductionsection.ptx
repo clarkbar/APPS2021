@@ -1,0 +1,234 @@
+<section xml:id="inductionsection">
+  <title>Induction</title>
+  <p>
+    The main topic of this chapter is the following fundamental property of the natural numbers/axiom of mathematics called the Principle of Mathematical Induction.
+  </p>
+  <definition>
+    <title>The Principle of Mathematical Induction</title>
+    <statement>
+      <p>
+        Given a list of statements
+        <m>P(k),P(k+1),..</m>., we may conclude that <m>P(n)</m> is true for every integer <m>n\geqslant k</m>
+        <term>provided that</term>
+        <ul>
+          <li>
+            <p>
+              we know that <m>P(k)</m> is true (base case)
+            </p>
+          </li>
+          <li>
+            <p>
+              and we can prove that <m>P(n)\Rightarrow P(n+1)</m> for any integer <m>n\geqslant k</m>
+              (induction step).
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The basic idea of an induction proof is to proceed step by step.
+    We prove the base case is true,
+    and the induction step retains truth as we move from <m>P(n)</m> to <m>P(n+1)</m>.
+  </p>
+  <p>
+    A full written proof by induction has the following four parts clearly separated.
+    <ol>
+      <li>
+        <p>
+          A clear and explicit statement of the
+          <q>induction hypothesis</q>
+          <m>P(n)</m> and the intention to prove by induction.
+        </p>
+      </li>
+      <li>
+        <p>
+          Prove a
+          <q>base case</q>
+          is true.
+          Typically prove the single statement <m>P(1)</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Prove the
+          <q>induction step</q>. Typically,
+          if <m>P(n)</m> is true then <m>P(n+1)</m> is also true.
+        </p>
+      </li>
+      <li>
+        <p>
+          Conclude that steps (2) and (3) allow the conclusion that <m>P(n)</m> is true for all natural numbers <m>n</m> by the principal of mathematical induction.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Mathematics written for experts might skimp on some of the detail,
+    e.g. saying
+    <q>the base case is trivial</q>. In this course your proofs must be written systematically using all four parts of the format described above.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For <m>n\in\mathbb{N}</m>, <m>\sum_{k=1}^{n}k=\frac{n(n+1)}{2}</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Let <m>P(n)</m> be the statement that <m>\sum_{k=1}^{n}k=\frac{n(n+1)}{2}</m>.
+        We prove that <m>P(n)</m> is true for all
+        <m>n\in\mathbb{N}</m> by induction as follows:
+        <ul>
+          <li>
+            <p>
+              <em>Base Case:</em> First let's prove <m>P(1)</m>.
+              This is just
+              <me>
+                \sum_{k=1}^{1}k=1=\frac{1(1+1)}{2}
+              </me>.
+              Thus, the base case is true.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Induction Step:</em> Assume <m>P(n)</m> holds and consider
+              <me>
+                \sum_{k=1}^{n+1}k =\left({\color{magenta} \sum_{k=1}^{n} k}\right) + (n+1)  = {\color{magenta} \frac{n(n+1)}{2}} +(n+1) = \frac{(n+1)(n+2)}{2}
+              </me>.
+              where we used the statement <m>P(n)</m> to replace
+              <m>\sum_{k=1}^{n} k</m> with <m>\frac{n(n+1)}{2}</m>.
+              Hence <m>\sum_{k=1}^{n+1}k=\frac{(n+1)(n+2)}{2}</m> which proves that <m>P(n)\Rightarrow P(n+1)</m> is true.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Since we have shown the base case and induction step,
+        <m>P(n)</m> is true for all <m>n</m> by induction.
+      </p>
+    </proof>
+  </example>
+  <exercise>
+    <statement>
+      <p>
+        Prove the following formulas by induction:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>\sum_{k=1}^{n} k^{2} = \frac{n(n+1)(2n+1)}{6}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\sum_{k=1}^{n} k^{3} = \left(\frac{n(n+1)}{2}\right)^{2}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+      <p>
+        It turns out that for all powers <m>p</m> there is a degree <m>p+1</m> polynomial that gives a formula for the value of <m>\sum_{k=1}^{n} k^{p}</m>.
+        To learn more, read up on <term>Bernoulli numbers</term>.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    Some statements may not be true for all <m>n\geq 1</m> but maybe for <m>n\geq k</m> for some <m>k</m>,
+    and depending on the problem you will need to figure out what this <m>k</m> is.
+  </p>
+  <example>
+    <statement>
+      <p>
+        For which <m>n\in\mathbb{N}</m> do we have <m>2^{n}\lt n!</m>?
+        If we plug in <m>n=1,2,3</m> this inequality fails,
+        but for <m>n\geq 4</m> it starts to hold.
+        This gives rise to the following conjecture:
+      </p>
+      <p>
+        <em>Claim:</em> <m>2^{n}\lt n!</m> for <m>n\geq 4</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        We prove by induction.
+        Let <m>P(n)</m> be the statement that <m>2^{n}\lt n!</m>.
+        <ul>
+          <li>
+            <p>
+              <em>Base case:</em> The base case is <m>n=4</m>,
+              and it holds because <m>2^{4} = 16 \lt 4!=24</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <em>Induction Step:</em> Assume <m>P(n)</m> is true,
+              i.e. {<m>2^{n}\lt n!</m>} for some <m>n\geq 4</m>, then
+              <me>
+                2^{n+1} = {\color{magenta} 2^{n}}\cdot 2 \lt  {\color{magenta}n!}\cdot 2 \lt  n! \cdot (n+1)=(n+1)!
+              </me>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Since we have shown the base case and induction step,
+        <m>P(n)</m> is true for all <m>n\geq 4</m> by induction.
+      </p>
+    </proof>
+  </example>
+  <p>
+    Some problems can be proven with or without induction:
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Prove that <m>n^{3}-n</m> is divisible by <m>6</m> for all <m>n\in\mathbb{N}</m>,
+        first by induction, then without induction.
+      </p>
+    </statement>
+  </exercise>
+  <p>
+    The following formula will be very useful throughout this course:
+  </p>
+  <theorem>
+    <title>Geometric Series Formula</title>
+    <statement>
+      <p>
+        Let <m>x\neq 1</m> be a real number.
+        Then for <m>N\in\mathbb{N}</m>,
+        <men xml:id="e_gs">
+          \sum_{n=1}^{N} x^{n}=\frac{x-x^{N+1}}{1-x} \;\;\;and \;\;\;  \sum_{n=0}^{N} x^{n}=\frac{1-x^{N+1}}{1-x}
+        </men>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      The second equation follows from the first
+      (just by adding <m>1</m>),
+      so we just need to prove the first.
+      We prove this by induction.
+      <ul>
+        <li>
+          <p>
+            <em>Base case:</em> If <m>N=1</m>, then
+            <me>
+              \frac{x-x^{2}}{1-x} = \frac{x(1-x)}{1-x}=x=\sum_{n=1}^{1} x^{n}
+            </me>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>Induction Step:</em> Suppose <xref ref="e_gs"/> holds for some <m>N</m>.
+            Then
+            <me>
+              \sum_{n=1}^{N+1} x^{n} =x^{N+1}+ \sum_{n=1}^{N} x^{n} =x^{N+1} + \frac{x-x^{N+1}}{1-x} =\frac{x^{N+1}-x^{N+2}}{1-x} + \frac{x-x^{N+1}}{1-x} =\frac{x-x^{N+2}}{1-x}
+            </me>.
+            This proves the induction step.
+            Thus, <xref ref="e_gs"/> holds for all <m>N\in\mathbb{N}</m> by induction.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </proof>
+</section>

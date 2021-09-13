@@ -1,0 +1,64 @@
+<section xml:id="homogeneity">
+  <title>Homogeneity and inequalities</title>
+  <p>
+    Here we discuss a technique for proving a certain class of inequalities.
+    Let's consider first the Cauchy-Schwartz inequality:
+    <me>
+      ax+by \leq \sqrt{a^2+b^2}\sqrt{x^2+y^2}
+    </me>.
+  </p>
+  <p>
+    Notice what happens if I replace <m>(x,y)</m> with <m>(tx,ty)</m> where <m>t>0</m>.
+    On the left, I get
+    <me>
+      a(tx)+a(ty)=t(ax+by)
+    </me>
+    and on the right,
+    <me>
+      \sqrt{a^2+b^2}\sqrt{(tx)^2+(ty)^2} =\sqrt{a^2+b^2}\sqrt{t^2(x^2+y^2)} =t \sqrt{a^2+b^2}\sqrt{x^2+y^2}
+    </me>.
+  </p>
+  <p>
+    That is, when I replace <m>(x,y)</m> with <m>(tx,ty)</m>,
+    then a <m>t</m> can be factored out from both ends, or in other words,
+    the ratio of both sides of the inequality is unchanged if I replace <m>(x,y)</m> with <m>(tx,ty)</m>.
+    The same holds if I replace <m>(a,b)</m> with <m>(sa,sb)</m> for some <m>s>0</m>.
+  </p>
+  <p>
+    Thus, if I can prove the inequality for some <m>(tx,ty)</m> and <m>(sa,sb)</m> in place of <m>(x,y)</m> and <m>(a,b)</m>,
+    then it will also hold for <m>(x,y)</m> and <m>(a,b)</m>.
+  </p>
+  <p>
+    How do I pick such an <m>s</m> and <m>t</m>?
+    Let's pick them so that they eliminate one side of our inequality.
+    That is, let's pick them so that
+    <men xml:id="e_txty">
+      \sqrt{(tx)^2+(ty)^2}=\sqrt{(sa)^2+(sb)^2}=1
+    </men>.
+  </p>
+  <p>
+    That is, we pick
+    <me>
+      t=\frac{1}{\sqrt{x^2+y^{2}}}, \;\; s= \frac{1}{\sqrt{a^2+b^2}}
+    </me>.
+  </p>
+  <p>
+    Let <m>(a',b')=(sa,sb)</m> and <m>(x',y')=(tx,ty)</m>.
+    We are now left to show
+    <me>
+      a'x'+b'y'\leq 1
+    </me>.
+  </p>
+  <p>
+    But notice that by <xref ref="l_little-cs">Lemma</xref>,
+    <me>
+      a'x'+b'y'\leq \frac{(a')^2 +(x')^2 + (b')^2 + (y')^2 }{2} =\frac{(sa)^2+(sb)^2 + (tx)^2+(ty)^2}{2} \stackrel{(3.4.1)}{=}\frac{1+1}{2}=1
+    </me>.
+  </p>
+  <p>
+    Thus,
+    <me>
+      ax+by =s^{-1}t^{-1} (a'x'+b'y')\leq s^{-1} t^{-1}=\sqrt{a^2+b^2}\sqrt{x^2+y^2}
+    </me>.
+  </p>
+</section>

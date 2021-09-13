@@ -1,0 +1,173 @@
+<section xml:id="cyclenotation">
+  <title>Cycle Notation</title>
+  <p>
+    Of course, not every permutation is a cycle.
+    However, we do have the following theorem.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Any permutation <m>f\in \mathrm{S}_{n}</m> is a<nbsp/>composition of disjoint cycles, that is,
+        <m>f=f_{1}\cdots f_{k}</m> where <m>f_{1},...,f_{k}</m> are disjoint cycles.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    When <m>f</m> is written in such a way,
+    we say it is written in <term>cycle notation</term>
+    or <term>cycle decomposition</term>.
+    Note that we consider the identity <m>\iota</m> to be a product of <m>n</m> <m>1</m>-cycles <m>\iota = (1)(2) \cdots (n)</m>.
+  </p>
+  <proof>
+    <p>
+      We prove by strong induction that for <m>k=0,1,...,n</m>,
+      if <m>f\in S_n</m> and <m>n-k</m> is the number of integers
+      <m>j\in \{1,2,...,n\}</m> for which <m>f(j)=j</m>,
+      then <m>f</m> can be written in cycle notation.
+    </p>
+    <p>
+      If <m>k=0</m>,
+      then we see that if <m>f</m> is a permutation so that <m>f(j)=j</m> for <m>n-0=n</m> distinct integers in <m>\{1,2,...,n\}</m>,
+      then <m>f=\iota</m>, which is a product of disjoint <m>1</m>-cycles.
+      This proves the base case.
+    </p>
+    <p>
+      Now suppose we have show that for some <m>K\lt n</m> and <m>k=0,1,...,K</m>,
+      any cycle for which <m>f(j)=j</m> for <m>n-k</m> distinct integers
+      <m>j\in \{1,2,...,n\}</m> can be written as a product of disjoint cycles.
+      Note that the sequence <m>1,f(1),f(2),..</m>. must eventually repeat by the pigeonhole principle, that is,
+      since <m>f(j)</m> only takes on values <m>\{1,2,...n\}</m>,
+      we must have that <m>f^i(1)=f^j(1)</m> for some <m>0\leq i\lt j\leq n</m>.
+      Thus,
+      <me>
+        1= f^{-i}f^{i}(1) = f^{-i}f^{j}(1) = f^{j-i}(1)
+      </me>.
+      and so if we let <m>\ell=j-i-1</m> and
+      <m>a_{r}=f^{r}(1)</m> for <m>r=0,...,\ell</m>, we then get that
+      <me>
+        f=(a_{1}\; a_{2}\;\cdots \; a_{\ell}) g
+      </me>
+      where <m>g(k)=k</m> for <m>k\in \{a_{1},...,a_{\ell}\}</m> and
+      <m>g(k)=f(k)</m> for every other <m>k\in \{1,2,...,n\}</m>.
+      By the strong induction hypothesis,
+      we can decompose <m>g</m> as a product of disjoint cycles,
+      and since <m>g(k)=k</m> for <m>k\in \{a_{1},...,a_{\ell}\}</m>,
+      they will also be disjoint from the cycle <m>(a_{1}\; a_{2}\;\cdots \; a_{\ell})</m>.
+      Composing all these cycles gives us <m>f</m>.
+      This proves the induction step.
+    </p>
+    <p>
+      Thus the theorem holds by the principle of mathematical induction.
+    </p>
+  </proof>
+  <p>
+    How do we find the cycle decomposition in practice?
+    The proof above gives us a roadmap:
+    given a permutation <m>f</m>,
+    we know there is an integer <m>r</m> so that if
+    <m>a_{i}= f^{i}(1)</m>, then <m>a_{r}=1</m>,
+    and we know that one of the cycles in the decomposition for <m>f</m> is <m>(1 \; a_{1}\; \cdots \; a_{r-1})</m>.
+    To find another cycle, pick
+    <m>k\not\in \{1,a_{1},...,a_{r-1}\}</m> and repeat the process:
+    there is <m>s</m> so that if
+    <m>b_{i}=f^{i}(k)</m>, then <m>b_{s}=k</m>,
+    and another cycle in the decomposition is <m>(k,b_{1},...,b_{s-1})</m>.
+    Repeat this process until each integer is in one of the cycles you've found.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6\cr4 \amp  6 \amp  1 \amp  5 \amp  3 \amp  2 \cr \end{matrix} \right)\in\mathrm{S}_{6}</m>.
+        Then
+        <me>
+          f(1)=4,\  f(4)=5,\  f(5)=3,\  f(3)=1
+        </me>,
+        so one of the cycles in the cycle decomposition of <m>f</m> is <m>(1\; 4 \; 5 \; 3)</m>.
+        Now we look at the cylce that contains <m>2</m>
+        (where we picked <m>2</m> because it is not one of the integers we have placed in a cycle so far),
+        we see
+        <me>
+          f(2)=6,\  f(6)=2
+        </me>,
+        which implies that <m>f=(1\ 4\ 5\ 3)(2\ 6)</m>.
+        Recall that disjoint cycles commute,
+        so we could also write <m>f</m> as <m>=(2\ 6)(1\ 4\ 5\ 3)</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    If the cycle decomposition consists of some <m>1</m>-cycles like <m>(j)</m>,
+    note that these are just the identity mapping,
+    so we can omit them when writing a permutation in cycle notation.
+    For example,
+    the permutation on <m>S_{10}</m> that just switches the numbers <m>1</m> and <m>2</m> can be written succinctly as <m>(1\; 2)</m> instead of <m>(1 \; 2 ) (3)(4)(5)(6)(7)(8)(9)(10)</m>.
+  </p>
+  <p>
+    Recall that disjoint cycles commute,
+    but compositions of cycles that aren't disjoint in general won't commute.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>f=(1 \; 2 \; 3)(4 \; 5)</m> and
+        <m>g=(1 \; 2 \; 3 \; 4)</m> be permutaitons in <m>S_{5}</m>.
+        To find the cycle notation for <m>fg</m>, we do as before:
+        start with <m>1</m> and look at the values we get by repeatedly plugging into <m>fg</m>:
+        <md>
+          <mrow>fg(1) = f(g(1)) = f(2) = 3,</mrow>
+          <mrow>fg(3) = f(g(3))=f(4)=5,</mrow>
+          <mrow>fg(5) = f(g(5)) = f(5) = 4,</mrow>
+          <mrow>fg(4) = f(g(4)) = f(1) = 2,</mrow>
+          <mrow>fg(2) = f(g(2)) = f(3) = 1</mrow>
+        </md>.
+      </p>
+      <p>
+        So the first cycle is <m>(1 \; 3 \; 5 \; 4 \; 2)</m>.
+        Note that all numbers in <m>\{1,2,...,5\}</m> have been used,
+        and so <m>fg = (1 \; 3 \; 5 \; 4 \; 2)</m>.
+        Now we do the same for <m>gf</m>,
+        starting with <m>1</m> again:
+        <md>
+          <mrow>gf(1) = g(f(1)) = g(2) = 3,</mrow>
+          <mrow>gf(3) = g(f(3)) = g(1) = 2,</mrow>
+          <mrow>gf(2) = g(f(2)) = g(3) = 4,</mrow>
+          <mrow>gf(4) = g(f(4)) = g(5) = 5,</mrow>
+          <mrow>gf(5) =  g(f(5))  = g(4) = 1</mrow>
+        </md>
+        and since this uses up all numbers from 1 to 5, we get <m>gf = (1\; 3 \; 2 \; 4 \; 5)\neq fg</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    For <m>f\in S_{n}</m>, the <term>cycle shape</term>
+    of <m>f</m> is the sequence of numbers we get by listing the orders of the cycle decomposition in decreasing order.
+    If a number appears several times in the sequence,
+    we replace it with that number to the power of how many times it appears.
+  </p>
+  <example>
+    <statement>
+      <ul>
+        <li>
+          <p>
+            The permutation <m>f=(1\ 4\ 5\ 3)(2\ 6)(7)\in S_{7}</m> has cycle shape <m>(4,2,1)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The permutation <m>g=(1 \; 2) (3 \; 4) \in S_{4}</m> has cycle shape <m>(2,2)</m>,
+            or more succinctly, <m>(2^2)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The permutation <m>h = (1 \; 4)(2\; 3) (\;5 \; 7)(8 \; 9 \;11)</m> in <m>S_{11}</m> has cycle shape <m>(3,2^3,1^2)</m>.
+            Why the <m>1^2</m>?
+            Recall that <m>6</m> and <m>10</m> don't appear in any of the cycles in <m>h</m>,
+            so <m>h(6)=6</m> and <m>h(10)=10</m>,
+            so really the full cycle decomposition of <m>h</m> is <m>(1 \; 4)(2\; 3) (\;5 \; 7)(8 \; 9 \;11)(6)(10)</m>.
+          </p>
+        </li>
+      </ul>
+    </statement>
+  </example>
+</section>

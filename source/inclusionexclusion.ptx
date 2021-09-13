@@ -1,0 +1,112 @@
+<section xml:id="inclusionexclusion">
+  <title>Inclusion-Exclusion</title>
+  <p>
+    Suppose we want to count how many numbers between 1 and 100 are divisible by either 3 or 5.
+    A first attempt might be to say, well,
+    there are <m>99/3=33</m> numbers divisible by <m>3</m> and
+    <m>100/5=20</m> numbers that are divisible by <m>5</m>,
+    so the numbers that are divisible by <m>3</m> or <m>5</m> is the sum of these two numbers, i.e.
+    <m>33+20=53</m>.
+    However, we again run into an <term>overcounting</term> problem,
+    since some numbers are divisible both by <m>3</m> and <m>5</m> and thus are being counted twice.
+    We can't just divide our answer by 2 as before,
+    since there are plenty of numbers that are divisible by <m>3</m> but not <m>5</m> and vice versa.
+    The way to overcome this is by using the
+    <term>inclusion-exclusion principle</term>:
+  </p>
+  <theorem>
+    <title>Inclusion-Exclusion Principle</title>
+    <statement>
+      <p>
+        Let <m>n\geq 2</m> and suppose <m>A_{1},A_{2}, \dots ,A_{n}</m> are finite sets.
+        Let
+        <me>
+          N_{1}  = |A_{1}|+|A_{2}|+\cdots +|A_n|
+        </me>,
+        <me>
+          N_{2}  = |A_{1}\cap A_{2}|+|A_{1}\cap A_{3}|+|A_{2}\cap A_{3}|+\cdots +|A_{n-1} \cap A_n|
+        </me>,
+        and similarly, let
+        <me>
+          N_k = \sum_{1 \leq i_1 \lt  i_2 \lt  \dots \lt  i_k \leq n} |A_{i_1} \cap A_{i_2} \cap \dots \cap A_{i_k}|
+        </me>
+        be the sum of the sizes of the intersections of all collections of <m>k</m> different <m>A_i</m>'s, so that
+        <me>
+          N_{n} = |\bigcap_{k=1}^{n}A_{k}|
+        </me>.
+      </p>
+      <p>
+        Then
+        <men xml:id="e_incl-excl-n">
+          |A_{1}\cup\cdots \cup A_{n}| = N_{1}-N_{2}+N_3 -N_4 +\cdots + (-1)^{n+1}N_n = \sum_{k=1}^{n} (-1)^{k+1}N_k
+        </men>.
+      </p>
+      <p>
+        In particular, for finite sets <m>A,B,C</m>,
+        <me>
+          |A\cup B| = |A|+|B|-|A\cap B|
+        </me>,
+        and
+        <me>
+          |A\cup B\cup C| = |A|+|B|+|C|-|A\cap B|-|A\cap C|-|B\cap C| + |A\cap B\cap C|
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>A=A_{1}\cup\cdots \cup A_{n}</m>,
+      and list the elements as <m>A=\{x_{1}, \dots ,x_{M}\}</m> where <m>M=|A|</m>.
+      Notice that when we compute <m>N_1=|A_{1}|+\cdots + |A_{n}|</m>,
+      this is the same as computing for each <m>x_k</m> the number of sets <m>A_i</m> that <m>x_k</m> appears in,
+      and then summing over <m>k</m>.
+      Similarly, <m>c_2</m> is the same as adding together over all <m>x_k</m> the number of times <m>x_k</m> appears in some pair <m>A_i\cap A_j</m>,
+      and so on.
+      Thus, the sum on the right of <xref ref="e_incl-excl-n"/> is the same as computing the sum over each <m>x_k</m>,
+      how many times <m>x_k</m> appears in one set <m>A_i</m> minus how many times it appears in the intersection of two sets,
+      and so on,
+      and then adding over all <m>x_k\in A_{1}\cup\cdots \cup A_{n}</m>.
+      What we will do is show that for each <m>k</m>, this number is <m>1</m>.
+    </p>
+    <p>
+      Suppose <m>x_k</m> appears in each of the sets <m>A_{k_{1}}, \dots ,A_{k_{m}}</m> for some
+      <m>1\leq k_1\lt k_2\lt \cdots \lt  k_m\leq n</m>, and none of the others.
+      This means <m>x_k</m> appears in exactly <m>m</m> sets,
+      so its contribution to <m>N_{1}</m> is exactly <m>m</m>.
+      It also appears in <m>{m\choose 2}</m> many pairs
+      <m>A_{k_{i}}\cap A_{k_{j}}</m> with <m>1\leq i\lt j\leq m</m>,
+      so it contributes <m>{m\choose 2}</m> to <m>N_2</m>.
+      Similarly, <m>x</m> contributes
+      <m>{m\choose k}</m> to <m>N_k</m> for each <m>k\leq n</m>
+      (and recall that <m>{m\choose k}=0</m> for <m>k>m</m>).
+      Thus, by the Binomial Theorem,
+      the total contribution of <m>x</m> to the right side of <xref ref="e_incl-excl-n"/> is
+      <me>
+        \sum_{k=1}^{m} {m\choose k}(-1)^{k+1} =1 + \sum_{k=0}^{n} {m\choose k}(-1)^{k+1} =1 -\sum_{k=0}^{n} {m\choose k}(-1)^{k} =1-(1-1)^{m}=1
+      </me>.
+    </p>
+  </proof>
+  <p>
+    This proof is quite abstract,
+    but using it is a lot easier,
+    which we demonstrate in the following example.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let's return to the example of counting how many natural numbers at most 100 are divisible by <m>5</m> or <m>3</m>.
+        Let <m>A</m> be those numbers divisible by <m>3</m> and <m>B</m> those numbers which are divisible by <m>5</m>.
+        Then as we showed before, <m>|A|=33</m> and <m>|B|=20</m>.
+        Note that the set we want to count is <m>A\cup B</m>,
+        which are those numbers either in <m>A</m> or in <m>B</m>
+        (that is, divisible by <m>3</m> or divisible by <m>5</m>).
+        Also note that <m>A\cap B</m> are those numbers divisible by both <m>3</m> and <m>5</m>,
+        that is, divisible by 15, of which there are only <m>6</m>.
+        Thus,
+        <me>
+          |A\cup B|=|A|+|B|-|A\cap B|=33+20-6 = 47
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

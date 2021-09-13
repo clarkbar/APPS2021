@@ -1,0 +1,294 @@
+<section xml:id="monotoneexercises">
+  <title>Exercises</title>
+  <p>
+    The only relevant exercise from Liebeck's book is Problem 7 in Chapter 23,
+    which we discussed as Heron's method already.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Suppose that <m>(x_{n})</m> is increasing.
+        Show that either <m>(x_{n})</m> converges or else <m>(x_{n})</m> tends to infinity.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If <m>(x_{n})</m> is bounded above, then it converges.
+        Otherwise, it is unbounded above,
+        so for all <m>M>0</m> there is <m>N</m> so that <m>x_{N}\geq M</m>.
+        Since <m>x_{n}</m> is increasing,
+        we know that for all <m>n\geq N</m>,
+        <me>
+          x_{n}\geq x_{N}\geq M
+        </me>.
+      </p>
+      <p>
+        Thus, we have shown that for all <m>M</m>,
+        there is <m>N</m> so that <m>n\geq N</m> implies <m>x_{n}\geq M</m>,
+        which means <m>x_{n}\rightarrow\infty</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>(x_n)</m> is a bounded sequence and <m>(x_n+\frac{1}{n})</m> is monotonic,
+        does <m>(x_n)</m> converge?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Yes.
+        First note that <m>(x_n + \frac{1}{n})</m> is bounded.
+        By the MCT, the bounded monotonic sequence <m>(x_n+\frac{1}{n})</m> converges.
+        Since <m>\frac{1}{n}\rightarrow 0</m>,
+        we know that <m>(x_{n}+\frac{1}{n})-\frac{1}{n}=x_{n}</m> converges as well by the rules for limits.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>(a_{n})</m> be a sequence of numbers such that
+        <m>0\leq a_{n}\leq 1</m> and let <m>s_{n}</m> denote the product <m>a_{1}\cdot a_{2}\cdots a_{n}</m>.
+        Does <m>(s_{n})</m> converge?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Yes.
+        Note that as <m>a_{n}\geq 0</m> for all <m>n</m>,
+        <m>s_{n}\geq 0</m> as well.
+        Moreover, <m>s_{n+1} = a_{n+1}s_{n}\leq s_{n}</m> since <m>a_{n+1}\leq 1</m> for all <m>n</m>.
+        Thus, <m>s_{n}</m> is decreasing and bounded below,
+        and hence converges by the MCT.
+      </p>
+    </solution>
+  </exercise>
+  <exercise xml:id="four">
+    <statement>
+      <p>
+        Using the definition of convergence,
+        show that if <m>a_n \to L</m> as
+        <m>n \to \infty</m> and if <m>b_n = a_{2n}</m>,
+        then <m>b_n \to L</m> as <m>n \to \infty</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let <m>\epsilon > 0</m>.
+        There there is an <m>N</m> such that <m>n> N</m> implies <m>| a_n - L|\lt \epsilon</m>.
+        So <m>m > N/2</m> implies <m>|a_{2m} - L|\lt \epsilon</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>a_n = n^{1/n}</m>.
+        Show that <m>(a_n)</m> converges and find its limit. (<em>Hint:</em>
+        First prove that <m>(1+ \frac{1}{n})^n \leq 4</m> for all <m>n</m>,
+        and then try to use the MCT. Alternatively,
+        use the formula for <m>a^n - b^n</m> in <xref ref="x81">Exercise</xref>
+        for well-chosen <m>a</m> and <m>b</m>.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We can establish the hint using the binomial theorem,
+        see also the discussion of <m>e</m> in Section 8.
+        We try out whether <m>(a_n)</m> is decreasing.
+        We have
+        <me>
+          a_{n+1} \leq a_n \iff (n+1)^{1/(n+1)} \leq n^{1/n} \iff (n+1)^n \leq n^{n+1} \iff \left(1 + \frac{1}{n}\right)^n \leq n
+        </me>.
+      </p>
+      <p>
+        We saw earlier that <m>\left(1 + \frac{1}{n}\right)^n \leq 4</m> for all <m>n</m>,
+        so we have <m>a_{n+1} \leq a_n</m> at least when <m>n \geq 4</m>.
+        Since <m>a_n \geq 1</m> we have that <m>(a_n)</m> is bounded below.
+        This is enough for us to deduce from the MCT that it converges.
+        Let <m>L = \limn n^{1/n} \geq 1</m>.
+        Let <m>b_n = a_{2n} = (2n)^{1/2n} = 2^{1/2n} \sqrt{n^{1/n}}</m>.
+        Since <m>b_n</m> runs through alternate values of <m>a_n</m> we have <m>b_n \to L</m> too.
+        But <m>2^{1/2n} \sqrt{n^{1/n}} \to 1^{1/2} \times L^{1/2} = L^{1/2}</m> by the rules for limits, Example 6.3 and <xref ref="x2__1_n">Example</xref>}. Thus <m>L = L^{1/2}</m> and so <m>L = 1</m>.
+      </p>
+      <p>
+        Alternatively, (assuming <m>n</m> is even for simplicity)
+        <me>
+          n - 1 = (n^{1/n} - 1)(1 + n^{1/n} + n^{2/n} + \dots + n^{(n-1)/n})
+        </me>
+        <me>
+          \geq  (n^{1/n} - 1)(n^{n/2n} + n^{(n+2)/2n} + \dots + n^{(2n-2)/2n}) \geq (n^{1/n} - 1) \times \frac{n-1}{2} \times n^{1/2}
+        </me>
+        so that
+        <me>
+          0 \leq  (n^{1/n} - 1) \leq \frac{2}{n^{1/2}}
+        </me>.
+      </p>
+      <p>
+        Now use the squeeze theorem.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>x_{1}=1</m> and <m>x_{n+1}=\sqrt{1+x_{n}}</m> for <m>n \geq 1</m>.
+        Show that <m>(x_n)</m> converges and compute its limit.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We claim that <m>x_n</m> converges.
+        First, we show that it is increasing by induction, that is,
+        that <m>x_{n+1}\geq x_{n}</m> for all <m>n\geq 1</m>.
+        For the base case, we have <m>x_{1}=1\leq \sqrt{1+1}=x_{2}</m>.
+        Now suppose we have shown <m>x_{n+1}\geq x_{n}</m> for some integer <m>n\geq 1</m>.
+        Then
+        <md>
+          <mrow>x_{n+2} -x_{n+1} \amp  =\sqrt{1+x_{n+1}}-\sqrt{1+x_{n}}</mrow>
+          <mrow>\amp  = \left(\sqrt{1+x_{n+1}}-\sqrt{1+x_{n}}\right)\cdot\frac{\sqrt{1+x_{n+1}}+\sqrt{1+x_{n}}}{\sqrt{1+x_{n+1}}+\sqrt{1+x_{n}}}</mrow>
+          <mrow>\amp  = \frac{1+x_{n+1}-(1+x_{n})}{\sqrt{1+x_{n+1}}+\sqrt{1+x_{n}}} = \frac{x_{n+1}-x_{n}}{\sqrt{1+x_{n+1}}+\sqrt{1+x_{n}}}</mrow>
+        </md>
+      </p>
+      <p>
+        Since the denominator is always positive,
+        we just need to check that the numerator is positive,
+        but <m>x_{n+1}-x_{n}\geq 0</m> by the inductive hypothesis,
+        and so we have <m>x_{n+2} -x_{n+1} \geq 0</m>.
+        This proves the inductive step and hence the claim.
+      </p>
+      <p>
+        Now we need to show <m>x_n</m> is bounded above.
+        Note that if <m>x_n</m> did converge to some number <m>L</m>, then
+        <men xml:id="e_L_sqrt_1_L_">
+          L=\lim_{n\rightarrow\infty}x_{n} =\lim_{n\rightarrow\infty}x_{n+1} =\lim_{n\rightarrow\infty}\sqrt{1+x_{n}} =\sqrt{1+L}
+        </men>
+        and squaring both sides and moving everything to the left gives <m>L^2-L-1=0</m>,
+        so the only possible values for <m>L</m> are <m>\frac{1\pm\sqrt{5}}{2}</m>.
+        Since <m>L=\sqrt{1+L}> 0</m>,
+        we must have <m>L=\frac{1+\sqrt{5}}{2}</m>.
+        Thus, since <m>x_n</m> is increasing,
+        it is natural to guess that <m>x_n</m> is bounded above by <m>L</m>.
+        Let's prove this by induction.
+        For <m>n=1</m>,
+        we have <m>1\leq L</m> already, so the base case is true.
+        For the induction step, assume <m>x_{n}\leq L</m> for some <m>n</m>.
+        Then
+        <me>
+          x_{n+1}=\sqrt{1+x_{n}}\leq \sqrt{1+L}\stackrel{(7.3.1)}{=}L
+        </me>.
+      </p>
+      <p>
+        This proves the induction step,
+        and so <m>(x_n)</m> is bounded above and is increasing,
+        thus <m>(x_n)</m> converges and its limit is <m>\frac{1+\sqrt{5}}{2}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>x_1=\frac{1}{4}</m> and <m>x_{n+1} = \sqrt{x_{n}(1-x_{n})}</m> for <m>n \geq 1</m>.
+        Show that <m>(x_n)</m> converges and compute its limit.
+        (Hint: First show that <m>0\lt x_{n}\leq \frac{1}{2}</m> for all <m>n</m>.
+        The AM<ndash/>GM inequality may come in useful.)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We first show by induction that <m>0 \lt  x_n \leq 1/2</m> for all <m>n</m>.
+        The case <m>n=1</m> is trivial.
+        Suppose inductively that for some <m>n</m> we have <m>0 \lt  x_n \leq 1/2</m>.
+        Then <m>x_{n+1} =\sqrt{x_{n}(1-x_{n})}>0</m> and, by the AM-GM inequality,
+        <me>
+          x_{n+1}=\sqrt{x_{n}(1-x_{n})}\leq \frac{x_{n}+1-x_{n}}{2} = \frac{1}{2}
+        </me>.
+        thus <m>x_{n}\leq \frac{1}{2}</m> too,
+        establishing the inductive step.
+      </p>
+      <p>
+        Now we claim that <m>(x_{n})</m> is increasing:
+        <md>
+          <mrow>x_{n+1}-x_{n} \amp  =\sqrt{x_{n}(1-x_{n})}-x_{n} = \left(\sqrt{x_{n}(1-x_{n})}-x_{n}\right)\frac{\sqrt{x_{n}(1-x_{n})}+x_{n}}{\sqrt{x_{n}(1-x_{n})}+x_{n}}</mrow>
+          <mrow>\amp  = \frac{x_{n}(1-x_{n})-x_{n}^{2}}{\sqrt{x_{n}(1-x_{n})}+x_{n}} = \frac{x_{n}(1-2x_{n})}{\sqrt{x_{n}(1-x_{n})}+x_{n}} \geq 0</mrow>
+        </md>
+        since we've already established that <m>0 \lt  x_n \leq 1/2</m> for all <m>n</m>.
+        Thus, <m>(x_{n})</m> is increasing and bounded, and thus convergent.
+        Let <m>L</m> be its limit.
+        Then
+        <me>
+          L=\lim_{n\rightarrow \infty}x_{n} =\lim_{n\rightarrow \infty}x_{n+1} =\lim_{n\rightarrow \infty}\sqrt{x_{n}(1-x_{n})} =\sqrt{L(1-L)}
+        </me>
+        squaring both sides and moving everything to the left gives
+        <me>
+          2L^2-L=0
+        </me>.
+      </p>
+      <p>
+        The only solutions to this are <m>L=0</m> and <m>L=\frac{1}{2}</m>.
+        Since <m>(x_{n})</m> is increasing,
+        we have <m>x_{n}\geq x_{1} = \frac{1}{4}>0</m>,
+        so <m>L\geq \frac{1}{4}</m>,
+        so <m>x_{n}</m> can't converge to zero,
+        thus <m>L=\frac{1}{2}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>x_{1}=\sqrt{2}</m> and <m>x_{n+1}=\sqrt{2+\sqrt{x_{n}}}</m> for <m>n \geq 1</m>.
+        Show that <m>(x_n)</m> converges and find the quartic equation of which the limit is a root. (When showing it is bounded above,
+        you can try making an educated guess as to what an upper bound might be,
+        try some values out!)
+      </p>
+    </statement>
+    <solution>
+      <p>
+        First we claim that <m>x_n >0</m> for all <m>n</m>
+        (so that <m>\sqrt{x_n}</m> makes sense).
+        This is a simple exercise using induction.
+        Next we claim that <m>(x_{n})</m> is increasing.
+        We prove this also by induction.
+        For <m>n=1</m>,
+        we clearly have <m>x_{1}=\sqrt{2}\lt \sqrt{2+\sqrt{2}}=x_{2}</m>.
+        This proves the base case.
+        Now suppose that <m>x_{n+1}\geq x_{n}</m> for some integer <m>n\geq 1</m>.
+        Then
+        <md>
+          <mrow>x_{n+2}-x_{n+1} \amp  =\sqrt{2+\sqrt{x_{n+1}}}-\sqrt{2+\sqrt{x_{n}}}</mrow>
+          <mrow>\amp  =\left(\sqrt{2+\sqrt{x_{n+1}}}-\sqrt{2+\sqrt{x_{n}}}\right)\cdot \frac{\sqrt{2+\sqrt{x_{n+1}}}+\sqrt{2+\sqrt{x_{n}}}}{\sqrt{2+\sqrt{x_{n+1}}}+\sqrt{2+\sqrt{x_{n}}}}</mrow>
+          <mrow>\amp  = \frac{2+\sqrt{x_{n+1}}-2+\sqrt{x_{n}}}{\sqrt{2+\sqrt{x_{n+1}}}+\sqrt{2+\sqrt{x_{n}}}}</mrow>
+          <mrow>\amp  = \frac{\sqrt{x_{n+1}}-\sqrt{x_{n}}}{\sqrt{2+\sqrt{x_{n+1}}}+\sqrt{2+\sqrt{x_{n}}}}</mrow>
+          <mrow>\amp  \geq \frac{0}{\sqrt{2+\sqrt{x_{n+1}}}+\sqrt{2+\sqrt{x_{n}}}}=0</mrow>
+        </md>,
+        where in the last line we used the inductive hypothesis that <m>x_{n+1}\geq x_{n}</m>,
+        and so <m>\sqrt{x_{n+1}}-\sqrt{x_{n}}\geq 0</m>.
+        Thus, <m>(x_{n})</m> is increasing.
+      </p>
+      <p>
+        Next, we need to show that it is bounded above.
+        We claim that <m>x_{n}\leq 2</m> for all <m>n</m>.
+        We prove this by induction as well.
+        For the base case, <m>x_{1}=\sqrt{2}\leq 2</m>.
+        For the inductive step, suppose <m>x_{n}\leq 2</m> for some <m>n</m>.
+        Then
+        <me>
+          x_{n+1}=\sqrt{2+\sqrt{x_{n}}}\leq \sqrt{2+\sqrt{2}}\leq \sqrt{2+2}=\sqrt{4}=2
+        </me>.
+      </p>
+      <p>
+        This establishes the inductive step.
+        Thus, <m>x_{n}</m> is increasing and bounded above, so it converges.
+        Let <m>L</m> be the limit.
+        Then, by the rules for limits,
+        <me>
+          L = \sqrt{2+\sqrt{L}}\
+        </me>
+        and therefore <m>L</m> is a root of the equation <m>x^4 - 4x^2 -x + 4 = 0</m>.
+      </p>
+    </solution>
+  </exercise>
+</section>

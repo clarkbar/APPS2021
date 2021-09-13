@@ -1,0 +1,98 @@
+<section xml:id="linearequationsmodm">
+  <title>Solving linear equations modulo <m>m</m></title>
+  <p>
+    When can we solve <m>ax = b\mod m</m> for <m>x</m>?
+    Before we even start,
+    it's good to have a test to see if there is actually a solution:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        The equation <m>ax = b\mod m</m> has a solution if and only if <m>\gcd(a,m)</m> divides <m>b</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      An integer <m>x</m> is a solution to
+      <m>ax = b\mod m</m> if and only if <m>ax=b-my</m> for some integer <m>y</m>.
+      In other words,
+      <m>ax = b\mod m</m> has a solution if and only if <m>b</m> can be written as <m>ax + my</m> for some integers <m>x</m> and <m>y</m>.
+    </p>
+    <p>
+      If <m>b = ax+my</m>,
+      then the Linear Combination Lemma ensures that <m>\gcd(a,m)</m> divides <m>b</m>.
+    </p>
+    <p>
+      Conversely, assume that <m>\gcd(a,m)</m> divides <m>b</m>,
+      so that <m>b = h\gcd(a,m)</m> for some integer <m>h</m>.
+      Bezout's identity implies that there exist integers <m>x'</m> and <m>y'</m> such that <m>\gcd(a,m)=ax'+my'</m>.
+      Hence if <m>x = hx'</m> and <m>y=hy'</m>, then
+      <me>
+        b = h\gcd(a,m) = ax + my
+      </me>,
+      as desired.
+    </p>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        Find <m>x\in \{0,1,...,13\}</m> so that <m>18x = 10\mod 14</m>.
+      </p>
+      <p>
+        We see that <m>\gcd(18,14)=2</m> divides <m>10</m>,
+        so there is at least one solution.
+        We can use the Euclidean Algorithm to express <m>2</m> as an integer linear combination:
+        since <m>18 - 14 = 4</m>,
+        and <m>14 - 3\cdot 4 = 2</m> is the gcd, so we can write
+        <me>
+          2 = 14 - 3\cdot 4 = 4\cdot 14 - 3 \cdot 18
+        </me>.
+      </p>
+      <p>
+        Multiplying this by <m>5</m>, we obtain
+        <me>
+          10 = 20\cdot 14 - 15 \cdot 18
+        </me>.
+      </p>
+      <p>
+        So <m>-15</m> is a solution, and so is <m>3 = -15 \mod 18</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Note that when finding a solution to <m>a = bx\mod m</m>,
+    any integer <m>x</m> is congruent modulo <m>m</m> to a number in <m>\{0,1,...,m-1\}</m>.
+    Thus, whenever we ask for a solution,
+    we prefer to write it as one of these integers.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Find <m>x</m> so that <m>7x = 8\mod 12</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Since <m>\gcd(7,12)=1</m>, we can use the Euclidean Algorithm:
+        <me>
+          12-7 = 5 \ \ \text{ and  }  7-5 = 2 \ \ \text{ and  }  5-2\cdot 2 = 1
+        </me>.
+      </p>
+      <p>
+        We find
+        <me>
+          1 = 5 - 2\cdot 2 = 3\cdot 5 - 2\cdot 7 = 3\cdot 12 - 5\cdot 7
+        </me>,
+        so by multiplying by <m>8</m>, we get
+        <me>
+          8 = 24 \cdot 12 - 40 \cdot 7
+        </me>.
+      </p>
+      <p>
+        Thus <m>x = -40</m> is a solution,
+        and so is <m>8 = -40 \mod 12</m>.
+      </p>
+    </solution>
+  </exercise>
+</section>

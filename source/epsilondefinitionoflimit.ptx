@@ -1,0 +1,256 @@
+<section xml:id="epsilondefinitionoflimit">
+  <title>Motivation and the <m>\epsilon-N</m> definition of a limit</title>
+  <p>
+    How does a computer compute <m>\sqrt{51}</m>?
+    A computer can't possibly memorise all possible square roots,
+    so it must compute it from scratch.
+    Moreover, it can't possibly compute the entire decimal expansion
+    (next week we will see that,
+    because <m>\sqrt{51}</m> is irrational,
+    the decimal expansion never repeats),
+    so it can only come up with an approximation.
+    Thus, your computer requires an algorithm for computing <m>\sqrt{51}</m>
+    (or any root)
+    to any degree of accuracy.
+    But before implementing such an algorithm,
+    we need to <term>justify</term> that it can indeed approximate
+    <m>\sqrt{51}</m> to any degree of accuracy.
+    That is, if my algorithm spits out a sequence of numbers
+    <m>x_1,x_2,..</m>., and I want an approximation that is within <m>10^{-10}</m> of
+    <m>\sqrt{51}</m>, I need to show that for all large enough <m>n</m>,
+    <m>x_n</m> is at most <m>10^{-10}</m> away from <m>\sqrt{51}</m>,
+    and I need this to happen for <term>every</term>
+    degree of accuracy <m>\epsilon>0</m> that I may require
+    (not just <m>10^{-10}</m>).
+    All this motivates the following:
+  </p>
+  <definition>
+    <title>The $\epsilon-N$ definition of a limit</title>
+    <statement>
+      <p>
+        Let <m>(x_{n})_{n=1}^{\infty}</m> be a sequence of real numbers
+        <m>x_{1},x_{2},..</m>. and let <m>L\in \mathbb{R}</m>.
+        We say that <m>x_n</m> <term>converges to <m>L</m></term>,
+        and we write <m>\lim_{n\rightarrow\infty} x_{n}=L</m>,
+        or <m>x_{n}\rightarrow L</m> as <m>n \rightarrow \infty</m>,
+        if for all <m>\epsilon>0</m>,
+        there is a real number <m>N</m> so that for <m>n> N</m>, we have
+        <me>
+          |x_{n}-L|\lt \epsilon
+        </me>
+        or equivalently,<fn>
+        See <xref ref="one">Exercise</xref>.
+        </fn>
+        <me>
+          L-\epsilon\lt x_n\lt L+\epsilon
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <definition>
+    <statement>
+      <p>
+        We say that a sequence <m>(a_n)</m> is <term>convergent</term>
+        if for some <m>L \in \R</m>, it converges to <m>L</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    <em>Exercise.</em> Give an example of a convergent sequence.
+    Give an example of a non-convergent sequence.
+  </p>
+  <p>
+    Notice that here we are working with the notion of a <em>sequence</em>
+    <m>(x_n)_{n=1}^\infty</m> <mdash/> this is just an <term>ordered</term>
+    list of real numbers <m>x_n</m>,
+    indexed by the natural numbers <m>\mathbb{N}</m>.
+    Or, if you prefer,
+    you can think of a sequence as a function <m>x:\mathbb{N}\to \mathbb{R}</m> with domain
+    <m>\mathbb{N}</m> and codomain <m>\mathbb{R}</m>.
+  </p>
+  <p>
+    Note that in Liebeck,
+    the <m>N</m> in Definition 6.1 is required to be an integer,
+    but it actually makes no difference since we can just round <m>N</m> up to an integer if we like,
+    using the Archimedean principle.
+    It is important to recognise that,
+    in this definition, we expect <m>N</m> to depend on <m>\epsilon</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Show that <m>\lim_{n\rightarrow \infty} \frac{1}{n}=0</m>.
+      </p>
+      <p>
+        We need to show that for all
+        <m>\epsilon>0</m> there is <m>N</m> so that <m>n> N</m> implies <m>|\frac{1}{n}-0|\lt \epsilon</m>,
+        which is the same as <m>\frac{1}{n}\lt \epsilon</m>.
+        This is equivalent to finding <m>N</m> so that <m>n>N</m> implies <m>n>\frac{1}{\epsilon}</m>.
+        Thus, if we pick <m>N=\frac{1}{\epsilon}</m>,
+        we see that if <m>n> N</m>,
+        <me>
+          \left|\frac{1}{n} -0\right|=\frac{1}{n} \lt  \frac{1}{N}= \frac{1}{\frac{1}{\epsilon}}=\epsilon
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <note>
+    <title>Note on establishing limits</title>
+    <p>
+      Don't expect a nice looking proof to fall into your lap immediately when trying to establish a certain limit.
+      It usually requires some rough work first,
+      which you can then use to help you write your proof.
+    </p>
+  </note>
+  <example>
+    <statement>
+      <p>
+        Show that <m>\lim_{n\rightarrow \infty} \frac{5n^2+2n}{n^2+4}=5</m>.
+      </p>
+      <p>
+        <em>Rough work:</em> We are going to need to show that
+        <m>\frac{5n^2+2n}{n^2+4}-5</m> is small when <m>n</m> is large,
+        so it first makes sense to simplify this expression algebraically to see if we can identify when it might be small.
+        Doing this,
+        <me>
+          \frac{5n^2+2n}{n^2+4}-5 =\frac{2n-20}{n^2+4}
+        </me>,
+        and therefore,
+        using the triangle inequality and the fact that <m>4\geq0</m>,
+        <me>
+          \left|\frac{5n^2+2n}{n^2+4}-5\right| \leq \left| \frac{2n-20}{n^2+4} \right| \leq \frac{2n}{n^2 + 4} + \frac{20}{n^2 + 4} \leq \frac{2}{n} + \frac{20}{n^2}
+        </me>.
+      </p>
+      <p>
+        This is looking good because all we need to do to make this small is to make both <m>2/n</m> and <m>20/n^2</m> small,
+        and this is very reasonable.
+        Now we bring in the <m>\epsilon > 0</m>.
+        If <m>n</m> is such that both
+        <m>2/n \lt  \epsilon/2</m> and <m>20/n^2 \lt  \epsilon/2</m>,
+        we can deduce that
+        <me>
+          \left|\frac{5n^2+2n}{n^2+4}-5\right| \lt  \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon
+        </me>,
+        which is exactly what we need.
+        What do we need <m>n</m> to satisfy for this to be true?
+        Well, for <m>\frac{2}{n} \lt  \frac{\epsilon}{2}</m> we need <m>n > \frac{4}{\epsilon}</m>,
+        and for <m>\frac{20}{n^2} \lt  \frac{\epsilon}{2}</m> we need <m>n > \sqrt{\frac{40}{\epsilon}}</m>.
+        To ensure both of these hold,
+        we need <m>n</m> to satisfy <m>n > \max\left\{\frac{4}{\epsilon}, \sqrt{\frac{40}{\epsilon}}\right\}</m>.
+        So we take <m>N = \max\left\{\frac{4}{\epsilon}, \sqrt{\frac{40}{\epsilon}}\right\}</m>.
+      </p>
+      <p>
+        (All the above was just rough work to help me formulate and write my formal proof.
+        Below is what you want to do when writing your work for marking
+        (and not the rough work).
+        It's fine not to show how you chose your <m>N</m>, so long as it works.
+        And there is no single answer for <m>N</m> <mdash/> if <m>N</m> works,
+        then so does <m>N'</m> for any <m>N'>N</m>.)
+      </p>
+      <p>
+        <em>Now for the actual proof:</em>
+      </p>
+      <p>
+        <em>Claim:</em> <m>\lim_{n\rightarrow\infty}\frac{5n^2+2n}{n^2+4}=5</m>.
+      </p>
+    </statement>
+    <proof>
+      <p>
+        Let <m>\epsilon</m> be any positive real number.
+        We need to show that there is
+        <m>N\in\mathbb{R}</m> so that <m>n> N</m> implies <m>\left|\frac{5n^2+2n}{n^2+4}-5\right|\lt \epsilon</m>.
+        We assert that <m>N=\max\left\{\frac{4}{\epsilon}, \sqrt{\frac{40}{\epsilon}}\right\}</m> works.
+        Indeed, if <m>n> N</m>, then
+        <me>
+          \left|\frac{5n^2+2n}{n^2+4}-5\right| \leq \left| \frac{2n-20}{n^2+4} \right| \leq \frac{2n}{n^2 + 4} + \frac{20}{n^2 + 4} \leq \frac{2}{n} + \frac{20}{n^2} \lt  \frac{2}{N} + \frac{20}{N^2} \leq \frac{\epsilon}{2}+ \frac{\epsilon}{2} = \epsilon
+        </me>.
+      </p>
+      <p>
+        Since we have shown we can find such an <m>N</m> no matter what
+        <m>\epsilon>0</m> we started with, this proves the claim.
+      </p>
+    </proof>
+  </example>
+  <example xml:id="sqrootxn">
+    <statement>
+      <p>
+        Suppose <m>x_{n}\geq 0</m> and <m>x_{n}\rightarrow x>0</m>,
+        then <m>\sqrt{x_{n}}\rightarrow \sqrt{x}</m>.
+      </p>
+      <p>
+        <em>Discussion:</em> This is a little different from the previous example because now <m>x_n</m> isn't given in a concrete form,
+        and all we know about it is that <m>x_n \rightarrow x</m>, or,
+        more informally, <m>|x_n - x|</m> is small for all large <m>n</m>.
+        Nevertheless the conclusion,
+        <m>\sqrt{x_{n}}\rightarrow \sqrt{x}</m>,
+        is similar to what we had before,
+        and the tactic of manipulating the expression <m>\sqrt{x_{n}}-\sqrt{x}</m> algebraically,
+        and using some inequalities on it until it's apparent why it should also be small,
+        is equally useful.
+        Thus, we want to manipulate <m>|\sqrt{x_{n}}-\sqrt{x}|</m> so that
+        <m>|x_{n}-x|</m> appears in the expression,
+        since we hope that if we can make <m>|x_{n}-x|</m> as small as we want,
+        then we can make <m>|\sqrt{x_{n}}-\sqrt{x}|</m> small as well.
+      </p>
+      <p>
+        A standard trick when working with roots is to multiply and divide by the conjugate,
+        and we have
+        <me>
+          |\sqrt{x_{n}}-\sqrt{x}| =\left|(\sqrt{x_{n}}-\sqrt{x})\cdot \frac{\sqrt{x_{n}}+\sqrt{x}}{\sqrt{x_{n}}+\sqrt{x}}\right| =\left|\frac{x_{n}-x}{\sqrt{x_{n}}+\sqrt{x}}\right| =\frac{|x_{n}-x|}{\sqrt{x_{n}}+\sqrt{x}} \leq \frac{|x_{n}-x|}{\sqrt{x}}
+        </me>
+        where in the last step we used the facts that <m>\sqrt{x_n} \geq 0</m> and <m>x > 0</m>.
+        This is looking good because we should be able to make
+        <m>\frac{|x_{n}-x|}{\sqrt{x}}</m> small by taking <m>n</m> large enough.
+        Indeed, now let's bring in <m>\epsilon > 0</m>.
+        Since <m>x_n \rightarrow x</m>,
+        we know that there is some
+        <m>N \in \mathbb{R}</m> such that whenever <m>n > N</m>, we have
+        <me>
+          |x_n - x| \lt \epsilon\sqrt{x}
+        </me>.
+      </p>
+      <p>
+        (This maybe requires a pause for thought.
+        The definition of <m>x_n \rightarrow x</m> talks about
+        <q><m>|x_n - x| \lt  \epsilon</m></q>
+        for all large <m>n</m>, it doesn't say anything about
+        <q><m>|x_n - x| \lt \epsilon\sqrt{x}</m>.</q>
+        But the definition of <m>x_n \rightarrow x</m> applies to <term>every</term>
+        positive <m>\epsilon</m> <mdash/> and thus it applies just equally well to
+        <m>\epsilon\sqrt{x}</m> in place of <m>\epsilon</m>.
+        Remember that <m>x</m> is fixed in this discussion.
+        The <m>N</m> coming out depends on <m>x</m> as well as <m>\epsilon</m>,
+        but this is not a problem, as <m>x</m> is fixed.) So if <m>n > N</m>, we have
+        <me>
+          |x_n - x| \leq \frac{|x_n - x|}{\sqrt{x}} \lt  \frac{\epsilon\sqrt{x}}{\sqrt{x}} = \epsilon
+        </me>
+      </p>
+    </statement>
+    <proof>
+      <p>
+        We need to show that for any <m>\epsilon>0</m> there is
+        <m>N \in \R</m> so that <m>n> N</m> implies <m>|\sqrt{x_{n}}-\sqrt{x}|\lt \epsilon</m>.
+      </p>
+      <p>
+        Let <m>\epsilon>0</m>.
+        Since <m>x_n\rightarrow x</m>,
+        there is <m>N</m> so that <m>n> N</m> implies <m>|x_{n}-x|\lt \epsilon\sqrt{x}</m>,
+        and we take this <m>N</m>.
+        We then have, for <m>n > N</m>,
+        <me>
+          |\sqrt{x_{n}}-\sqrt{x}| =\left|(\sqrt{x_{n}}-\sqrt{x})\cdot \frac{\sqrt{x_{n}}+\sqrt{x}}{\sqrt{x_{n}}+\sqrt{x}}\right| =\left|\frac{x_{n}-x}{\sqrt{x_{n}}+\sqrt{x}}\right|
+        </me>
+        <me>
+          =\frac{|x_{n}-x|}{\sqrt{x_{n}}+\sqrt{x}} \leq \frac{|x_{n}-x|}{\sqrt{x}} \lt  \frac{\epsilon \sqrt{x}}{\sqrt{x}} = \epsilon
+        </me>.
+      </p>
+    </proof>
+  </example>
+  <problem>
+    <statement>
+      <p>
+        What happens if <m>x = 0</m> in this example?
+      </p>
+    </statement>
+  </problem>
+</section>

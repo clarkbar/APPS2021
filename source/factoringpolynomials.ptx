@@ -1,0 +1,112 @@
+<section xml:id="factoringpolynomials">
+  <title>Factoring Polynomials</title>
+  <p>
+    The following theorem is stated without proof in PPS (although we prove it later in the degree):
+  </p>
+  <theorem>
+    <title>Fundamental Theorem of Algebra</title>
+    <statement>
+      <p>
+        Any complex polynomial has at least one root in <m>\mathbb{C}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    Using this, we can prove that any polynomial can be factored completely.
+  </p>
+  <theorem>
+    <title>Factorization Theorem</title>
+    <statement>
+      <p>
+        If <m>p</m> is a degree <m>n</m> polynomial,
+        then there are <m>n</m> roots
+        <m>r_{1},...,r_{n}\in\mathbb{C}</m> and a number <m>a\in\mathbb{C}</m> so that
+        <me>
+          p(z) = a(z-r_{1})(z-r_{2})\cdots (z-r_{n})
+        </me>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    In the above theorem some roots may repeat.
+    If a root appears <m>m</m> times in <m>r_{1},...,r_{n}</m>,
+    then we say it has <term>multiplicity</term> <m>m</m>.
+  </p>
+  <p>
+    Notice that if we multiply out the above polynomial,
+    then we get a polynomial like <m>p(z)=az^{n}+\cdots</m>,
+    so if <m>p</m> was as in <xref ref="e_pz"/>, then we actually know that <m>a=a_n</m>.
+  </p>
+  <p>
+    The above theorem tells us that an <m>n</m>-degree polynomial always has <m>n</m> roots if we also take into account the multiplicity of the roots
+    (that is, how often it appears in the factorization above).
+    For example,
+    <m>(z-1)^2</m> is a <m>2</m>-degree polynomial with only one root,
+    but that root has multiplicity <m>2</m>.
+  </p>
+  <proof>
+    <p>
+      We prove this by induction on <m>n</m>,
+      the degree of the polynomial <m>p</m>.
+      Let <m>P(n)</m> be the statement
+    </p>
+    <blockquote>
+      A degree <m>n</m> polynomial <m>p</m> has <m>n</m> roots <m>r_{1},...,r_{n}\in\mathbb{C}</m> and there is a number <m>a\in\mathbb{C}</m> so that
+      <me>
+        p(z) = a(z-r_{1})(z-r_{2})\cdots (z-r_{n})
+      </me>.
+    </blockquote>
+    <p>
+      <em>Base Case:</em> Assume <m>p</m> is any degree <m>1</m> polynomial.
+      If we write <m>p</m> as <m>p(z)=az+b</m>,
+      we can re-write <m>p(z) = a(z-\frac{-b}{a})</m>.
+      Then <m>p</m> has precisely one root
+      <m>r_1=\frac{-b}{a}</m> and <m>p</m> can be written in the form <m>p(z)=a(z-r_1)</m>.
+      This proves <m>P(1)</m>.
+    </p>
+    <p>
+      <em>Induction Step:</em> Suppose the theorem holds true for some integer <m>n\geq 1</m>, i.e.
+      <m>P(n)</m> is true.
+      Let <m>p</m> be a degree <m>n+1</m> polynomial.
+      By the Fundamental Theorem of Algebra there is a root <m>w</m> of <m>p</m>,
+      i.e.<nbsp/><m>p(w)=0</m>.
+    </p>
+    <p>
+      Consider the polynomial <m>q(z):=p(z+w)</m>.
+      Then <m>q</m> is also degree <m>n+1</m> and has a root at <m>0</m>.
+      Write <m>q</m> out as a polynomial then because it has a root at <m>z=0</m> the constant term is also zero and we can write
+      <me>
+        q(z) = q_{1}z+\cdots + q_{n+1}z^{n+1} = z\underbrace{(q_{1}+q_{2}z+\cdots + q_{n+1}z^{n})}_{=g(z)}
+      </me>.
+      where <m>g</m> is a polynomial of degree <m>n</m>.
+      By our induction hypothesis <m>P(n)</m>,
+      there are <m>a,z_{1},...,z_{n}\in\mathbb{C}</m> so that
+      <me>
+        g(z) = a(z-z_{1})(z-z_{2})\cdots (z-z_{n})
+      </me>.
+    </p>
+    <p>
+      Note if <m>q(z):=p(z+w)</m> then
+      <me>
+        p(z)=q(z-w)=(z-w)g(z-w)
+      </me>
+      and so if <m>r_{i}:=z_{i}+w</m> for
+      <m>i=1,\cdots,
+      n</m> and <m>r_{n+1}=w</m> then
+      <me>
+        p(z) = a(z-w-z_{1})(z-w-z_{2})\cdots (z-w-z_{n})(z-w) =a(z-r_{1})(z-r_{2})\cdots (z-r_{n+1})
+      </me>.
+    </p>
+    <p>
+      This proves <m>p</m> has <m>n+1</m> roots and there is a number <m>a\in\mathbb{C}</m> so that we can write
+      <me>
+        p(z) = a(z-r_{1})(z-r_{2})\cdots (z-r_{n+1})
+      </me>.
+    </p>
+    <p>
+      Since <m>P(1)</m> is true,
+      and <m>P(n)\Rightarrow P(n+1)</m> it follows that <m>P(n)</m> is true for all
+      <m>n\in\mathbb{N}</m> by the principle of mathematical induction.
+    </p>
+  </proof>
+</section>

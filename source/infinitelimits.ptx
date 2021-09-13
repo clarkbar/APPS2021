@@ -1,0 +1,70 @@
+<section xml:id="infinitelimits">
+  <title>Infinite limits</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>(x_{n})</m> be a sequence of real numbers.
+        <ol label="labelalph">
+          <li>
+            <p>
+              We say <term><m>(x_{n})</m> tends to <m>\infty</m></term>
+              or <term>diverges to</term>
+              <m>\infty</m> or <m>x_{n}\rightarrow \infty</m> as
+              <m>n \to \infty</m> if, for all <m>M>0</m>,
+              there is <m>N</m> so that <m>n> N</m> implies <m>x_{n}\geq M</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Similarly, we say <term><m>x_{n}</m> tends or diverges to <m>-\infty</m></term>
+              or <m>x_{n}\rightarrow -\infty</m> as
+              <m>n \to \infty</m> if, for all <m>M\lt 0</m>,
+              there is <m>N</m> so that <m>n>N</m> implies <m>x_{n}\leq M</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </definition>
+  <example>
+    <statement>
+      <p>
+        <m>\sqrt{n}\rightarrow\infty</m>:
+        let <m>M>0</m>,
+        we need to find <m>N</m> so that <m>n> N</m> implies <m>\sqrt{n}> M</m>.
+        If we pick <m>N=M^2</m>, then for <m>n> N</m>,
+        <me>
+          \sqrt{n}> \sqrt{N}=\sqrt{M^2}=M
+        </me>.
+      </p>
+      <p>
+        Thus, we have shown that for any <m>M>0</m> we can find <m>N</m> so that <m>n> N</m> implies <m>\sqrt{n}\geq M</m>,
+        hence <m>\sqrt{n}\rightarrow\infty</m>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        The sequence <m>x_{n} = n^2-n-1</m> tends to infinity.
+        To prove this,
+        we must show that there is <m>N</m> so that <m>n> N</m> implies
+        <me>
+          n^2-n-1>M
+        </me>,
+      </p>
+      <p>
+        Note that for <m>n>1</m>,
+        <me>
+          n^2-n -1= n(n-1)-1\geq n\cdot 1-1=n-1
+        </me>
+      </p>
+      <p>
+        Thus, if <m>N=M+1</m>, then <m>n> N</m> implies
+        <me>
+          n^2-n-1 \geq n-1> N-1=M+1-1=M
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

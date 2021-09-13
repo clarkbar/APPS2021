@@ -1,0 +1,137 @@
+<section xml:id="upperlowerbounds">
+  <title>Upper and Lower Bounds</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>A</m> be a nonempty subset of <m>\R</m>.
+        <ul>
+          <li>
+            <p>
+              <m>A</m> is said to be <term>bounded above</term>
+              if there exists <m>M\in\R</m> such that <m>x\leq M</m> for all <m>x\in A</m>.
+              Such a number <m>M</m> is called an
+              <term>upper bound</term> for <m>A</m>.
+              If no upper bound exists, we say <m>A</m> is
+              <term>unbounded above</term>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Similarly, <m>A</m> is said to be
+              <term>bounded below</term>
+              if there exists <m>m\in\R</m> such that <m>x\geq m</m> for all <m>x\in A</m>.
+              Such a number <m>m</m> is called a
+              <term>lower bound</term> for <m>A</m>.
+              If no lower bound exists, we say <m>A</m> is
+              <term>unbounded below</term>.
+            </p>
+          </li>
+          <li>
+            <p>
+              We say <m>A</m> is <term>bounded</term>
+              if it is both bounded above and bounded below.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+  <exercise xml:id="ex_bounded">
+    <statement>
+      <p>
+        Show that <m>A</m> is bounded if and only if there is <m>t\geq 0</m> so that
+        <m>|x|\leq t</m> for all <m>x\in A</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If <m>A</m> is bounded, there are <m>m,M\in\mathbb{R}</m> so that
+        <m>m\leq x\leq M</m> for all <m>x\in A</m>.
+        We claim that <m>|x|\leq \max\{|m|,|M|\}</m> for all <m>x\in A</m>.
+        Indeed, if <m>x\in A</m> then
+        <me>
+          x\leq M\leq  |M| \leq \max\{|m|,|M|\}
+        </me>,
+        and similarly
+        <me>
+          x\geq m \geq - |m| \geq -\max\{|m|,|M|\}
+        </me>
+        so that
+        <me>
+          |x|\leq \max\{|m|,|M|\}
+        </me>
+        for all <m>x\in A</m>.
+        Conversely, if <m>|x|\leq t</m> for all <m>x\in A</m>,
+        then <m>-t\leq x\leq t</m> for all <m>x\in A</m>
+        (since either <m>x\geq 0</m> in which case <m>x=|x|\leq t</m>,
+        or <m>x\leq 0</m>, so <m>x=-|x|\geq -t</m>).
+        Thus, <m>-t</m> is a lower bound and <m>t</m> is an upper bound for <m>A</m>.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    Recall that we write intervals using the notation
+    <me>
+      [a,b]=\{x\in\mathbb{R} \;\; | \;\; a\leq x\leq b\}, \;\;\; (a,b)=\{x\in\mathbb{R} \;\; | \;\; a\lt  x\lt  b\}
+    </me>,
+    <me>
+      (a,b]=\{x\in\mathbb{R} \;\; | \;\; a\lt  x\leq b\}, \;\;\; [a,b)=\{x\in\mathbb{R} \;\; | \;\; a\leq  x\lt  b\}
+    </me>.
+  </p>
+  <p>
+    For unbounded intervals, we write
+    <me>
+      [a,\infty)=\{x\in\mathbb{R} \;\; | \;\; a\leq x \}, \;\;\; (a,\infty)=\{x\in\mathbb{R} \;\; | \;\; a\lt  x \}
+    </me>,
+    <me>
+      (-\infty,b]=\{x\in\mathbb{R} \;\; | \;\;  x\leq b\}, \;\;\; (-\infty,b)=\{x\in\mathbb{R} \;\; | \;\; x\lt  b\}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <ol label="labelalph">
+        <li>
+          <p>
+            Let <m>A=[0,3)</m>.
+            <m>A</m> is bounded above since <m>3</m> is an upper bound;
+            <m>A</m> is bounded below since <m>0</m> is a lower bound.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A = \{ t+\frac{1}{t}\, :\, t>0\}</m>.
+            <m>A</m> is bounded below since <m>0</m> is a lower bound.
+            (We could have also shown it was bounded below by using the AM-GM inequality:
+            for <m>t>0</m>,
+            <me>
+              \frac{t+1/t}{2}\geq \sqrt{t\cdot \frac{1}{t}}=1
+            </me>,
+            so <m>2</m> is also a lower bound for <m>A</m>.)
+            But <m>A</m> is not bounded above, since,
+            for any <m>M\in\mathbb{R}</m> we can find <m>t>0</m> such that <m>t+\frac{1}{t}\geq M</m>:
+            if <m>M \leq 0</m> then any <m>t>0</m> works;
+            if <m>M>0</m> then <m>t= M</m> works since
+            <m>M+\frac{1}{M}\in A</m> is greater than <m>M</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A=\{ (-1)^n(1-\frac{1}{n})\, |\, n\in\N\}=\{0,\frac{1}{2},-\frac{2}{3},\frac{3}{4},-\frac{4}{5},\frac{5}{6},\cdots \}</m>.
+            <m>A</m> is bounded: 1 is an upper bound since for all <m>n</m>:
+            <me>
+              (-1)^{n}\left(1-\frac{1}{n}\right)\leq 1-\frac{1}{n}\lt 1
+            </me>
+            and one can show similarly <m>-1</m> is a lower bound.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>A=\{\sin n\, |\, n\in\N\}=\{ \sin 1,\, \sin 2,\, \sin 3,\, \cdots \}</m>.
+            Because <m>-1 \leq \sin x \leq 1</m> for all <m>x</m>,
+            <m>A \subseteq [-1,1]</m>, so <m>A</m> is bounded.
+          </p>
+        </li>
+      </ol>
+    </statement>
+  </example>
+</section>

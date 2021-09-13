@@ -1,0 +1,325 @@
+<section xml:id="evenandoddpermutations">
+  <title>Even and Odd permutations</title>
+  <p>
+    The content of this section will be a little easier to talk about with a motivating example.
+    Recall the <term>9-puzzle</term>:
+    this is a puzzle that involves a table with 9 numbers and a missing space in a 3 by 3 grid, like so.
+    <me>
+      \begin{matrix}\Box  \amp  2  \amp  3  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix}
+    </me>
+    where the box represents an empty space.
+    The objective is to put all the numbers in order by sliding numbers into the empty space,
+    creating a new empty space, and so on.
+    So for example,
+    the above puzzle can be solved using the following moves:
+    <me>
+      \begin{matrix}\Box  \amp  2  \amp  3  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \longrightarrow \begin{matrix}1 \amp  2  \amp  3  \cr \Box  \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \longrightarrow \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp   \Box  \amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \longrightarrow \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  \Box  \cr7 \amp  8 \amp  6 \cr \end{matrix} \longrightarrow \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  6  \cr7 \amp  8 \amp  \Box \cr \end{matrix}
+    </me>
+  </p>
+  <p>
+    This puzzle is a 3 by 3 variant of the <term>15-puzzle</term>
+    (on a 4 by 4 grid)
+    that was famous in the late 1800s.
+  </p>
+  <p>
+    Not every arrangement of numbers can be solved.
+    For example, there is no way of solving the puzzle below
+    <me>
+      \begin{matrix}\Box  \amp  3  \amp  2  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix}
+    </me>.
+  </p>
+  <p>
+    How do we know that a given arrangement of numbers and a space can be solved?
+    The math in this section will give us a way of figuring this out.
+  </p>
+  <p>
+    We start with the following lemma.
+  </p>
+  <lemma xml:id="l_prodof2cycles">
+    <statement>
+      <p>
+        Every permutation in <m>\mathrm{S}_n</m> is a product of cycles of length <m>2</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Let <m>f</m> be a permutation in <m>\mathrm{S}_n</m>.
+      We can also assume that <m>f</m> is a cycle of length <m>r</m> since otherwise,
+      any permutation in <m>\mathrm{S}_n</m> is a product of disjoint cycles,
+      and we can just multiply together the respective products of 2-cycles we get.
+    </p>
+    <p>
+      So suppose <m>f=(a_1\ a_2\ a_3\ \ldots a_{r-1}\ a_r)</m>.
+      Then
+      <me>
+        f=\big(a_1\ a_2\ a_3\ \ldots a_{r-1}\ a_r\big)=\big(a_1\ a_{r}\big)\big(a_1\ a_{r-1}\big)\big(a_1\ a_{r-2}\big)\cdots \big(a_1\ a_{3}\big)\big(a_1\ a_{2}\big)
+      </me>.
+    </p>
+    <p>
+      One can check this by plugging in various values <m>a_i</m>.
+      If we plug in <m>a_3</m>, for example,
+      remember that when plugging a number into a composition <m>f_{1}...f_{n}</m>,
+      we plug the number into <m>f_n</m> first,
+      then the resulting value into <m>f_{n-1}</m>, and so on.
+      So in the above product for <m>f</m>,
+      we first plug <m>a_3</m> into <m>(a_{1}\; a_{2})</m>,
+      which just returns <m>a_{3}</m>.
+      Then we plug that into <m>(a_{1}\; a_{3})</m>, which gives <m>a_{1}</m>.
+      Then we plug that into <m>(a_{1}\; a_{4})</m> ad we get <m>a_{4}</m>.
+      But now <m>a_{4}</m> does not appear in any other <m>2</m>-cycle,
+      and so they all return <m>a_{4}</m>.
+      Hence, <m>f(a_{3})=a_{4}</m>,
+      and we can show similarly that
+      <m>f(a_{i})=a_{i+1}</m> for all <m>i</m> except <m>r</m> where <m>f(a_{r})=a_{1}</m>.
+    </p>
+  </proof>
+  <p>
+    Note that the product of cycles in this Lemma is far from being unique,
+    and the cycles of order <m>2</m> in this Lemma are not necessary disjoint.
+  </p>
+  <p>
+    We would like to define a permutation to be <term>even</term>
+    if it is a product of even number of cycles of order <m>2</m>,
+    and <term>odd</term> if it is a product of odd number of cycles of order <m>2</m>.
+    However, it is not clear from this definition whether or not a permutation can be both even and odd at the same time.
+    Hence, we will actually define the properties of being even and odd slightly differently,
+    and then later deduce that even and odd permutations can be written as an even or odd number of <m>2</m>-cycles.
+  </p>
+  <p>
+    Our ad-hoc definition of even and odd permutations in <m>S_{n}</m> will rely on the following function of <m>n</m> variables <m>x_{1},...,x_{n}</m>:
+    <me>
+      \Delta (x_{1},...,x_{n}) = \prod_{1\leq i\lt j\leq n} (x_{i}-x_{j})
+    </me>,
+    that is, the product of all pairs
+    <m>(x_{i}-x_{j})</m> where <m>1\leq i\lt j\leq n</m>.
+    So for example, in <m>S_{3}</m>, we have
+    <me>
+      \Delta (x_{1},...,x_{n}) = (x_{1}-x_{2})(x_{2}-x_{3})(x_{1}-x_{3})
+    </me>.
+  </p>
+  <p>
+    Given a permutation <m>f\in S_{n}</m>,
+    we will define <m>f(\Delta)</m> to be the function
+    <me>
+      f(\Delta)(x_{1},...,x_{n})  = \prod_{1\leq i\lt j\leq n} (x_{f(i)}-x_{f(j)})
+    </me>.
+  </p>
+  <p>
+    Notice that <m>f(\Delta)</m> is actually just <m>\pm \Delta</m>,
+    since all the permutation does is change some of the <m>(x_{i}-x_{j})</m> to either
+    <m>(x_{i}-x_{j})</m> or <m>(x_{j}-x_{i})</m>.
+    We define the <term>signature</term> of <m>f</m> to be
+    <me>
+      \mbox{sgn} (f) = \frac{f(\Delta)}{\Delta}
+    </me>,
+    that is, <m>\mbox{sgn} (f) =1</m> if <m>f(\Delta)=\Delta</m> and
+    <m>\mbox{sgn} (f) =-1</m> if <m>f(\Delta)=-\Delta</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        We say a permutation <m>f\in S_{n}</m> is <term>even</term>
+        if <m>\mbox{sgn} (f) =1</m> and <term>odd</term>
+        if <m>\mbox{sgn} (f) =-1</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    The above definition of even and odd and the signature may seem really technical to work with,
+    but the lemma below will provide us with some short-cuts so that we never actually have to refer to <m>n</m>-variable polynomials:
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        Let <m>n\in\mathbb{N}</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              The signature of <m>\iota</m> is <m>1</m> and any <m>2</m>-cycle is <m>-1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For any <m>f</m> and <m>g</m> in <m>\mathrm{S}_n</m>,
+              we have <m>\mathrm{sgn}(fg)=\mathrm{sgn}(f)\mathrm{sgn}(g)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The signature of a cycle of length <m>r</m> is <m>(-1)^{r-1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              For every permutation <m>f\in\mathrm{S}_n</m>,
+              let <m>f=\sigma_{1}\sigma_{2}\cdots\sigma_{s}</m> where
+              <m>\sigma_{1},\ldots,\sigma_{s}</m> are disjoint cycles of lengths <m>r_{1},\ldots,r_{s}</m>.
+              Then
+              <me>
+                \mathrm{sgn}(f)=(-1)^{r_1-1}(-1)^{r_2-1}(-1)^{r_3-1}\cdots (-1)^{r_s-1}
+              </me>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f\in S_{n}</m>, then <m>\mathrm{sgn}(f)=\mathrm{sgn}(f^{-1})</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          First, <m>\mbox{sgn} (\iota)=\frac{\Delta}{\Delta}=1</m>.
+          Next, let <m>(a\; b)</m> be a <m>2</m>-cycle with <m>a\lt b</m>.
+          Then the only terms <m>(x_{i}-x_{j})</m> in the polynomial <m>\Delta</m> that change sign (i.e. are reversed) when we compute <m>(a\; b)(\Delta)</m> are the terms
+          <me>
+            \Big((x_{a}-x_{a+1})(x_{a}-x_{a+2})\cdots (x_{a}-x_{b})\Big) \Big((x_{a+1}-x_{b})(x_{a+2}-x_{b})\cdots (x_{b-1}-x_{b})\Big)
+          </me>
+          There are <m>b-a</m> terms in the first set of big parentheses and <m>b-a-1</m> in the second set,
+          for a total of <m>2(b-a)-1</m>, an odd number, hence
+          <me>
+            (a\; b)(\Delta) = (-1)^{2(b-a)-1} \Delta = -\Delta
+          </me>,
+          so <m>\mbox{sgn} ((a\; b))=-1</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Let <m>f</m> and <m>g</m> be two permutations.
+          Notice that <m>f(-\Delta)=-f(\Delta)</m>, and so
+          <me>
+            fg(\Delta) =f(g(\Delta)) = f(\mbox{sgn} (g)\Delta) =  \mbox{sgn} (g) f(\Delta) =\mbox{sgn} (g)\mbox{sgn} (f)\Delta
+          </me>
+          and this implies <m>\mathrm{sgn}(fg)=\mathrm{sgn}(f)\mathrm{sgn}(g)</m>
+        </p>
+      </li>
+      <li>
+        <p>
+          Now things get a lot easier: If <m>f</m> is an <m>r</m>-cycle,
+          then by the proof of <xref ref="l_prodof2cycles">Lemma</xref>,
+          it is a product of <m>r-1</m> many <m>2</m>-cycles <m>\sigma_{1},...,\sigma_{r}</m>,
+          so by (a) and (b),
+          <me>
+            \mbox{sgn} (f) = \mbox{sgn} (\sigma_{1})\cdots  \mbox{sgn} (\sigma_{r})  =(-1)^{r-1}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          The same proof as in (c) proves this one.
+        </p>
+      </li>
+      <li>
+        <p>
+          Finally,
+          <me>
+            1= \mbox{sgn} (\iota)  = \mbox{sgn} (ff^{-1})=\mbox{sgn} (f)\mbox{sgn} (f^{-1})
+          </me>
+          and since the signature is always <m>\pm 1</m>,
+          we can divide both sides by <m>\mbox{sgn} (f^{-1})</m> to get
+          <me>
+            \mbox{sgn} (f)=\mbox{sgn} (f^{-1})^{-1} = \mbox{sgn} (f^{-1})
+          </me>.
+        </p>
+      </li>
+    </ol>
+  </proof>
+  <p>
+    As a corollary of the above lemma, we get the following.
+  </p>
+  <corollary>
+    <statement>
+      <p>
+        Let <m>f</m> be a permutation in <m>\mathrm{S}_n</m>.
+        <ol>
+          <li>
+            <p>
+              <m>f</m> is even if and only if it is a product of even number of cycles of order <m>2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f</m> is odd if and only if it is a product of odd number of cycles of order <m>2</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </corollary>
+  <example>
+    <statement>
+      <p>
+        The permutation
+        <me>
+          \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \cr2 \amp  3 \amp  1 \amp  5 \amp  4 \cr \end{matrix} \right)=\big(1\ 2\ 3\big)\big(4\ 5\big)=\big(1\ 3\big)\big(1\ 2\big)\big(4\ 5\big)
+        </me>
+        is odd, because it is a product of <m>3</m> cycles of length <m>2</m>.
+      </p>
+      <p>
+        <m>\left(\begin{matrix}1 \amp 2 \amp 3 \amp 4 \amp 5 \cr2 \amp 3 \amp 4 \amp 5 \amp 1 \cr \end{matrix} \right)=\big(1\ 2\ 3\ 4\ 5\big)=\big(1\ 5\big)\big(1\ 4\big)\big(1\ 3\big)\big(1\ 2\big)</m> is even.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Let's revisit the <m>9</m>-puzzle and start with the one we solved earlier,
+        that is, where we wanted to rearrange
+        <me>
+          \begin{matrix}\Box  \amp  2  \amp  3  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix}  \;\;\;\; \mbox{ into }  \;\;\;\; \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  6  \cr7 \amp  8 \amp  \Box \cr \end{matrix}
+        </me>.
+      </p>
+      <p>
+        If we consider the <m>\Box</m> as being <m>9</m>,
+        the above arrangement on the left corresponds to applying the permutation
+        <me>
+          f=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7 \amp  8 \amp  9 \cr4 \amp  2 \amp  3 \amp  5 \amp  6 \amp  9 \amp  7 \amp  8 \amp  1\cr \end{matrix} \right) =(1 \; 4 \; 5 \; 6 \; 9 )(2)(3)(7)(8)=(1 \; 4 \; 5 \; 6 \; 9 )
+        </me>
+        to the grid on the right.
+        Performing a move by moving a number into the <m>\Box</m> corresponds to applying a <m>2</m>-cycle.
+        Let's revisit the moves we did earlier to solve this puzzle and indicate what <m>2</m>-cycles we are using:
+        <me>
+          \begin{matrix}\Box  \amp  2  \amp  3  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \;\; \stackrel{(1 \; 4)}{\longrightarrow} \;\; \begin{matrix}1 \amp  2  \amp  3  \cr \Box  \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \;\; \stackrel{(4 \; 5)}{\longrightarrow} \;\; \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp   \Box  \amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix} \;\; \stackrel{(5 \; 6)}{\longrightarrow} \;\; \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  \Box  \cr7 \amp  8 \amp  6 \cr \end{matrix} \;\; \stackrel{(6 \; 9)}{\longrightarrow} \;\; \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  6  \cr7 \amp  8 \amp  \Box \cr \end{matrix}
+        </me>
+      </p>
+      <p>
+        Thus, applying the permutation
+        <m>(6 \; 9)(5 \; 6)(4 \; 5)(1 \; 4)</m> returns the board to the original order, that is,
+        it inverts the permutation <m>(1 \; 4 \; 5 \; 6 \; 9 )</m>.
+      </p>
+      <p>
+        Now let's look at the following puzzle:
+        <me>
+          \begin{matrix}\Box  \amp  3  \amp  2  \cr1 \amp  4\amp  5 \cr7 \amp  8 \amp  6 \cr \end{matrix}  \;\;\;\; \mbox{ into }  \;\;\;\; \begin{matrix}1 \amp  2  \amp  3  \cr4 \amp  5 \amp  6  \cr7 \amp  8 \amp  \Box \cr \end{matrix}
+        </me>.
+      </p>
+      <p>
+        The permutation corresponding to this arrangement is
+        <me>
+          g=\left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7 \amp  8 \amp  9 \cr4 \amp  3 \amp  2 \amp  5 \amp  6 \amp  9 \amp  7 \amp  8 \amp  1\cr \end{matrix} \right) =(1 \; 4 \; 5 \; 6 \; 9 )(2\; 3)(7)(8)=(1 \; 4 \; 5 \; 6 \; 9 )(2 \; 3)
+        </me>
+      </p>
+      <p>
+        Notice that if the puzzle can be solved,
+        that requires moving the square up or down an even number of times,
+        and left and right an even number of times.
+        Thus, the puzzle must take an even number of moves,
+        and since each move is a <m>2</m>-cycle,
+        that implies that the inverse of the above permutation must be even,
+        and hence the permutation itself must also be even (this uses Lemma 7.10 (a),(d) and (e)).
+        However, the signature of the above permutation (using Lemma 7.10 (b) and (c)) is
+        <me>
+          \mbox{sgn} \Big((1 \; 4 \; 5 \; 6 \; 9)(2 \; 3)\Big) =\mbox{sgn} \Big((1 \; 4 \; 5 \; 6 \; 9)\Big)\mbox{sgn} \Big((2 \; 3)\Big) =(-1)^{5-1}(-1)^{2-1} = -1
+        </me>.
+        and so this is an odd permutation,
+        and this gives a contradiction.
+        Thus, the original puzzle is not solvable.
+      </p>
+    </statement>
+  </example>
+</section>

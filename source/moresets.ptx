@@ -1,0 +1,10 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="moresets">
+  <title>More set theory and Equivalence relations</title>
+  <xi:include  href="cartesianproducts.ptx"/>
+  <xi:include  href="maps.ptx"/>
+  <xi:include  href="injectivesurjective.ptx"/>
+  <xi:include  href="imagesandpreimages.ptx"/>
+  <xi:include  href="sizesofsets.ptx"/>
+  <xi:include  href="equivalencerels.ptx"/>
+  <xi:include  href="moresettheoryexercises.ptx"/>
+</chapter>

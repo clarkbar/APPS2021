@@ -1,0 +1,67 @@
+<section xml:id="archimedeanproperty">
+  <title>The integers and the Archimedean Property</title>
+  <p>
+    An important subset of the reals is the <term>integers </term>
+    <me>
+      \mathbb{Z}=\{...-2,-1,0,1,2,...\}
+    </me>
+  </p>
+  <p>
+    We will also let <m>\mathbb{N}=\{1,2,3...\}</m> denote the
+    <term>positive integers</term>
+    or <term>natural numbers</term><fn>
+    Some courses assume <m>\mathbb{N}</m> also contains <m>0</m>.
+    It's best to clarify this with the instructor if you aren't sure.
+    </fn>.
+  </p>
+  <p>
+    Notice that the set <m>\mathbb{N}</m> has the properties that <m>1 \in \mathbb{N}</m>,
+    and that if <m>x \in \mathbb{N}</m>,
+    then also <m>x+1 \in \mathbb{N}</m>.
+    <term>Moreover,
+    <m>\mathbb{N}</m> is the smallest subset of the reals which has these two properties.</term>
+    It is this observation which makes mathematical induction such a powerful tool for proving statements about the natural numbers <mdash/> the natural numbers and mathematical induction are inextricably bound up together.
+    We shall examine induction more carefully below in Section 4.
+  </p>
+  <p>
+    An important result about the reals and integers is the following:
+    <ul>
+      <li>
+        <title>Archimedean property:</title>
+        <p>
+          For every <m>x, y \in \mathbb{R}</m> with <m>x,y>0</m>,
+          there is an integer <m>n\in \mathbb{N}</m> so that <m>ny>x</m>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    This might seem like it should be obvious,
+    but how would you prove it?
+    Consider just finding an integer <m>n>x</m>.
+    If <m>x</m> was an integer, we could simply let <m>n=x+1</m>,
+    but if <m>x</m> is not an integer what would we do?
+    You might think
+    <q>round up to the nearest integer,</q>
+    but that this number exists <term>is</term>
+    what we are trying to show!
+    <term>Why not look at the decimal expansion
+    <m>x=a_{0}.a_{1}..</m>. and let <m>n=a_0+1</m>?</term> Firstly,
+    we haven't proven that decimal expansions even exist for any real number yet
+    (we will in a few weeks),
+    and second, the proof that each number has a decimal expansion <term>requires</term>
+    the Archimedean property.
+  </p>
+  <p>
+    In a couple of weeks' time, we will prove the Archimedean property,
+    as a consequence of the completeness axiom for the real numbers,
+    which we shall study in Section 5.<fn>
+    It is perhaps disconcerting that it's <term>not</term>
+    possible to prove the Archimedean property only using the rules (A0-A4) and (M0-M5),
+    together with (R1-R5) which are introduced in Section 3.
+    Indeed, it can be established that,
+    in the terminology of Section 3, there are ordered fields which do not satisfy the Archimedean property.
+    It is precisely because of pitfalls such as this that we are adopting a careful axiomatic perspective for the real numbers.
+    </fn>
+  </p>
+</section>

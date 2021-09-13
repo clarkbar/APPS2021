@@ -1,0 +1,74 @@
+<section xml:id="conjunction">
+  <title>Conjunction</title>
+  <p>
+    One can combine statements together to get new statements.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        If <m>A</m> and <m>B</m> are statements,
+        their <term>conjunction</term> is the statement <m>A \text{ and }   B</m>.
+        Some authors use the notations <m>A \wedge B</m> or
+        <m>A \\amp  B</m> for the conjunction of <m>A</m> and <m>B</m>.
+        For example, if <m>A</m> is the statement
+        <q><m>2</m> is even</q>
+        and <m>B</m> is the statement
+        <q><m>57</m> is prime,</q>
+        the statement <m>A \wedge B</m> asserts that
+        <q><m>2</m> is even and <m>57</m> is prime.</q>
+        The truth-value of the conjunction operates like this:
+        <me>
+          A \wedge B \text{ is true exactly when both } A\text{ is true and } B\text{ is true }
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    To unpack this, we use of a <term>truth table</term>.
+    When we combine statements <m>A</m>,
+    <m>B</m>, <m>C</m>, etc. to get a statement <m>P</m>,
+    a truth table is then a list of the truth-values of <m>P</m> depending on the truth-values of <m>A</m> and <m>B</m>.
+    Here is the truth table for the conjunction:
+  </p>
+  <tabular>
+    <row>
+      <cell><m>A</m></cell>
+      <cell><m>B</m></cell>
+      <cell><m>A \wedge B</m></cell>
+    </row>
+    <row bottom="minor">
+      <cell></cell>
+      <cell></cell>
+      <cell></cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>T</cell>
+      <cell>T</cell>
+    </row>
+    <row>
+      <cell>T</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>T</cell>
+      <cell>F</cell>
+    </row>
+    <row>
+      <cell>F</cell>
+      <cell>F</cell>
+      <cell>F</cell>
+    </row>
+  </tabular>
+  <example>
+    <statement>
+      <p>
+        From our truth table, we can see that the truth-value of
+        <q><m>2</m> is even and <m>57</m> is prime</q>
+        is False.
+      </p>
+    </statement>
+  </example>
+</section>

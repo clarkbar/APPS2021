@@ -1,0 +1,14 @@
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude"  xml:id="inequalities">
+  <title>Inequalities</title>
+  <introduction>
+    <p>
+      This week we will examine inequalities more closely,
+      and describe them formally in terms of just a few rules or <term>axioms</term>.
+    </p>
+  </introduction>
+  <xi:include  href="orderaxioms.ptx"/>
+  <xi:include  href="separatingproducts.ptx"/>
+  <xi:include  href="absolutevalues.ptx"/>
+  <xi:include  href="homogeneity.ptx"/>
+  <xi:include  href="inequalitiesexercises.ptx"/>
+</chapter>

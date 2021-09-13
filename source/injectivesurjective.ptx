@@ -1,0 +1,268 @@
+<section xml:id="injectivesurjective">
+  <title>Injective and surjective</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>f \colon X\rightarrow Y</m> be a function.
+        We say that
+        <ul>
+          <li>
+            <p>
+              the map <m>f</m> is <term>surjective</term>
+              (or a <term>surjection</term> or <term>onto</term>)
+              if and only if
+              <me>
+                (\forall y\in Y)(\exists x\in X)(f(x)=y);
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              the map <m>f</m> is <term>injective</term>
+              (or an <term>injection</term> or <term>one-to-one</term>)
+              if and only if
+              <me>
+                (\forall x,y\in X)((f(x)=f(y)) \implies (x=y));
+              </me>
+              and
+            </p>
+          </li>
+          <li>
+            <p>
+              the map <m>f</m> is bijective
+              (or a <term>bijection</term> or a
+              <term>one-to-one correspondence</term>)
+              if and only if it is injective and surjective.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Let <m>f \colon X \to Y</m> be a map.
+    The map <m>f</m> is an <term>injection</term> if and only if,
+    for every element <m>y \in Y</m>,
+    there exists at most one element <m>x \in X</m> such that <m>y =f(x)</m>.
+    The map <m>f</m> is a <term>surjection</term> if and only if,
+    for every element <m>y \in Y</m>,
+    there exists at <term>least</term>
+    one element <m>x \in X</m> such that <m>y = f(x)</m>.
+    Finally, the map <m>f</m> is a <term>bijection</term> if and only if,
+    for every element <m>y\in Y</m>,
+    there exists <term>exactly one</term>
+    element <m>x \in X</m> such that <m>y = f(x)</m>.
+  </p>
+  <p>
+    <image width="92.5%" source="Figures/inj-surj.png"/>
+  </p>
+  <note>
+    <p>
+      When proving that a function <m>f:X\rightarrow Y</m> is injective,
+      start by assuming <m>x,y\in X</m> are such that
+      <m>f(x)=f(y)</m> and show that this implies <m>x=y</m>.
+      To show a function is not injective,
+      you just need to find one pair
+      <m>x\neq y\in X</m> with <m>f(x)=f(y)</m>.
+    </p>
+  </note>
+  <example>
+    <statement>
+      <p>
+        The function <m>f\colon\mathbb{N}_0\rightarrow \mathbb{N}_0</m> defined by <m>f(n)=n^2</m> is injective.
+        To see this,
+        let <m>x,y\in\mathbb{N}_0</m> be such that <m>f(x)=f(y)</m>.
+        Then <m>x^2=y^2</m>, and so
+        <me>
+          0=x^2-y^2=(x-y)(x+y)
+        </me>
+        and since <m>x+y>0</m>, this means that <m>x-y=0</m>, i.e.
+        <m>x=y</m>.
+        Thus <m>f</m> is injective.
+        It is not surjective since there is no <m>n</m> so that <m>f(n)=2</m>.
+      </p>
+      <p>
+        If we change the domain from
+        <m>\mathbb{N}_0</m> to <m>\mathbb{Z}</m>,
+        then <m>f:\colon\mathbb{Z}\rightarrow \mathbb{N}_0</m> is no longer injective,
+        because <m>f(-1)=f(1)</m>.
+      </p>
+    </statement>
+  </example>
+  <note>
+    <p>
+      When proving that a function <m>f\colon X\rightarrow Y</m> is surjective,
+      start by assuming <m>y</m> is some element of <m>Y</m> and show that there must be an <m>x\in X</m> with <m>f(x)=y</m>.
+      To show it is not surjective,
+      you just need to exhibit one <m>y\in Y</m> for which
+      <m>f(x)\neq y</m> for all <m>x\in X</m>.
+    </p>
+  </note>
+  <example>
+    <statement>
+      <p>
+        The function <m>g\colon\mathbb{R}\rightarrow [-5,+\infty)=\{x\in\mathbb{R}: x\geq -5\}</m> defined by <m>g(x)=x^2+2x-4</m> is surjective.
+        Proof: let <m>y\geq -5</m>,
+        we need to show there is <m>x\in\mathbb{R}</m> so that <m>g(x)=y</m>,
+        that is, so that <m>x^2+2x-4=y</m>.
+        We can use the quadratic formula to get that <m>x</m> can be either
+        <me>
+          x=\frac{-2\pm \sqrt{4+4(4+y)}}{2}
+        </me>
+        and since <m>y\geq -5</m>,
+        the square root is defined and this gives a solution.
+        Thus, since we can find such an
+        <m>x\in \mathbb{R}</m> for every <m>y\in [-5,\infty)</m>,
+        this implies <m>g</m> is injective.
+      </p>
+      <p>
+        If we change the image to <m>[-6,+\infty)=\{x\in\mathbb{R} : x\geq -6\}</m>,
+        then this is not surjective:
+        if <m>-6=g(x)=x^2+2x-4</m> for some <m>x\in\mathbb{R}</m>,
+        then the quadratic formula says that <m>x=-1\pm i</m>,
+        but these roots are not in the real line.
+        Thus, there is no <m>x</m> so that <m>g(x)=-6</m>,
+        and so <m>g\colon \mathbb{R}\rightarrow [-6,+\infty)</m> is not surjective.
+      </p>
+    </statement>
+  </example>
+  <p>
+    The proof of the following result is a good one to study,
+    since it showcases how to prove injectivity and surjectivity for functions.
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> and <m>g:Y\rightarrow Z</m> be functions.
+        <ol>
+          <li>
+            <p>
+              If <m>f</m> and <m>g</m> are injective, so is <m>g\circ f</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f</m> and <m>g</m> are surjective, so is <m>g\circ f</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>f</m> and <m>g</m> are bijective, so is <m>g\circ f</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>f:X\rightarrow Y</m> and <m>g:Y\rightarrow Z</m> be functions.
+      <ol>
+        <li>
+          <p>
+            Suppose <m>f</m> and <m>g</m> are injective.
+            To show that <m>g\circ f</m> is injective,
+            we need to show that if <m>g\circ f(x)=g\circ f(y)</m>,
+            then <m>x=y</m>.
+            So suppose <m>x,y\in X</m> are so that <m>g\circ f(x)=g\circ f(y)</m>.
+            Then <m>g(f(x))=g(f(y))</m>.
+            Since <m>g</m> is injective, this means <m>f(x)=f(y)</m>;
+            since <m>f</m> is injective, this implies <m>x=y</m>, as desired.
+            This completes the proof that <m>g\circ f</m> is injective.
+          </p>
+        </li>
+        <li>
+          <p>
+            Now suppose <m>f</m> and <m>g</m> are surjective.
+            To show that <m>g\circ f</m> is surjective,
+            we need to show that for all <m>z\in Z</m>,
+            there is <m>x\in X</m> so that <m>z=g\circ f(x)=g(f(x))</m>.
+            Since <m>g</m> is surjective,
+            there is <m>y\in Y</m> so that <m>z=g(y)</m>;
+            since <m>f</m> is surjective,
+            there is <m>x\in X</m> so that <m>f(x)=y</m>,
+            and so <m>g(f(x))=g(y)=z</m>, as desired.
+            This finishes the proof that <m>g\circ f</m> is surjective.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <m>g</m> and <m>f</m> are bijective,
+            then they are both injective and surjective,
+            so by the previous two cases,
+            <m>g\circ f</m> is also both injective and surjective,
+            hence <m>g\circ f</m> is bijective.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </proof>
+  <p>
+    When mathematicians are presented with a set, for many purposes,
+    they won't be too very worried about what the elements are,
+    but what structures they have.
+    The idea is that a bijection of sets is meant to be a
+    <term>mere labelling</term>
+    of the elements of a set <m>S</m> by the elements of a set <m>T</m>.
+    That labelling is meant to be a perfect match of information:
+    you should never use the same label twice,
+    and all the labels should be used.
+    So a <term>bijection</term> of sets is a map
+    <m>f\colon S \to T</m> such that for any <m>t\in T</m>,
+    there exists a unique <m>s\in S</m> such that <m>f(s)=t</m>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be two sets.
+        There is a bijection <m>\sigma \colon S \times T \to T \times S</m>,
+        which is given by <m>\sigma(s,t) = (t,s)</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    If <m>f \colon S \to T</m> is a bijection,
+    then there exists a map <m>g \colon T \to S</m> such that <m>g \circ f = \mathrm{id}</m>,
+    and <m>f \circ g = \mathrm{id}</m>.
+    To prove this, let us construct <m>g</m>:
+    the function <m>f</m> gives us a subset
+    <m>\Gamma(f) \subseteq S \times T</m> such that for any <m>s \in S</m>,
+    there exists a unique <m>t \in T</m> such that <m>(s, t) \in \Gamma(f)</m>.
+    So now let's define <m>g = (T, S, \Gamma(g))</m>,
+    where <m>\Gamma(g) = \{ (t,s) \in T \times S : (s, t) \in \Gamma(f) \}</m>.
+    Of course <m>\Gamma(g)</m> makes perfect sense as a subset,
+    but we aren't done:
+    we have to show it is a map from <m>S</m> to <m>T</m>.
+    For this we can use the fact that,
+    since <m>f</m> is a bijection, for every <m>t \in T</m>,
+    there exists a unique <m>s \in S</m> such that <m>(s,t) \in \Gamma(f)</m>.
+    In other words, for every <m>t \in T</m>,
+    there exists a unique <m>s \in S</m> such that <m>(t,s) \in \Gamma(g)</m>.
+    Thus if <m>t \in T</m>, then
+    <m>g(t) \in S</m> is the unique element such that <m>f(g(t) = t</m>.
+    Thus <m>f \circ g = \mathrm{id}</m>.
+    To see that <m>g \circ f = \mathrm{id}</m>, let <m>s \in S</m>;
+    then <m>g(f(s)) \in S</m> is the unique element such that <m>f(g(f(s))) = f(s)</m>.
+    But since this element of <m>S</m> is
+    <term>unique</term> with this property,
+    it follows that <m>g(f(s)) = s</m>.
+  </p>
+  <p>
+    The converse is also correct:
+    if <m>f \colon S \to T</m> is a map such that there exists a function <m>g \colon T \to S</m> such that
+    <m>g \circ f =\mathrm{id}</m> and <m>f \circ g = \mathrm{id}</m>,
+    then <m>f</m> is a bijection.
+    Indeed, let <m>t \in T</m> be an element;
+    we aim to prove that there exists a unique element <m>s \in S</m> such that <m>t = f(s)</m>.
+    The function <m>g</m> provides us with exactly such an element:
+    <m>g(t) \in T</m> is an element, and <m>t = f(g(t))</m>.
+    Now suppose that <m>s'\in S</m> is an element such that <m>t = f(s')</m>;
+    we see that <m>g(t) = g(f(s')) = s'</m>,
+    so we have the uniqueness we sought!
+  </p>
+  <p>
+    In this case, we say that <m>g</m> is the
+    <term>inverse</term> of <m>f</m>,
+    and we sometimes write <m>f^{-1}</m> for <m>g</m>.
+  </p>
+</section>

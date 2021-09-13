@@ -1,0 +1,58 @@
+<section xml:id="complements">
+  <title>Complements</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> be a set, and let <m>T \subseteq S</m> be a subset.
+        Then the <term>complement</term> of <m>T</m> in <m>S</m> is the subset
+        <me>
+          S \setminus T = \{ x \in S : x \notin T \} \subseteq S
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Assume that the subset <m>T \subseteq S</m> is identified using set-builder notation:
+    <me>
+      T = \{x \in S : A(x) \}
+    </me>.
+  </p>
+  <p>
+    Then we can do the same for its complement by using negation:
+    <me>
+      S \setminus T = \{x \in S : \overline{A}(x)\}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the set of even integers:
+        <me>
+          T = \{n \in \mathbb{Z} : 2\text{ divides } n\} \subseteq \mathbb{Z}
+        </me>.
+      </p>
+      <p>
+        Its complement in <m>\mathbb{Z}</m> is the set of odd integers:
+        <me>
+          \mathbb{Z} \setminus T = \{n \in \mathbb{Z} : 2\text{ does not divide } n\} \subseteq \mathbb{Z}
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Consider the subset
+        <me>
+          S = \{ x \in \mathbb{R} : x \geq 0 \}
+        </me>,
+        the set of real numbers no less than <m>0</m>.
+        Its complement in <m>\mathbb{R}</m> is
+        <me>
+          \mathbb{R} \setminus S = \{ x \in \mathbb{R} : x \lt  0 \}
+        </me>,
+        the set of real numbers less than <m>0</m>.
+      </p>
+    </statement>
+  </example>
+</section>

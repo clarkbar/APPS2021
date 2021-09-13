@@ -1,0 +1,128 @@
+<section xml:id="powersofintegers">
+  <title>Powers</title>
+  <theorem xml:id="t_perfectsquare">
+    <statement>
+      <p>
+        Let <m>n</m> be a positive integer.
+        Then <m>\sqrt{n}\in\mathbb{Q}</m> if and only if <m>n</m> is a perfect square, that is,
+        <m>n=m^2</m> for some integer <m>m</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Suppose <m>\sqrt{n}\in\mathbb{Q}</m>.
+      Thus <m>\sqrt{n} = \frac{a}{b}</m>,
+      and <m>\frac{a^2}{b^2} = n</m>.
+      By <xref ref="lem_rationalsascoprimefractions">Lemma</xref>,
+      we may assume that <m>a</m> and <m>b</m> are coprime and positive.
+      Now since <m>n = \frac{n}{1}</m>,
+      the uniqueness of <xref ref="lem_rationalsascoprimefractions">Lemma</xref> implies that <m>b^2=1</m>.
+      Since <m>b</m> is positive, it follows that <m>b = 1</m>.
+    </p>
+  </proof>
+  <p>
+    Below, we say an integer <m>a</m> is an
+    <term><m>n</m>th power</term>
+    if <m>a=b^n</m> for some integer <m>b</m>.
+  </p>
+  <theorem xml:id="t_abn">
+    <statement>
+      <p>
+        If <m>a,b\in\mathbb{N}</m> are coprime,
+        and <m>ab</m> is an <m>n</m>th power,
+        then so are <m>a</m> and <m>b</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      If <m>a=1</m>, then we have <m>ab=b</m> is an <m>n</m>th power,
+      so the theorem is trivial in this case,
+      and similarly if <m>b=1</m>,
+      so we can assume <m>a,b \geq 2</m>, so we can apply the FTA.
+    </p>
+    <p>
+      Let <m>a=p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}</m> and
+      <m>b=q_{1}^{s_{1}}\cdots q_{\ell}^{s_{\ell}}</m> be the prime factorizations of <m>a</m> and <m>b</m>.
+      Since <m>a</m> and <m>b</m> are coprime,
+      they share no common prime factors,
+      so <m>p_{i}\neq q_{j}</m> for all <m>j</m>.
+      By assumption <m>ab=c^n</m> for some <m>c</m>.
+      Let <m>w_{1}^{t_{1}}\cdots w_{j}^{t_{j}}</m> be the prime facorization for <m>c</m>, then
+      <me>
+        ab = p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}q_{1}^{s_{1}}\cdots q_{\ell}^{s_{\ell}} =c^n=w_{1}^{nt_{1}}\cdots w_{j}^{nt_{j}}
+      </me>.
+    </p>
+    <p>
+      By the FTA, these prime factorizations are equal,
+      which means for each <m>i</m>,
+      <m>p_{i}=w_{j}</m> for some <m>j</m>, and <m>r_{i}=nt_{j}</m>.
+      In particular, <m>n</m> divides <m>r_{i}</m> for all <m>i</m>,
+      and so <m>a</m> is an <m>n</m>th power.
+      The same holds for <m>b</m>.
+    </p>
+  </proof>
+  <p>
+    Let's do an example of another diophantine equation.
+    This one is from Liebeck
+    (but is not proven correctly there).
+  </p>
+  <example>
+    <statement>
+      <p>
+        Find all integer solutions to <m>4x^2=y^3+1</m>.
+      </p>
+      <p>
+        <em>Reductions:</em> If <m>(x,y)</m> is a solution,
+        then <m>(-x,y)</m> is also a solution,
+        so we can assume <m>x\geq 0</m>.
+        If <m>x=0</m>, then <m>y^3=-1</m>,
+        which is only possible if <m>y=-1</m>.
+        So now we can assume <m>x>0</m>.
+        But then <m>y^3+1=4x^2\geq 4</m>,
+        so we must have <m>y>0</m> as well.
+      </p>
+      <p>
+        We are now left to finding all integer solutions <m>x,y>0</m>.
+        Observe that
+        <me>
+          y^3=4x^2-1=(2x-1)(2x+1)
+        </me>.
+      </p>
+      <p>
+        By The Linear Combination Lemma,
+        the gcd of <m>2x-1</m> and <m>2x+1</m> must divide <m>2x+1-(2x-1)=2</m>,
+        so the gcd is either <m>1</m> or <m>2</m>.
+        However, since both of these numbers are odd,
+        the gcd must actually be <m>1</m>.
+        Hence, <m>2x\pm 1</m> are coprime.
+      </p>
+      <p>
+        By <xref ref="t_abn">Theorem</xref>,
+        <m>2x\pm 1</m> are both cubes.
+        Thus, there are <m>m,n\in\mathbb{Z}</m> so that <m>m^3=2x+1</m> and <m>n^3=2x-1</m>.
+        Since <m>x</m> is a positive integer,
+        so are <m>m^3</m> and <m>n^3</m>,
+        and thus so are <m>m</m> and <m>n</m>.
+        Then
+        <me>
+          2=2x+1-(2x-1)=m^3-n^3=(m-n)(m^2+mn+n^2)
+        </me>,
+        so <m>m-n</m> divides <m>2</m>,
+        hence it is either <m>1</m> or <m>2</m>
+        (since <m>m>n</m>).
+        If it is <m>1</m>, then <m>m=n+1</m>,
+        and so by the above equation
+        <me>
+          2=m^3-n^3=(n+1)^3-n^3=3n^2+3n+1\geq 3\cdot 1^2+3\cdot 1 + 1 = 7
+        </me>
+        which is a contradiction.
+        The case that <m>m-n=1</m> can be handled similarly.
+        Thus, there are <term>no integer solutions</term>
+        to <m>4x^2=y^3+1</m> when <m>x>0</m>.
+        Thus, the only integer solution is <m>(x,y)=(0,-1)</m>.
+      </p>
+    </statement>
+  </example>
+</section>

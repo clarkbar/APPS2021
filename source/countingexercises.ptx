@@ -1,0 +1,339 @@
+<section xml:id="countingexercises">
+  <title>Exercises</title>
+  <exercise>
+    <statement>
+      <p>
+        How many ways are there for <m>n</m> people to stand in a circle?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Let's first count the number of ways to order people clockwise around a circle where the first person stands at a specific spot.
+        This is just <m>n!</m>.
+        However, we are counting the number of ways for <m>n</m> people to stand in a circle,
+        and so there is no first position,
+        and for such an arrangement, there are <m>n</m> ways to pick who should be the
+        <q>first person.</q>
+        Thus, we overcounted by a factor <m>n</m>,
+        so dividing <m>n!</m> by <m>n</m> gives the answer <m>(n-1)!</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        How many ways are there to partition a set of size <m>n</m> into two subsets (one of which can be empty)?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        For 2 sets, if <m>S</m> is our set,
+        notice that to each <m>A\subseteq S</m> there corresponds a partition of <m>S</m>,
+        namely <m>\{A,S\backslash A\}</m>.
+        Thus, the number of partitions is the same as the number of subsets,
+        which is <m>2^{n}</m>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Determine how many ways there are to distribute <m>9</m> sweeties in <m>4</m> boxes if
+        <ol label="labelalph">
+          <li>
+            <p>
+              The sweeties and boxes are distinct.
+              <solution>
+                <p>
+                  For each sweetie,
+                  there are <m>4</m> options for which box to place it in,
+                  thus by the multiplication principle,
+                  the number of options is <m>4^{9}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              The sweeties are identical and the boxes are distinct.
+              <solution>
+                <p>
+                  Using the method in <xref ref="identicalballsinboxes">Example</xref>,
+                  this is equal to the number of ways of placing <m>4-1 = 3</m> dividers in a line of <m>9</m> balls,
+                  which is <m>{{9+3}\choose {3}} = {12 \choose 3}</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        How many numbers at most 200 are divisible by
+        <ol label="labelalph">
+          <li>
+            <p>
+              5 or 6?
+              <solution>
+                <p>
+                  The largest multiple of 6 at most 200 is 192,
+                  and so there are 192/6=31 multiples of 6 at most 200
+                  (call this set <m>A</m>).
+                  Similarly, there are 200/5=40 multiples of 5
+                  (call this set <m>B</m>).
+                  The largest multiple of <m>5\cdot 6=30</m> is 180,
+                  and so there are at most <m>180/30=6</m> numbers divisible by 5 and 6, thus
+                  <me>
+                    |A\cup B| = |A|+|B|-|A\cap B| = 31+40-6 = 65
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              3,4 or 5?
+              <solution>
+                <p>
+                  Homework problem.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              3,5, or 6?
+              <solution>
+                <p>
+                  Let <m>A,B,C</m> be those numbers at most 200 which are divisible by 3,5 and 6 respectively.
+                  We want to figure out what <m>|A\cup B\cup C|</m> is.
+                  Notice that <m>C\subseteq A</m>,
+                  and so <m>A\cup B\cup C = A\cup B</m>.
+                  Thus, by the inclusion exclusion principle,
+                  <me>
+                    |A\cup B\cup C|=| A\cup B|=|A|+|B|-|A\cap B| =66 + 40-13 = 93
+                  </me>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Use a combinatorial argument to prove that for <m>2\leq k\leq n</m>,
+        <me>
+          {k \choose 2} + {n-k \choose 2}+k(n-k) = {n \choose 2}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The term on the right is the number of ways to choose two elements from a set <m>S</m> of size <m>n</m>.
+        We can alternatively count this as follows:
+        first let <m>2\leq k\leq n</m> and let <m>A\subseteq S</m> have size <m>k</m>.
+        Then we can pick a subset of <m>S</m> of size two either by picking two elements from <m>A</m>
+        (of which there are <m>{k \choose 2}</m> options),
+        or two elements from <m>S\setminus A</m>
+        (of which there are <m>{n-k \choose 2}</m> options)
+        , or one from <m>A</m> and one from
+        <m>S\setminus A</m> (of which there are <m>k(n-k)</m> options).
+        Adding these all together gives the left side of the above equation.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Use a combinatorial argument to show
+        <me>
+          \binom{nk}{2} = k \binom{n}{2} + n^2 \binom{k}{2}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Consider a grid of <m>nk</m> squares with <m>k</m> columns and <m>n</m> rows,
+        and let <m>A</m> be the set of unordered pairs of distinct squares from the <m>nk</m> squares in the grid.
+        Then <m>|A|=\binom{nk}{2}</m>.
+        Alternatively, we could compute <m>|A|</m> as follows:
+        let <m>A_{1}</m> be those pairs of squares that are in different columns and <m>A_{2}</m> be those pairs of squares in the same column:
+        there are <m>\binom{k}{2}</m> ways to pick the two columns,
+        then <m>n</m> ways to pick a square from one column,
+        then another <m>n</m> ways to pick a square from the second column,
+        thus <m>|A_{1}|=n^2 \binom{k}{2}</m>.
+        Next, to count <m>A_{2}</m>, there are <m>k</m> columns to pick from,
+        and then we can pick a subset of size <m>2</m> in
+        <m>\binom{n}{2}</m> ways from that column,
+        so <m>|A_{2}|=k \binom{n}{2}</m>.
+        Thus,
+        <me>
+          \binom{nk}{2} = |A|=|A_{1}|+|A_{2}|= n^2 \binom{k}{2}+k \binom{n}{2}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Give two proofs that <m>{2n\choose n}</m> is even.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        First solution: notice that
+        <m>{2n\choose n}</m> counts the number of sets of size <m>n</m> from a set <m>S</m> of size <m>2n</m>.
+        Notice that each such set <m>A</m> of size <m>n</m> appears once in the first component of the following pairs
+        <me>
+          P=\{(B,S\setminus B) \; | \; B\subseteq S,\;\; |B|=n\}
+        </me>.
+      </p>
+      <p>
+        Thus, <m>{2n\choose n}=|P|</m>.
+        If we look at the set of <term>unordered</term>
+        pairs <m>\{A,S\setminus A\}</m> where <m>|A|=n</m>,
+        then this is exactly half the size of <m>P</m> since to each undordered pair
+        <m>\{A,S\setminus A\}</m> there corresponds two ordered pairs
+        <m>(A,S\setminus A)</m> and <m>(S\setminus A,A)</m>.
+        Hence, <m>P</m> must be even,
+        and so <m>{2n \choose n}</m> is even.
+      </p>
+    </solution>
+    <solution>
+      <p>
+        Second solution: for a second proof, by the binomial theorem,
+        <md>
+          <mrow>2^{2n} \amp  = (1+1)^{2n} = \sum_{k=0}^{2n} {2n\choose k} =\sum_{k=0}^{n-1} {2n\choose k}+{2n\choose n}+\sum_{k=n+1}^{2n} {2n\choose k}</mrow>
+          <mrow>\amp  =\sum_{k=0}^{n-1} {2n\choose k}+{2n\choose n}+\sum_{k=n+1}^{2n} {2n\choose 2n-k}</mrow>
+          <mrow>\amp  =\sum_{k=0}^{n-1} {2n\choose k}+{2n\choose n}+\sum_{j=0}^{n-1} {2n\choose j}</mrow>
+          <mrow>\amp  = 2 \sum_{k=0}^{n-1} {2n\choose k}+{2n\choose n}</mrow>
+        </md>
+        where in the second line we used the fact that
+        <m>{m \choose r} = {m \choose m-r}</m> and in the third line we made a change of variables <m>j = 2n-k</m>.
+        Thus <m>{2n\choose n}</m> is a difference of even numbers and so it must be even.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        If <m>n\geq 5</m> distinct objects are arranged in a circle,
+        how many ways are there to choose three of these <m>n</m> objects so that no two of them are next to each other?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <em>Claim:</em> There are <m>\frac{1}{6}n(n-4)(n-5)</m> ways to choose three of <m>n</m> distinct objects arranged in a circle so that no two of them are next to each other.
+      </p>
+      <proof>
+        <p>
+          Choose one object, which can be done in <m>n</m> ways.
+          Then the remaining two must be picked from those that aren't adjacent to it,
+          so there are <m>n-3</m> objects to pick from,
+          (and we can think of these objects as now being arranged along a line).
+          There are <m>{{n-3} \choose 2}</m> ways of choosing <term>any</term>
+          two of these objects and <m>n-4</m> ways of choosing them to be adjacent.
+          So there are
+          <me>
+            {{n-3} \choose 2} - (n-4) = \frac{(n-3)(n-4)}{2} - (n-4) = \frac{(n-4)(n-5)}{2}
+          </me>
+          ways of choosing the remaining two to be non-adjacent.
+          By the multiplication principle,
+          there are <m>\frac{n(n-4)(n-5)}{2}</m> ways of making the choice,
+          having fixed the first one.
+          But this overcounts by a factor of <m>3! = 3</m>,
+          so the final answer is <m>\frac{n(n-4)(n-5)}{6}</m>.
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Give both an algebraic argument and a combinatorial argument to show (for <m>0 \leq k \leq n</m>)
+        <me>
+          k\binom{n}{k} = n\binom{n-1}{k-1}
+        </me>
+        in two different ways. {( <em>Hint for the combinatorial proof:</em>
+        For a set <m>S</m> with <m>|S|=n</m>,
+        the left side is the same as counting the number of pairs <m>(a,A)</m> where <m>a\in A\subseteq S</m> and <m>|A|=k</m>.
+        Can you show the right side counts the same set in a different way?)}
+      </p>
+    </statement>
+    <solution>
+      <p>
+        First we do the algebraic argument:
+        <me>
+          k\binom{n}{k} =\frac{k\cdot n!}{(n-k)!k!} = \frac{n!}{(n-k)!(k-1)!}  = \frac{n\cdot (n-1)!}{(n-k)!(k-1)!}
+        </me>
+        <me>
+          =\frac{n\cdot (n-1)!}{((n-1)-(k-1))!(k-1)!} = n\binom{n-1}{k-1}
+        </me>.
+      </p>
+      <p>
+        Now we give a combinatorial proof.
+        We need to find a common thing these two numbers are counting,
+        or that they count two sets that are in one-to-one correspondence.
+        If you see a term with a product,
+        it might mean that it is counting some set using the Multiplication Principle.
+        In fact, the left side counts the number of ways of pairing a set <m>A</m> of size <m>k</m> with an element <m>a\in A</m>,
+        i.e. the set of pairs <m>(a,A)</m> where <m>A\subseteq S</m>,
+        <m>|A|=k</m>, and <m>a\in A</m>.
+        Let's see if the right side is in one-to-one correspondence with this set.
+        Note that <m>n</m> is the number of ways of picking one element <m>a\in S</m>,
+        and <m>\binom{n-1}{k-1}</m> is the number of ways of picking a subset <m>B</m> of size <m>k-1</m> from the remaining <m>n-1</m> elements of <m>S</m>,
+        i.e. this counts the set of pairs <m>(a,B)</m> where <m>a\in S</m>,
+        <m>|B|=k-1</m>, and <m>a\not\in B</m>.
+        But each such pair is in one-to-one correspondence with a pair <m>(a,A)</m> (where <m>a\in A</m> and <m>|A|=k</m> as before by setting <m>A=B\cup \{a\}</m>.
+        Thus, these sets of pairs are in one-to-one correspondence and so they have the same number.
+        This proves the formula.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Use a combinatorial argument to show
+        <me>
+          \sum_{k=0}^{n} k{n\choose k} =n2^{n-1}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <proof>
+        <p>
+          Let <m>S</m> have <m>n</m> elements.
+          Then <m>n2^{n-1}</m> is the number of ways to pick an element <m>a\in S</m> and pair it with a subset <m>A\subseteq S\backslash \{a\}</m>.
+          We can also count these pairs by first picking <m>k</m>,
+          then picking a subset <m>A</m> of size <m>n-k</m> <mdash/> which can be done
+          <m>{n\choose n-k}={n\choose k}</m> ways <mdash/> and then picking an element <m>a\in S\backslash A</m>,
+          and then adding over all <m>k</m>.
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <em>(Challenging!)</em> How many subsets does the set
+        <m>\{1,2, \dots ,n\}</m> have that contain no two consecutive integers?
+        <em>Hint</em>:
+        maybe compute this for the first few values of <m>n</m> to see if you can spot a pattern.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        See the solutions to the workshop problems.
+      </p>
+    </solution>
+  </exercise>
+  <p>
+    \part{Week 10: Permutations}
+  </p>
+</section>

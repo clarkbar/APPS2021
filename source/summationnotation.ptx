@@ -1,0 +1,78 @@
+<section xml:id="summationnotation">
+  <title>Preliminaries on <m>\Sigma</m> notation</title>
+  <p>
+    Before getting into induction,
+    it will be useful to review <m>\Sigma</m> notation.
+    <m>\Sigma</m> notation is spoken as
+    <q>sigma notation</q>
+    after the Greek letter <m>\Sigma</m>.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given a sequence of numbers <m>a_{m},a_{m+1},...,a_{n}</m>, we write
+        <me>
+          \sum_{k=m}^{n} a_{k} = a_{m}+a_{m+1}+\cdots +a_{n}
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For example,
+    <me>
+      \sum_{k=1}^{n} k^2 = 1^2+2^2+3^2+\cdots + n^2
+    </me>.
+  </p>
+  <p>
+    We can split sums and use the distribution
+    <me>
+      \sum_{k=m}^{n} (a_{k} +b_{k})=\sum_{k=m}^{n} a_{k} +\sum_{k=m}^{n} b_{k}\;\; \;\;\; \mbox{ and } \;\;\;\;\; \sum_{k=m}^{n} c\cdot a_{k} =c\cdot \sum_{k=m}^{n} a_{k}
+    </me>.
+  </p>
+  <p>
+    <em>Note:</em> this is why we sometimes call numbers <term>constants</term>:
+    the number <m>c</m> when it appears inside a sum does not vary as <m>k</m> changes,
+    and for this reason we can factor it outside the sum.
+  </p>
+  <p>
+    The following are useful manipulations of <m>\Sigma</m> notation
+    <ol>
+      <li>
+        <p>
+          Detaching the last element:
+          <me>
+            \sum_{k=1}^{n+1} a_k = \left(\sum_{k=1}^{n} a_k\right) + a_{n+1}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Differences
+          <me>
+            \mbox{If }  S_n=\sum_{k=1}^{n} a_k, \mbox{ then }  S_{n+1}-S_n = a_{n+1}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Change of variables:
+          <me>
+            \sum_{k=m}^{n} a_{k+\ell} =\sum_{k=m+\ell}^{n+\ell} a_{k}
+          </me>.
+          For example,
+          <me>
+            \sum_{k=3}^{5} \frac{1}{(k+1)^2} =\frac{1}{(3+1)^2}+\frac{1}{(4+1)^2}+\frac{1}{(5+1)^2} =\frac{1}{4^2}+\frac{1}{5^2}+\frac{1}{6^2} = \sum_{k=4}^{6} \frac{1}{k^2}
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Change of variables:
+          <me>
+            \sum_{k=m}^{n} a_{k} =\sum_{j=m}^{n} a_{j}
+          </me>.
+        </p>
+      </li>
+    </ol>
+  </p>
+</section>

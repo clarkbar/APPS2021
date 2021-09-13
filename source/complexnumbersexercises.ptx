@@ -1,0 +1,233 @@
+<section xml:id="complexnumbersexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck's book are in Chapter 6.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Show that <m>\Re(z) = \frac{z+\bar{z}}{2}</m> and <m>\Im(z) = \frac{z-\bar{z}}{2i}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If <m>z=x+iy</m>, then
+        <me>
+          \frac{z+\bar{z}}{2} = \frac{z+iy+ z-iy}{2} = \frac{2x}{2} = x=\Re(z)
+        </me>
+        and
+        <me>
+          \frac{z-\bar{z}}{2i} = \frac{z+iy-( z-iy)}{2i} = \frac{2iy}{2i} = y=\Im(z)
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that
+        <me>
+          \Re(zw)\leq \frac{|z|^2+|w|^2}{2}
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        By <xref ref="l_modulus-rules">Lemma</xref>, and the AM-GM inequality,
+        <me>
+          \Re(zw) \leq |zw| =|z|\cdot |w| =(|z|^2\cdot |w|^2)^{\frac{1}{2}}\leq \frac{|z|^2+|w|^2}{2}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Solve <m>z^2=i\overline{z}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Notice that if this equation holds, then
+        <me>
+          |z|^2=|i\overline{z}|=|i|\cdot |\overline{z}| = |z|
+        </me>,
+        so either <m>|z|=0</m> or <m>|z|=1</m>.
+        In the latter case,
+        this means that <m>\overline{z} = \frac{1}{z}</m>, and so
+        <me>
+          z^2=i\overline{z} = \frac{i}{z}
+        </me>
+        which implies
+        <me>
+          z^3=i
+        </me>.
+      </p>
+      <p>
+        Hence, we just need to solve this equation now.
+        Since <m>i=e^{\frac{\pi}{2}i}</m>,
+        then <m>e^{\frac{\pi}{6}i}</m> is one solution.
+        Thus, to get all 3 solutions,
+        we multiply this by all the 3rd roots of unity, so we get
+        <me>
+          e^{\frac{\pi}{6}i}, \;\; e^{\frac{5\pi}{6}i}, \;\; e^{\frac{3\pi}{2}i}
+        </me>.
+      </p>
+      <p>
+        Thus, all solutions to the original equation are
+        <me>
+          0, \;\; \pm \frac{\sqrt{3}}{2}+\frac{i}{2}, \;\; -i
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Solve <m>|z|^2 - z|z| + z = 0</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Note that by rearranging the equations so that the <m>z's</m> are on one side and <m>|z|'s</m> are on the other,
+        we get if <m>|z|\neq 1</m> that
+        <me>
+          z  =\frac{|z|^{2}}{|z|-1}
+        </me>,
+        and so <m>z\in\R</m>.
+        If <m>z\geq 0</m>,
+        then our original equation becomes <m>z^2-z^2+z=0</m>,
+        hence <m>z=0</m>.
+        If <m>z\lt 0</m>, then <m>|z|=-z</m>,
+        and our original equation is
+        <me>
+          z^2+z^2+z=0
+        </me>
+      </p>
+      <p>
+        So <m>0=z(2z+1)</m>, hence <m>z=0</m> or <m>z=-\frac{1}{2}</m>.
+      </p>
+      <p>
+        If <m>|z|=1</m>, then the original equation is
+        <me>
+          1-z+z=0
+        </me>,
+        which is impossible, so there are no solutions in this case.
+        Thus, <m>z=0,-\frac{1}{2}</m> are the only solutions.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that if <m>|z| = 1</m>, then <m>\Re\frac{1}{1-z} = \frac{1}{2}</m>.
+      </p>
+    </statement>
+    <solution>
+      <me>
+        \frac{1}{1-z} = \frac{1}{1-z}\frac{1+\bar{z}}{1+\bar{z}} =
+        \frac{1+\bar{z}}{1-z+\bar{z} + z\bar{z}}
+      </me>
+      <me>
+        =
+        \frac{1+\bar{z}}{1-2iy-|z|^{2}}=\frac{1+\bar{z}}{-2iy}=i\frac{1+\bar{z}}{2y}
+      </me>
+      <me>
+        \Re \frac{1}{1-z} = \Re i\frac{1+\bar{z}}{2y} = \Re
+        i\frac{1+x-iy}{2y} = \Re\left(\frac{y}{2y} + i\frac{1+x}{2y}\right) =
+        \frac{y}{2y}
+      </me>
+      <me>
+        =\frac{1}{2}
+      </me>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Describe geometrically the points
+        <m>z\in\mathbb{C}</m> so that <m>|z-1|=|z+i|</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        These are all points that lie on the <m>x=y</m> line in the <m>xy</m>-plane (so the line that makes a 45 degree angle with the axes.
+        To see this, let <m>z=x+i</m> and observe that
+        <md>
+          <mrow>|z-1|=|z+i| \amp  \;\;\; \Longleftrightarrow \;\;\; |z-1|^2=|z+i|^2</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\; (z-1)\overline{(z-1)} = (z+i)\overline{(z+i)}</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\;  (z-1)(\bar{z}-1)=(z+i)(\bar{z}-i)</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\; z\bar{z}-z-\bar{z}+1 = z\bar{z} -zi+i\bar{z}+1</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\;  -z-\bar{z}= -zi+i\bar{z}</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\;  -(x+iy)-(x-iy) = -(x+iy)i+i(x-iy)</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\;  -2x = -2y</mrow>
+          <mrow>\amp  \;\;\; \Longleftrightarrow \;\;\;  x=y</mrow>
+        </md>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Find all solutions to <m>(z+1)^4=z^4</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        First, we write this equation as <m>(1+1/z)^4=1</m>,
+        so this implies that <m>1+1/z</m> is one of the <m>4</m>th roots of unity <m>\pm1,\pm i</m>.
+        However, there are no solutions to <m>1+1/z=1</m>,
+        so the only solutions are when <m>1+1/z</m> is <m>-1</m> or <m>\pm i</m>,
+        in which case
+        <me>
+          z=-\frac{1}{2}, \frac{1}{-1\pm i}
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>\mathbb{D}=\{z\in \mathbb{C}: |z|\lt 1\}</m>, that is,
+        the set of complex numbers with modulus strictly less than <m>1</m>.
+        <m>\mathbb{D}</m> is for
+        <q>disc</q>. For a complex number <m>z\in \mathbb{D}</m> and a real number <m>-1\lt  r\lt 1</m>,
+        define<fn>
+        The function <m>f_{r}</m> is called a
+        <term>M&#xf6;bius transformation</term>
+        and is usually defined for <m>r\in \mathbb{D}</m> as well,
+        not just <m>-1\lt r\lt 1</m>.
+        They are the only functions with the property that,
+        if <m>A</m> is a circle or straight line in <m>\mathbb{D}</m>,
+        then <m>f_{r}(A)</m> is also a line or circle
+        (this is not part of the problem, it's just cool).
+        </fn>
+        <me>
+          f_{r}(z) = \frac{z-r}{1-zr}
+        </me>.
+      </p>
+      <p>
+        Show <m>f_{r}(z)\in \mathbb{D}</m> for all
+        <m>z\in \mathbb{D}</m> and <m>-1\lt r\lt 1</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If <m>-1\lt r\lt 1</m>, then
+        <md>
+          <mrow>\left|\frac{z-r}{1-rz}\right|\lt 1 \amp  \Leftrightarrow \;\;|z-r|\lt |1-rz|</mrow>
+          <mrow>\amp   \Leftrightarrow \;\; |z-r|^{2}\lt |1-rz|^{2}</mrow>
+          <mrow>\amp  \Leftrightarrow \;\; |z|^{2}+|r|^{2}-2Re(zr)\lt 1+|rz|^{2}-2Re(zr)</mrow>
+          <mrow>\amp  \Leftrightarrow \;\; |z|^{2}+|r|^{2}-|rz|^{2}\lt 1</mrow>
+          <mrow>\amp  \Leftrightarrow \;\; |z|^{2}(1-|r|^{2})+|r|^{2}\lt 1</mrow>
+        </md>
+      </p>
+      <p>
+        But this inequality is true since <m>|z|\lt 1</m>, so
+        <me>
+          |z|^{2}(1-|r|^{2})+|r|^{2}\lt 1\cdot (1-|r|^{2})+|r|^{2}=1
+        </me>.
+      </p>
+    </solution>
+  </exercise>
+</section>

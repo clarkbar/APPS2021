@@ -1,0 +1,86 @@
+<section xml:id="imagesandpreimages">
+  <title>Images and preimages</title>
+  <definition>
+    <statement>
+      <p>
+        If <m>f\colon X\rightarrow Y</m> and <m>A\subseteq X</m>,
+        the <term>image of <m>A</m></term>
+        under <m>f</m> is the set
+        <me>
+          f(A)=\{f(x):x\in A\} \subseteq Y
+        </me>.
+      </p>
+      <p>
+        If <m>B\subseteq Y</m>,
+        the <term>preimage of <m>B</m></term> under <m>f</m> is
+        <me>
+          f^{-1}(B)=\{x\in X: f(x)\in B\} \subseteq X
+        </me>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    Some authors call the preimage the
+    <term>inverse image</term>.
+  </p>
+  <p>
+    This notation is a little ambiguous since we have already let <m>f^{-1}</m> denote the inverse of a bijective function <m>f</m>,
+    whereas now we are using it to denote the preimage of a set under a function <m>f</m> that might not be bijective.
+    However, notice that their meaning can be deciphered from context:
+    if <m>f\colon X\rightarrow Y</m> and we ever write <m>f^{-1}(y)</m> for an
+    <term>element</term> <m>y\in Y</m>,
+    you know we are referring to <m>f^{-1}</m> as a function,
+    and if we write <m>f^{-1}(A)</m> for a
+    <term>set <m>A</m></term>,
+    you know we are talking about the preimage as defined above.
+    Notice also that if <m>f</m> is bijective so that the function <m>f^{-1}</m> exists,
+    then there are two ways of reading what <m>f^{-1}(A)</m> means:
+    it is the image of <m>A</m> under <m>f^{-1}</m>,
+    and it is the preimage of <m>A</m> under <m>f</m>, but in this case,
+    these two are the same set, so there is no ambiguity.
+  </p>
+  <example>
+    <statement>
+      <p>
+        If <m>f\colon\mathbb{N}\rightarrow \mathbb{N}</m> is <m>f(n)=n+1</m>,
+        and <m>A=\{2n:n\in\mathbb{N}</m> are the even integers,
+        then the image of <m>A</m> under <m>f</m> is
+        <me>
+          f(A)=\{f(n):n\in A\} = \{f(2n): n\in\mathbb{N}\} = \{2n+1:n\in\mathbb{N}\}
+        </me>,
+        that is, <m>f(A)</m> are the odd integers.
+      </p>
+    </statement>
+  </example>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> be a function and <m>A,B\subseteq Y</m>.
+        Then
+        <me>
+          f^{-1}(A\cap B)=f^{-1}(A)\cap f^{-1}(B)
+        </me>
+        and
+        <me>
+          f^{-1}(A\cup B)=f^{-1}(A)\cup f^{-1}(B)
+        </me>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      To show the first equality,
+      note that <m>x\in f^{-1}(A\cap B)</m> if and only if <m>f(x)\in A\cap B</m>, that is,
+      <m>f(x)\in A</m> and <m>f(x)\in B</m>,
+      which is true if and only if
+      <m>x\in f^{-1}(A)</m> and <m>x\in f^{-1}(B)</m>, that is,
+      if and only if <m>x\in f^{-1}(A)\cap f^{-1}(B)</m>.
+      Thus, <m>f^{-1}(A\cap B)=f^{-1}(A)\cap f^{-1}(B)</m>.
+      The second equation has a similar proof
+      (basically just change the
+      <q>and's</q>
+      to
+      <q>or's</q>).
+    </p>
+  </proof>
+</section>

@@ -1,0 +1,72 @@
+<section xml:id="exponentialform">
+  <title>Exponential form</title>
+  <p>
+    De Moivre's Theorem allows us to calculate powers <m>z^n</m> for <m>n\in\mathbb{N}</m>,
+    but what about more a general exponential such as <m>e^z</m> when <m>z\in\mathbb{C}</m>.
+    Euler's formula provides the answer.
+  </p>
+  <theorem>
+    <title>Euler's formula</title>
+    <statement>
+      <me>
+        e^{i \theta} = \cos(\theta)+i\sin(\theta)
+      </me>.
+    </statement>
+  </theorem>
+  <p>
+    Euler's formula is one of the most remarkable and important formulae in mathematics.
+    E.g. the special case <m>e^{i\pi}=-1</m> links together <m>i</m> (algebra),
+    <m>\pi</m> (geometry) and <m>e</m> (calculus,
+    since <m>\frac{\mathrm{d}}{\mathrm{d}x}e^x=e^x</m>) in a single equation.
+    Euler's formula justifies the definition of
+    <term>exponential form</term>
+    of a complex number <m>z</m> as.
+    <men xml:id="e_expform">
+      z= re^{i\theta} = r(\cos \theta + i \sin \theta)
+    </men>.
+  </p>
+  <p>
+    Exponential notation is a very convenient form for writing complex numbers.
+  </p>
+  <p>
+    There are many approaches to proving Euler's formula.
+    If you are studying Calculus and Taylor Series,
+    is to show that <m>e^{i\theta} = \cos \theta + i \sin \theta</m> by plugging <m>i\theta</m> into the Taylor series for <m>e^{x}</m> and then you can split the series into <m>\cos \theta + i\sin\theta</m>.
+    We omit this working here,
+    but it is provided as part of the online lecture quiz.
+  </p>
+  <p>
+    <image width="73%" source="Figures/polar.pdf"/>
+  </p>
+  <image source="images/d8806dd63bf754b420949dc2367a83fc897fb45f.png"/>
+  <p>
+    Exponential notation makes taking a power of a complex number much easier if we know it's polar form.
+  </p>
+  <example>
+    <statement>
+      <p>
+        What is <m>(1+i)^{6}</m>?
+      </p>
+      <p>
+        We could multiply this out by using the Binomial Theorem,
+        but we'll use polar coordinates instead: To write <m>1+i</m> in polar form
+        <m>re^{i\theta}</m>, we first find <m>r</m>:
+        <me>
+          r=|1+i|=\sqrt{1^2+1^2}=\sqrt{2}
+        </me>.
+      </p>
+      <p>
+        Then
+        <me>
+          e^{i\theta} = \frac{1+i}{r} =\frac{1+i}{\sqrt{2}} = \frac{1}{\sqrt{2}}+i\frac{1}{\sqrt{2}}=\cos \frac{\pi}{4} + i\sin\frac{\pi}{4}=e^{i\frac{\pi}{4}}
+        </me>.
+      </p>
+      <p>
+        Finally,
+        <me>
+          (1+i)^{6}= (\sqrt{2})^{6} e^{i\frac{6\pi}{4}} = 8\left(\cos \frac{6\pi}{4}+i\sin \frac{6\pi}{4}\right) =8\left(\cos \frac{3\pi}{2}+i\sin\frac{3\pi}{2}\right)= -8i
+        </me>.
+      </p>
+    </statement>
+  </example>
+</section>

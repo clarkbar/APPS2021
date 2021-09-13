@@ -1,0 +1,87 @@
+<section xml:id="existenceofroots">
+  <title>Application: the existence of roots.</title>
+  <p>
+    Recall that in Week 1 we asserted the existence of roots;
+    now we can now prove it.
+  </p>
+  <theorem xml:id="t_proof-roots-exist">
+    <statement>
+      <p>
+        Let <m>x>0</m> and <m>k\in\mathbb{N}</m>.
+        Then there is a unique <m>y>0</m> so that <m>y^{k}=x</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      Let <m>S=\{s \geq 0 \; | \; s^{k}\lt x\}</m>.
+      Then <m>S</m> is nonempty
+      (since <m>0 \in S</m>)
+      and bounded above since <m>\max \{x, 1\}</m> is an upper bound for <m>S</m>.
+      Therefore
+      <me>
+        y=\LUB(S)= \LUB(\{s \geq0 \; | \; s^{k}\lt x\})
+      </me>
+      exists by the Completeness Axiom.
+      We claim that <m>y^{k}=x</m>.
+    </p>
+    <p>
+      Since <m>y</m> is the least upper bound of <m>S</m>,
+      this means that for all <m>n\in\mathbb{N}</m>,
+      <m>y-\frac{1}{n}</m> is not an upper bound,
+      i.e. there is <m>y_{n}\in S</m> so that
+      <me>
+        y-\frac{1}{n}\lt y_{n}\leq y
+      </me>.
+    </p>
+    <p>
+      This implies <m>y_n\rightarrow y</m>:
+      indeed, for any <m>\epsilon>0</m>,
+      if <m>N=\epsilon^{-1}</m>,
+      then for <m>n> N</m>, <m>\frac{1}{n}\lt \frac{1}{N}=\epsilon</m> and so
+      <me>
+        y-\epsilon \lt  y-\frac{1}{n}\lt y_{n}\leq y\lt y+\epsilon
+      </me>,
+    </p>
+    <p>
+      Thus, we can find for each
+      <m>\epsilon</m> an <m>N</m> so that <m>n> N</m> implies <m>y-\epsilon\lt y_n\lt y+\epsilon</m>,
+      hence <m>y_n\rightarrow y</m>.
+    </p>
+    <p>
+      Since <m>y_n\in S</m>, <m>y_{n}^{k}\lt x</m> for all <m>n</m>,
+      so <xref ref="p_power-lim">Proposition</xref>
+      and <xref ref="p_x_n_y_n">Proposition</xref> imply
+      <me>
+        y^{k}=\limn y_{n}^{k}\leq x
+      </me>.
+    </p>
+    <p>
+      Now we will show the reverse inequality,
+      i.e. that <m>x\leq y^{k}</m>,
+      and this will imply <m>y^k=x</m>.
+      Since <m>y=\LUB(S)</m>, <m>y</m> is an upper bound for <m>S</m>,
+      and so for all <m>n</m>, <m>y+\frac{1}{n}\not\in S</m>.
+      By the definition of <m>S</m>, this means
+      <me>
+        \left(y+\frac{1}{n}\right)^{k}\geq x
+      </me>.
+    </p>
+    <p>
+      Again, <xref ref="p_power-lim">Proposition</xref>
+      and <xref ref="p_x_n_y_n">Proposition</xref>,
+      together with the fact that <m>y + \frac{1}{n}\rightarrow y</m> imply that
+      <me>
+        y^{k} = \limn\left(y+\frac{1}{n}\right)^{k}\geq x
+      </me>.
+    </p>
+    <p>
+      Thus, <m>y^k=x</m>.
+      Finally, if <m>0 \lt y_1 \lt y_2</m>,
+      then <m>y_1^k \lt y_2^k</m>
+      (see Proposition 4.3)
+      and so there is a <term>unique</term>
+      <m>y >0</m> such that <m>y^k = x</m>.
+    </p>
+  </proof>
+</section>

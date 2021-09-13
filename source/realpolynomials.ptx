@@ -1,0 +1,80 @@
+<section xml:id="realpolynomials">
+  <title>Real Polynomials</title>
+  <p>
+    If we are given a <term>real polynomial</term>,
+    by which we mean a polynomial
+    <m>p(z)=a_{0}+\cdots + a_{n}z^{n}</m> such that each <m>a_i \in \mathbb{R}</m>,
+    then we have a bit more information about the roots:
+  </p>
+  <theorem>
+    <title>Real Polynomials have conjugate roots</title>
+    <statement>
+      <p>
+        If <m>p(x)</m> has <term>real</term>
+        coefficients and <m>r</m> is a root, so is <m>\bar{r}</m>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      If <m>p(x)=a_0+a_{1}x+\cdots +a_{n}x^n</m> with <m>a_{i}</m> real,
+      and <m>p(r)=0</m>, then
+      <md>
+        <mrow>0 =\overline{p(r)} \amp  =\overline{a_0+a_{1}r+\cdots +a_{n}r^n}</mrow>
+        <mrow>{\color{magenta} (\overline{z+w}=\bar{z}+\bar{w})} \amp  = \overline{a_0}+\overline{a_1 r}+\cdots + \overline{ a_n r^n}</mrow>
+        <mrow>{\color{magenta} (\overline{zw}=\bar{z}\bar{w})} \amp  =\overline{a_0}+\bar{a_1} \bar{ r}+\cdots + \bar{ a_n}\bar{ r^n}</mrow>
+        <mrow>{\color{magenta} (\overline{a_{i}}=a_{i}\;\; \mbox{ since } \;\;a_{i} \;\; \mbox{are real} )} \amp   ={a_0}+{a_1} \bar{ r}+\cdots + { a_n}\bar{ r}^n = p(\bar{r})</mrow>
+      </md>.
+    </p>
+  </proof>
+  <p>
+    <em>Note:</em> If any of the coeffients is not a real number then all bets are off!
+    That is, we won't be able to factor into conclude that conjugates of roots are also roots.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Find the roots of <m>x^4+2x^3-7x^2+2x-8</m> given that one of them is <m>i</m>.
+      </p>
+      <p>
+        Recall that the roots come in conjugate pairs,
+        and so <m>-i</m> is also a root,
+        hence <m>(x-i)(x+i)=x^2+1</m> is a factor in the above polynomial,
+        so we can do polynomial long division to see how it factors:
+        first, since the leading term of the above polynomial is <m>x^4</m>,
+        we subtract a multiple of <m>x^2+1</m> that will eliminate the <m>x^4</m>,
+        so we subtract <m>x^2(x^2+1)</m> from the polynomial to get
+        <me>
+          2x^3-8x^2+2x-8
+        </me>
+      </p>
+      <p>
+        Now the leading term is <m>2x^3</m>,
+        so we remove <m>2x(x^2+1)</m> from this to get
+        <me>
+          -8x^2-8=-8(x^2+1)
+        </me>.
+      </p>
+      <p>
+        Finally, we can eliminate this term by subtracting <m>-8(x^2+1)</m>.
+        Thus, adding together all the multiples of <m>(x^2+1)</m> we subtracted,
+        we get that Thus, we see that
+        <me>
+          x^4+2x^3-7x^2+2x-8=(x^2+1)(x^2+2x-8)
+        </me>
+      </p>
+      <p>
+        Now we just need to solve <m>x^2+2x-8=0</m>.
+        Using the quadratic formula,
+        we find that the other two roots are <m>2</m> and <m>-4</m>.
+        Thus, all the roots are <m>\pm i, 2</m>, and <m>-4</m>.
+      </p>
+    </statement>
+  </example>
+  <p>
+    Notice how in that example,
+    we started off just knowing one root and from that the polynomial collapsed and we could find the other 3, thus,
+    even with partial information about the roots of a polynomial,
+    we can use reasoning like this to solve for them all.
+  </p>
+</section>

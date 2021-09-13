@@ -1,0 +1,72 @@
+<section xml:id="permutationssection">
+  <title>Permutations</title>
+  <p>
+    This week we combine the techniques of the last two weeks to study a particular class of functions called permutations.
+  </p>
+  <definition>
+    <statement>
+      <p>
+        Given <m>n\in\mathbb{N}</m>,
+        denote by <m>\mathrm{S}_{n}</m> the set of all bijections
+        <me>
+          \big\{1,2,3,4,\ldots,n\big\}\longrightarrow\big\{1,2,3,4,\ldots,n\big\}
+        </me>.
+      </p>
+      <p>
+        We call elements in <m>\mathrm{S}_{n}</m> permutations of the set <m>\{1,2,3,4,\ldots,n\}</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    As we saw last week,
+    permutations are important for combinatorics and counting.
+    They are also interesting from an algebraic perspective:
+    as we'll see below.
+  </p>
+  <example>
+    <statement>
+      <p>
+        The set <m>\mathrm{S}_{1}</m> consists of one bijection
+        <m>f:\mathrm{S}_{1}\rightarrow\mathrm{S}_{1}</m> defined by <m>f(1)=1</m>.
+      </p>
+      <p>
+        The set <m>\mathrm{S}_{2}</m> consists of two bijections:
+        <ul>
+          <li>
+            <p>
+              a function <m>f</m> such that <m>f(1)=1</m> and <m>f(2)=2</m>,
+            </p>
+          </li>
+          <li>
+            <p>
+              a function <m>g</m> such that <m>g(1)=2</m> and <m>g(2)=1</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </example>
+  <p>
+    We know exactly how many permutations there are on <m>S_{n}</m>.
+  </p>
+  <lemma>
+    <statement>
+      <p>
+        The set <m>\mathrm{S}_n</m> consists of exactly <m>n!</m> permutations.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Permutations in <m>S_{n}</m> are just ways of rearranging the numbers <m>\{1,2,...,n\}</m> written in order.
+      That is, we can identify each rearrangement of numbers
+      <m>\{1,2,...,n\}</m> written in order with the unique function which maps
+      <m>\{1,2,...,n\}</m> onto that rearrangement.
+    </p>
+  </proof>
+  <p>
+    Notice that each element <m>f\in S_{n}</m> is actually a function.
+    So, we are dealing with the whole function itself,
+    <m>f</m> and not just with the value of the function <m>f(n)</m> for some number <m>n</m>.
+  </p>
+</section>

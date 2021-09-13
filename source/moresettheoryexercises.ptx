@@ -1,0 +1,476 @@
+<section xml:id="moresettheoryexercises">
+  <title>Exercises</title>
+  <p>
+    The relevant exercises in Liebeck's book are in Chapter 19.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Consider the following functions.
+        Decide whether each composition is 1-1, onto, both or neither.
+        Do any of the compositions have an inverse function?
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>f_1 \colon \R \to \Z</m> defined by <m>f_1(x) = \lfloor x \rfloor</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_2 \colon \Z \to \Z</m> defined by <m>f_2(x) = x+1</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_3 \colon \Z \times \Z \to \Z</m> defined by <m>f_3(x,y) = xy</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_4 \colon \R \to \Z \times \Z</m> defined by <m>f_4(x) = (\lfloor x \rfloor, \lceil x \rceil)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_5 \colon \{ 1,\dots,10\} \to \{0,1\}</m> defined by <m>f_5(x) = \begin{cases}0 \amp \text{ if } x \text{ is even } \\1 \amp \text{ if } x \text{ is odd } \end{cases}</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_6 \colon \{0,1\} \to \{ 1,\dots,10\}</m> defined by <m>f_6(0) = 10</m>,
+              <m>f_6(1) = 7</m>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We can form the composition of <m>f \colon A \to B</m> and
+        <m>g \colon C \to D</m> if and only if <m>B=C</m>.
+        In some of the above examples we have that <m>B \subset C</m>.
+        In this case, although we can morally do the composition,
+        in practice we would need to do the composition <m>g \circ f' \circ f \colon A \to D</m> where
+        <m>f' \colon B \to C</m> is defined by <m>f'(x)=x</m>.
+      </p>
+      <p>
+        Therefore the valid compositions are
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>f_2 \circ f_1 \colon \R \to \Z</m> defined by <m>f_2 \circ f_1(x) = \lfloor x \rfloor + 1</m>.
+              This is not 1-1 since 1 and 1.5 have the same image.
+              It is onto, because <m>n-1</m> maps to <m>n</m> for every <m>n \in \Z</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_2 \circ f_2 \colon \Z \to\Z</m> defined by <m>f_2 \circ f_2(x) = x+2</m>.
+              It is both 1-1 and onto, so is a bijection.
+              Its inverse is the function
+              <m>f'\colon \Z \to \Z</m> defined by <m>f'(x) = x-2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_2 \circ f_3 \colon \Z \times \Z \to \Z</m> defined by <m>f_2 \circ f_3(x,y) = xy+1</m>.
+              Not 1-1, since <m>(1,1)</m> and <m>(-1,-1)</m> have the same image.
+              It is onto, since <m>(x-1,1)</m> maps to <m>x</m> for all <m>x \in \Z</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_3 \circ f_4 \colon \R \to \Z</m> defined by <m>f_3 \circ f_4 (x) = \lfloor x \rfloor \lceil x \rceil</m>.
+              Not 1-1, since 0.1 and 0.2 have the same image.
+              Not onto, because we can only get products of consecutive integers.
+              So, for example,
+              there is no <m>x</m> which maps to <m>14 = 2 \times 7</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_6 \circ f_5 \colon \{1,\dots, 10\} \to \{1,\dots, 10\}</m> defined by <m>f_6 \circ f_5(x) = \begin{cases}10 \amp \text{ if } x \text{ is even } \\7 \amp \text{ if } x \text{ is odd } \end{cases}</m>.
+              This is not 1-1 since 2 and 4 have the same image.
+              It is not onto because nothing maps to 1.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>f_5 \circ f_6 \colon \{0,1\} \to \{0,1\}</m> defined by <m>f_5 \circ f_6(0) = 0</m>,
+              <m>f_5 \circ f_6(1) = 1</m>.
+              This is both 1-1 and onto and is its own inverse function. (So just because <m>f \circ g</m> is bijective,
+              doesn't mean <m>g \circ f</m> is bijective!)
+            </p>
+          </li>
+        </ol>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> be a function.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Show that <m>f</m> is injective if and only if for all sets <m>Z</m> and functions <m>g,h:Z\rightarrow Y</m>,
+              <m>f\circ g=f\circ h</m> implies <m>g=h</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>f</m> is surjective if and only if for all sets <m>Z</m> and functions <m>g,h:Y\rightarrow Z</m>,
+              <m>g\circ f = h\circ f</m> if and only if <m>g=h</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Show that <m>f(f^{-1}(B))\subseteq B</m> for all <m>B\subseteq Y</m>,
+              and give an example of an <m>f:X\rightarrow Y</m> and a set
+              <m>B\subseteq Y</m> where <m>f(f^{-1}(B))\neq B</m>.
+              <solution>
+                <p>
+                  Note that <m>f^{-1}(B)=\{x\in X|f(x)\in B\}</m>,
+                  so if <m>x\in f^{-1}(B)</m>,
+                  <m>f(x)\in B</m>, hence <m>f(f^{-1}(B))\subseteq B</m>.
+                </p>
+                <p>
+                  If we let <m>f=\cos:\mathbb{R}\rightarrow \mathbb{R}</m> and <m>B=[2,3]</m>,
+                  then <m>f^{-1}(B)=\emptyset</m>,
+                  so <m>f(f^{-1}(B))=\emptyset\neq B</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>f(f^{-1}(B))=B</m> for all
+              <m>B\subseteq Y</m> if and only if <m>f</m> is surjective.
+              <solution>
+                <p>
+                  Suppose <m>f</m> is surjective.
+                  Then for all <m>y\in B</m> there is <m>x\in X</m> so that <m>f(x)=y</m>.
+                  This means <m>x\in f^{-1}(B)</m> since <m>f(x)=y\in B</m>.
+                  This means <m>y=f(x)\in f(f^{-1}(B))</m> for all <m>y\in B</m>,
+                  thus <m>B\subseteq f(f^{-1}(B))</m>,
+                  and by (a) we then know <m>B = f(f^{-1}(B))</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m>.
+        <ol label="labelalph">
+          <li>
+            <p>
+              Show that <m>f^{-1}(f(A))\supseteq A</m> for all <m>A\subseteq X</m>,
+              and show that these two sets can be unequal.
+              <solution>
+                <p>
+                  Note that <m>f^{-1}(f(A))</m> is the set of <m>z\in X</m> for which
+                  <m>f(z)\in f(A)</m>, which includes <m>A</m>.
+                  If we let <m>f=\cos:\mathbb{R}\rightarrow \mathbb{R}</m> again but let <m>A=[0,2\pi]</m>,
+                  then <m>f(A)=[-1,1]</m>, and <m>f^{-1}(f(A))=\mathbb{R}\neq A</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              Show that <m>f^{-1}(f(A))=A</m> for all
+              <m>A\subseteq X</m> if and only if <m>f</m> is injective.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>X</m> and <m>Y</m> be finite sets, <m>m\in \mathbb{N}</m>,
+        and suppose <m>f:X\rightarrow Y</m> is a function such that for all <m>y\in Y</m>,
+        <m>|f^{-1}(\{y\})|=m</m> . Then
+        <me>
+          |X|=m\cdot |Y|
+        </me>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        If we number the elements of <m>Y</m> as <m>y_{1},...,y_{n}</m> where <m>n=|Y|</m>.
+        Then the sets <m>f^{-1}(\{y_{1}\}),f^{-1}(\{y_{2}\}),...,f^{-1}(\{y_{n}\})</m> partition <m>X</m>.
+        Thus,
+        <me>
+          |X|=\sum_{i=1}^{n}| f^{-1}(\{y_{i}\})| = \sum_{i=1}^{n}m=nm=m|Y|
+        </me>
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> be a function and <m>A,B\subseteq X</m>.
+        Show that <m>f(A\cup B)=f(A)\cup f(B)</m>.
+        Give an example of when we can have <m>f(A\cap B)\neq f(A)\cap f(B)</m>.
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> be a function.
+        For <m>a,b\in X</m>, declare <m>a\sim b</m> if <m>f(a)=f(b)</m>.
+        Show that <m>\sim</m> defines an equivalence relation on <m>X</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <em>Claim:</em>Let <m>f:X\rightarrow Y</m> be a function.
+        For <m>a,b\in X</m>, delcare <m>a\sim b</m> if <m>f(a)=f(b)</m>.
+        Then <m>\sim</m> defines an equivalence relation on <m>X</m>.
+      </p>
+      <proof>
+        <p>
+          We need to verify reflexivity,
+          symmetry, and transitivity:
+          <ul>
+            <li>
+              <p>
+                (Reflexivity) Let <m>x\in X</m>.
+                Since <m>f(x)=f(x)</m>, we have <m>x\sim x</m>, so reflexivity holds.
+              </p>
+            </li>
+            <li>
+              <p>
+                (Symmetry) Let <m>x,y\in X</m> and suppose <m>x\sim y</m>.
+                Then <m>f(x)=f(y)</m>, so <m>f(y)=f(x)</m>,
+                thus <m>y\sim x</m> and symmetry holds.
+              </p>
+            </li>
+            <li>
+              <p>
+                (Transitivity) Let <m>x,y,z\in X</m> and suppose <m>x\sim y</m> and <m>y\sim z</m>.
+                Then <m>f(x)=f(y)=f(z)</m>, so
+                <m>f(x)=f(z)</m>, hence <m>x\sim z</m>.
+                This proves transitivity.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Let <m>f:X\rightarrow Y</m> and <m>\sim</m> be as in the previous problem.
+        For <m>y\in f(X)</m>, define
+        <m>F(y)=f^{-1}(\{y\})</m> (where recall <m>f^{-1}(A)=\{x\in X: f(x)\in A\}</m>).
+        Show that <m>F</m> is a bijection between <m>f(X)</m> and the set of equivalence classes in <m>X</m> under the relation <m>\sim</m>.
+        <term>Hint: As a first step,
+        you'll need to show the values of <m>F</m> are indeed equivalence classes. </term>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        For short, we will write <m>f^{-1}(y)</m> to mean <m>f^{-1}(\{y\})</m>.
+        <em>Claim:</em> Let <m>S</m> denote the set of equivalence classes under <m>\sim</m>.
+        Let <m>y\in f(X)</m> and define <m>F(y)=f^{-1}(y)</m>.
+        Then <m>F:f(X)\rightarrow S</m> is a bijection.
+      </p>
+      <proof>
+        <p>
+          For <m>y\in f(X)</m>, <m>f^{-1}(y)</m> is an equivalence class:
+          since <m>y\in f(X)</m>, <m>y=f(x)</m> for some <m>x\in X</m>,
+          and if <m>[x]</m> denotes the equivalence class for <m>x</m>,
+          <me>
+            [x]=\{z\in X:x\sim z\} = \{z\in X:f(z)=f(x)\} = \{z\in X:f(z)=y\} =f^{-1}(\{y\})
+          </me>.
+          hence <m>F</m> is a function from <m>f(X)</m> to <m>S</m>.
+          We need to show that it is injective and surjective:
+          <ul>
+            <li>
+              <p>
+                (Injectivity) Let <m>y,z\in f(X)</m> and suppose <m>F(y)=F(z)</m>,
+                we will show that <m>y=z</m>.
+                Since <m>F(y)=F(z)</m>, this means <m>f^{-1}(y)=f^{-1}(z)</m>.
+                Let <m>x\in f^{-1}(y)</m>, so <m>f(x)=y</m>.
+                But then <m>x\in f^{-1}(y)=f^{-1}(z)</m>,
+                so <m>f(x)=z</m>, thus <m>y=f(x)=z</m>.
+                This proves injectivity.
+              </p>
+            </li>
+            <li>
+              <p>
+                (Surjectivity) Let <m>[x]\in S</m> be an equivalence class.
+                Let <m>y=f(x)</m>.
+                Then <m>[x]=f^{-1}(y)</m> and <m>y\in f(X)</m>.
+                Thus, <m>F(y)=f^{-1}(y)=[x]</m>.
+                This implies surjectivity.
+              </p>
+            </li>
+          </ul>
+        </p>
+      </proof>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Show that <m>f:\mathbb{R}\rightarrow \mathbb{R}</m> defined by
+        <m>f(x)=x^{2n+1}</m> is bijective for <m>n\in\mathbb{N}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Recall that
+        <me>
+          1+z+\cdots + z^{n} = \frac{1-z^{n+1}}{1-z}
+        </me>
+        and so if <m>x\neq y</m>,
+        and <m>x\neq 0</m>, applying this formula with <m>z=(y/x)^2</m>,
+        <me>
+          x^{2n+1} - y^{2n+1} = x^{2n+1} \left(1-\left(\frac{y}{x}\right)^{2n+1}\right) = x^{2n+1} \left(1-\left(\frac{y}{x}\right)^2\right)\left(1+\left(\frac{y}{x}\right)^2+\cdots + \left(\frac{y}{x})^{2n}\right)\right)
+        </me>.
+        and this can't be zero if <m>x\neq 0</m> and <m>x\neq y</m>.
+        If <m>x=0</m> and <m>y\neq x=0</m>,
+        then we clearly have <m>f(x)\neq f(y)</m>.
+        Thus, <m>f</m> is injective.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        <em>Quite Challenging!</em> Find bijections between the following sets:
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>\R</m> and <m>(0,\infty)</m>
+              <solution>
+                <p>
+                  Let <m>f:(0,\infty) \rightarrow \R</m> be <m>f(x)=x-\frac{1}{x}</m>.
+                  Then <m>f</m> is increasing, so it is injective.
+                  Furthermore, if <m>y\in \R</m>,
+                  we can solve <m>f(x)=y</m> by solving the equation
+                  <me>
+                    y= x-\frac{1}{x}
+                  </me>,
+                  and rearranging, this is equivalent to
+                  <me>
+                    0=x^2-yx-1
+                  </me>,
+                  which has solution
+                  <me>
+                    x=\frac{y\pm\sqrt{y^2+4}}{2}
+                  </me>,
+                  and one of these solutions is in <m>(0,\infty)</m>,
+                  thus <m>f</m> is surjective, and hence bijective.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(0,\infty)</m> and <m>(1,\infty)</m>
+              <solution>
+                <p>
+                  We can take <m>f:(0,\infty)\rightarrow (1,\infty)</m> to be <m>f(x)=x+1</m>.
+                </p>
+              </solution>
+            </p>
+          </li>
+          <li>
+            <p>
+              (<em>Even more challenging!</em>)
+              <m>(0,\infty)</m> and <m>[0,\infty)</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(0,\infty)</m> and <m>(0,1)</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        The following argument supposedly shows that the reflexivity condition is unnecessary for a nonempty relation <m>\sim</m>,
+        that is, it can be derived from symmetry and transitivity:
+      </p>
+      <p>
+        (a) Suppose <m>a\sim b</m>.
+      </p>
+      <p>
+        (b) By symmetry, <m>b\sim a</m>.
+      </p>
+      <p>
+        (c) Since <m>a\sim b</m> and <m>b\sim a</m>,
+        by transitivity, <m>a\sim a</m>.
+        Therefore, <m>\sim</m> is reflexive.
+      </p>
+      <p>
+        What's wrong with this argument?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The problem with this argument is (a), as it asserts that,
+        for every <m>a</m>, there is a <m>b</m> so that <m>a\sim b</m>.
+        But not every relation requires every element to be related to something.
+      </p>
+      <p>
+        A counter example could be the relation on <m>\{1,2\}</m> where only <m>1\sim 1</m>
+        (so <m>2\not\sim 2</m> and <m>2\not\sim 1</m>).
+        Then it is symmetric and transitive, but not reflexive.
+      </p>
+    </solution>
+  </exercise>
+  <exercise>
+    <statement>
+      <p>
+        Determine which of the following relations <m>\sim</m> on the given set <m>S</m> are reflexive,
+        symmetric,
+        or transitive.
+        <ol>
+          <li>
+            <p>
+              <m>S</m> is the set of lines in
+              <m>\mathbb{R}^{2}</m> and <m>a\sim b</m> if they intersect.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S=\mathbb{C}\backslash \{0\}</m> and <m>x\sim y</m> if <m>x</m> and <m>y</m> are contained in the same line passing through the origin.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>S</m> is the set of subsets of
+              <m>\mathbb{R}</m> and <m>A\sim B</m> if <m>A\subseteq B</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </exercise>
+</section>

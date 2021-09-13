@@ -1,0 +1,330 @@
+<section xml:id="rulesforlimits">
+  <title>Rules for Limits</title>
+  <definition>
+    <statement>
+      <p>
+        We say that a sequence <m>(a_n)</m> is <term>bounded</term>
+        if the set of values <m>\{a_{1},a_{2},...\}</m> is a bounded set,
+        i.e. there are <m>m,M</m> so that <m>m\leq a_n\leq M</m> for all <m>n</m>.
+      </p>
+    </statement>
+  </definition>
+  <proposition xml:id="cgtgivesbdd">
+    <statement>
+      <p>
+        Suppose the sequence <m>(a_{n})</m> converges.
+        Then it is bounded.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>L=\lim_{n\rightarrow\infty}a_{n}</m>.
+      By the definition of a limit
+      (with <m>\epsilon=1</m>),
+      there is <m>N</m> so that <m>n> N</m> implies <m>|a_{n}-L|\lt 1</m>
+      (there was nothing special about our choice of <m>\epsilon=1</m> here,
+      any positive number will work in this argument).
+      Thus, for <m>n> N</m>,
+      <me>
+        |a_{n}|=|a_{n}-L+L| \leq |a_{n}-L|+|L| \lt 1+|L|
+      </me>.
+    </p>
+    <p>
+      For <m>n\lt N</m>,
+      we have <m>|a_{n}|\leq \max\{|a_i| : |\; i=1,...,N-1\}</m>.
+      Thus, for all <m>n</m>,
+      <me>
+        |a_{n}|\leq \max\{1+|L|,|a_{1}|,...,|a_{n}|\}
+      </me>.
+    </p>
+    <p>
+      By <xref ref="ex_bounded">Exercise</xref>, the sequence is bounded.
+    </p>
+  </proof>
+  <problem>
+    <statement>
+      <p>
+        Does the converse to <xref ref="cgtgivesbdd">Proposition</xref> hold?
+      </p>
+    </statement>
+  </problem>
+  <proposition xml:id="p_limit-rules">
+    <statement>
+      <p>
+        Suppose that <m>(a_{n})</m> and <m>(b_{n})</m> converge to <m>a</m> and <m>b</m> respectively.
+        Then
+        <ol label="labelalph">
+          <li>
+            <p>
+              <m>a_{n}+b_{n}\rightarrow a+b</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>a_{n}b_{n} \rightarrow ab</m>
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>c\in\mathbb{R}</m>, then <m>ca_{n}\rightarrow ca</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>b\neq 0</m> and <m>b_n\neq 0</m> for all <m>n</m>,
+              then <m>\frac{a_{n}}{b_{n}}\rightarrow \frac{a}{b}</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          Let <m>\epsilon>0</m>.
+          We need to show there is <m>N</m> so that <m>n > N</m> implies <m>|a_{n}+b_{n}-(a+b)|\lt \epsilon</m>.
+          Note that by the triangle inequality
+          <me>
+            |a_{n}+b_{n}-(a+b)| =|(a_n-a)+(b_n-b)| \leq |a_{n}-a|+|b_{n}-b|
+          </me>
+          We can make <m>|a_{n}+b_{n}-(a+b)|\lt \epsilon</m> by making <m>|a_{n}-a|</m> and
+          <m>|b_{n}-b|</m> both less than <m>\frac{\epsilon}{2}</m>.
+          Since <m>a_n\rightarrow a</m>,
+          we know that there is <m>N_{1}</m> so that <m>n > N_1</m> implies <m>|a_{n}-a|\lt \frac{\epsilon}{2}</m>.
+          Similarly, since <m>b_n\rightarrow b</m>,
+          we know that there is <m>N_{2}</m> so that <m>n > N_2</m> implies <m>|b_{n}-b|\lt \frac{\epsilon}{2}</m>.
+          If we set <m>N=\max\{N_1,N_2\}</m>,
+          then for all <m>n > N</m>,
+          <me>
+            |a_{n}+b_{n}-(a+b)| \leq |a_{n}-a|+|b_{n}-b| \lt \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          Let <m>\epsilon>0</m>.
+          Note that
+          <md>
+            <mrow>|a_{n}b_{n}-ab| \amp  =|a_{n}b_{n}-ab_{n}+ab_{n}-ab| =|(a_{n}-a)b_{n} + a(b_n-b)|</mrow>
+            <mrow xml:id="e_anbn-ab">\amp  \leq |(a_{n}-a)b_{n}| + |a(b_n-b)| =|a_{n}-a|\cdot |b_{n}|+ |a|\cdot |b_{n}-b|</mrow>
+          </md>.
+          Thus, if we can pick <m>N</m> large enough so that <m>n > N</m> implies
+          <m>|a_{n}-a|\cdot |b_{n}|\lt \frac{\epsilon}{2}</m> and <m>|a|\cdot |b_{n}-b|\lt \frac{\epsilon}{2}</m>,
+          then the above will imply <m>|a_{n}b_{n}-ab|\lt \epsilon</m> and we'll be done.
+          So let's focus on proving these two things.
+          Let's first find <m>N_1</m> so that <m>n > N_1</m> implies <m>|a_{n}-a|\cdot |b_{n}|\lt \frac{\epsilon}{2}</m>.
+          Since <m>b_n</m> converges, it is bounded,
+          and so there is <m>M</m> so that
+          <m>|b_{n}|\leq M</m> for all <m>n</m>, thus
+          <me>
+            |a_{n}-a|\cdot |b_{n}|\leq M|a_{n}-a|
+          </me>.
+          Since <m>a_n\rightarrow a</m>,
+          there is <m>N_1</m> so that <m>n > N_1</m> implies <m>|a_{n}-a|\lt \frac{\epsilon}{2M}</m> and hence
+          <me>
+            |a_{n}-a|\leq M|a_{n}-a|\lt M\cdot \frac{\epsilon}{2M}=\frac{\epsilon}{2}
+          </me>.
+          Now let's find <m>N_2</m> so that <m>n > N_2</m> implies <m>|a|\cdot |b_{n}-b|\lt \frac{\epsilon}{2}</m>.
+          If <m>a=0</m>,
+          then this is always true and we can set <m>N_2=1</m>.
+          If <m>a\neq 0</m>, then since <m>b_n\rightarrow b</m>,
+          there is <m>N_2</m> so that <m>n > N_2</m> implies <m>|b_{n}-b|\lt \frac{\epsilon}{2|a|}</m>,
+          and so that
+          <me>
+            |a|\cdot |b_{n}-b|\lt |a|\cdot \frac{\epsilon}{2|a|}=\frac{\epsilon}{2}
+          </me>.
+          Thus, if we set <m>N=\max\{N_{1},N_{2}\}</m>,
+          then <m>n > N</m> and  <xref ref="e_anbn-ab"/> imply
+          <me>
+            |a_{n}b_{n}-ab| \leq |a_{n}-a|\cdot |b_{n}|+ |a|\cdot |b_{n}-b| \lt \frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          We leave this one as an exercise.
+        </p>
+      </li>
+      <li>
+        <p>
+          We claim that it suffices to show that if
+          <m>b_n\rightarrow b</m> and <m>b_n,b\neq 0</m>,
+          then <m>b_{n}^{-1}\rightarrow b^{-1}</m>.
+          Indeed, if this is the case, then  by part (b),
+          <me>
+            \frac{a_{n}}{b_{n}}=a_{n}\cdot b_{n}^{-1} \rightarrow ab^{-1}=\frac{a}{b}
+          </me>.
+          So now let's prove that if
+          <m>b_n\rightarrow b</m> and <m>b_n,b\neq 0</m>,
+          then <m>b_{n}^{-1}\rightarrow b^{-1}</m>.
+          Let <m>\epsilon>0</m>.
+          We need to find <m>N</m> so that <m>n > N</m> implies <m>|b_{n}^{-1}-b^{-1}|\lt \epsilon</m>.
+          Observe that
+          <me>
+            \left|\frac{1}{b_{n}}-\frac{1}{b}\right| =\left|\frac{b-b_{n}}{bb_{n}}\right| =\frac{|b-b_{n}|}{|b|\cdot |b_{n}|}
+          </me>.
+          Suppose we can show that for some number <m>s>0</m> we have
+          <men xml:id="e_bn_m">
+            |b_{n}|\geq s \;\;\; \mbox{ for all } n\in\mathbb{N}
+          </men>.
+          Then since <m>b_{n}\rightarrow b</m>,
+          we know that for any <m>\epsilon_1>0</m> there is
+          <m>N = N(\epsilon_1)</m> so that <m>n > N</m> implies
+          <m>|b_{n}-b|\lt \epsilon_1</m>, and then we would have
+          <me>
+            \left|\frac{1}{b_{n}}-\frac{1}{b}\right|\leq \frac{|b-b_{n}|}{|b|\cdot |b_{n}|} \leq \frac{\epsilon_1}{|b| s}
+          </me>.
+          Hence, if we pick <m>\epsilon_1=|b|s\epsilon</m>,
+          then all this implies that for <m>n > N(|b|s\epsilon)</m>,
+          <me>
+            \left|\frac{1}{b_{n}}-\frac{1}{b}\right| \leq \frac{\epsilon_1}{|b| s}= \frac{|b|s\epsilon}{|b| s}=\epsilon
+          </me>.
+          So now we focus on proving <xref ref="e_bn_m"/>.
+          Since <m>b_n\rightarrow b</m>,
+          there is <m>N'</m> so that <m>n > N'</m> implies <m>|b_{n}-b|\lt \frac{|b|}{2}</m>.
+          Thus, by the reverse triangle inequality,
+          <me>
+            |b_{n}| =|b_{n}-b+b| \geq |b|-|b_{n}-b| >|b|-\frac{|b|}{2} = \frac{|b|}{2}
+          </me>.
+          For <m>n \leq N'</m>,
+          we simply have <m>|b_{n}|\geq \min\{|b_{1}|,\dots,|b_{N'}|\}>0</m>.
+          Thus, for all <m>n</m>,
+          <me>
+            |b_{n}|\geq \min\left\{\frac{|b|}{2},|b_{1}|,\dots ,|b_{N'}|\right\}
+          </me>.
+          This finishes the proof of  <xref ref="e_bn_m"/>, and thus of (d).
+        </p>
+      </li>
+    </ol>
+  </proof>
+  <p>
+    From these rules, we can get many more useful results:
+  </p>
+  <proposition xml:id="p_power-lim">
+    <statement>
+      <p>
+        Suppose that <m>x_n\rightarrow L</m> as
+        <m>n \to \infty</m> and that <m>k \in \mathbb{N}</m>.
+        Then <m>x_{n}^{k}\rightarrow L^{k}</m> as <m>n \to \infty</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      We prove this by induction on <m>k</m>.
+      The base case <m>k=1</m> is a tautology.
+      For the induction step,
+      assume we have shown that whenever <m>x_n\rightarrow L</m>,
+      then for some particular <m>k \geq 1</m>,
+      <m>x_{n}^{k}\rightarrow L^{k}</m>.
+      Now apply <xref ref="p_limit-rules">Proposition</xref>(b) with
+      <m>a_n=x_{n}^{k}</m> and <m>b_{n}=x_{n}</m>, to obtain
+      <me>
+        \limn x_{n}^{k+1}=\limn x_{n}^{k}x_{n} =\left(\limn x_{n}^{k}\right)\cdot\left(\limn x_{n}\right) =L^{k}\cdot L = L^{k+1}
+      </me>
+    </p>
+    <p>
+      Thus, the proposition follows by induction.
+    </p>
+  </proof>
+  <proposition xml:id="p_x_n_y_n">
+    <statement>
+      <p>
+        Let <m>(x_{n})</m> and <m>(y_{n})</m> be sequences.
+        <ol label="labelalph">
+          <li>
+            <p>
+              If <m>x_{n}\rightarrow x</m>,
+              <m>y_{n}\rightarrow y</m>,
+              and <m>x_{n}\leq y_{n}</m> for all
+              <m>n\in\mathbb{N}</m>, then <m>x\leq y</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x_n\rightarrow x</m> and
+              <m>x_{n}\leq y</m> for all <m>n</m>, then <m>x\leq y</m>.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <ol label="labelalph">
+      <li>
+        <p>
+          Suppose for a contradiction that <m>x>y</m>.
+          Take <m>\epsilon = (x-y)/2 > 0</m>.
+          Since <m>x_{n}\rightarrow x</m>,
+          there is <m>N_{1}</m> so that <m>n > N_{1}</m> implies
+          <me>
+            x-\frac{x-y}{2}\lt x_{n}\lt x+\frac{x-y}{2}
+          </me>
+          and in particular
+          <me>
+            \frac{x+y}{2}\lt x_{n}
+          </me>.
+          Similarly, since <m>y_{n}\rightarrow y</m>,
+          there is <m>N_{2}</m> so that <m>n > N_{2}</m> implies
+          <me>
+            y-\frac{x-y}{2}\lt y_{n}\lt y+\frac{x-y}{2}
+          </me>
+          and in particular
+          <me>
+            y_{n}\lt \frac{x+y}{2}
+          </me>.
+          Therefore, for all <m>n>  \max\{N_{1},N_{2}\}</m>,
+          <me>
+            \frac{x+y}{2}\lt x_{n} \leq y_n \lt  \frac{x+y}{2}
+          </me>.
+          which gives the desired contradiction.
+        </p>
+      </li>
+      <li>
+        <p>
+          This follows by (a) by letting <m>y_{n}=y</m> for all <m>n</m>.
+        </p>
+      </li>
+    </ol>
+  </proof>
+  <p>
+    There is another important rule for limits, often called the
+    <q>Squeeze Theorem</q>:
+  </p>
+  <proposition xml:id="squeeze">
+    <statement>
+      <p>
+        Suppose that <m>x_n \leq y_n \leq z_n</m> for all <m>n</m>,
+        and that <m>x_n \to L</m> and <m>z_n \to L</m>.
+        Then <m>y_n \to L</m>.
+      </p>
+    </statement>
+  </proposition>
+  <proof>
+    <p>
+      Let <m>\epsilon > 0</m>.
+      There exist <m>N_1</m> and <m>N_2</m> such that for <m>n > N_1</m> we have
+      <me>
+        |x_n - L| \lt  \epsilon
+      </me>
+      and for <m>n > N_2</m> we have
+      <me>
+        |z_n - L| \lt  \epsilon
+      </me>.
+    </p>
+    <p>
+      Take <m>N = \max\{N_1, N_2\}</m>.
+      For <m>n > N</m> we have
+      <me>
+        - \epsilon \lt  x_n - L \leq y_n - L \leq z_n - L \lt  \epsilon
+      </me>.
+    </p>
+    <p>
+      Therefore for <m>n > N</m> we have <m>|y_n - L| \lt \epsilon</m>.
+    </p>
+  </proof>
+</section>

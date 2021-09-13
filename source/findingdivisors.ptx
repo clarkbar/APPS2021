@@ -1,0 +1,82 @@
+<section xml:id="findingdivisors">
+  <title>Finding divisors via FTA</title>
+  <p>
+    If we know the prime decompositions of two integers <m>m</m> and <m>n</m>,
+    it is easy to tell whether <m>m</m> divides <m>n</m>:
+  </p>
+  <theorem>
+    <statement>
+      <p>
+        Let <m>n=p_1^{a_1}\cdots p_k^{a_k}</m> be a prime decomposition (i.e.
+        <m>p_i</m>s are prime, <m>p_1\lt \cdots \lt p_k</m>, and <m>a_i>0</m>).
+        Then <m>m</m> divides <m>n</m> if, and only if:
+        <men xml:id="e_m_p1___pk">
+          m = p_1^{b_1}\cdots p_k^{b_k},  \textrm{with each <m>0\leq b_i\leq a_i</m>}
+        </men>.
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <ul>
+      <li>
+        <p>
+          (<m>\impliedby</m>): If <xref ref="e_m_p1___pk"/> holds, then
+          <me>
+            n=m \cdot  p_1^{b_1-a_{1}}\cdots p_k^{b_k-a_{k}} \;\;\; \Longrightarrow \;\;\; m \text{ divides } n
+          </me>.
+        </p>
+      </li>
+      <li>
+        <p>
+          (<m>\implies</m>): Suppose <m>m</m> divides <m>n</m>,
+          then <m>n=mc</m> fr some positive integer <m>c</m>.
+          Then <m>m</m> and <m>n</m> have prime decompositions whose product is the prime decomposition for <m>n</m> as shown below:
+          <me>
+            \underbrace{p_1^{a_1}\cdots p_k^{a_k}}_n = \underbrace{q_1^{c_1}\cdots q_l^{c_l}}_m\underbrace{r_1^{d_1}\cdots r_s^{d_s}}_c
+          </me>.
+          The FTA implies each <m>q_i</m> and <m>r_i</m> equals to some <m>p_j</m>.
+          To ease notation,
+          we'll assume <m>q_{i}=r_{i}=p_{i}</m> for all <m>i</m>,
+          but that <m>c_{i}=0</m> if <m>p_{i}</m> didn't appear as one of the primes <m>q_{i}</m> originally,
+          and similarly for the <m>d_{i}</m>.
+          Then the product above is in fact
+          <me>
+            \underbrace{p_1^{a_1}\cdots p_k^{a_k}}_n = {q_1^{c_1}\cdots q_l^{c_l}}{r_1^{d_1}\cdots r_s^{d_s}} =p_{1}^{c_{1}+d_{1}}\cdots p_{k}^{c_{k}+d_{k}}
+          </me>.
+          The FTA now implies each power <m>c_i+d_i</m> equals to <m>a_j</m>.
+          In particular,
+          this means <m>m=p_{1}^{c_{1}}\cdots p_{k}^{c_{k}}</m> where <m>0\leq c_{k}\leq a_{k}</m>.
+        </p>
+      </li>
+    </ul>
+  </proof>
+  <example>
+    <statement>
+      <p>
+        What are all the divisors of <m>360</m>?
+      </p>
+      <p>
+        First, we find the prime factorization of <m>360</m>:
+        we can see that <m>36=4\cdot 9=2^2\cdot 3^2</m>,
+        and so <m>360 = 10\cdot 2^2\cdot 3^2 = 2^3\cdot 3^2\cdot 5</m>.
+        To list all the divisors,
+        we just have to look at the values
+        <m>2^j\cdot 3^{k}\cdot 5^{\ell}</m> where <m>0\leq j\leq 3</m>,
+        <m>0\leq k\leq 2</m>, and <m>0\leq \ell\leq 1</m>.
+        The possible powers of <m>2</m> are <m>1, \; 2, \; 4, \; 8</m>,
+        and the possible powers of <m>3</m> are <m>1,3,9</m>,
+        so we multiply the powers of two by these to get
+        <me>
+          \begin{array}{cccc} 1, \amp   2, \amp   4, \amp   8, \\ 3, \amp  6, \amp   12, \amp   24, \\ 9, \amp   18, \amp   36, \amp   72. \end{array}
+        </me>
+      </p>
+      <p>
+        The possible powers of <m>5</m> are just <m>1</m> and <m>5</m>,
+        so we can just multiply these numbers by <m>1</m> and <m>5</m> to get
+        <me>
+          \begin{array}{cccccccccccc} 1, \amp   2, \amp   4, \amp   8, \amp  3, \amp  6, \amp   12, \amp   24, \amp   9, \amp   18, \amp   36, \amp   72, \\ 5, \amp   10, \amp   20, \amp   40, \amp  15, \amp  30, \amp  60,  \amp   120, \amp   45, \amp   90, \amp   180, \amp   360. \end{array}
+        </me>
+      </p>
+    </statement>
+  </example>
+</section>

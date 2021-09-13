@@ -1,0 +1,121 @@
+<section xml:id="lcmandgcd">
+  <title>LCM and GCD via prime factorizations</title>
+  <definition>
+    <statement>
+      <p>
+        The least common multiple <m>\lcm(a,b)</m> of positive integers <m>a</m> and <m>b</m> is the smallest positive integer divisible by both <m>a</m> and <m>b</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    For example, <m>\lcm(15,12)=60</m>.
+  </p>
+  <theorem xml:id="t_lcm">
+    <statement>
+      <p>
+        Let <m>a</m> and <m>b</m> have prime factorizations,
+        <me>
+          a=p_1^{r_1}\cdots p_m^{r_m}, \;\; b=p_1^{s_1}\cdots p_m^{s_m}
+        </me>.
+      </p>
+      <p>
+        Here <m>p_i</m>'s are distinct,
+        but <m>r_i</m> and <m>s_i</m> are allowed to be zero.
+        Then:
+        <ul>
+          <li>
+            <p>
+              <m>\gcd(a,b) = p_1^{min(r_1,s_1)}\cdots p_m^{min(r_m,s_m)}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\lcm(a,b) = p_1^{max(r_1,s_1)}\cdots p_m^{max(r_m,s_m)}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\lcm(a,b) = ab/\gcd(a,b)</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We leave the proof of this as an exercise.
+  </p>
+  <example>
+    <statement>
+      <p>
+        If <m>a=120=2^3\cdot 3\cdot 5</m> and <m>b=36=2^2\cdot 3^2</m>,
+        then <m>\gcd=2^2\cdot 3=12</m> and <m>\lcm=2^3\cdot 3^2 \cdot 5=360=\frac{120\cdot 36}{12}</m>,
+      </p>
+    </statement>
+  </example>
+  <lemma xml:id="lem_rationalsascoprimefractions">
+    <statement>
+      <p>
+        Let <m>r \in \mathbb{Q}</m>.
+        Then there exist unique coprime integers <m>a</m> and <m>b</m> such that <m>r = \frac{a}{b}</m> and <m>b \geq 1</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Since <m>r</m> is rational,
+      there are integers <m>a'</m> and <m>b'</m> such that
+      <m>r = \frac{a'}{b'}</m>, with <m>b' \neq 0</m>.
+      Without loss of generality, we may assume that <m>b'>0</m>.
+      If we find <m>-r = \frac{a}{b}</m> with <m>a</m> and <m>b</m> coprime,
+      then <m>r = \frac{-a}{b}</m> with <m>-a</m> and <m>b</m> coprime,
+      so we may assume that <m>r\geq 0</m>.
+    </p>
+    <p>
+      Now let <m>p_1, \cdots,
+      p_k</m> be the prime numbers that divide either <m>a'</m> or <m>b'</m>.
+      We may therefore write
+      <me>
+        a' = p_1^{m_1}\cdots p_k^{m_k} \ \ \text{ and  }  b' = q_1^{n_1}\cdots q_k^{n_k}
+      </me>,
+      where each exponent <m>m_i</m> and <m>n_i</m> is nonnegative.
+      Now for each <m>i</m>, let
+      <me>
+        s_i = \max(m_i-n_i, 0)\ \ \text{ and  } t_i = \max(n_i-m_i, 0)
+      </me>.
+    </p>
+    <p>
+      Thus for each <m>i</m>,
+      at most one of <m>s_i</m> and <m>t_i</m> is nonzero, and
+      <me>
+        \frac{p_i^{m_i}}{q_i^{n_i}} = \frac{p_i^{s_i}}{q_i^{t_i}}
+      </me>.
+    </p>
+    <p>
+      Thus we set
+      <me>
+        a = p_1^{s_1}\cdots p_r^{s_k} \ \ \text{ and  }  b = q_1^{t_1}\cdots q_k^{t_k}
+      </me>,
+      and we find that
+      <me>
+        r = \frac{a'}{b'} = \frac{a}{b}
+      </me>.
+    </p>
+    <p>
+      Now
+      <me>
+        \gcd(a,b) = p_1^{\min(s_1,t_1)}\cdots p_r^{\min(s_k,t_k)} = p_1^0\cdots p_r^0 = 1. \qedhere
+      </me>
+    </p>
+    <p>
+      Now let us prove that <m>a</m> and <m>b</m> are unique with this property.
+      If <m>c</m> and <m>d</m> are coprime integers with <m>d \geq 1</m>,
+      and if <m>r = \frac{c}{d}</m>, then <m>ad = bc</m>.
+      Since <m>a</m> and <m>b</m> are coprime,
+      it follows that <m>b</m> divides <m>d</m>,
+      and since <m>c</m> and <m>d</m> are coprime,
+      it follows that <m>d</m> divides <m>b</m>.
+      Thus <m>d=b</m>, and so <m>a=c</m> as well.
+    </p>
+  </proof>
+</section>

@@ -1,0 +1,231 @@
+<section xml:id="iterativelydefinedsequences">
+  <title>Iteratively defined sequences</title>
+  <p>
+    Iteratively or recursively defined sequences are those where the value of <m>x_{n+1}</m> is specified in terms of previous values of the sequence <m>x_1, \dots, x_n</m>,
+    (most usually just in terms of <m>x_n</m>).
+  </p>
+  <example>
+    <statement>
+      <p>
+        In high school you may have met recursively defined sequences of the form <m>x_1 = c</m>,
+        <me>
+          x_{n+1} = a x_n +b \; \mbox{ for }  \; n \geq 1
+        </me>
+        where <m>a, b, c \in \mathbb{R}</m>.
+        Show that when <m>|a| \lt  1</m>,
+        <m>(x_n)</m> converges and find its limit.
+        Show that when <m>|a|>1</m>, <m>(x_n)</m> diverges.
+        What happens when <m>a = \pm 1</m>?
+      </p>
+      <p>
+        <em>Solution:</em> Let's first give ourselves a sneak preview of what <m>L</m> might be in terms of <m>a,b</m> and <m>c</m>.
+        By the rules for limits,
+        <term>if</term> the sequence <m>(x_n)</m> converges to <m>L</m>,
+        then <m>L</m> <term>must</term> satisfy <m>L = aL + b</m>,
+        or equivalently <m>L = \frac{b}{1-a}</m>.
+        Since we cannot divide by <m>0</m>,
+        this already shows us that the case <m>a=1</m> is special.
+      </p>
+      <p>
+        Indeed, if <m>a = 1</m>,
+        then <m>L = aL + b</m> becomes <m>L = L + b</m>,
+        and unless <m>b=0</m> this cannot hold.
+        So when <m>a =1</m>,
+        the sequence diverges in the case that <m>b \neq 0</m>,
+        and is the constant sequence <m>x_n = c</m> in the case that <m>b = 0</m>.
+      </p>
+      <p>
+        Now suppose <m>a \neq 1</m>.
+        Since we are guessing the limit to be <m>\frac{b}{1-a}</m>,
+        it makes sense to set <m>y_n = x_n - \frac{b}{1-a}</m> and to re-write the basic equation
+        <m>x_{n+1} = a x_n +b</m> in the equivalent form <m>y_{n+1} = a y_n</m>.
+        This in turn the same as <m>y_n = (c - \frac{b}{1-a})a^{n-1}</m>,
+        as is easily established by induction.
+        If <m>|a|>1</m>,
+        <m>|y_n|</m> diverges to <m>+\infty</m> and so <m>(x_n)</m> also diverges;
+        if <m>|a| \lt 1</m>,
+        then <m>y_n \to 0</m> as we have already seen in a previous example,
+        and this is the same as <m>x_n \to \frac{b}{1-a}</m>.
+        The remaining case <m>a= -1</m> we leave as an exercise.
+      </p>
+    </statement>
+  </example>
+  <p>
+    The MCT is especially useful for proving convergence of some
+    (but not all)
+    iteratively or recursively defined sequences.
+  </p>
+  <example>
+    <statement>
+      <p>
+        In 60AD, the Greek mathematician Hero of Alexandria wanted to approximate
+        <m>\sqrt{2}</m> with rational numbers.
+        He came up with the following recurrence relation,
+        now called <term>Heron's Method</term>,
+        for computing <m>\sqrt{2}</m>.
+        Let <m>x_{1}=2</m> and for each <m>n\in\mathbb{N}</m>, let
+        <me>
+          x_{n+1}=\frac{1}{2}\left(x_{n}+\frac{2}{x_{n}}\right)
+        </me>.
+      </p>
+      <p>
+        Let us imagine that we knew that <m>(x_n)</m> converged to something,
+        <m>L</m>.
+        What must <m>L</m> satisfy?
+        Well, by the rules for limits,
+        since <m>x_{n+1} \to L</m> too,
+        and assuming that <m>L \neq 0</m>, it must satisfy
+        <me>
+          L=\frac{1}{2}\left(L+\frac{2}{L}\right)
+        </me>,
+        or <m>2L =L + \frac{2}{L}</m>,
+        or <m>L = \frac{L}{2}</m>,
+        which is the same as <m>L^2 = 2</m>,
+        or <m>L = \pm\sqrt{2}</m>.
+        We want to narrow this down so that the only possibility is <m>L = + \sqrt{2}</m>,
+        and also so that we do indeed know that <m>(x_n)</m> converges.
+        Given that <m>x_1 = 2 > \sqrt{2}</m>,
+        it makes sense to try to show that <m>(x_n)</m> is decreasing,
+        and is bounded below by <m>\sqrt{2}</m>,
+        which is the same thing as <m>x_n > 0</m> and <m>x_n^2 \geq 2</m> for all <m>n</m>.
+        Once we have this,
+        the MCT will imply that <m>(x_n)</m> does indeed converge to some number <m>L</m>,
+        which must then satisfy <m>L \geq 0</m> and <m>L^2 = 2</m>,
+        thus indeed <m>L = + \sqrt{2}</m>.
+      </p>
+      <p>
+        Let's do a bit of experimentation to see whether <m>(x_n)</m> is decreasing or not by computing a few values (which you can do on a calculator or writing a simple program):
+        <me>
+          x_{1}=2,\;\; x_{2} = \frac{1}{2}\left(2+\frac{2}{2}\right) = \frac{3}{2}, \;\; x_{3}=\frac{1}{2}\left(\frac{3}{2}+\frac{2}{3/2}\right) = \frac{17}{12}, \;\; x_{4} = \frac{237}{408}
+        </me>.
+      </p>
+      <p>
+        Since <m>2 > 3/2 > 17/12 > 237/408</m>, we see that
+        <me>
+          x_1 > x_2 > x_3 > x_4
+        </me>,
+        and this suggests that the sequence might indeed be decreasing.
+        Let's try to prove this.
+        This is the same thing as showing <m>x_{n}-x_{n+1}\geq 0</m>,
+        so let's look at this difference:
+        <me>
+          x_{n}-x_{n+1}=x_{n}-\frac{1}{2}\left(x_{n}+\frac{2}{x_{n}}\right) =\frac{x_{n}^{2}-2}{2x_{n}}
+        </me>.
+      </p>
+      <p>
+        Thus, we just need to show that this last term is non-negative.
+        The <m>x_{n}</m> are always positive,
+        this is established by induction:
+        <m>x_1>0</m>, and if <m>x_n>0</m>,
+        then we see that <m>x_{n+1}>0</m> also straight from the definition.
+        Hence, we just need to show that
+        <m>x_{n}^{2}\geq 2</m> for all <m>n\geq 1</m>.
+        This we also prove by induction!
+        If <m>n=1</m> then <m>x_{1}=2</m>,
+        and for <m>n>1</m>, it follows from the fact that for <m>x \neq 0</m>
+        <me>
+          \left(\frac{1}{2}\left(x+\frac{2}{x}\right)\right)^2 \geq 2
+        </me>,
+        which, finally, is something that we can just check directly:
+        <me>
+          \left(\frac{1}{2}\left(x+\frac{2}{x}\right)\right)^2 \geq 2 \iff \left(x+\frac{2}{x}\right)^2 \geq 8 \iff x^2 + \frac{4}{x^2} + 4 \geq 8 \iff \frac{(x^2 - 2)^2}{x^2} \geq 0
+        </me>,
+        and the last statement is clearly true.
+        Hence, we conclude that the sequence <m>(x_n)</m> is decreasing.
+      </p>
+      <p>
+        Notice that in proving that <m>(x_n)</m> is decreasing we have already established that <m>x_n > 0</m> and <m>x_n^2 \geq 2</m> for all <m>n</m>!
+        Thus we immediately conclude from the earlier remarks that <m>(x_n)</m> converges to <m>L= +\sqrt{2}</m>!
+      </p>
+    </statement>
+  </example>
+  <problem>
+    <statement>
+      <p>
+        How might you modify Heron's formula to construct a sequence of rational numbers converging to
+        <m>\sqrt{7}</m>? or to <m>\sqrt{51}</m>?
+      </p>
+    </statement>
+  </problem>
+  <p>
+    Note from the above argument that induction is a really helpful tool to have at our disposal when we are dealing with recursively defined sequences.
+    We see this again in the next example.
+  </p>
+  <p>
+    The previous example had the feature that the relevant boundedness of the sequence was immediate:
+    the terms were all positive
+    (hence bounded below by zero).
+    Let's do an example where the relevant boundedness is not so immediate:
+  </p>
+  <example xml:id="ex_1_sqrt_x_">
+    <statement>
+      <p>
+        Let <m>x_{1}=1</m> and <m>x_{n+1}=1+\sqrt{x_{n}}</m> for <m>n \geq 1</m>.
+        Prove that <m>(x_{n})</m> converges and find its limit.
+      </p>
+      <p>
+        As before we first give ourselves a sneak preview of what the limit <m>L</m> must satisfy if we assume it exists.
+        By the rules for limits we must have
+        <men xml:id="e_L_sqrtL_1">
+          L=\lim_{n\rightarrow\infty}x_{n} =\lim_{n\rightarrow\infty}x_{n+1}=\lim_{n\rightarrow\infty}(1+\sqrt{x_{n}})=1+\sqrt{L}
+        </men>.
+      </p>
+      <p>
+        So <m>L</m> must satisfy <m>(L-1)^2 = L</m>, i.e.
+        <m>L^2 -3L +1=0</m>, i.e.
+        <m>(L-\frac{3}{2})^2 = \frac{5}{4}</m>,
+        and this equation has solutions <m>L = \frac{3 \pm \sqrt{5}}{2}</m>.
+        Both of these are positive but <m>\frac{3 -\sqrt{5}}{2} \lt 1 \lt \frac{3 + \sqrt{5}}{2}</m>.
+        Now <m>x_1 = 1</m> and it's easily proved by induction that <m>x_n \geq 1</m> for all <m>n</m>.
+        So <term>if</term> <m>(x_n)</m> converges,
+        it <term>must</term> converge to <m>\frac{3 + \sqrt{5}}{2}</m>.
+      </p>
+      <p>
+        We hope that <m>(x_n)</m>is increasing,
+        so if we prove it is also bounded,
+        the MCT will imply it converges,
+        and by what we have said above,
+        the limit must be <m>\frac{3 + \sqrt{5}}{2}</m>.
+      </p>
+      <p>
+        Let us prove it is increasing by using induction.
+        We want that <m>x_{n+1}\geq x_{n}</m> for all <m>n\in\mathbb{N}</m>.
+        For the base case, we have <m>x_{2} = 1+\sqrt{1} > 1 = x_1</m>.
+        For the inductive step, assume for a certain
+        <m>n\in\mathbb{N}</m> that <m>x_{n+1}\geq x_{n}</m>.
+        Then
+        <me>
+          x_{n+2}-x_{n+1} =1+\sqrt{x_{n+1}}-(1+\sqrt{x_{n}}) =\sqrt{x_{n+1}}-\sqrt{x_{n}}
+        </me>
+        and since <m>x_{n+1}\geq x_{n}</m> by the inductive hypothesis,
+        we then also have <m>\sqrt{x_{n+1}}\geq \sqrt{x_{n}}</m> by Proposition 3.5.
+        So the above displayed expression is non-negative,
+        and thus <m>x_{n+2}\geq x_{n+1}</m>.
+        This proves the inductive step and hence that <m>(x_n)</m> is increasing.
+      </p>
+      <p>
+        Now we need show it is bounded above.
+        Since we expect it to converge to <m>L = \frac{3 + \sqrt{5}}{2}</m>,
+        it makes sense to try to show that this <m>L</m> is an upper bound.
+        Let us prove that <m>x_{n}\leq L</m> for all <m>n\in\mathbb{N}</m> by induction.
+        We can verify the base case <m>x_{1}=1\leq L</m> is already true.
+        For the inductive step,
+        it turns out that the actual value of <m>L</m> won't be as useful as the identity
+        <m>L=1+\sqrt{L}</m> we derived in equation <xref ref="e_L_sqrtL_1"/>.
+        Assume we have proved <m>x_{n}\leq L</m> for some <m>n</m>.
+        Then
+        <me>
+          x_{n+1}=1+\sqrt{x_{n}}\leq 1+\sqrt{L}=L
+        </me>.
+      </p>
+      <p>
+        This proves the inductive step,
+        and hence proves that <m>x_{n}\leq L</m> for all <m>n</m>.
+        Hence, <m>(x_n)</m> is bounded above and is increasing,
+        so the MCT implies it converges.
+        As we showed above,
+        it must converge to <m>L = \frac{3 + \sqrt{5}}{2}</m>.
+      </p>
+    </statement>
+  </example>
+</section>

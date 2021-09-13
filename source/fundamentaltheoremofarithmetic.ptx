@@ -1,0 +1,245 @@
+<section xml:id="fundamentaltheoremofarithmetic">
+  <title>The Fundamental Theorem of Arithmetic (FTA)</title>
+  <p>
+    The fundamental theorem of arithmetic says that all integers have a <term>unique</term>
+    factorization as a product of powers of prime numbers.
+  </p>
+  <theorem xml:id="t_FTA">
+    <title>The Fundamental Theorem of Arithmetic (FTA)</title>
+    <statement>
+      <p>
+        Let <m>n\geq 2</m> be an integer.
+        <ul>
+          <li>
+            <p>
+              (Existence) Then <m>n</m> is equal to a product
+              <m>n=p_1^{r_{1}}\cdots p_k^{r_{k}}</m> of powers of prime numbers,
+              where <m>p_1\lt \ldots \lt p_k</m> and <m>r_{i}>0</m> for all <m>i</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              (Uniqueness) The factorization is unique: If we also have
+              <me>
+                p_1^{r_{1}}\cdots p_k^{r_{k}} = n = q_1^{s_1}\cdots q_\ell^{s_{\ell}}
+              </me>
+              where  <m>q_{1}\lt \cdots \lt  q_{\ell}</m> are primes and <m>s_{i}> 0</m>,
+              then <m>k=\ell</m>,
+              <m>p_i=q_i</m>, and <m>r_{i}=s_{i}</m> for all <m>i</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    We will split the proof into three lemmas:
+  </p>
+  <lemma>
+    <title>Existence of prime decomposition, Part I</title>
+    <statement>
+      <p>
+        Every integer <m>n\geq 2</m> can be written as a product of primes <m>n=p_{1}\cdots p_{k}</m>.
+      </p>
+    </statement>
+  </lemma>
+  <p>
+    <em>Remark:</em> If <m>n</m> is prime,
+    this statement still makes sense:
+    we just interpret <m>n</m> as being the product of just one number,
+    <m>n</m> itself.
+  </p>
+  <proof>
+    <p>
+      We prove by strong induction on <m>n</m>.
+      The case <m>n=2</m> immediately holds
+      (taking into account the previous remark).
+      For the induction step,
+      suppose the theorem holds for all integers <m>n\lt N</m>.
+      If <m>N</m> is prime, there is nothing to prove;
+      otherwise, if <m>N</m> is not prime,
+      then <m>N=a\cdot b</m> for some positive integers <m>a</m> and <m>b</m>,
+      both greater than <m>1</m> and less than <m>N</m>.
+      Both <m>a</m> and <m>b</m> can be decomposed by the strong induction hypothesis,
+      thus so can <m>n=ab</m>.
+    </p>
+  </proof>
+  <lemma>
+    <title>Existence of prime decomposition, Part II</title>
+    <statement>
+      <p>
+        Every integer <m>n\geq 2</m> can be written as a product of powers of primes <m>n=p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}</m> where
+        <m>p_{1}\lt \cdots \lt p_{k}</m> and <m>r_{i}\geq 0</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      By the previous lemma, <m>n=q_{1}\cdots q_\ell</m> for some primes
+      <m>q_{1}\cdots q_{\ell}</m> that are not necessarily distinct.
+      If <m>p_{1}\lt p_{2}\lt \cdots \lt  p_{k}</m> are the <term>distinct</term>
+      primes that appear in the list <m>q_{1},...,q_{\ell}</m>,
+      let <m>r_{i}</m> denote the number of times that <m>p_{i}</m> appears in the list.
+      Then
+      <me>
+        n=q_{1}\cdots q_{\ell} = p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}
+      </me>
+      which proves the lemma.
+    </p>
+  </proof>
+  <lemma>
+    <title>Uniqueness of prime decomposition</title>
+    <statement>
+      <p>
+        Every integer <m>n</m> can be written as a <term>unique</term>
+        product of powers of primes <m>n=p_1^{r_{1}}\cdots p_k^{r_{k}}</m>.
+      </p>
+    </statement>
+  </lemma>
+  <proof>
+    <p>
+      Suppose <m>p_1^{r_{1}}\cdots p_k^{r_{k}} = n = q_1^{s_{1}}\cdots q_\ell^{s_{\ell}}</m> are two decompositions.
+      By cancelling any common factors,
+      we can assume that no <m>p_i</m> equals any <m>q_j</m>.
+      If there are any <m>p_i's</m> and <m>q_j's</m> remaining,
+      <xref ref="c_p_p___p">Corollary</xref>
+      implies each <m>p_{i}</m> equals some <m>q_j</m>, which is a contradiction,
+      thus there can be no terms remaining,
+      so the two factorizations must have been equal.
+    </p>
+  </proof>
+  <p>
+    Let's use the FTA to solve another simple-looking diophantine equation.
+  </p>
+  <exercise>
+    <statement>
+      <p>
+        Find all integer solutions to <m>x^{2}=y^{5}</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        We want to apply the FTA to <m>x</m> and <m>y</m>,
+        but this only works when <m>x,y\geq 2</m>.
+        Note that if <m>(x,y)</m> is a solution, then so is <m>(-x,y)</m>,
+        so we just need to find all solutions with <m>x\geq 0</m>.
+        The only solutions with <m>x=0</m> is <m>(0,0)</m> and the only solution with <m>x=1</m> or <m>y=1</m> is <m>(1,1)</m>.
+        Thus, we have narrowed things down to just finding all solutions <m>(x,y)</m> with <m>x,y\geq 2</m>.
+      </p>
+      <p>
+        By the FTA, there are primes <m>p_{1}\lt \cdots \lt p_{k}</m> and
+        <m>q_{1}\lt \cdots \lt q_{\ell}</m> and <m>r_{i},s_{j}\in \mathbb{N}</m> so that
+        <me>
+          x=p_{1}^{r_{1}}\cdots p_{k}^{r_{k}}\;\;\; \mbox{ and }  \;\;\; y= q_1^{s_{1}}\cdots q_\ell^{s_{\ell}}
+        </me>.
+      </p>
+      <p>
+        Plugging this into <m>x^2=y^5</m>, we get
+        <me>
+          p_{1}^{2r_{1}}\cdots p_{k}^{2r_{k}} = q_1^{5s_{1}}\cdots q_\ell^{5s_{\ell}}
+        </me>.
+      </p>
+      <p>
+        The FTA says these two factorizations must equal, so <m>k=\ell</m>,
+        <m>p_i=q_i</m>, and <m>2r_{i}=5s_{i}</m> for <m>1\leq i\leq k</m>.
+        By <xref ref="ex_2x_5y">Example</xref>,
+        this means <m>r_{i}=5w_{i}</m> and
+        <m>s_{i}=2w_{i}</m> for some integer <m>w_{i}</m>.
+        Thus,
+        <me>
+          x=p_{1}^{5w_{1}}\cdots p_{k}^{5w_{k}}= \left(p_{1}^{w_{1}}\cdots p_{k}^{w_{k}}\right)^{5} \;\;\; \mbox{ and }  \;\;\; y =p_1^{2w_{1}}\cdots p_\ell^{2w_{\ell}} = \left(p_1^{w_{1}}\cdots p_\ell^{w_{\ell}}\right)^2
+        </me>.
+      </p>
+      <p>
+        If we let <m>z=p_1^{w_{1}}\cdots p_\ell^{w_{\ell}}</m>,
+        we see that <m>(x,y)=(z^{5},z^{2})</m>.
+        Thus, we have shown that all integer solutions <m>x,y\geq 2</m> are of the form
+        <m>(x,y)=(z^{5},z^{2})</m> for some <m>z\in\mathbb{N}</m>.
+        Recalling our reductions,
+        all solutions are either <m>(0,0)</m>, <m>(\pm 1,1)</m>,
+        and <m>(\pm z^5,z^2)</m> for <m>z\in\mathbb{N}</m>.
+        More succinctly, all solutions must be of the form
+        <m>( z^5,z^2)</m> for some <m>z\in\mathbb{Z}</m>.
+        One can also easily check that every pair in this set is also a solution to <m>x^2=y^5</m>,
+        thus <m>S</m> is <term>exactly</term> the set of solutions.
+      </p>
+    </solution>
+  </exercise>
+  <note>
+    <title>Reductions</title>
+    <p>
+      Look for ways of simplifying your problem from the start by reducing the number of cases you have to investigate.
+      The next problem is a good example of how to find reductions.
+    </p>
+  </note>
+  <example>
+    <statement>
+      <p>
+        Find all integer solutions to <m>x^2-y^2=91</m>.
+      </p>
+      <p>
+        <em>Reductions:</em> Let's make a few observations first to narrow down what to solve for.
+        <ul>
+          <li>
+            <p>
+              Notice that if <m>(x,y)</m> is a solution,
+              then so is <m>(\pm x,\pm y)</m>,
+              and so we can assume that <m>x,y\geq 0</m>,
+              since then the other solutions will be of the form <m>(\pm x,\pm y)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Moreover, we can't have <m>x=y</m> since then the equation is not satisfied,
+              so assume <m>x\neq y</m>.
+              We can also assume <m>x>y</m>,
+              since <m>x\lt y</m> would imply <m>x^2\lt y^2</m>,
+              so <m>x^2-y^2\lt 0\lt 51</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Finally, we can't have either <m>x</m> or <m>y</m> equal to zero,
+              since <m>91</m> is not a perfect square.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus, after these reductions,
+        we can assume <m>x>y>0</m>.
+      </p>
+      <p>
+        Note that <m>91</m> has prime factorization <m>91=7\cdot 13</m>, and so
+        <me>
+          91=7\cdot 13 = x^2-y^2=(x-y)(x+y)
+        </me>.
+      </p>
+      <p>
+        Since <m>x+y>x-y</m>, there are two cases to consider:
+        <ul>
+          <li>
+            <p>
+              If <m>x+y=91</m> and <m>x-y=1</m>,
+              solving these linear equations simultaneously gives <m>x=46</m> and <m>y=45</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>x+y=13</m> and <m>x-y=7</m>,
+              solving these two equations gives <m>x=10</m> and <m>y=3</m>.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        Thus, all the <term>positive</term>
+        solutions <m>(x,y)</m> are <m>(46,45)</m> and <m>(10,3)</m>.
+        Thus, recalling our reductions,
+        <term>all</term> solutions are just
+        <m>(\pm 46, \pm 45)</m>, and <m>(\pm 10,\pm 3)</m>
+        (where we range over all possible combinations of <m>\pm</m> for a total of <m>8</m> solutions).
+      </p>
+    </statement>
+  </example>
+</section>

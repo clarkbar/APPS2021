@@ -1,0 +1,141 @@
+<section xml:id="geometryandarithmeticofC">
+  <title>Geometry and arithmetic in \(\mathbb{C}\)</title>
+  <p>
+    There are at least three ways to treat complex numbers
+    <ol>
+      <li>
+        <p>
+          As a single number <m>z</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          As a sum of <term>real</term> and
+          <term>imaginary parts</term> <m>z=a+ib</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          Using geometry, as a point in the
+          <term>complex plane</term>.
+        </p>
+      </li>
+    </ol>
+  </p>
+  <p>
+    Algebra is applied to geometry by representing points in the plane using coordinates.
+    In Cartesian coordinates a point has coordinates <m>(a,b)</m>,
+    so <m>z=a+ib</m>.
+    In polar coordinates we have <term>modulus</term>
+    <m>r</m> (i.e.<nbsp/>length) and <term>argument</term>
+    <m>\theta</m> (i.e.<nbsp/>angle anti-clockwise from the <m>x</m>-axis,
+    or real axis).
+    We can also think of complex numbers as
+    <term>vectors</term> from the origin.
+  </p>
+  <blockquote>
+    <term>One of the most powerful techniques in mathematics is to describe something independently in two different forms and equate them.</term>
+  </blockquote>
+  <p>
+    Complex numbers have many representations and we will exploit this regularly.
+  </p>
+  <p>
+    Think about the geometric effect of multiplying <m>z=x+iy</m> by <m>i</m>.
+    <me>
+      i(x+iy)=-y+ix
+    </me>
+  </p>
+  <p>
+    What is the geometric transformation that multiplication by <m>i</m> creates?
+    In vector notation this transformation would be
+    <me>
+      \begin{pmatrix}x \\ y \end{pmatrix}  \rightarrow \begin{pmatrix}-y \\ x \end{pmatrix}
+    </me>
+    which is an anti-clockwise rotation by <m>\frac{\pi}{2}=90^o</m>.
+  </p>
+  <p>
+    More generally multiplication of complex numbers can be understood by writing the two numbers in polar form.
+    Let <m>z=r(\cos \theta + i \sin \theta)</m> and <m>w=s(\cos \phi + i \sin \phi)</m> then <m>zw</m>
+    <md>
+      <mrow>zw \amp  = r(\cos \theta + i \sin \theta)\times  s(\cos \phi + i \sin \phi)</mrow>
+      <mrow>\amp  = rs ( \cos \theta \cos \phi - \sin \theta \sin \phi)+ rsi (\cos \theta \sin \phi + \sin \theta \cos \phi)</mrow>
+      <mrow>\amp  = rs (\cos(\theta + \phi) + i\sin(\theta + \phi))</mrow>
+    </md>.
+  </p>
+  <p>
+    Notice the overall geometric effect is to just multiply the moduli and add the arguments.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Since <m>i=cos(\pi/2)+i\sin(pi/2)</m>,
+        multiplying <m>z</m> by <m>i</m> corresponds to rotating counter clockwise by <m>\frac{\pi}{2}</m>,
+        and multiplying by <m>-1=cos(\pi)+i\sin(pi)</m> corresponds to rotating <m>z</m> 180 degrees,
+        i.e. flipping <m>z</m> in the opposite direction.
+      </p>
+      <p>
+        <image width="92.5%" source="Figures/polar2.pdf"/>
+      </p>
+      <image source="images/7798587247faf8ee1acc4287895010b3f88d2231.png"/>
+    </statement>
+  </example>
+  <p>
+    Given <m>z^n</m> is just <m>z</m> multiplied together <m>n</m> times we can prove De Moivre's Theorem.
+  </p>
+  <theorem>
+    <title>De Moivre's Theorem</title>
+    <statement>
+      <p>
+        If we let <m>z = r(\cos \theta + i \sin \theta)</m>,
+        and <m>n \in \mathbb{N}</m> then
+        <md>
+          <mrow>z^n \amp  = r^{n} (\cos n\theta + i \sin n\theta)</mrow>
+          <mrow>z^{-n} \amp = r^{-n} (\cos (-n\theta) + i \sin (-n\theta)) = \frac{1}{r^n} (\cos (n\theta) - i \sin (n\theta))</mrow>
+        </md>
+      </p>
+    </statement>
+  </theorem>
+  <proof>
+    <p>
+      We prove the first statement by induction.
+      Let <m>P(n)</m> be the statement
+      <me>
+        z^n = r^{n} (\cos (n\theta) + i \sin (n\theta))
+      </me>.
+    </p>
+    <p>
+      The base case <m>n=1</m> holds immediately by definition.
+    </p>
+    <p>
+      Assume <m>P(n)</m> holds for some integer <m>n\geq 1</m>.
+      <me>
+        z^{n+1} = zz^n = z\times r^{n} (\cos (n\theta) + i \sin (n\theta))
+      </me>
+      using the induction hypothesis.
+      And so this
+      <me>
+        =r(\cos \theta + i \sin \theta) \times r^{n} (\cos (n\theta) + i \sin (n\theta))
+      </me>
+      <me>
+        = r^{n+1} ( \cos \theta\cos (n\theta) - \sin \theta\sin (n\theta) +i(\cos \theta\sin (n\theta) + \sin \theta\cos (n\theta)))
+      </me>
+      <me>
+        = r^{n+1} (\cos ((n+1)\theta) + i \sin ((n+1)\theta))
+      </me>,
+      which proves <m>P(n+1)</m> holds.
+    </p>
+    <p>
+      Since <m>P(1)</m> and <m>P(n)\rightarrow P(n+1)</m> it follows that the first equation in the theorem holds by the principle of mathematical induction.
+    </p>
+    <p>
+      For the second part, we just note that by <xref ref="e_1_z"/>,
+      <me>
+        \frac{1}{\cos n \theta +i\sin n \theta} =\cos n \theta - i\sin n \theta
+      </me>,
+      and so
+      <me>
+        z^{-n}=(z^{n})^{-1} = (r^{n}(\cos n\theta + i\sin n\theta))^{-1} = r^{-n} (\cos n \theta - i\sin n \theta) = r^{-n} e^{-i n\theta}
+      </me>.
+    </p>
+  </proof>
+</section>

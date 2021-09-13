@@ -1,0 +1,40 @@
+<section xml:id="tablenotation">
+  <title>Table Notation</title>
+  <p>
+    Here we will introduce some useful notation for denoting permutations.
+    To represent a permutation <m>f\in S_n</m>,
+    we just need to remember where each integer
+    <m>k\in \{1,2,...,n\}</m> gets sent to under <m>f</m> and then write out a chart using a matrix:
+    <me>
+      \left(\begin{matrix}1 \amp  2 \amp  3 \amp  \cdots \amp  n \crf(1) \amp  f(2) \amp  f(3) \amp  \cdots \amp  f(n) \cr \end{matrix} \right)
+    </me>
+    where the first row represents the domain of <m>f</m> and the bottom row represents where each value is sent to under <m>f</m>.
+    For example,
+    <me>
+      \left(\begin{matrix}1 \amp  2 \amp  3  \\ 3 \amp  1 \amp  2 \end{matrix} \right)
+    </me>
+    is the permutation in <m>S_{3}</m> so that <m>f(1)=3</m>,
+    <m>f(2)=1</m>, and <m>f(3)=2</m>.
+  </p>
+  <exercise>
+    <statement>
+      <me>
+        \left(\begin{matrix}1 \amp  2 \amp  3 \amp  4 \amp  5 \amp  6 \amp  7  \amp  8 \amp  9 \amp  10 \cr7 \amp  5 \amp  1 \amp  \textcolor[rgb]{1.00,0.00,0.00}{\bigstar} \amp  9 \amp  2 \amp  10 \amp  4 \amp  3 \amp  8\cr
+        \end{matrix} \right)
+      </me>
+      <p>
+        denotes a permutation in <m>\mathrm{S}_{10}</m>.
+        What is <m>\textcolor[rgb]{1.00,0.00,0.00}{\bigstar}</m>?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Recall that permutations are bijective,
+        which means that every number must appear
+        <term>exactly once</term> in the second row.
+        The only number missing is <m>6</m>,
+        so the number under <m>\textcolor[rgb]{1.00,0.00,0.00}{\bigstar}</m> must be 6.
+      </p>
+    </solution>
+  </exercise>
+</section>

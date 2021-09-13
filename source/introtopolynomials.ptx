@@ -1,0 +1,61 @@
+<section xml:id="introtopolynomials">
+  <title>Introduction</title>
+  <definition>
+    <statement>
+      <p>
+        For <m>n\in\mathbb{N}</m>,
+        an <term><m>n</m>-degree complex polynomial</term>
+        <m>p</m> is a function of the form
+        <men xml:id="e_pz">
+          p(z)=a_nz^n + a_{n-1}z^{n-1} + \cdots + a_0
+        </men>
+        where <m>a_n \neq 0</m> and <m>a_i \in \mathbb{C}</m> for all <m>i</m>.
+      </p>
+      <p>
+        <m>n</m> is called the <term>degree</term> of the polynomial.
+      </p>
+      <p>
+        A <term>root</term> of <m>p</m> is a complex number
+        <m>\alpha\in\mathbb{C}</m> such that <m>p(\alpha)=0</m>.
+      </p>
+    </statement>
+  </definition>
+  <p>
+    If the degree of a polynomial is <m>2</m> then the polynomial is called a <term>quadratic</term>.
+    Any quadratic <m>az^2+bz+c</m> has two roots which can be found using the familiar
+    <term>quadratic formula</term>:
+    <me>
+      \frac{-b\pm \sqrt{b^2-4ac}}{2a}
+    </me>.
+  </p>
+  <p>
+    <em>Note:</em> One needs to be careful here,
+    since we are allowing <m>a,b,c\in\mathbb{C}</m>,
+    so <m>b^2-4ac</m> could be complex.
+    In this case,
+    <m>\sqrt{b^2-4ac}</m> is interpreted to mean any number <m>z</m> so that <m>z^2=b^2-4ac</m>,
+    and then the solutions are <m>\frac{-b\pm z}{2a}</m>.
+  </p>
+  <p>
+    There are also formulae for the roots of cubic or quartic (i.e. degree 3 or 4) polynomials,
+    although these are much less convenient to write down.
+    It is natural to ask whether there are convenient formulae for higher order polynomials,
+    but this is not the case:
+  </p>
+  <theorem>
+    <title>Abel-Ruffini Theorem</title>
+    <statement>
+      <p>
+        There is no formula
+        (like the quadratic formula)
+        for the roots of a polynomial of degree <m>\geq 5</m>.
+      </p>
+    </statement>
+  </theorem>
+  <p>
+    This doesn't mean degree <m>5</m> polynomials don't have roots,
+    we will see below that they must have at least one root.
+    This also doesn't mean it is impossible to solve higher order polynomials for their roots,
+    it just means we do not have an expression (i.e. formula) for the roots of the polynomial in terms of the coefficients.
+  </p>
+</section>

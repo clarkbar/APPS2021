@@ -1,0 +1,96 @@
+<section xml:id="union">
+  <title>Union</title>
+  <definition>
+    <statement>
+      <p>
+        Let <m>S</m> and <m>T</m> be two sets.
+        The <term>union</term> <m>S \cup T</m> is the set consisting of the elements of either <m>S</m> or <m>T</m>.
+        That is, <m>x \in S \cup T</m> exactly when both <m>x \in S</m> or <m>x \in T</m>.
+        One can write
+        <me>
+          S \cup T = \{x : (x \in S) \vee (x \in T)\}
+        </me>
+      </p>
+    </statement>
+  </definition>
+  <p>
+    When <m>S</m> and <m>T</m> are subsets of some common set <m>U</m> and are given by set-builder notation,
+    we can use disjunction to describe the union.
+    That is, if
+    <me>
+      S = \{x \in U : A(x) \}
+    </me>
+    for a statement <m>A(x)</m>, and if
+    <me>
+      T = \{x \in U : B(x) \}
+    </me>
+    for a statement <m>B(x)</m>, then the union is given by
+    <me>
+      S \cup T = \{x \in U : A(x) \vee B(x)\}
+    </me>.
+  </p>
+  <example>
+    <statement>
+      <p>
+        Consider the sets
+        <me>
+          S = \{n \in \mathbb{Z} : n\text{ is divisible by } 2\} \text{ and }  T = \{n \in \mathbb{Z} : n\text{ is divisible by } 5\}
+        </me>.
+      </p>
+      <p>
+        Then the union is
+        <me>
+          S \cup T = \{n \in \mathbb{Z} : n\text{ is divisible by either } 2\text{ or } 5\}
+        </me>.
+      </p>
+      <p>
+        We can write out a few of the elements:
+        <me>
+          S \cup T =\{\dots,-10,-8,-6,-5,-4,-2,0,2,4,5,6,8,10,12,14,15,\dots\}
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Consider the sets
+        <me>
+          S = \{x \in \mathbb{R} : x \geq 0\}
+        </me>
+        and
+        <me>
+          T = \{x \in \mathbb{R} : x \leq 1\}
+        </me>.
+      </p>
+      <p>
+        Then the union is
+        <me>
+          S \cup T = \{x \in \mathbb{R} : (x \geq 0) \vee (x \leq 1) \} = \mathbb{R}
+        </me>.
+      </p>
+    </statement>
+  </example>
+  <example>
+    <statement>
+      <p>
+        Consider the sets
+        <me>
+          S = \{x \in \mathbb{R} : x \geq 1\}
+        </me>
+        and
+        <me>
+          T = \{x \in \mathbb{R} : x \leq 0\}
+        </me>.
+      </p>
+      <p>
+        Then the union is
+        <me>
+          S \cup T = \{x \in \mathbb{R} : (x \geq 1)\vee(x \leq 0) \}
+        </me>,
+        the set of real numbers that are either at least as big as <m>1</m>,
+        or no greater than <m>0</m>.
+      </p>
+    </statement>
+  </example>
+</section>
